@@ -1,12 +1,12 @@
 package main
 
 import (
+	"archive/zip"
 	"errors"
 	"flag"
 	"fmt"
 	"io"
 	"log"
-	"math"
 	"net/http"
 	"net/url"
 	"os"
@@ -37,9 +37,15 @@ func downloadOne(fileData *fileData, srcUrl string, dstPath string) error {
 	fullURLFile := u.String()
 	fileName := filepath.Join(dstPath, fileData.Filename)
 
-	if fi, err := os.Stat(fileName); err == nil && math.Abs(float64(fi.Size())/1000.0-fileData.Size) < fileData.Size*0.1 {
-		fmt.Printf("%s exists\n", fileData.Filename)
-		return nil
+	// File exists
+	if _, err := os.Stat(fileName); err == nil {
+		// Valid zip file
+		archive, err := zip.OpenReader(fileName)
+		if err == nil {
+			fmt.Printf("%s exists\n", fileData.Filename)
+			defer archive.Close()
+			return nil
+		}
 	}
 
 	// Create blank file
@@ -55,13 +61,19 @@ func downloadOne(fileData *fileData, srcUrl string, dstPath string) error {
 		return err
 	}
 
+	tr := &http.Transport{
+		MaxIdleConns:        20,
+		MaxIdleConnsPerHost: 20,
+	}
 	client := http.Client{
 		CheckRedirect: func(r *http.Request, via []*http.Request) error {
 			r.URL.Opaque = r.URL.Path
 			return nil
 		},
-		Timeout: 30 * time.Second,
+		Timeout:   60 * time.Second,
+		Transport: tr,
 	}
+
 	// Put content on file
 	resp, err := client.Get(fullURLFile)
 	if err != nil {
@@ -71,6 +83,10 @@ func downloadOne(fileData *fileData, srcUrl string, dstPath string) error {
 	defer resp.Body.Close()
 
 	size, err := io.Copy(file, resp.Body)
+	if err != nil {
+		log.Fatal(err)
+		return err
+	}
 
 	defer file.Close()
 
