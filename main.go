@@ -17,6 +17,7 @@ import (
 	"time"
 
 	"github.com/gocolly/colly"
+	"github.com/xuri/excelize/v2"
 )
 
 type fileData struct {
@@ -39,12 +40,21 @@ func downloadOne(fileData *fileData, srcUrl string, dstPath string) error {
 
 	// File exists
 	if _, err := os.Stat(fileName); err == nil {
-		// Valid zip file
-		archive, err := zip.OpenReader(fileName)
-		if err == nil {
-			fmt.Printf("%s exists\n", fileData.Filename)
-			defer archive.Close()
-			return nil
+		ext := filepath.Ext(fileName)
+		if strings.ToLower(ext) == ".zip" {
+			// Valid zip file
+			archive, err := zip.OpenReader(fileName)
+			if err == nil {
+				fmt.Printf("%s exists\n", fileData.Filename)
+				defer archive.Close()
+				return nil
+			}
+		} else if strings.ToLower(ext) == ".xlsx" {
+			f, err := excelize.OpenFile(fileName)
+			if err == nil {
+				defer f.Close()
+				return nil
+			}
 		}
 	}
 
@@ -129,12 +139,23 @@ func main() {
 	dstFullpath := path.Join(*dstDir, dstSubpath)
 	if err := os.MkdirAll(dstFullpath, os.ModePerm); err != nil {
 		log.Fatal(err)
+		os.Exit(1)
 	}
 
+	fileTable := getFileTable(*srcUrl)
+	if len(fileTable) == 0 {
+		log.Fatal(errors.New("no files in " + *srcUrl))
+		os.Exit(1)
+	}
+	done := make(chan bool)
+	go downloadFiles(*srcUrl, dstFullpath, fileTable, done)
+	<-done
+}
+
+func getFileTable(srcUrl string) []*fileData {
 	c := colly.NewCollector(
 		colly.AllowedDomains("www.3gpp.org"),
 	)
-
 	// Find and download all links
 	fileTable := make([]*fileData, 0, 2048)
 	c.OnHTML("table > tbody", func(h *colly.HTMLElement) {
@@ -147,11 +168,15 @@ func main() {
 			fileTable = append(fileTable, fileData)
 		})
 	})
-	c.Visit(*srcUrl)
+	c.Visit(srcUrl)
+	return fileTable
+}
+
+func downloadFiles(srcUrl string, dstFullpath string, fileTable []*fileData, done chan bool) {
 	for _, fileData := range fileTable {
 		numTry := 0
 		for {
-			err := downloadOne(fileData, *srcUrl, dstFullpath)
+			err := downloadOne(fileData, srcUrl, dstFullpath)
 			if err == nil {
 				break
 			}
@@ -163,5 +188,6 @@ func main() {
 			}
 		}
 	}
+	done <- true
 	fmt.Println(len(fileTable))
 }
