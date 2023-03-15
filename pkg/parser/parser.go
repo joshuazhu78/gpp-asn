@@ -2,11 +2,14 @@ package parser
 
 import (
 	"errors"
+	"fmt"
+	"log"
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/gocolly/colly"
+	"github.com/xuri/excelize/v2"
 )
 
 type FileData struct {
@@ -55,4 +58,31 @@ func GetFileTable(srcUrl string) []*FileData {
 	})
 	c.Visit(srcUrl)
 	return fileTable
+}
+
+func ParseTdocList(fileName string) error {
+	f, err := excelize.OpenFile(fileName)
+	if err != nil {
+		return err
+	}
+
+	defer func() {
+		// Close the spreadsheet.
+		if err := f.Close(); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	// Get all the rows in the Sheet1.
+	rows, err := f.GetRows("TDoc_List")
+	if err != nil {
+		return err
+	}
+	for _, row := range rows {
+		for _, colCell := range row {
+			fmt.Print(colCell, "\t")
+		}
+		fmt.Println()
+	}
+	return nil
 }

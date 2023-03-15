@@ -15,7 +15,6 @@ import (
 	"time"
 
 	"github.com/joshuazhu78/gpp-bot/pkg/parser"
-	"github.com/xuri/excelize/v2"
 )
 
 func downloadOne(fileData *parser.FileData, srcUrl string, dstPath string) error {
@@ -42,10 +41,9 @@ func downloadOne(fileData *parser.FileData, srcUrl string, dstPath string) error
 				return nil
 			}
 		} else if strings.ToLower(ext) == ".xlsx" {
-			f, err := excelize.OpenFile(fileName)
-			if err == nil {
-				defer f.Close()
-				return nil
+			err := parser.ParseTdocList(fileName)
+			if err != nil {
+				return err
 			}
 		}
 	}
