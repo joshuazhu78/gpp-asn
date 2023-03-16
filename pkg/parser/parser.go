@@ -2,7 +2,6 @@ package parser
 
 import (
 	"errors"
-	"fmt"
 	"log"
 	"strconv"
 	"strings"
@@ -16,6 +15,12 @@ type FileData struct {
 	Filename  string
 	Timestamp time.Time
 	Size      float64
+}
+
+type TableEntry map[string]string
+type TDocList struct {
+	TableHeader  []string
+	TableEntries []TableEntry
 }
 
 func parseTime(timeStr string) time.Time {
@@ -60,10 +65,10 @@ func GetFileTable(srcUrl string) []*FileData {
 	return fileTable
 }
 
-func ParseTdocList(fileName string) error {
+func ParseTdocList(fileName string) (*TDocList, error) {
 	f, err := excelize.OpenFile(fileName)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	defer func() {
@@ -76,13 +81,23 @@ func ParseTdocList(fileName string) error {
 	// Get all the rows in the Sheet1.
 	rows, err := f.GetRows("TDoc_List")
 	if err != nil {
-		return err
+		return nil, err
 	}
-	for _, row := range rows {
-		for _, colCell := range row {
-			fmt.Print(colCell, "\t")
+	tdocList := &TDocList{
+		TableHeader:  make([]string, 0, 128),
+		TableEntries: make([]TableEntry, 0, 1024),
+	}
+	for i, row := range rows {
+		// Table header
+		if i == 0 {
+			tdocList.TableHeader = append(tdocList.TableHeader, row...)
+		} else {
+			tableEntry := make(map[string]string)
+			for j, colCell := range row {
+				tableEntry[tdocList.TableHeader[j]] = colCell
+			}
+			tdocList.TableEntries = append(tdocList.TableEntries, tableEntry)
 		}
-		fmt.Println()
 	}
-	return nil
+	return tdocList, nil
 }

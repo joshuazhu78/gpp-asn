@@ -34,6 +34,6 @@ func main() {
 		os.Exit(1)
 	}
 	done := make(chan bool)
-	go downloader.DownloadFiles(*srcUrl, dstFullpath, fileTable, done)
+	go downloader.DownloadAndLinkTdocs(*srcUrl, dstFullpath, fileTable, done)
 	<-done
 }
