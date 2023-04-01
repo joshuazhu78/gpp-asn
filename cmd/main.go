@@ -33,7 +33,5 @@ func main() {
 		log.Fatal(errors.New("no files in " + *srcUrl))
 		os.Exit(1)
 	}
-	done := make(chan bool)
-	go downloader.DownloadAndLinkTdocs(*srcUrl, dstFullpath, fileTable, done)
-	<-done
+	downloader.DownloadAndLinkTdocs(*srcUrl, dstFullpath, fileTable)
 }

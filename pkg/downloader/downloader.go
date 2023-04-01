@@ -17,7 +17,17 @@ import (
 	"github.com/joshuazhu78/gpp-bot/pkg/parser"
 )
 
-func downloadOne(fileData *parser.FileData, srcUrl string, dstPath string) (*parser.TDocList, error) {
+type Downloader struct {
+	client *http.Client
+}
+
+func NewDownloader() *Downloader {
+	return &Downloader{
+		client: nil,
+	}
+}
+
+func (d *Downloader) DownloadOne(fileData *parser.FileData, srcUrl string, dstPath string) (*parser.TDocList, error) {
 
 	// Build fileName from fullPath
 	u, err := url.Parse(srcUrl)
@@ -63,21 +73,23 @@ func downloadOne(fileData *parser.FileData, srcUrl string, dstPath string) (*par
 		return tdocList, err
 	}
 
-	tr := &http.Transport{
-		MaxIdleConns:        20,
-		MaxIdleConnsPerHost: 20,
-	}
-	client := http.Client{
-		CheckRedirect: func(r *http.Request, via []*http.Request) error {
-			r.URL.Opaque = r.URL.Path
-			return nil
-		},
-		Timeout:   60 * time.Second,
-		Transport: tr,
+	if d.client == nil {
+		tr := &http.Transport{
+			MaxIdleConns:        20,
+			MaxIdleConnsPerHost: 20,
+		}
+		d.client = &http.Client{
+			CheckRedirect: func(r *http.Request, via []*http.Request) error {
+				r.URL.Opaque = r.URL.Path
+				return nil
+			},
+			Timeout:   60 * time.Second,
+			Transport: tr,
+		}
 	}
 
 	// Put content on file
-	resp, err := client.Get(fullURLFile)
+	resp, err := d.client.Get(fullURLFile)
 	if err != nil {
 		log.Fatal(err)
 		return tdocList, err
@@ -114,10 +126,11 @@ func linkTdocs(tdocList *parser.TDocList, dstFullpath string) {
 	}
 }
 
-func DownloadAndLinkTdocs(srcUrl string, dstFullpath string, fileTable []*parser.FileData, done chan bool) {
+func DownloadAndLinkTdocs(srcUrl string, dstFullpath string, fileTable []*parser.FileData) {
 	var tdocList *parser.TDocList = nil
+	d := NewDownloader()
 	for _, fileData := range fileTable {
-		tList, err := downloadOne(fileData, srcUrl, dstFullpath)
+		tList, err := d.DownloadOne(fileData, srcUrl, dstFullpath)
 		if err != nil {
 			log.Fatal(errors.New("downloadOne error"))
 		}
@@ -128,6 +141,5 @@ func DownloadAndLinkTdocs(srcUrl string, dstFullpath string, fileTable []*parser
 	if tdocList != nil {
 		linkTdocs(tdocList, dstFullpath)
 	}
-	done <- true
 	fmt.Println(len(fileTable))
 }
