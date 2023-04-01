@@ -12,12 +12,13 @@ import (
 	"path"
 	"path/filepath"
 	"strings"
-	"time"
+	"sync"
 
 	"github.com/joshuazhu78/gpp-bot/pkg/parser"
 )
 
 type Downloader struct {
+	mu     sync.Mutex
 	client *http.Client
 }
 
@@ -25,6 +26,15 @@ func NewDownloader() *Downloader {
 	return &Downloader{
 		client: nil,
 	}
+}
+
+func (d *Downloader) GetClient() *http.Client {
+	d.mu.Lock()
+	if d.client == nil {
+		d.client = &http.Client{}
+	}
+	d.mu.Unlock()
+	return d.client
 }
 
 func (d *Downloader) DownloadOne(fileData *parser.FileData, srcUrl string, dstPath string) (*parser.TDocList, error) {
@@ -73,23 +83,8 @@ func (d *Downloader) DownloadOne(fileData *parser.FileData, srcUrl string, dstPa
 		return tdocList, err
 	}
 
-	if d.client == nil {
-		tr := &http.Transport{
-			MaxIdleConns:        20,
-			MaxIdleConnsPerHost: 20,
-		}
-		d.client = &http.Client{
-			CheckRedirect: func(r *http.Request, via []*http.Request) error {
-				r.URL.Opaque = r.URL.Path
-				return nil
-			},
-			Timeout:   60 * time.Second,
-			Transport: tr,
-		}
-	}
-
 	// Put content on file
-	resp, err := d.client.Get(fullURLFile)
+	resp, err := d.GetClient().Get(fullURLFile)
 	if err != nil {
 		log.Fatal(err)
 		return tdocList, err
@@ -126,17 +121,22 @@ func linkTdocs(tdocList *parser.TDocList, dstFullpath string) {
 	}
 }
 
-func DownloadAndLinkTdocs(srcUrl string, dstFullpath string, fileTable []*parser.FileData) {
+func DownloadAndLinkTdocs(srcUrl string, dstFullpath string, fileTable []*parser.FileData, j uint) {
 	var tdocList *parser.TDocList = nil
 	d := NewDownloader()
+	guard := make(chan struct{}, j)
 	for _, fileData := range fileTable {
-		tList, err := d.DownloadOne(fileData, srcUrl, dstFullpath)
-		if err != nil {
-			log.Fatal(errors.New("downloadOne error"))
-		}
-		if tdocList == nil && tList != nil {
-			tdocList = tList
-		}
+		guard <- struct{}{}
+		go func(fileData *parser.FileData) {
+			tList, err := d.DownloadOne(fileData, srcUrl, dstFullpath)
+			if err != nil {
+				log.Fatal(errors.New("downloadOne error"))
+			}
+			if tdocList == nil && tList != nil {
+				tdocList = tList
+			}
+			<-guard
+		}(fileData)
 	}
 	if tdocList != nil {
 		linkTdocs(tdocList, dstFullpath)

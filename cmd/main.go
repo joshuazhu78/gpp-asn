@@ -16,6 +16,7 @@ import (
 func main() {
 	srcUrl := flag.String("srcUrl", "https://www.3gpp.org/ftp/TSG_RAN/WG1_RL1/TSGR1_112/Docs", "source URL")
 	dstDir := flag.String("dstDir", "/home/yzhu/Workspace/3gpp_ftp", "destination dir to save contributions")
+	j := flag.Uint("j", 2, "maximum number of files to download in paralell")
 
 	flag.Parse()
 	fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
@@ -33,5 +34,5 @@ func main() {
 		log.Fatal(errors.New("no files in " + *srcUrl))
 		os.Exit(1)
 	}
-	downloader.DownloadAndLinkTdocs(*srcUrl, dstFullpath, fileTable)
+	downloader.DownloadAndLinkTdocs(*srcUrl, dstFullpath, fileTable, *j)
 }
