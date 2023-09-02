@@ -397,19 +397,19 @@ message PortIndex8PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
     optional PortIndex8 rank1_8 = 1 [ json_name="rank1-8"];
     // @inject_tag: aper:"optional,sizeLB:2,sizeUB:2,"
-    repeated PortIndex8 rank2_8 = 2 [ json_name="rank2-8"];
+    repeated PortIndex8 rank2_8 = 2 [json_name="rank2-8"];
     // @inject_tag: aper:"optional,sizeLB:3,sizeUB:3,"
-    repeated PortIndex8 rank3_8 = 3 [ json_name="rank3-8"];
+    repeated PortIndex8 rank3_8 = 3 [json_name="rank3-8"];
     // @inject_tag: aper:"optional,sizeLB:4,sizeUB:4,"
-    repeated PortIndex8 rank4_8 = 4 [ json_name="rank4-8"];
+    repeated PortIndex8 rank4_8 = 4 [json_name="rank4-8"];
     // @inject_tag: aper:"optional,sizeLB:5,sizeUB:5,"
-    repeated PortIndex8 rank5_8 = 5 [ json_name="rank5-8"];
+    repeated PortIndex8 rank5_8 = 5 [json_name="rank5-8"];
     // @inject_tag: aper:"optional,sizeLB:6,sizeUB:6,"
-    repeated PortIndex8 rank6_8 = 6 [ json_name="rank6-8"];
+    repeated PortIndex8 rank6_8 = 6 [json_name="rank6-8"];
     // @inject_tag: aper:"optional,sizeLB:7,sizeUB:7,"
-    repeated PortIndex8 rank7_8 = 7 [ json_name="rank7-8"];
+    repeated PortIndex8 rank7_8 = 7 [json_name="rank7-8"];
     // @inject_tag: aper:"optional,sizeLB:8,sizeUB:8,"
-    repeated PortIndex8 rank8_8 = 8 [ json_name="rank8-8"];
+    repeated PortIndex8 rank8_8 = 8 [json_name="rank8-8"];
 };
 
 // sequence from CSI-ReportConfig.asn1:143
@@ -418,20 +418,20 @@ message PortIndex4PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
     optional PortIndex4 rank1_4 = 1 [ json_name="rank1-4"];
     // @inject_tag: aper:"optional,sizeLB:2,sizeUB:2,"
-    repeated PortIndex4 rank2_4 = 2 [ json_name="rank2-4"];
+    repeated PortIndex4 rank2_4 = 2 [json_name="rank2-4"];
     // @inject_tag: aper:"optional,sizeLB:3,sizeUB:3,"
-    repeated PortIndex4 rank3_4 = 3 [ json_name="rank3-4"];
+    repeated PortIndex4 rank3_4 = 3 [json_name="rank3-4"];
     // @inject_tag: aper:"optional,sizeLB:4,sizeUB:4,"
-    repeated PortIndex4 rank4_4 = 4 [ json_name="rank4-4"];
+    repeated PortIndex4 rank4_4 = 4 [json_name="rank4-4"];
 };
 
 // sequence from CSI-ReportConfig.asn1:149
 // {portIndex2PortIndexFor8Ranks}
 message PortIndex2PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
-    optional PortIndex2 rank1_2 = 1 [ json_name="rank1-2"];
+    optional PortIndex2 rank1_2 = 1 [json_name="rank1-2"];
     // @inject_tag: aper:"optional,sizeLB:2,sizeUB:2,"
-    repeated PortIndex2 rank2_2 = 2 [ json_name="rank2-2"];
+    repeated PortIndex2 rank2_2 = 2 [json_name="rank2-2"];
 };
 
 // sequence from CSI-ReportConfig.asn1:141
@@ -756,20 +756,30 @@ message TypeIiPortSelectionr16subType {
     asn1.v1.BitString type_ii_port_selection_ri_restriction_r16 = 2 [ json_name="typeII-PortSelectionRI-Restriction-r16"];
 };
 
+// sequence from CSI-ReportConfig.asn1:282
+// {type2codebookType-r16}
+message Type2codebookTyper16 {
+    SubTypetype2 sub_type = 1 [ json_name="subType"];
+    // @inject_tag: aper:"valueLB:1,valueUB:2,"
+    int32 number_of_pmi_subbands_per_cqi_subband_r16 = 2 [ json_name="numberOfPMI-SubbandsPerCQI-Subband-r16"];
+    // @inject_tag: aper:"valueLB:1,valueUB:8,"
+    int32 param_combination_r16 = 3 [ json_name="paramCombination-r16"];
+};
+
 // choice from CSI-ReportConfig.asn1:286
-// {codebookTypeCodebookConfig-r16}
-message CodebookTypeCodebookConfigr16 {
+// {codebookType-r16CodebookConfig-r16}
+message CodebookTyper16CodebookConfigr16 {
     // choice from CSI-ReportConfig.asn1:286
-    oneof codebook_type_codebook_config_r16 {
+    oneof codebook_type_r16_codebook_config_r16 {
         // @inject_tag: aper:"choiceIdx:1,"
-        Type2codebookType type2 = 1 [ json_name="type2"];
+        Type2codebookTyper16 type2 = 1 [ json_name="type2"];
     }
 };
 
 // sequence from CSI-ReportConfig.asn1:287
 // {CodebookConfig-r16}
 message CodebookConfigr16 {
-    CodebookTypeCodebookConfigr16 codebook_type = 1 [ json_name="codebookType"];
+    CodebookTyper16CodebookConfigr16 codebook_type_r16 = 1 [ json_name="codebookType-r16"];
 };
 
 // range of Integer from CSI-ReportConfig.asn1:293
