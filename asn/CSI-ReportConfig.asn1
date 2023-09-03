@@ -255,7 +255,7 @@ CodebookConfig ::=                                  SEQUENCE {
 
 CodebookConfig-r16  ::=                SEQUENCE  {
     codebookType-r16                       CHOICE {
-        type2                                  SEQUENCE {
+        type2-r16                              SEQUENCE {
             subType                                CHOICE {
                 typeII-r16                             SEQUENCE  {
                     n1-n2-codebookSubsetRestriction-r16    CHOICE {

@@ -5318,22 +5318,23 @@ func (x *TypeIiPortSelectionr16SubType) GetTypeIiPortSelectionRiRestrictionR16()
 	return nil
 }
 
-// sequence from CSI-ReportConfig.asn1:282
-// {type2codebookType-r16}
-type Type2CodebookTyper16 struct {
+// choice from CSI-ReportConfig.asn1:277
+// {subTypetype2-r16}
+type SubTypetype2R16 struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SubType *SubTypetype2 `protobuf:"bytes,1,opt,name=sub_type,json=subType,proto3" json:"sub_type,omitempty"`
-	// @inject_tag: aper:"valueLB:1,valueUB:2,"
-	NumberOfPmiSubbandsPerCqiSubbandR16 int32 `protobuf:"varint,2,opt,name=number_of_pmi_subbands_per_cqi_subband_r16,json=numberOfPMI-SubbandsPerCQI-Subband-r16,proto3" json:"number_of_pmi_subbands_per_cqi_subband_r16,omitempty" aper:"valueLB:1,valueUB:2,"`
-	// @inject_tag: aper:"valueLB:1,valueUB:8,"
-	ParamCombinationR16 int32 `protobuf:"varint,3,opt,name=param_combination_r16,json=paramCombination-r16,proto3" json:"param_combination_r16,omitempty" aper:"valueLB:1,valueUB:8,"`
+	// choice from CSI-ReportConfig.asn1:277
+	//
+	// Types that are assignable to SubTypetype2R16:
+	//	*SubTypetype2R16_TypeIiR16
+	//	*SubTypetype2R16_TypeIiPortSelectionR16
+	SubTypetype2R16 isSubTypetype2R16_SubTypetype2R16 `protobuf_oneof:"sub_typetype2_r16"`
 }
 
-func (x *Type2CodebookTyper16) Reset() {
-	*x = Type2CodebookTyper16{}
+func (x *SubTypetype2R16) Reset() {
+	*x = SubTypetype2R16{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_CSI_ReportConfig_proto_msgTypes[48]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -5341,13 +5342,13 @@ func (x *Type2CodebookTyper16) Reset() {
 	}
 }
 
-func (x *Type2CodebookTyper16) String() string {
+func (x *SubTypetype2R16) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Type2CodebookTyper16) ProtoMessage() {}
+func (*SubTypetype2R16) ProtoMessage() {}
 
-func (x *Type2CodebookTyper16) ProtoReflect() protoreflect.Message {
+func (x *SubTypetype2R16) ProtoReflect() protoreflect.Message {
 	mi := &file_CSI_ReportConfig_proto_msgTypes[48]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -5359,26 +5360,111 @@ func (x *Type2CodebookTyper16) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Type2CodebookTyper16.ProtoReflect.Descriptor instead.
-func (*Type2CodebookTyper16) Descriptor() ([]byte, []int) {
+// Deprecated: Use SubTypetype2R16.ProtoReflect.Descriptor instead.
+func (*SubTypetype2R16) Descriptor() ([]byte, []int) {
 	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{48}
 }
 
-func (x *Type2CodebookTyper16) GetSubType() *SubTypetype2 {
+func (m *SubTypetype2R16) GetSubTypetype2R16() isSubTypetype2R16_SubTypetype2R16 {
+	if m != nil {
+		return m.SubTypetype2R16
+	}
+	return nil
+}
+
+func (x *SubTypetype2R16) GetTypeIiR16() *TypeIir16SubType {
+	if x, ok := x.GetSubTypetype2R16().(*SubTypetype2R16_TypeIiR16); ok {
+		return x.TypeIiR16
+	}
+	return nil
+}
+
+func (x *SubTypetype2R16) GetTypeIiPortSelectionR16() *TypeIiPortSelectionr16SubType {
+	if x, ok := x.GetSubTypetype2R16().(*SubTypetype2R16_TypeIiPortSelectionR16); ok {
+		return x.TypeIiPortSelectionR16
+	}
+	return nil
+}
+
+type isSubTypetype2R16_SubTypetype2R16 interface {
+	isSubTypetype2R16_SubTypetype2R16()
+}
+
+type SubTypetype2R16_TypeIiR16 struct {
+	// @inject_tag: aper:"choiceIdx:1,"
+	TypeIiR16 *TypeIir16SubType `protobuf:"bytes,1,opt,name=type_ii_r16,json=typeII-r16,proto3,oneof" aper:"choiceIdx:1,"`
+}
+
+type SubTypetype2R16_TypeIiPortSelectionR16 struct {
+	// @inject_tag: aper:"choiceIdx:2,"
+	TypeIiPortSelectionR16 *TypeIiPortSelectionr16SubType `protobuf:"bytes,2,opt,name=type_ii_port_selection_r16,json=typeII-PortSelection-r16,proto3,oneof" aper:"choiceIdx:2,"`
+}
+
+func (*SubTypetype2R16_TypeIiR16) isSubTypetype2R16_SubTypetype2R16() {}
+
+func (*SubTypetype2R16_TypeIiPortSelectionR16) isSubTypetype2R16_SubTypetype2R16() {}
+
+// sequence from CSI-ReportConfig.asn1:282
+// {type2-r16codebookType-r16}
+type Type2R16CodebookTyper16 struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	SubType *SubTypetype2R16 `protobuf:"bytes,1,opt,name=sub_type,json=subType,proto3" json:"sub_type,omitempty"`
+	// @inject_tag: aper:"valueLB:1,valueUB:2,"
+	NumberOfPmiSubbandsPerCqiSubbandR16 int32 `protobuf:"varint,2,opt,name=number_of_pmi_subbands_per_cqi_subband_r16,json=numberOfPMI-SubbandsPerCQI-Subband-r16,proto3" json:"number_of_pmi_subbands_per_cqi_subband_r16,omitempty" aper:"valueLB:1,valueUB:2,"`
+	// @inject_tag: aper:"valueLB:1,valueUB:8,"
+	ParamCombinationR16 int32 `protobuf:"varint,3,opt,name=param_combination_r16,json=paramCombination-r16,proto3" json:"param_combination_r16,omitempty" aper:"valueLB:1,valueUB:8,"`
+}
+
+func (x *Type2R16CodebookTyper16) Reset() {
+	*x = Type2R16CodebookTyper16{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_CSI_ReportConfig_proto_msgTypes[49]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Type2R16CodebookTyper16) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Type2R16CodebookTyper16) ProtoMessage() {}
+
+func (x *Type2R16CodebookTyper16) ProtoReflect() protoreflect.Message {
+	mi := &file_CSI_ReportConfig_proto_msgTypes[49]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Type2R16CodebookTyper16.ProtoReflect.Descriptor instead.
+func (*Type2R16CodebookTyper16) Descriptor() ([]byte, []int) {
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *Type2R16CodebookTyper16) GetSubType() *SubTypetype2R16 {
 	if x != nil {
 		return x.SubType
 	}
 	return nil
 }
 
-func (x *Type2CodebookTyper16) GetNumberOfPmiSubbandsPerCqiSubbandR16() int32 {
+func (x *Type2R16CodebookTyper16) GetNumberOfPmiSubbandsPerCqiSubbandR16() int32 {
 	if x != nil {
 		return x.NumberOfPmiSubbandsPerCqiSubbandR16
 	}
 	return 0
 }
 
-func (x *Type2CodebookTyper16) GetParamCombinationR16() int32 {
+func (x *Type2R16CodebookTyper16) GetParamCombinationR16() int32 {
 	if x != nil {
 		return x.ParamCombinationR16
 	}
@@ -5395,14 +5481,14 @@ type CodebookTyper16CodebookConfigr16 struct {
 	// choice from CSI-ReportConfig.asn1:286
 	//
 	// Types that are assignable to CodebookTypeR16CodebookConfigR16:
-	//	*CodebookTyper16CodebookConfigr16_Type2
+	//	*CodebookTyper16CodebookConfigr16_Type2R16
 	CodebookTypeR16CodebookConfigR16 isCodebookTyper16CodebookConfigr16_CodebookTypeR16CodebookConfigR16 `protobuf_oneof:"codebook_type_r16_codebook_config_r16"`
 }
 
 func (x *CodebookTyper16CodebookConfigr16) Reset() {
 	*x = CodebookTyper16CodebookConfigr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[49]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[50]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5415,7 +5501,7 @@ func (x *CodebookTyper16CodebookConfigr16) String() string {
 func (*CodebookTyper16CodebookConfigr16) ProtoMessage() {}
 
 func (x *CodebookTyper16CodebookConfigr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[49]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[50]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5428,7 +5514,7 @@ func (x *CodebookTyper16CodebookConfigr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodebookTyper16CodebookConfigr16.ProtoReflect.Descriptor instead.
 func (*CodebookTyper16CodebookConfigr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{49}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{50}
 }
 
 func (m *CodebookTyper16CodebookConfigr16) GetCodebookTypeR16CodebookConfigR16() isCodebookTyper16CodebookConfigr16_CodebookTypeR16CodebookConfigR16 {
@@ -5438,9 +5524,9 @@ func (m *CodebookTyper16CodebookConfigr16) GetCodebookTypeR16CodebookConfigR16()
 	return nil
 }
 
-func (x *CodebookTyper16CodebookConfigr16) GetType2() *Type2CodebookTyper16 {
-	if x, ok := x.GetCodebookTypeR16CodebookConfigR16().(*CodebookTyper16CodebookConfigr16_Type2); ok {
-		return x.Type2
+func (x *CodebookTyper16CodebookConfigr16) GetType2R16() *Type2R16CodebookTyper16 {
+	if x, ok := x.GetCodebookTypeR16CodebookConfigR16().(*CodebookTyper16CodebookConfigr16_Type2R16); ok {
+		return x.Type2R16
 	}
 	return nil
 }
@@ -5449,12 +5535,12 @@ type isCodebookTyper16CodebookConfigr16_CodebookTypeR16CodebookConfigR16 interfa
 	isCodebookTyper16CodebookConfigr16_CodebookTypeR16CodebookConfigR16()
 }
 
-type CodebookTyper16CodebookConfigr16_Type2 struct {
+type CodebookTyper16CodebookConfigr16_Type2R16 struct {
 	// @inject_tag: aper:"choiceIdx:1,"
-	Type2 *Type2CodebookTyper16 `protobuf:"bytes,1,opt,name=type2,proto3,oneof" aper:"choiceIdx:1,"`
+	Type2R16 *Type2R16CodebookTyper16 `protobuf:"bytes,1,opt,name=type2_r16,json=type2-r16,proto3,oneof" aper:"choiceIdx:1,"`
 }
 
-func (*CodebookTyper16CodebookConfigr16_Type2) isCodebookTyper16CodebookConfigr16_CodebookTypeR16CodebookConfigR16() {
+func (*CodebookTyper16CodebookConfigr16_Type2R16) isCodebookTyper16CodebookConfigr16_CodebookTypeR16CodebookConfigR16() {
 }
 
 // sequence from CSI-ReportConfig.asn1:287
@@ -5470,7 +5556,7 @@ type CodebookConfigr16 struct {
 func (x *CodebookConfigr16) Reset() {
 	*x = CodebookConfigr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[50]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[51]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5483,7 +5569,7 @@ func (x *CodebookConfigr16) String() string {
 func (*CodebookConfigr16) ProtoMessage() {}
 
 func (x *CodebookConfigr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[50]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[51]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5496,7 +5582,7 @@ func (x *CodebookConfigr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CodebookConfigr16.ProtoReflect.Descriptor instead.
 func (*CodebookConfigr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{50}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *CodebookConfigr16) GetCodebookTypeR16() *CodebookTyper16CodebookConfigr16 {
@@ -5520,7 +5606,7 @@ type BwpId struct {
 func (x *BwpId) Reset() {
 	*x = BwpId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[51]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[52]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5533,7 +5619,7 @@ func (x *BwpId) String() string {
 func (*BwpId) ProtoMessage() {}
 
 func (x *BwpId) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[51]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[52]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5546,7 +5632,7 @@ func (x *BwpId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BwpId.ProtoReflect.Descriptor instead.
 func (*BwpId) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{51}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *BwpId) GetValue() int32 {
@@ -5570,7 +5656,7 @@ type PucchResourceId struct {
 func (x *PucchResourceId) Reset() {
 	*x = PucchResourceId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[52]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[53]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5583,7 +5669,7 @@ func (x *PucchResourceId) String() string {
 func (*PucchResourceId) ProtoMessage() {}
 
 func (x *PucchResourceId) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[52]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[53]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5596,7 +5682,7 @@ func (x *PucchResourceId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PucchResourceId.ProtoReflect.Descriptor instead.
 func (*PucchResourceId) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{52}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *PucchResourceId) GetValue() int32 {
@@ -5620,7 +5706,7 @@ type MaxAiDCiPayloadSizer16 struct {
 func (x *MaxAiDCiPayloadSizer16) Reset() {
 	*x = MaxAiDCiPayloadSizer16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[53]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[54]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5633,7 +5719,7 @@ func (x *MaxAiDCiPayloadSizer16) String() string {
 func (*MaxAiDCiPayloadSizer16) ProtoMessage() {}
 
 func (x *MaxAiDCiPayloadSizer16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[53]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[54]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5646,7 +5732,7 @@ func (x *MaxAiDCiPayloadSizer16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxAiDCiPayloadSizer16.ProtoReflect.Descriptor instead.
 func (*MaxAiDCiPayloadSizer16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{53}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *MaxAiDCiPayloadSizer16) GetValue() int32 {
@@ -5670,7 +5756,7 @@ type MaxAiDCiPayloadSize1R16 struct {
 func (x *MaxAiDCiPayloadSize1R16) Reset() {
 	*x = MaxAiDCiPayloadSize1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[54]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[55]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5683,7 +5769,7 @@ func (x *MaxAiDCiPayloadSize1R16) String() string {
 func (*MaxAiDCiPayloadSize1R16) ProtoMessage() {}
 
 func (x *MaxAiDCiPayloadSize1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[54]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[55]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5696,7 +5782,7 @@ func (x *MaxAiDCiPayloadSize1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxAiDCiPayloadSize1R16.ProtoReflect.Descriptor instead.
 func (*MaxAiDCiPayloadSize1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{54}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *MaxAiDCiPayloadSize1R16) GetValue() int32 {
@@ -5720,7 +5806,7 @@ type MaxBandComb struct {
 func (x *MaxBandComb) Reset() {
 	*x = MaxBandComb{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[55]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[56]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5733,7 +5819,7 @@ func (x *MaxBandComb) String() string {
 func (*MaxBandComb) ProtoMessage() {}
 
 func (x *MaxBandComb) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[55]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[56]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5746,7 +5832,7 @@ func (x *MaxBandComb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBandComb.ProtoReflect.Descriptor instead.
 func (*MaxBandComb) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{55}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *MaxBandComb) GetValue() int32 {
@@ -5770,7 +5856,7 @@ type MaxBandsUtraFDdr16 struct {
 func (x *MaxBandsUtraFDdr16) Reset() {
 	*x = MaxBandsUtraFDdr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[56]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[57]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5783,7 +5869,7 @@ func (x *MaxBandsUtraFDdr16) String() string {
 func (*MaxBandsUtraFDdr16) ProtoMessage() {}
 
 func (x *MaxBandsUtraFDdr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[56]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[57]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5796,7 +5882,7 @@ func (x *MaxBandsUtraFDdr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBandsUtraFDdr16.ProtoReflect.Descriptor instead.
 func (*MaxBandsUtraFDdr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{56}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *MaxBandsUtraFDdr16) GetValue() int32 {
@@ -5820,7 +5906,7 @@ type MaxBhRLcChannelIdr16 struct {
 func (x *MaxBhRLcChannelIdr16) Reset() {
 	*x = MaxBhRLcChannelIdr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[57]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[58]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5833,7 +5919,7 @@ func (x *MaxBhRLcChannelIdr16) String() string {
 func (*MaxBhRLcChannelIdr16) ProtoMessage() {}
 
 func (x *MaxBhRLcChannelIdr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[57]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[58]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5846,7 +5932,7 @@ func (x *MaxBhRLcChannelIdr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBhRLcChannelIdr16.ProtoReflect.Descriptor instead.
 func (*MaxBhRLcChannelIdr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{57}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *MaxBhRLcChannelIdr16) GetValue() int32 {
@@ -5870,7 +5956,7 @@ type MaxBtIdReportr16 struct {
 func (x *MaxBtIdReportr16) Reset() {
 	*x = MaxBtIdReportr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[58]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[59]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5883,7 +5969,7 @@ func (x *MaxBtIdReportr16) String() string {
 func (*MaxBtIdReportr16) ProtoMessage() {}
 
 func (x *MaxBtIdReportr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[58]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[59]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5896,7 +5982,7 @@ func (x *MaxBtIdReportr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBtIdReportr16.ProtoReflect.Descriptor instead.
 func (*MaxBtIdReportr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{58}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *MaxBtIdReportr16) GetValue() int32 {
@@ -5920,7 +6006,7 @@ type MaxBtNamer16 struct {
 func (x *MaxBtNamer16) Reset() {
 	*x = MaxBtNamer16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[59]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[60]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5933,7 +6019,7 @@ func (x *MaxBtNamer16) String() string {
 func (*MaxBtNamer16) ProtoMessage() {}
 
 func (x *MaxBtNamer16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[59]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[60]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5946,7 +6032,7 @@ func (x *MaxBtNamer16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBtNamer16.ProtoReflect.Descriptor instead.
 func (*MaxBtNamer16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{59}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *MaxBtNamer16) GetValue() int32 {
@@ -5970,7 +6056,7 @@ type MaxCagCellr16 struct {
 func (x *MaxCagCellr16) Reset() {
 	*x = MaxCagCellr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[60]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[61]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5983,7 +6069,7 @@ func (x *MaxCagCellr16) String() string {
 func (*MaxCagCellr16) ProtoMessage() {}
 
 func (x *MaxCagCellr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[60]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[61]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5996,7 +6082,7 @@ func (x *MaxCagCellr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCagCellr16.ProtoReflect.Descriptor instead.
 func (*MaxCagCellr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{60}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *MaxCagCellr16) GetValue() int32 {
@@ -6020,7 +6106,7 @@ type MaxTwoPucchGrpConfigListr16 struct {
 func (x *MaxTwoPucchGrpConfigListr16) Reset() {
 	*x = MaxTwoPucchGrpConfigListr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[61]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[62]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6033,7 +6119,7 @@ func (x *MaxTwoPucchGrpConfigListr16) String() string {
 func (*MaxTwoPucchGrpConfigListr16) ProtoMessage() {}
 
 func (x *MaxTwoPucchGrpConfigListr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[61]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[62]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6046,7 +6132,7 @@ func (x *MaxTwoPucchGrpConfigListr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxTwoPucchGrpConfigListr16.ProtoReflect.Descriptor instead.
 func (*MaxTwoPucchGrpConfigListr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{61}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *MaxTwoPucchGrpConfigListr16) GetValue() int32 {
@@ -6070,7 +6156,7 @@ type MaxCbrConfigr16 struct {
 func (x *MaxCbrConfigr16) Reset() {
 	*x = MaxCbrConfigr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[62]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[63]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6083,7 +6169,7 @@ func (x *MaxCbrConfigr16) String() string {
 func (*MaxCbrConfigr16) ProtoMessage() {}
 
 func (x *MaxCbrConfigr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[62]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[63]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6096,7 +6182,7 @@ func (x *MaxCbrConfigr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCbrConfigr16.ProtoReflect.Descriptor instead.
 func (*MaxCbrConfigr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{62}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *MaxCbrConfigr16) GetValue() int32 {
@@ -6120,7 +6206,7 @@ type MaxCbrConfig1R16 struct {
 func (x *MaxCbrConfig1R16) Reset() {
 	*x = MaxCbrConfig1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[63]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[64]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6133,7 +6219,7 @@ func (x *MaxCbrConfig1R16) String() string {
 func (*MaxCbrConfig1R16) ProtoMessage() {}
 
 func (x *MaxCbrConfig1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[63]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[64]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6146,7 +6232,7 @@ func (x *MaxCbrConfig1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCbrConfig1R16.ProtoReflect.Descriptor instead.
 func (*MaxCbrConfig1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{63}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *MaxCbrConfig1R16) GetValue() int32 {
@@ -6170,7 +6256,7 @@ type MaxCbrLevelr16 struct {
 func (x *MaxCbrLevelr16) Reset() {
 	*x = MaxCbrLevelr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[64]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[65]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6183,7 +6269,7 @@ func (x *MaxCbrLevelr16) String() string {
 func (*MaxCbrLevelr16) ProtoMessage() {}
 
 func (x *MaxCbrLevelr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[64]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[65]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6196,7 +6282,7 @@ func (x *MaxCbrLevelr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCbrLevelr16.ProtoReflect.Descriptor instead.
 func (*MaxCbrLevelr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{64}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *MaxCbrLevelr16) GetValue() int32 {
@@ -6220,7 +6306,7 @@ type MaxCbrLevel1R16 struct {
 func (x *MaxCbrLevel1R16) Reset() {
 	*x = MaxCbrLevel1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[65]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[66]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6233,7 +6319,7 @@ func (x *MaxCbrLevel1R16) String() string {
 func (*MaxCbrLevel1R16) ProtoMessage() {}
 
 func (x *MaxCbrLevel1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[65]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[66]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6246,7 +6332,7 @@ func (x *MaxCbrLevel1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCbrLevel1R16.ProtoReflect.Descriptor instead.
 func (*MaxCbrLevel1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{65}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *MaxCbrLevel1R16) GetValue() int32 {
@@ -6270,7 +6356,7 @@ type MaxCellBlack struct {
 func (x *MaxCellBlack) Reset() {
 	*x = MaxCellBlack{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[66]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[67]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6283,7 +6369,7 @@ func (x *MaxCellBlack) String() string {
 func (*MaxCellBlack) ProtoMessage() {}
 
 func (x *MaxCellBlack) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[66]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[67]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6296,7 +6382,7 @@ func (x *MaxCellBlack) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellBlack.ProtoReflect.Descriptor instead.
 func (*MaxCellBlack) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{66}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *MaxCellBlack) GetValue() int32 {
@@ -6320,7 +6406,7 @@ type MaxCellGroupingsr16 struct {
 func (x *MaxCellGroupingsr16) Reset() {
 	*x = MaxCellGroupingsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[67]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[68]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6333,7 +6419,7 @@ func (x *MaxCellGroupingsr16) String() string {
 func (*MaxCellGroupingsr16) ProtoMessage() {}
 
 func (x *MaxCellGroupingsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[67]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[68]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6346,7 +6432,7 @@ func (x *MaxCellGroupingsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellGroupingsr16.ProtoReflect.Descriptor instead.
 func (*MaxCellGroupingsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{67}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *MaxCellGroupingsr16) GetValue() int32 {
@@ -6370,7 +6456,7 @@ type MaxCellHistoryr16 struct {
 func (x *MaxCellHistoryr16) Reset() {
 	*x = MaxCellHistoryr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[68]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[69]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6383,7 +6469,7 @@ func (x *MaxCellHistoryr16) String() string {
 func (*MaxCellHistoryr16) ProtoMessage() {}
 
 func (x *MaxCellHistoryr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[68]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[69]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6396,7 +6482,7 @@ func (x *MaxCellHistoryr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellHistoryr16.ProtoReflect.Descriptor instead.
 func (*MaxCellHistoryr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{68}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *MaxCellHistoryr16) GetValue() int32 {
@@ -6420,7 +6506,7 @@ type MaxCellInter struct {
 func (x *MaxCellInter) Reset() {
 	*x = MaxCellInter{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[69]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[70]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6433,7 +6519,7 @@ func (x *MaxCellInter) String() string {
 func (*MaxCellInter) ProtoMessage() {}
 
 func (x *MaxCellInter) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[69]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[70]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6446,7 +6532,7 @@ func (x *MaxCellInter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellInter.ProtoReflect.Descriptor instead.
 func (*MaxCellInter) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{69}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *MaxCellInter) GetValue() int32 {
@@ -6470,7 +6556,7 @@ type MaxCellIntra struct {
 func (x *MaxCellIntra) Reset() {
 	*x = MaxCellIntra{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[70]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[71]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6483,7 +6569,7 @@ func (x *MaxCellIntra) String() string {
 func (*MaxCellIntra) ProtoMessage() {}
 
 func (x *MaxCellIntra) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[70]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[71]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6496,7 +6582,7 @@ func (x *MaxCellIntra) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellIntra.ProtoReflect.Descriptor instead.
 func (*MaxCellIntra) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{70}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *MaxCellIntra) GetValue() int32 {
@@ -6520,7 +6606,7 @@ type MaxCellMeasEutra struct {
 func (x *MaxCellMeasEutra) Reset() {
 	*x = MaxCellMeasEutra{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[71]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[72]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6533,7 +6619,7 @@ func (x *MaxCellMeasEutra) String() string {
 func (*MaxCellMeasEutra) ProtoMessage() {}
 
 func (x *MaxCellMeasEutra) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[71]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[72]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6546,7 +6632,7 @@ func (x *MaxCellMeasEutra) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellMeasEutra.ProtoReflect.Descriptor instead.
 func (*MaxCellMeasEutra) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{71}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *MaxCellMeasEutra) GetValue() int32 {
@@ -6570,7 +6656,7 @@ type MaxCellMeasIdler16 struct {
 func (x *MaxCellMeasIdler16) Reset() {
 	*x = MaxCellMeasIdler16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[72]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[73]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6583,7 +6669,7 @@ func (x *MaxCellMeasIdler16) String() string {
 func (*MaxCellMeasIdler16) ProtoMessage() {}
 
 func (x *MaxCellMeasIdler16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[72]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[73]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6596,7 +6682,7 @@ func (x *MaxCellMeasIdler16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellMeasIdler16.ProtoReflect.Descriptor instead.
 func (*MaxCellMeasIdler16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{72}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *MaxCellMeasIdler16) GetValue() int32 {
@@ -6620,7 +6706,7 @@ type MaxCellMeasUtraFDdr16 struct {
 func (x *MaxCellMeasUtraFDdr16) Reset() {
 	*x = MaxCellMeasUtraFDdr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[73]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[74]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6633,7 +6719,7 @@ func (x *MaxCellMeasUtraFDdr16) String() string {
 func (*MaxCellMeasUtraFDdr16) ProtoMessage() {}
 
 func (x *MaxCellMeasUtraFDdr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[73]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[74]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6646,7 +6732,7 @@ func (x *MaxCellMeasUtraFDdr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellMeasUtraFDdr16.ProtoReflect.Descriptor instead.
 func (*MaxCellMeasUtraFDdr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{73}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *MaxCellMeasUtraFDdr16) GetValue() int32 {
@@ -6670,7 +6756,7 @@ type MaxCarrierTypePairListr16 struct {
 func (x *MaxCarrierTypePairListr16) Reset() {
 	*x = MaxCarrierTypePairListr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[74]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[75]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6683,7 +6769,7 @@ func (x *MaxCarrierTypePairListr16) String() string {
 func (*MaxCarrierTypePairListr16) ProtoMessage() {}
 
 func (x *MaxCarrierTypePairListr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[74]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[75]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6696,7 +6782,7 @@ func (x *MaxCarrierTypePairListr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCarrierTypePairListr16.ProtoReflect.Descriptor instead.
 func (*MaxCarrierTypePairListr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{74}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *MaxCarrierTypePairListr16) GetValue() int32 {
@@ -6720,7 +6806,7 @@ type MaxCellWhite struct {
 func (x *MaxCellWhite) Reset() {
 	*x = MaxCellWhite{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[75]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[76]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6733,7 +6819,7 @@ func (x *MaxCellWhite) String() string {
 func (*MaxCellWhite) ProtoMessage() {}
 
 func (x *MaxCellWhite) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[75]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[76]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6746,7 +6832,7 @@ func (x *MaxCellWhite) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellWhite.ProtoReflect.Descriptor instead.
 func (*MaxCellWhite) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{75}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *MaxCellWhite) GetValue() int32 {
@@ -6770,7 +6856,7 @@ type MaxEarfcn struct {
 func (x *MaxEarfcn) Reset() {
 	*x = MaxEarfcn{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[76]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[77]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6783,7 +6869,7 @@ func (x *MaxEarfcn) String() string {
 func (*MaxEarfcn) ProtoMessage() {}
 
 func (x *MaxEarfcn) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[76]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[77]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6796,7 +6882,7 @@ func (x *MaxEarfcn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxEarfcn.ProtoReflect.Descriptor instead.
 func (*MaxEarfcn) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{76}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *MaxEarfcn) GetValue() int32 {
@@ -6820,7 +6906,7 @@ type MaxEutraCellBlack struct {
 func (x *MaxEutraCellBlack) Reset() {
 	*x = MaxEutraCellBlack{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[77]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[78]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6833,7 +6919,7 @@ func (x *MaxEutraCellBlack) String() string {
 func (*MaxEutraCellBlack) ProtoMessage() {}
 
 func (x *MaxEutraCellBlack) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[77]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[78]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6846,7 +6932,7 @@ func (x *MaxEutraCellBlack) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxEutraCellBlack.ProtoReflect.Descriptor instead.
 func (*MaxEutraCellBlack) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{77}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *MaxEutraCellBlack) GetValue() int32 {
@@ -6870,7 +6956,7 @@ type MaxEutraNSPmax struct {
 func (x *MaxEutraNSPmax) Reset() {
 	*x = MaxEutraNSPmax{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[78]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[79]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6883,7 +6969,7 @@ func (x *MaxEutraNSPmax) String() string {
 func (*MaxEutraNSPmax) ProtoMessage() {}
 
 func (x *MaxEutraNSPmax) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[78]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[79]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6896,7 +6982,7 @@ func (x *MaxEutraNSPmax) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxEutraNSPmax.ProtoReflect.Descriptor instead.
 func (*MaxEutraNSPmax) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{78}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *MaxEutraNSPmax) GetValue() int32 {
@@ -6920,7 +7006,7 @@ type MaxLogMeasReportr16 struct {
 func (x *MaxLogMeasReportr16) Reset() {
 	*x = MaxLogMeasReportr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[79]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[80]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6933,7 +7019,7 @@ func (x *MaxLogMeasReportr16) String() string {
 func (*MaxLogMeasReportr16) ProtoMessage() {}
 
 func (x *MaxLogMeasReportr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[79]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[80]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6946,7 +7032,7 @@ func (x *MaxLogMeasReportr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxLogMeasReportr16.ProtoReflect.Descriptor instead.
 func (*MaxLogMeasReportr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{79}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *MaxLogMeasReportr16) GetValue() int32 {
@@ -6970,7 +7056,7 @@ type MaxMultiBands struct {
 func (x *MaxMultiBands) Reset() {
 	*x = MaxMultiBands{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[80]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[81]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -6983,7 +7069,7 @@ func (x *MaxMultiBands) String() string {
 func (*MaxMultiBands) ProtoMessage() {}
 
 func (x *MaxMultiBands) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[80]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[81]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6996,7 +7082,7 @@ func (x *MaxMultiBands) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxMultiBands.ProtoReflect.Descriptor instead.
 func (*MaxMultiBands) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{80}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *MaxMultiBands) GetValue() int32 {
@@ -7020,7 +7106,7 @@ type MaxNarfcn struct {
 func (x *MaxNarfcn) Reset() {
 	*x = MaxNarfcn{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[81]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[82]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7033,7 +7119,7 @@ func (x *MaxNarfcn) String() string {
 func (*MaxNarfcn) ProtoMessage() {}
 
 func (x *MaxNarfcn) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[81]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[82]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7046,7 +7132,7 @@ func (x *MaxNarfcn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNarfcn.ProtoReflect.Descriptor instead.
 func (*MaxNarfcn) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{81}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *MaxNarfcn) GetValue() int32 {
@@ -7070,7 +7156,7 @@ type MaxNrNSPmax struct {
 func (x *MaxNrNSPmax) Reset() {
 	*x = MaxNrNSPmax{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[82]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[83]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7083,7 +7169,7 @@ func (x *MaxNrNSPmax) String() string {
 func (*MaxNrNSPmax) ProtoMessage() {}
 
 func (x *MaxNrNSPmax) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[82]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[83]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7096,7 +7182,7 @@ func (x *MaxNrNSPmax) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrNSPmax.ProtoReflect.Descriptor instead.
 func (*MaxNrNSPmax) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{82}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *MaxNrNSPmax) GetValue() int32 {
@@ -7120,7 +7206,7 @@ type MaxFreqIdler16 struct {
 func (x *MaxFreqIdler16) Reset() {
 	*x = MaxFreqIdler16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[83]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[84]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7133,7 +7219,7 @@ func (x *MaxFreqIdler16) String() string {
 func (*MaxFreqIdler16) ProtoMessage() {}
 
 func (x *MaxFreqIdler16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[83]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[84]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7146,7 +7232,7 @@ func (x *MaxFreqIdler16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFreqIdler16.ProtoReflect.Descriptor instead.
 func (*MaxFreqIdler16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{83}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *MaxFreqIdler16) GetValue() int32 {
@@ -7170,7 +7256,7 @@ type MaxNrofServingCells struct {
 func (x *MaxNrofServingCells) Reset() {
 	*x = MaxNrofServingCells{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[84]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[85]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7183,7 +7269,7 @@ func (x *MaxNrofServingCells) String() string {
 func (*MaxNrofServingCells) ProtoMessage() {}
 
 func (x *MaxNrofServingCells) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[84]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[85]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7196,7 +7282,7 @@ func (x *MaxNrofServingCells) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofServingCells.ProtoReflect.Descriptor instead.
 func (*MaxNrofServingCells) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{84}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *MaxNrofServingCells) GetValue() int32 {
@@ -7220,7 +7306,7 @@ type MaxNrofServingCells1 struct {
 func (x *MaxNrofServingCells1) Reset() {
 	*x = MaxNrofServingCells1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[85]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[86]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7233,7 +7319,7 @@ func (x *MaxNrofServingCells1) String() string {
 func (*MaxNrofServingCells1) ProtoMessage() {}
 
 func (x *MaxNrofServingCells1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[85]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[86]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7246,7 +7332,7 @@ func (x *MaxNrofServingCells1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofServingCells1.ProtoReflect.Descriptor instead.
 func (*MaxNrofServingCells1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{85}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *MaxNrofServingCells1) GetValue() int32 {
@@ -7270,7 +7356,7 @@ type MaxNrofAggregatedCellsPerCellGroup struct {
 func (x *MaxNrofAggregatedCellsPerCellGroup) Reset() {
 	*x = MaxNrofAggregatedCellsPerCellGroup{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[86]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[87]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7283,7 +7369,7 @@ func (x *MaxNrofAggregatedCellsPerCellGroup) String() string {
 func (*MaxNrofAggregatedCellsPerCellGroup) ProtoMessage() {}
 
 func (x *MaxNrofAggregatedCellsPerCellGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[86]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[87]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7296,7 +7382,7 @@ func (x *MaxNrofAggregatedCellsPerCellGroup) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use MaxNrofAggregatedCellsPerCellGroup.ProtoReflect.Descriptor instead.
 func (*MaxNrofAggregatedCellsPerCellGroup) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{86}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *MaxNrofAggregatedCellsPerCellGroup) GetValue() int32 {
@@ -7320,7 +7406,7 @@ type MaxNrofAggregatedCellsPerCellGroupMinus4R16 struct {
 func (x *MaxNrofAggregatedCellsPerCellGroupMinus4R16) Reset() {
 	*x = MaxNrofAggregatedCellsPerCellGroupMinus4R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[87]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[88]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7333,7 +7419,7 @@ func (x *MaxNrofAggregatedCellsPerCellGroupMinus4R16) String() string {
 func (*MaxNrofAggregatedCellsPerCellGroupMinus4R16) ProtoMessage() {}
 
 func (x *MaxNrofAggregatedCellsPerCellGroupMinus4R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[87]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[88]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7346,7 +7432,7 @@ func (x *MaxNrofAggregatedCellsPerCellGroupMinus4R16) ProtoReflect() protoreflec
 
 // Deprecated: Use MaxNrofAggregatedCellsPerCellGroupMinus4R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofAggregatedCellsPerCellGroupMinus4R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{87}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *MaxNrofAggregatedCellsPerCellGroupMinus4R16) GetValue() int32 {
@@ -7370,7 +7456,7 @@ type MaxNrofDucellsr16 struct {
 func (x *MaxNrofDucellsr16) Reset() {
 	*x = MaxNrofDucellsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[88]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[89]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7383,7 +7469,7 @@ func (x *MaxNrofDucellsr16) String() string {
 func (*MaxNrofDucellsr16) ProtoMessage() {}
 
 func (x *MaxNrofDucellsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[88]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[89]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7396,7 +7482,7 @@ func (x *MaxNrofDucellsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofDucellsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofDucellsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{88}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *MaxNrofDucellsr16) GetValue() int32 {
@@ -7420,7 +7506,7 @@ type MaxNrofAvailabilityCombinationsPerSetr16 struct {
 func (x *MaxNrofAvailabilityCombinationsPerSetr16) Reset() {
 	*x = MaxNrofAvailabilityCombinationsPerSetr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[89]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[90]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7433,7 +7519,7 @@ func (x *MaxNrofAvailabilityCombinationsPerSetr16) String() string {
 func (*MaxNrofAvailabilityCombinationsPerSetr16) ProtoMessage() {}
 
 func (x *MaxNrofAvailabilityCombinationsPerSetr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[89]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[90]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7446,7 +7532,7 @@ func (x *MaxNrofAvailabilityCombinationsPerSetr16) ProtoReflect() protoreflect.M
 
 // Deprecated: Use MaxNrofAvailabilityCombinationsPerSetr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofAvailabilityCombinationsPerSetr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{89}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *MaxNrofAvailabilityCombinationsPerSetr16) GetValue() int32 {
@@ -7470,7 +7556,7 @@ type MaxNrofAvailabilityCombinationsPerSet1R16 struct {
 func (x *MaxNrofAvailabilityCombinationsPerSet1R16) Reset() {
 	*x = MaxNrofAvailabilityCombinationsPerSet1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[90]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[91]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7483,7 +7569,7 @@ func (x *MaxNrofAvailabilityCombinationsPerSet1R16) String() string {
 func (*MaxNrofAvailabilityCombinationsPerSet1R16) ProtoMessage() {}
 
 func (x *MaxNrofAvailabilityCombinationsPerSet1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[90]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[91]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7496,7 +7582,7 @@ func (x *MaxNrofAvailabilityCombinationsPerSet1R16) ProtoReflect() protoreflect.
 
 // Deprecated: Use MaxNrofAvailabilityCombinationsPerSet1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofAvailabilityCombinationsPerSet1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{90}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *MaxNrofAvailabilityCombinationsPerSet1R16) GetValue() int32 {
@@ -7520,7 +7606,7 @@ type MaxNrofScells struct {
 func (x *MaxNrofScells) Reset() {
 	*x = MaxNrofScells{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[91]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[92]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7533,7 +7619,7 @@ func (x *MaxNrofScells) String() string {
 func (*MaxNrofScells) ProtoMessage() {}
 
 func (x *MaxNrofScells) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[91]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[92]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7546,7 +7632,7 @@ func (x *MaxNrofScells) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofScells.ProtoReflect.Descriptor instead.
 func (*MaxNrofScells) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{91}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *MaxNrofScells) GetValue() int32 {
@@ -7570,7 +7656,7 @@ type MaxNrofCellMeas struct {
 func (x *MaxNrofCellMeas) Reset() {
 	*x = MaxNrofCellMeas{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[92]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[93]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7583,7 +7669,7 @@ func (x *MaxNrofCellMeas) String() string {
 func (*MaxNrofCellMeas) ProtoMessage() {}
 
 func (x *MaxNrofCellMeas) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[92]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[93]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7596,7 +7682,7 @@ func (x *MaxNrofCellMeas) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCellMeas.ProtoReflect.Descriptor instead.
 func (*MaxNrofCellMeas) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{92}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *MaxNrofCellMeas) GetValue() int32 {
@@ -7620,7 +7706,7 @@ type MaxNrofCgSLr16 struct {
 func (x *MaxNrofCgSLr16) Reset() {
 	*x = MaxNrofCgSLr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[93]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[94]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7633,7 +7719,7 @@ func (x *MaxNrofCgSLr16) String() string {
 func (*MaxNrofCgSLr16) ProtoMessage() {}
 
 func (x *MaxNrofCgSLr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[93]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[94]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7646,7 +7732,7 @@ func (x *MaxNrofCgSLr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCgSLr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCgSLr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{93}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *MaxNrofCgSLr16) GetValue() int32 {
@@ -7670,7 +7756,7 @@ type MaxNrofCgSL1R16 struct {
 func (x *MaxNrofCgSL1R16) Reset() {
 	*x = MaxNrofCgSL1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[94]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[95]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7683,7 +7769,7 @@ func (x *MaxNrofCgSL1R16) String() string {
 func (*MaxNrofCgSL1R16) ProtoMessage() {}
 
 func (x *MaxNrofCgSL1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[94]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[95]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7696,7 +7782,7 @@ func (x *MaxNrofCgSL1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCgSL1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCgSL1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{94}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *MaxNrofCgSL1R16) GetValue() int32 {
@@ -7720,7 +7806,7 @@ type MaxNrofSsBlocksToAverage struct {
 func (x *MaxNrofSsBlocksToAverage) Reset() {
 	*x = MaxNrofSsBlocksToAverage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[95]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[96]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7733,7 +7819,7 @@ func (x *MaxNrofSsBlocksToAverage) String() string {
 func (*MaxNrofSsBlocksToAverage) ProtoMessage() {}
 
 func (x *MaxNrofSsBlocksToAverage) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[95]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[96]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7746,7 +7832,7 @@ func (x *MaxNrofSsBlocksToAverage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSsBlocksToAverage.ProtoReflect.Descriptor instead.
 func (*MaxNrofSsBlocksToAverage) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{95}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *MaxNrofSsBlocksToAverage) GetValue() int32 {
@@ -7770,7 +7856,7 @@ type MaxNrofCondCellsr16 struct {
 func (x *MaxNrofCondCellsr16) Reset() {
 	*x = MaxNrofCondCellsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[96]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[97]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7783,7 +7869,7 @@ func (x *MaxNrofCondCellsr16) String() string {
 func (*MaxNrofCondCellsr16) ProtoMessage() {}
 
 func (x *MaxNrofCondCellsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[96]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[97]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7796,7 +7882,7 @@ func (x *MaxNrofCondCellsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCondCellsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCondCellsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{96}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *MaxNrofCondCellsr16) GetValue() int32 {
@@ -7820,7 +7906,7 @@ type MaxNrofCsiRSResourcesToAverage struct {
 func (x *MaxNrofCsiRSResourcesToAverage) Reset() {
 	*x = MaxNrofCsiRSResourcesToAverage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[97]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[98]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7833,7 +7919,7 @@ func (x *MaxNrofCsiRSResourcesToAverage) String() string {
 func (*MaxNrofCsiRSResourcesToAverage) ProtoMessage() {}
 
 func (x *MaxNrofCsiRSResourcesToAverage) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[97]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[98]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7846,7 +7932,7 @@ func (x *MaxNrofCsiRSResourcesToAverage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiRSResourcesToAverage.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiRSResourcesToAverage) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{97}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *MaxNrofCsiRSResourcesToAverage) GetValue() int32 {
@@ -7870,7 +7956,7 @@ type MaxNrofDlAllocations struct {
 func (x *MaxNrofDlAllocations) Reset() {
 	*x = MaxNrofDlAllocations{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[98]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[99]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7883,7 +7969,7 @@ func (x *MaxNrofDlAllocations) String() string {
 func (*MaxNrofDlAllocations) ProtoMessage() {}
 
 func (x *MaxNrofDlAllocations) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[98]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[99]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7896,7 +7982,7 @@ func (x *MaxNrofDlAllocations) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofDlAllocations.ProtoReflect.Descriptor instead.
 func (*MaxNrofDlAllocations) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{98}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *MaxNrofDlAllocations) GetValue() int32 {
@@ -7920,7 +8006,7 @@ type MaxNrofSrConfigPerCellGroup struct {
 func (x *MaxNrofSrConfigPerCellGroup) Reset() {
 	*x = MaxNrofSrConfigPerCellGroup{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[99]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[100]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7933,7 +8019,7 @@ func (x *MaxNrofSrConfigPerCellGroup) String() string {
 func (*MaxNrofSrConfigPerCellGroup) ProtoMessage() {}
 
 func (x *MaxNrofSrConfigPerCellGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[99]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[100]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7946,7 +8032,7 @@ func (x *MaxNrofSrConfigPerCellGroup) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrConfigPerCellGroup.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrConfigPerCellGroup) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{99}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *MaxNrofSrConfigPerCellGroup) GetValue() int32 {
@@ -7970,7 +8056,7 @@ type MaxLcgID struct {
 func (x *MaxLcgID) Reset() {
 	*x = MaxLcgID{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[100]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[101]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7983,7 +8069,7 @@ func (x *MaxLcgID) String() string {
 func (*MaxLcgID) ProtoMessage() {}
 
 func (x *MaxLcgID) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[100]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[101]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7996,7 +8082,7 @@ func (x *MaxLcgID) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxLcgID.ProtoReflect.Descriptor instead.
 func (*MaxLcgID) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{100}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *MaxLcgID) GetValue() int32 {
@@ -8020,7 +8106,7 @@ type MaxLcID struct {
 func (x *MaxLcID) Reset() {
 	*x = MaxLcID{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[101]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[102]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8033,7 +8119,7 @@ func (x *MaxLcID) String() string {
 func (*MaxLcID) ProtoMessage() {}
 
 func (x *MaxLcID) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[101]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[102]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8046,7 +8132,7 @@ func (x *MaxLcID) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxLcID.ProtoReflect.Descriptor instead.
 func (*MaxLcID) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{101}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *MaxLcID) GetValue() int32 {
@@ -8070,7 +8156,7 @@ type MaxLcIDIabr16 struct {
 func (x *MaxLcIDIabr16) Reset() {
 	*x = MaxLcIDIabr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[102]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[103]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8083,7 +8169,7 @@ func (x *MaxLcIDIabr16) String() string {
 func (*MaxLcIDIabr16) ProtoMessage() {}
 
 func (x *MaxLcIDIabr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[102]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[103]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8096,7 +8182,7 @@ func (x *MaxLcIDIabr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxLcIDIabr16.ProtoReflect.Descriptor instead.
 func (*MaxLcIDIabr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{102}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *MaxLcIDIabr16) GetValue() int32 {
@@ -8120,7 +8206,7 @@ type MaxLteCRsPatternsr16 struct {
 func (x *MaxLteCRsPatternsr16) Reset() {
 	*x = MaxLteCRsPatternsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[103]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[104]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8133,7 +8219,7 @@ func (x *MaxLteCRsPatternsr16) String() string {
 func (*MaxLteCRsPatternsr16) ProtoMessage() {}
 
 func (x *MaxLteCRsPatternsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[103]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[104]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8146,7 +8232,7 @@ func (x *MaxLteCRsPatternsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxLteCRsPatternsr16.ProtoReflect.Descriptor instead.
 func (*MaxLteCRsPatternsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{103}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *MaxLteCRsPatternsr16) GetValue() int32 {
@@ -8170,7 +8256,7 @@ type MaxNrofTags struct {
 func (x *MaxNrofTags) Reset() {
 	*x = MaxNrofTags{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[104]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[105]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8183,7 +8269,7 @@ func (x *MaxNrofTags) String() string {
 func (*MaxNrofTags) ProtoMessage() {}
 
 func (x *MaxNrofTags) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[104]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[105]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8196,7 +8282,7 @@ func (x *MaxNrofTags) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofTags.ProtoReflect.Descriptor instead.
 func (*MaxNrofTags) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{104}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *MaxNrofTags) GetValue() int32 {
@@ -8220,7 +8306,7 @@ type MaxNrofTags1 struct {
 func (x *MaxNrofTags1) Reset() {
 	*x = MaxNrofTags1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[105]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[106]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8233,7 +8319,7 @@ func (x *MaxNrofTags1) String() string {
 func (*MaxNrofTags1) ProtoMessage() {}
 
 func (x *MaxNrofTags1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[105]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[106]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8246,7 +8332,7 @@ func (x *MaxNrofTags1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofTags1.ProtoReflect.Descriptor instead.
 func (*MaxNrofTags1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{105}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *MaxNrofTags1) GetValue() int32 {
@@ -8270,7 +8356,7 @@ type MaxNrofBwps struct {
 func (x *MaxNrofBwps) Reset() {
 	*x = MaxNrofBwps{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[106]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[107]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8283,7 +8369,7 @@ func (x *MaxNrofBwps) String() string {
 func (*MaxNrofBwps) ProtoMessage() {}
 
 func (x *MaxNrofBwps) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[106]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[107]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8296,7 +8382,7 @@ func (x *MaxNrofBwps) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofBwps.ProtoReflect.Descriptor instead.
 func (*MaxNrofBwps) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{106}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *MaxNrofBwps) GetValue() int32 {
@@ -8320,7 +8406,7 @@ type MaxNrofCombIdc struct {
 func (x *MaxNrofCombIdc) Reset() {
 	*x = MaxNrofCombIdc{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[107]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[108]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8333,7 +8419,7 @@ func (x *MaxNrofCombIdc) String() string {
 func (*MaxNrofCombIdc) ProtoMessage() {}
 
 func (x *MaxNrofCombIdc) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[107]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[108]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8346,7 +8432,7 @@ func (x *MaxNrofCombIdc) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCombIdc.ProtoReflect.Descriptor instead.
 func (*MaxNrofCombIdc) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{107}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *MaxNrofCombIdc) GetValue() int32 {
@@ -8370,7 +8456,7 @@ type MaxNrofSymbols1 struct {
 func (x *MaxNrofSymbols1) Reset() {
 	*x = MaxNrofSymbols1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[108]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[109]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8383,7 +8469,7 @@ func (x *MaxNrofSymbols1) String() string {
 func (*MaxNrofSymbols1) ProtoMessage() {}
 
 func (x *MaxNrofSymbols1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[108]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[109]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8396,7 +8482,7 @@ func (x *MaxNrofSymbols1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSymbols1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSymbols1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{108}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *MaxNrofSymbols1) GetValue() int32 {
@@ -8420,7 +8506,7 @@ type MaxNrofSlots struct {
 func (x *MaxNrofSlots) Reset() {
 	*x = MaxNrofSlots{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[109]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[110]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8433,7 +8519,7 @@ func (x *MaxNrofSlots) String() string {
 func (*MaxNrofSlots) ProtoMessage() {}
 
 func (x *MaxNrofSlots) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[109]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[110]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8446,7 +8532,7 @@ func (x *MaxNrofSlots) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlots.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlots) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{109}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *MaxNrofSlots) GetValue() int32 {
@@ -8470,7 +8556,7 @@ type MaxNrofSlots1 struct {
 func (x *MaxNrofSlots1) Reset() {
 	*x = MaxNrofSlots1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[110]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[111]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8483,7 +8569,7 @@ func (x *MaxNrofSlots1) String() string {
 func (*MaxNrofSlots1) ProtoMessage() {}
 
 func (x *MaxNrofSlots1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[110]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[111]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8496,7 +8582,7 @@ func (x *MaxNrofSlots1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlots1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlots1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{110}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *MaxNrofSlots1) GetValue() int32 {
@@ -8520,7 +8606,7 @@ type MaxNrofPhysicalResourceBlocks struct {
 func (x *MaxNrofPhysicalResourceBlocks) Reset() {
 	*x = MaxNrofPhysicalResourceBlocks{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[111]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[112]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8533,7 +8619,7 @@ func (x *MaxNrofPhysicalResourceBlocks) String() string {
 func (*MaxNrofPhysicalResourceBlocks) ProtoMessage() {}
 
 func (x *MaxNrofPhysicalResourceBlocks) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[111]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[112]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8546,7 +8632,7 @@ func (x *MaxNrofPhysicalResourceBlocks) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPhysicalResourceBlocks.ProtoReflect.Descriptor instead.
 func (*MaxNrofPhysicalResourceBlocks) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{111}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *MaxNrofPhysicalResourceBlocks) GetValue() int32 {
@@ -8570,7 +8656,7 @@ type MaxNrofPhysicalResourceBlocks1 struct {
 func (x *MaxNrofPhysicalResourceBlocks1) Reset() {
 	*x = MaxNrofPhysicalResourceBlocks1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[112]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[113]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8583,7 +8669,7 @@ func (x *MaxNrofPhysicalResourceBlocks1) String() string {
 func (*MaxNrofPhysicalResourceBlocks1) ProtoMessage() {}
 
 func (x *MaxNrofPhysicalResourceBlocks1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[112]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[113]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8596,7 +8682,7 @@ func (x *MaxNrofPhysicalResourceBlocks1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPhysicalResourceBlocks1.ProtoReflect.Descriptor instead.
 func (*MaxNrofPhysicalResourceBlocks1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{112}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *MaxNrofPhysicalResourceBlocks1) GetValue() int32 {
@@ -8620,7 +8706,7 @@ type MaxNrofPhysicalResourceBlocksPlus1 struct {
 func (x *MaxNrofPhysicalResourceBlocksPlus1) Reset() {
 	*x = MaxNrofPhysicalResourceBlocksPlus1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[113]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[114]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8633,7 +8719,7 @@ func (x *MaxNrofPhysicalResourceBlocksPlus1) String() string {
 func (*MaxNrofPhysicalResourceBlocksPlus1) ProtoMessage() {}
 
 func (x *MaxNrofPhysicalResourceBlocksPlus1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[113]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[114]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8646,7 +8732,7 @@ func (x *MaxNrofPhysicalResourceBlocksPlus1) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use MaxNrofPhysicalResourceBlocksPlus1.ProtoReflect.Descriptor instead.
 func (*MaxNrofPhysicalResourceBlocksPlus1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{113}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *MaxNrofPhysicalResourceBlocksPlus1) GetValue() int32 {
@@ -8670,7 +8756,7 @@ type MaxNrofControlResourceSets struct {
 func (x *MaxNrofControlResourceSets) Reset() {
 	*x = MaxNrofControlResourceSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[114]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[115]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8683,7 +8769,7 @@ func (x *MaxNrofControlResourceSets) String() string {
 func (*MaxNrofControlResourceSets) ProtoMessage() {}
 
 func (x *MaxNrofControlResourceSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[114]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[115]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8696,7 +8782,7 @@ func (x *MaxNrofControlResourceSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofControlResourceSets.ProtoReflect.Descriptor instead.
 func (*MaxNrofControlResourceSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{114}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *MaxNrofControlResourceSets) GetValue() int32 {
@@ -8720,7 +8806,7 @@ type MaxNrofControlResourceSets1 struct {
 func (x *MaxNrofControlResourceSets1) Reset() {
 	*x = MaxNrofControlResourceSets1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[115]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[116]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8733,7 +8819,7 @@ func (x *MaxNrofControlResourceSets1) String() string {
 func (*MaxNrofControlResourceSets1) ProtoMessage() {}
 
 func (x *MaxNrofControlResourceSets1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[115]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[116]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8746,7 +8832,7 @@ func (x *MaxNrofControlResourceSets1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofControlResourceSets1.ProtoReflect.Descriptor instead.
 func (*MaxNrofControlResourceSets1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{115}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *MaxNrofControlResourceSets1) GetValue() int32 {
@@ -8770,7 +8856,7 @@ type MaxNrofControlResourceSets1R16 struct {
 func (x *MaxNrofControlResourceSets1R16) Reset() {
 	*x = MaxNrofControlResourceSets1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[116]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[117]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8783,7 +8869,7 @@ func (x *MaxNrofControlResourceSets1R16) String() string {
 func (*MaxNrofControlResourceSets1R16) ProtoMessage() {}
 
 func (x *MaxNrofControlResourceSets1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[116]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[117]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8796,7 +8882,7 @@ func (x *MaxNrofControlResourceSets1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofControlResourceSets1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofControlResourceSets1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{116}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *MaxNrofControlResourceSets1R16) GetValue() int32 {
@@ -8820,7 +8906,7 @@ type MaxNrofCoresetPoolsr16 struct {
 func (x *MaxNrofCoresetPoolsr16) Reset() {
 	*x = MaxNrofCoresetPoolsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[117]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[118]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8833,7 +8919,7 @@ func (x *MaxNrofCoresetPoolsr16) String() string {
 func (*MaxNrofCoresetPoolsr16) ProtoMessage() {}
 
 func (x *MaxNrofCoresetPoolsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[117]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[118]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8846,7 +8932,7 @@ func (x *MaxNrofCoresetPoolsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCoresetPoolsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCoresetPoolsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{117}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *MaxNrofCoresetPoolsr16) GetValue() int32 {
@@ -8870,7 +8956,7 @@ type MaxCoReSetDuration struct {
 func (x *MaxCoReSetDuration) Reset() {
 	*x = MaxCoReSetDuration{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[118]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[119]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8883,7 +8969,7 @@ func (x *MaxCoReSetDuration) String() string {
 func (*MaxCoReSetDuration) ProtoMessage() {}
 
 func (x *MaxCoReSetDuration) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[118]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[119]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8896,7 +8982,7 @@ func (x *MaxCoReSetDuration) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCoReSetDuration.ProtoReflect.Descriptor instead.
 func (*MaxCoReSetDuration) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{118}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *MaxCoReSetDuration) GetValue() int32 {
@@ -8920,7 +9006,7 @@ type MaxNrofSearchSpaces1 struct {
 func (x *MaxNrofSearchSpaces1) Reset() {
 	*x = MaxNrofSearchSpaces1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[119]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[120]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8933,7 +9019,7 @@ func (x *MaxNrofSearchSpaces1) String() string {
 func (*MaxNrofSearchSpaces1) ProtoMessage() {}
 
 func (x *MaxNrofSearchSpaces1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[119]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[120]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8946,7 +9032,7 @@ func (x *MaxNrofSearchSpaces1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSearchSpaces1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSearchSpaces1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{119}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *MaxNrofSearchSpaces1) GetValue() int32 {
@@ -8970,7 +9056,7 @@ type MaxSfiDCiPayloadSize struct {
 func (x *MaxSfiDCiPayloadSize) Reset() {
 	*x = MaxSfiDCiPayloadSize{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[120]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[121]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -8983,7 +9069,7 @@ func (x *MaxSfiDCiPayloadSize) String() string {
 func (*MaxSfiDCiPayloadSize) ProtoMessage() {}
 
 func (x *MaxSfiDCiPayloadSize) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[120]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[121]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8996,7 +9082,7 @@ func (x *MaxSfiDCiPayloadSize) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxSfiDCiPayloadSize.ProtoReflect.Descriptor instead.
 func (*MaxSfiDCiPayloadSize) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{120}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *MaxSfiDCiPayloadSize) GetValue() int32 {
@@ -9020,7 +9106,7 @@ type MaxSfiDCiPayloadSize1 struct {
 func (x *MaxSfiDCiPayloadSize1) Reset() {
 	*x = MaxSfiDCiPayloadSize1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[121]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[122]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9033,7 +9119,7 @@ func (x *MaxSfiDCiPayloadSize1) String() string {
 func (*MaxSfiDCiPayloadSize1) ProtoMessage() {}
 
 func (x *MaxSfiDCiPayloadSize1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[121]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[122]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9046,7 +9132,7 @@ func (x *MaxSfiDCiPayloadSize1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxSfiDCiPayloadSize1.ProtoReflect.Descriptor instead.
 func (*MaxSfiDCiPayloadSize1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{121}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *MaxSfiDCiPayloadSize1) GetValue() int32 {
@@ -9070,7 +9156,7 @@ type MaxIabIPAddressr16 struct {
 func (x *MaxIabIPAddressr16) Reset() {
 	*x = MaxIabIPAddressr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[122]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[123]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9083,7 +9169,7 @@ func (x *MaxIabIPAddressr16) String() string {
 func (*MaxIabIPAddressr16) ProtoMessage() {}
 
 func (x *MaxIabIPAddressr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[122]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[123]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9096,7 +9182,7 @@ func (x *MaxIabIPAddressr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxIabIPAddressr16.ProtoReflect.Descriptor instead.
 func (*MaxIabIPAddressr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{122}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *MaxIabIPAddressr16) GetValue() int32 {
@@ -9120,7 +9206,7 @@ type MaxIntDCiPayloadSize struct {
 func (x *MaxIntDCiPayloadSize) Reset() {
 	*x = MaxIntDCiPayloadSize{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[123]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[124]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9133,7 +9219,7 @@ func (x *MaxIntDCiPayloadSize) String() string {
 func (*MaxIntDCiPayloadSize) ProtoMessage() {}
 
 func (x *MaxIntDCiPayloadSize) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[123]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[124]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9146,7 +9232,7 @@ func (x *MaxIntDCiPayloadSize) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxIntDCiPayloadSize.ProtoReflect.Descriptor instead.
 func (*MaxIntDCiPayloadSize) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{123}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *MaxIntDCiPayloadSize) GetValue() int32 {
@@ -9170,7 +9256,7 @@ type MaxIntDCiPayloadSize1 struct {
 func (x *MaxIntDCiPayloadSize1) Reset() {
 	*x = MaxIntDCiPayloadSize1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[124]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[125]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9183,7 +9269,7 @@ func (x *MaxIntDCiPayloadSize1) String() string {
 func (*MaxIntDCiPayloadSize1) ProtoMessage() {}
 
 func (x *MaxIntDCiPayloadSize1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[124]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[125]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9196,7 +9282,7 @@ func (x *MaxIntDCiPayloadSize1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxIntDCiPayloadSize1.ProtoReflect.Descriptor instead.
 func (*MaxIntDCiPayloadSize1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{124}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *MaxIntDCiPayloadSize1) GetValue() int32 {
@@ -9220,7 +9306,7 @@ type MaxNrofRateMatchPatterns struct {
 func (x *MaxNrofRateMatchPatterns) Reset() {
 	*x = MaxNrofRateMatchPatterns{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[125]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[126]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9233,7 +9319,7 @@ func (x *MaxNrofRateMatchPatterns) String() string {
 func (*MaxNrofRateMatchPatterns) ProtoMessage() {}
 
 func (x *MaxNrofRateMatchPatterns) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[125]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[126]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9246,7 +9332,7 @@ func (x *MaxNrofRateMatchPatterns) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofRateMatchPatterns.ProtoReflect.Descriptor instead.
 func (*MaxNrofRateMatchPatterns) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{125}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *MaxNrofRateMatchPatterns) GetValue() int32 {
@@ -9270,7 +9356,7 @@ type MaxNrofRateMatchPatterns1 struct {
 func (x *MaxNrofRateMatchPatterns1) Reset() {
 	*x = MaxNrofRateMatchPatterns1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[126]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[127]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9283,7 +9369,7 @@ func (x *MaxNrofRateMatchPatterns1) String() string {
 func (*MaxNrofRateMatchPatterns1) ProtoMessage() {}
 
 func (x *MaxNrofRateMatchPatterns1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[126]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[127]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9296,7 +9382,7 @@ func (x *MaxNrofRateMatchPatterns1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofRateMatchPatterns1.ProtoReflect.Descriptor instead.
 func (*MaxNrofRateMatchPatterns1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{126}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *MaxNrofRateMatchPatterns1) GetValue() int32 {
@@ -9320,7 +9406,7 @@ type MaxNrofRateMatchPatternsPerGroup struct {
 func (x *MaxNrofRateMatchPatternsPerGroup) Reset() {
 	*x = MaxNrofRateMatchPatternsPerGroup{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[127]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[128]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9333,7 +9419,7 @@ func (x *MaxNrofRateMatchPatternsPerGroup) String() string {
 func (*MaxNrofRateMatchPatternsPerGroup) ProtoMessage() {}
 
 func (x *MaxNrofRateMatchPatternsPerGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[127]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[128]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9346,7 +9432,7 @@ func (x *MaxNrofRateMatchPatternsPerGroup) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofRateMatchPatternsPerGroup.ProtoReflect.Descriptor instead.
 func (*MaxNrofRateMatchPatternsPerGroup) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{127}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *MaxNrofRateMatchPatternsPerGroup) GetValue() int32 {
@@ -9370,7 +9456,7 @@ type MaxNrofCsiReportConfigurations struct {
 func (x *MaxNrofCsiReportConfigurations) Reset() {
 	*x = MaxNrofCsiReportConfigurations{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[128]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[129]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9383,7 +9469,7 @@ func (x *MaxNrofCsiReportConfigurations) String() string {
 func (*MaxNrofCsiReportConfigurations) ProtoMessage() {}
 
 func (x *MaxNrofCsiReportConfigurations) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[128]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[129]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9396,7 +9482,7 @@ func (x *MaxNrofCsiReportConfigurations) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiReportConfigurations.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiReportConfigurations) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{128}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *MaxNrofCsiReportConfigurations) GetValue() int32 {
@@ -9420,7 +9506,7 @@ type MaxNrofCsiReportConfigurations1 struct {
 func (x *MaxNrofCsiReportConfigurations1) Reset() {
 	*x = MaxNrofCsiReportConfigurations1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[129]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[130]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9433,7 +9519,7 @@ func (x *MaxNrofCsiReportConfigurations1) String() string {
 func (*MaxNrofCsiReportConfigurations1) ProtoMessage() {}
 
 func (x *MaxNrofCsiReportConfigurations1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[129]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[130]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9446,7 +9532,7 @@ func (x *MaxNrofCsiReportConfigurations1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiReportConfigurations1.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiReportConfigurations1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{129}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *MaxNrofCsiReportConfigurations1) GetValue() int32 {
@@ -9470,7 +9556,7 @@ type MaxNrofCsiResourceConfigurations struct {
 func (x *MaxNrofCsiResourceConfigurations) Reset() {
 	*x = MaxNrofCsiResourceConfigurations{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[130]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[131]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9483,7 +9569,7 @@ func (x *MaxNrofCsiResourceConfigurations) String() string {
 func (*MaxNrofCsiResourceConfigurations) ProtoMessage() {}
 
 func (x *MaxNrofCsiResourceConfigurations) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[130]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[131]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9496,7 +9582,7 @@ func (x *MaxNrofCsiResourceConfigurations) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiResourceConfigurations.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiResourceConfigurations) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{130}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *MaxNrofCsiResourceConfigurations) GetValue() int32 {
@@ -9520,7 +9606,7 @@ type MaxNrofCsiResourceConfigurations1 struct {
 func (x *MaxNrofCsiResourceConfigurations1) Reset() {
 	*x = MaxNrofCsiResourceConfigurations1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[131]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[132]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9533,7 +9619,7 @@ func (x *MaxNrofCsiResourceConfigurations1) String() string {
 func (*MaxNrofCsiResourceConfigurations1) ProtoMessage() {}
 
 func (x *MaxNrofCsiResourceConfigurations1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[131]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[132]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9546,7 +9632,7 @@ func (x *MaxNrofCsiResourceConfigurations1) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use MaxNrofCsiResourceConfigurations1.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiResourceConfigurations1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{131}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *MaxNrofCsiResourceConfigurations1) GetValue() int32 {
@@ -9570,7 +9656,7 @@ type MaxNrofApCSiRSResourcesPerSet struct {
 func (x *MaxNrofApCSiRSResourcesPerSet) Reset() {
 	*x = MaxNrofApCSiRSResourcesPerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[132]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[133]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9583,7 +9669,7 @@ func (x *MaxNrofApCSiRSResourcesPerSet) String() string {
 func (*MaxNrofApCSiRSResourcesPerSet) ProtoMessage() {}
 
 func (x *MaxNrofApCSiRSResourcesPerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[132]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[133]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9596,7 +9682,7 @@ func (x *MaxNrofApCSiRSResourcesPerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofApCSiRSResourcesPerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofApCSiRSResourcesPerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{132}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *MaxNrofApCSiRSResourcesPerSet) GetValue() int32 {
@@ -9620,7 +9706,7 @@ type MaxNrOfCsiAperiodicTriggers struct {
 func (x *MaxNrOfCsiAperiodicTriggers) Reset() {
 	*x = MaxNrOfCsiAperiodicTriggers{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[133]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[134]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9633,7 +9719,7 @@ func (x *MaxNrOfCsiAperiodicTriggers) String() string {
 func (*MaxNrOfCsiAperiodicTriggers) ProtoMessage() {}
 
 func (x *MaxNrOfCsiAperiodicTriggers) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[133]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[134]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9646,7 +9732,7 @@ func (x *MaxNrOfCsiAperiodicTriggers) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrOfCsiAperiodicTriggers.ProtoReflect.Descriptor instead.
 func (*MaxNrOfCsiAperiodicTriggers) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{133}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *MaxNrOfCsiAperiodicTriggers) GetValue() int32 {
@@ -9670,7 +9756,7 @@ type MaxNrofReportConfigPerAperiodicTrigger struct {
 func (x *MaxNrofReportConfigPerAperiodicTrigger) Reset() {
 	*x = MaxNrofReportConfigPerAperiodicTrigger{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[134]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[135]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9683,7 +9769,7 @@ func (x *MaxNrofReportConfigPerAperiodicTrigger) String() string {
 func (*MaxNrofReportConfigPerAperiodicTrigger) ProtoMessage() {}
 
 func (x *MaxNrofReportConfigPerAperiodicTrigger) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[134]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[135]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9696,7 +9782,7 @@ func (x *MaxNrofReportConfigPerAperiodicTrigger) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use MaxNrofReportConfigPerAperiodicTrigger.ProtoReflect.Descriptor instead.
 func (*MaxNrofReportConfigPerAperiodicTrigger) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{134}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *MaxNrofReportConfigPerAperiodicTrigger) GetValue() int32 {
@@ -9720,7 +9806,7 @@ type MaxNrofNzpCSiRSResources struct {
 func (x *MaxNrofNzpCSiRSResources) Reset() {
 	*x = MaxNrofNzpCSiRSResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[135]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[136]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9733,7 +9819,7 @@ func (x *MaxNrofNzpCSiRSResources) String() string {
 func (*MaxNrofNzpCSiRSResources) ProtoMessage() {}
 
 func (x *MaxNrofNzpCSiRSResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[135]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[136]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9746,7 +9832,7 @@ func (x *MaxNrofNzpCSiRSResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofNzpCSiRSResources.ProtoReflect.Descriptor instead.
 func (*MaxNrofNzpCSiRSResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{135}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *MaxNrofNzpCSiRSResources) GetValue() int32 {
@@ -9770,7 +9856,7 @@ type MaxNrofNzpCSiRSResources1 struct {
 func (x *MaxNrofNzpCSiRSResources1) Reset() {
 	*x = MaxNrofNzpCSiRSResources1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[136]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[137]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9783,7 +9869,7 @@ func (x *MaxNrofNzpCSiRSResources1) String() string {
 func (*MaxNrofNzpCSiRSResources1) ProtoMessage() {}
 
 func (x *MaxNrofNzpCSiRSResources1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[136]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[137]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9796,7 +9882,7 @@ func (x *MaxNrofNzpCSiRSResources1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofNzpCSiRSResources1.ProtoReflect.Descriptor instead.
 func (*MaxNrofNzpCSiRSResources1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{136}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *MaxNrofNzpCSiRSResources1) GetValue() int32 {
@@ -9820,7 +9906,7 @@ type MaxNrofNzpCSiRSResourcesPerSet struct {
 func (x *MaxNrofNzpCSiRSResourcesPerSet) Reset() {
 	*x = MaxNrofNzpCSiRSResourcesPerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[137]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[138]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9833,7 +9919,7 @@ func (x *MaxNrofNzpCSiRSResourcesPerSet) String() string {
 func (*MaxNrofNzpCSiRSResourcesPerSet) ProtoMessage() {}
 
 func (x *MaxNrofNzpCSiRSResourcesPerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[137]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[138]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9846,7 +9932,7 @@ func (x *MaxNrofNzpCSiRSResourcesPerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofNzpCSiRSResourcesPerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofNzpCSiRSResourcesPerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{137}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *MaxNrofNzpCSiRSResourcesPerSet) GetValue() int32 {
@@ -9870,7 +9956,7 @@ type MaxNrofNzpCSiRSResourceSets struct {
 func (x *MaxNrofNzpCSiRSResourceSets) Reset() {
 	*x = MaxNrofNzpCSiRSResourceSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[138]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[139]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9883,7 +9969,7 @@ func (x *MaxNrofNzpCSiRSResourceSets) String() string {
 func (*MaxNrofNzpCSiRSResourceSets) ProtoMessage() {}
 
 func (x *MaxNrofNzpCSiRSResourceSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[138]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[139]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9896,7 +9982,7 @@ func (x *MaxNrofNzpCSiRSResourceSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofNzpCSiRSResourceSets.ProtoReflect.Descriptor instead.
 func (*MaxNrofNzpCSiRSResourceSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{138}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *MaxNrofNzpCSiRSResourceSets) GetValue() int32 {
@@ -9920,7 +10006,7 @@ type MaxNrofNzpCSiRSResourceSets1 struct {
 func (x *MaxNrofNzpCSiRSResourceSets1) Reset() {
 	*x = MaxNrofNzpCSiRSResourceSets1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[139]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[140]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9933,7 +10019,7 @@ func (x *MaxNrofNzpCSiRSResourceSets1) String() string {
 func (*MaxNrofNzpCSiRSResourceSets1) ProtoMessage() {}
 
 func (x *MaxNrofNzpCSiRSResourceSets1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[139]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[140]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9946,7 +10032,7 @@ func (x *MaxNrofNzpCSiRSResourceSets1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofNzpCSiRSResourceSets1.ProtoReflect.Descriptor instead.
 func (*MaxNrofNzpCSiRSResourceSets1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{139}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *MaxNrofNzpCSiRSResourceSets1) GetValue() int32 {
@@ -9970,7 +10056,7 @@ type MaxNrofNzpCSiRSResourceSetsPerConfig struct {
 func (x *MaxNrofNzpCSiRSResourceSetsPerConfig) Reset() {
 	*x = MaxNrofNzpCSiRSResourceSetsPerConfig{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[140]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[141]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -9983,7 +10069,7 @@ func (x *MaxNrofNzpCSiRSResourceSetsPerConfig) String() string {
 func (*MaxNrofNzpCSiRSResourceSetsPerConfig) ProtoMessage() {}
 
 func (x *MaxNrofNzpCSiRSResourceSetsPerConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[140]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[141]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9996,7 +10082,7 @@ func (x *MaxNrofNzpCSiRSResourceSetsPerConfig) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use MaxNrofNzpCSiRSResourceSetsPerConfig.ProtoReflect.Descriptor instead.
 func (*MaxNrofNzpCSiRSResourceSetsPerConfig) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{140}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *MaxNrofNzpCSiRSResourceSetsPerConfig) GetValue() int32 {
@@ -10020,7 +10106,7 @@ type MaxNrofNzpCSiRSResourcesPerConfig struct {
 func (x *MaxNrofNzpCSiRSResourcesPerConfig) Reset() {
 	*x = MaxNrofNzpCSiRSResourcesPerConfig{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[141]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[142]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10033,7 +10119,7 @@ func (x *MaxNrofNzpCSiRSResourcesPerConfig) String() string {
 func (*MaxNrofNzpCSiRSResourcesPerConfig) ProtoMessage() {}
 
 func (x *MaxNrofNzpCSiRSResourcesPerConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[141]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[142]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10046,7 +10132,7 @@ func (x *MaxNrofNzpCSiRSResourcesPerConfig) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use MaxNrofNzpCSiRSResourcesPerConfig.ProtoReflect.Descriptor instead.
 func (*MaxNrofNzpCSiRSResourcesPerConfig) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{141}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *MaxNrofNzpCSiRSResourcesPerConfig) GetValue() int32 {
@@ -10070,7 +10156,7 @@ type MaxNrofZpCSiRSResources struct {
 func (x *MaxNrofZpCSiRSResources) Reset() {
 	*x = MaxNrofZpCSiRSResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[142]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[143]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10083,7 +10169,7 @@ func (x *MaxNrofZpCSiRSResources) String() string {
 func (*MaxNrofZpCSiRSResources) ProtoMessage() {}
 
 func (x *MaxNrofZpCSiRSResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[142]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[143]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10096,7 +10182,7 @@ func (x *MaxNrofZpCSiRSResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofZpCSiRSResources.ProtoReflect.Descriptor instead.
 func (*MaxNrofZpCSiRSResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{142}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *MaxNrofZpCSiRSResources) GetValue() int32 {
@@ -10120,7 +10206,7 @@ type MaxNrofZpCSiRSResources1 struct {
 func (x *MaxNrofZpCSiRSResources1) Reset() {
 	*x = MaxNrofZpCSiRSResources1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[143]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[144]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10133,7 +10219,7 @@ func (x *MaxNrofZpCSiRSResources1) String() string {
 func (*MaxNrofZpCSiRSResources1) ProtoMessage() {}
 
 func (x *MaxNrofZpCSiRSResources1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[143]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[144]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10146,7 +10232,7 @@ func (x *MaxNrofZpCSiRSResources1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofZpCSiRSResources1.ProtoReflect.Descriptor instead.
 func (*MaxNrofZpCSiRSResources1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{143}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *MaxNrofZpCSiRSResources1) GetValue() int32 {
@@ -10170,7 +10256,7 @@ type MaxNrofZpCSiRSResourceSets1 struct {
 func (x *MaxNrofZpCSiRSResourceSets1) Reset() {
 	*x = MaxNrofZpCSiRSResourceSets1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[144]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[145]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10183,7 +10269,7 @@ func (x *MaxNrofZpCSiRSResourceSets1) String() string {
 func (*MaxNrofZpCSiRSResourceSets1) ProtoMessage() {}
 
 func (x *MaxNrofZpCSiRSResourceSets1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[144]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[145]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10196,7 +10282,7 @@ func (x *MaxNrofZpCSiRSResourceSets1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofZpCSiRSResourceSets1.ProtoReflect.Descriptor instead.
 func (*MaxNrofZpCSiRSResourceSets1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{144}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *MaxNrofZpCSiRSResourceSets1) GetValue() int32 {
@@ -10220,7 +10306,7 @@ type MaxNrofZpCSiRSResourcesPerSet struct {
 func (x *MaxNrofZpCSiRSResourcesPerSet) Reset() {
 	*x = MaxNrofZpCSiRSResourcesPerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[145]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[146]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10233,7 +10319,7 @@ func (x *MaxNrofZpCSiRSResourcesPerSet) String() string {
 func (*MaxNrofZpCSiRSResourcesPerSet) ProtoMessage() {}
 
 func (x *MaxNrofZpCSiRSResourcesPerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[145]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[146]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10246,7 +10332,7 @@ func (x *MaxNrofZpCSiRSResourcesPerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofZpCSiRSResourcesPerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofZpCSiRSResourcesPerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{145}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *MaxNrofZpCSiRSResourcesPerSet) GetValue() int32 {
@@ -10270,7 +10356,7 @@ type MaxNrofZpCSiRSResourceSets struct {
 func (x *MaxNrofZpCSiRSResourceSets) Reset() {
 	*x = MaxNrofZpCSiRSResourceSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[146]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[147]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10283,7 +10369,7 @@ func (x *MaxNrofZpCSiRSResourceSets) String() string {
 func (*MaxNrofZpCSiRSResourceSets) ProtoMessage() {}
 
 func (x *MaxNrofZpCSiRSResourceSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[146]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[147]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10296,7 +10382,7 @@ func (x *MaxNrofZpCSiRSResourceSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofZpCSiRSResourceSets.ProtoReflect.Descriptor instead.
 func (*MaxNrofZpCSiRSResourceSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{146}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *MaxNrofZpCSiRSResourceSets) GetValue() int32 {
@@ -10320,7 +10406,7 @@ type MaxNrofCsiIMResources struct {
 func (x *MaxNrofCsiIMResources) Reset() {
 	*x = MaxNrofCsiIMResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[147]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[148]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10333,7 +10419,7 @@ func (x *MaxNrofCsiIMResources) String() string {
 func (*MaxNrofCsiIMResources) ProtoMessage() {}
 
 func (x *MaxNrofCsiIMResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[147]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[148]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10346,7 +10432,7 @@ func (x *MaxNrofCsiIMResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiIMResources.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiIMResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{147}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *MaxNrofCsiIMResources) GetValue() int32 {
@@ -10370,7 +10456,7 @@ type MaxNrofCsiIMResources1 struct {
 func (x *MaxNrofCsiIMResources1) Reset() {
 	*x = MaxNrofCsiIMResources1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[148]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[149]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10383,7 +10469,7 @@ func (x *MaxNrofCsiIMResources1) String() string {
 func (*MaxNrofCsiIMResources1) ProtoMessage() {}
 
 func (x *MaxNrofCsiIMResources1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[148]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[149]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10396,7 +10482,7 @@ func (x *MaxNrofCsiIMResources1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiIMResources1.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiIMResources1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{148}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *MaxNrofCsiIMResources1) GetValue() int32 {
@@ -10420,7 +10506,7 @@ type MaxNrofCsiIMResourcesPerSet struct {
 func (x *MaxNrofCsiIMResourcesPerSet) Reset() {
 	*x = MaxNrofCsiIMResourcesPerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[149]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[150]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10433,7 +10519,7 @@ func (x *MaxNrofCsiIMResourcesPerSet) String() string {
 func (*MaxNrofCsiIMResourcesPerSet) ProtoMessage() {}
 
 func (x *MaxNrofCsiIMResourcesPerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[149]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[150]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10446,7 +10532,7 @@ func (x *MaxNrofCsiIMResourcesPerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiIMResourcesPerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiIMResourcesPerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{149}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *MaxNrofCsiIMResourcesPerSet) GetValue() int32 {
@@ -10470,7 +10556,7 @@ type MaxNrofCsiIMResourceSets struct {
 func (x *MaxNrofCsiIMResourceSets) Reset() {
 	*x = MaxNrofCsiIMResourceSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[150]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[151]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10483,7 +10569,7 @@ func (x *MaxNrofCsiIMResourceSets) String() string {
 func (*MaxNrofCsiIMResourceSets) ProtoMessage() {}
 
 func (x *MaxNrofCsiIMResourceSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[150]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[151]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10496,7 +10582,7 @@ func (x *MaxNrofCsiIMResourceSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiIMResourceSets.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiIMResourceSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{150}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *MaxNrofCsiIMResourceSets) GetValue() int32 {
@@ -10520,7 +10606,7 @@ type MaxNrofCsiIMResourceSets1 struct {
 func (x *MaxNrofCsiIMResourceSets1) Reset() {
 	*x = MaxNrofCsiIMResourceSets1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[151]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[152]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10533,7 +10619,7 @@ func (x *MaxNrofCsiIMResourceSets1) String() string {
 func (*MaxNrofCsiIMResourceSets1) ProtoMessage() {}
 
 func (x *MaxNrofCsiIMResourceSets1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[151]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[152]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10546,7 +10632,7 @@ func (x *MaxNrofCsiIMResourceSets1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiIMResourceSets1.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiIMResourceSets1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{151}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *MaxNrofCsiIMResourceSets1) GetValue() int32 {
@@ -10570,7 +10656,7 @@ type MaxNrofCsiIMResourceSetsPerConfig struct {
 func (x *MaxNrofCsiIMResourceSetsPerConfig) Reset() {
 	*x = MaxNrofCsiIMResourceSetsPerConfig{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[152]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[153]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10583,7 +10669,7 @@ func (x *MaxNrofCsiIMResourceSetsPerConfig) String() string {
 func (*MaxNrofCsiIMResourceSetsPerConfig) ProtoMessage() {}
 
 func (x *MaxNrofCsiIMResourceSetsPerConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[152]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[153]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10596,7 +10682,7 @@ func (x *MaxNrofCsiIMResourceSetsPerConfig) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use MaxNrofCsiIMResourceSetsPerConfig.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiIMResourceSetsPerConfig) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{152}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *MaxNrofCsiIMResourceSetsPerConfig) GetValue() int32 {
@@ -10620,7 +10706,7 @@ type MaxNrofCsiSSbResourcePerSet struct {
 func (x *MaxNrofCsiSSbResourcePerSet) Reset() {
 	*x = MaxNrofCsiSSbResourcePerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[153]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[154]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10633,7 +10719,7 @@ func (x *MaxNrofCsiSSbResourcePerSet) String() string {
 func (*MaxNrofCsiSSbResourcePerSet) ProtoMessage() {}
 
 func (x *MaxNrofCsiSSbResourcePerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[153]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[154]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10646,7 +10732,7 @@ func (x *MaxNrofCsiSSbResourcePerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiSSbResourcePerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiSSbResourcePerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{153}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *MaxNrofCsiSSbResourcePerSet) GetValue() int32 {
@@ -10670,7 +10756,7 @@ type MaxNrofCsiSSbResourceSets struct {
 func (x *MaxNrofCsiSSbResourceSets) Reset() {
 	*x = MaxNrofCsiSSbResourceSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[154]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[155]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10683,7 +10769,7 @@ func (x *MaxNrofCsiSSbResourceSets) String() string {
 func (*MaxNrofCsiSSbResourceSets) ProtoMessage() {}
 
 func (x *MaxNrofCsiSSbResourceSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[154]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[155]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10696,7 +10782,7 @@ func (x *MaxNrofCsiSSbResourceSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiSSbResourceSets.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiSSbResourceSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{154}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *MaxNrofCsiSSbResourceSets) GetValue() int32 {
@@ -10720,7 +10806,7 @@ type MaxNrofCsiSSbResourceSets1 struct {
 func (x *MaxNrofCsiSSbResourceSets1) Reset() {
 	*x = MaxNrofCsiSSbResourceSets1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[155]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[156]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10733,7 +10819,7 @@ func (x *MaxNrofCsiSSbResourceSets1) String() string {
 func (*MaxNrofCsiSSbResourceSets1) ProtoMessage() {}
 
 func (x *MaxNrofCsiSSbResourceSets1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[155]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[156]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10746,7 +10832,7 @@ func (x *MaxNrofCsiSSbResourceSets1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiSSbResourceSets1.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiSSbResourceSets1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{155}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *MaxNrofCsiSSbResourceSets1) GetValue() int32 {
@@ -10770,7 +10856,7 @@ type MaxNrofCsiSSbResourceSetsPerConfig struct {
 func (x *MaxNrofCsiSSbResourceSetsPerConfig) Reset() {
 	*x = MaxNrofCsiSSbResourceSetsPerConfig{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[156]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[157]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10783,7 +10869,7 @@ func (x *MaxNrofCsiSSbResourceSetsPerConfig) String() string {
 func (*MaxNrofCsiSSbResourceSetsPerConfig) ProtoMessage() {}
 
 func (x *MaxNrofCsiSSbResourceSetsPerConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[156]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[157]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10796,7 +10882,7 @@ func (x *MaxNrofCsiSSbResourceSetsPerConfig) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use MaxNrofCsiSSbResourceSetsPerConfig.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiSSbResourceSetsPerConfig) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{156}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *MaxNrofCsiSSbResourceSetsPerConfig) GetValue() int32 {
@@ -10820,7 +10906,7 @@ type MaxNrofFailureDetectionResources struct {
 func (x *MaxNrofFailureDetectionResources) Reset() {
 	*x = MaxNrofFailureDetectionResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[157]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[158]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10833,7 +10919,7 @@ func (x *MaxNrofFailureDetectionResources) String() string {
 func (*MaxNrofFailureDetectionResources) ProtoMessage() {}
 
 func (x *MaxNrofFailureDetectionResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[157]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[158]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10846,7 +10932,7 @@ func (x *MaxNrofFailureDetectionResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofFailureDetectionResources.ProtoReflect.Descriptor instead.
 func (*MaxNrofFailureDetectionResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{157}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *MaxNrofFailureDetectionResources) GetValue() int32 {
@@ -10870,7 +10956,7 @@ type MaxNrofFailureDetectionResources1 struct {
 func (x *MaxNrofFailureDetectionResources1) Reset() {
 	*x = MaxNrofFailureDetectionResources1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[158]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[159]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10883,7 +10969,7 @@ func (x *MaxNrofFailureDetectionResources1) String() string {
 func (*MaxNrofFailureDetectionResources1) ProtoMessage() {}
 
 func (x *MaxNrofFailureDetectionResources1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[158]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[159]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10896,7 +10982,7 @@ func (x *MaxNrofFailureDetectionResources1) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use MaxNrofFailureDetectionResources1.ProtoReflect.Descriptor instead.
 func (*MaxNrofFailureDetectionResources1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{158}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *MaxNrofFailureDetectionResources1) GetValue() int32 {
@@ -10920,7 +11006,7 @@ type MaxNrofFreqSlr16 struct {
 func (x *MaxNrofFreqSlr16) Reset() {
 	*x = MaxNrofFreqSlr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[159]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[160]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10933,7 +11019,7 @@ func (x *MaxNrofFreqSlr16) String() string {
 func (*MaxNrofFreqSlr16) ProtoMessage() {}
 
 func (x *MaxNrofFreqSlr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[159]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[160]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10946,7 +11032,7 @@ func (x *MaxNrofFreqSlr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofFreqSlr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofFreqSlr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{159}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *MaxNrofFreqSlr16) GetValue() int32 {
@@ -10970,7 +11056,7 @@ type MaxNrofSlBWpsr16 struct {
 func (x *MaxNrofSlBWpsr16) Reset() {
 	*x = MaxNrofSlBWpsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[160]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[161]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -10983,7 +11069,7 @@ func (x *MaxNrofSlBWpsr16) String() string {
 func (*MaxNrofSlBWpsr16) ProtoMessage() {}
 
 func (x *MaxNrofSlBWpsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[160]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[161]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10996,7 +11082,7 @@ func (x *MaxNrofSlBWpsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlBWpsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlBWpsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{160}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *MaxNrofSlBWpsr16) GetValue() int32 {
@@ -11020,7 +11106,7 @@ type MaxFreqSlEUtrar16 struct {
 func (x *MaxFreqSlEUtrar16) Reset() {
 	*x = MaxFreqSlEUtrar16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[161]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[162]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11033,7 +11119,7 @@ func (x *MaxFreqSlEUtrar16) String() string {
 func (*MaxFreqSlEUtrar16) ProtoMessage() {}
 
 func (x *MaxFreqSlEUtrar16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[161]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[162]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11046,7 +11132,7 @@ func (x *MaxFreqSlEUtrar16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFreqSlEUtrar16.ProtoReflect.Descriptor instead.
 func (*MaxFreqSlEUtrar16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{161}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *MaxFreqSlEUtrar16) GetValue() int32 {
@@ -11070,7 +11156,7 @@ type MaxNrofSlMeasIdr16 struct {
 func (x *MaxNrofSlMeasIdr16) Reset() {
 	*x = MaxNrofSlMeasIdr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[162]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[163]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11083,7 +11169,7 @@ func (x *MaxNrofSlMeasIdr16) String() string {
 func (*MaxNrofSlMeasIdr16) ProtoMessage() {}
 
 func (x *MaxNrofSlMeasIdr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[162]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[163]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11096,7 +11182,7 @@ func (x *MaxNrofSlMeasIdr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlMeasIdr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlMeasIdr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{162}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *MaxNrofSlMeasIdr16) GetValue() int32 {
@@ -11120,7 +11206,7 @@ type MaxNrofSlObjectIdr16 struct {
 func (x *MaxNrofSlObjectIdr16) Reset() {
 	*x = MaxNrofSlObjectIdr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[163]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[164]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11133,7 +11219,7 @@ func (x *MaxNrofSlObjectIdr16) String() string {
 func (*MaxNrofSlObjectIdr16) ProtoMessage() {}
 
 func (x *MaxNrofSlObjectIdr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[163]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[164]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11146,7 +11232,7 @@ func (x *MaxNrofSlObjectIdr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlObjectIdr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlObjectIdr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{163}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{164}
 }
 
 func (x *MaxNrofSlObjectIdr16) GetValue() int32 {
@@ -11170,7 +11256,7 @@ type MaxNrofSlReportConfigIdr16 struct {
 func (x *MaxNrofSlReportConfigIdr16) Reset() {
 	*x = MaxNrofSlReportConfigIdr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[164]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[165]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11183,7 +11269,7 @@ func (x *MaxNrofSlReportConfigIdr16) String() string {
 func (*MaxNrofSlReportConfigIdr16) ProtoMessage() {}
 
 func (x *MaxNrofSlReportConfigIdr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[164]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[165]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11196,7 +11282,7 @@ func (x *MaxNrofSlReportConfigIdr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlReportConfigIdr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlReportConfigIdr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{164}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *MaxNrofSlReportConfigIdr16) GetValue() int32 {
@@ -11220,7 +11306,7 @@ type MaxNrofSlPoolToMeasureNrr16 struct {
 func (x *MaxNrofSlPoolToMeasureNrr16) Reset() {
 	*x = MaxNrofSlPoolToMeasureNrr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[165]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[166]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11233,7 +11319,7 @@ func (x *MaxNrofSlPoolToMeasureNrr16) String() string {
 func (*MaxNrofSlPoolToMeasureNrr16) ProtoMessage() {}
 
 func (x *MaxNrofSlPoolToMeasureNrr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[165]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[166]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11246,7 +11332,7 @@ func (x *MaxNrofSlPoolToMeasureNrr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlPoolToMeasureNrr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlPoolToMeasureNrr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{165}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *MaxNrofSlPoolToMeasureNrr16) GetValue() int32 {
@@ -11270,7 +11356,7 @@ type MaxFreqSlNRr16 struct {
 func (x *MaxFreqSlNRr16) Reset() {
 	*x = MaxFreqSlNRr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[166]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[167]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11283,7 +11369,7 @@ func (x *MaxFreqSlNRr16) String() string {
 func (*MaxFreqSlNRr16) ProtoMessage() {}
 
 func (x *MaxFreqSlNRr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[166]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[167]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11296,7 +11382,7 @@ func (x *MaxFreqSlNRr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFreqSlNRr16.ProtoReflect.Descriptor instead.
 func (*MaxFreqSlNRr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{166}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *MaxFreqSlNRr16) GetValue() int32 {
@@ -11320,7 +11406,7 @@ type MaxNrofSlQFisr16 struct {
 func (x *MaxNrofSlQFisr16) Reset() {
 	*x = MaxNrofSlQFisr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[167]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[168]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11333,7 +11419,7 @@ func (x *MaxNrofSlQFisr16) String() string {
 func (*MaxNrofSlQFisr16) ProtoMessage() {}
 
 func (x *MaxNrofSlQFisr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[167]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[168]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11346,7 +11432,7 @@ func (x *MaxNrofSlQFisr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlQFisr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlQFisr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{167}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *MaxNrofSlQFisr16) GetValue() int32 {
@@ -11370,7 +11456,7 @@ type MaxNrofSlQFisPerDestr16 struct {
 func (x *MaxNrofSlQFisPerDestr16) Reset() {
 	*x = MaxNrofSlQFisPerDestr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[168]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[169]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11383,7 +11469,7 @@ func (x *MaxNrofSlQFisPerDestr16) String() string {
 func (*MaxNrofSlQFisPerDestr16) ProtoMessage() {}
 
 func (x *MaxNrofSlQFisPerDestr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[168]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[169]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11396,7 +11482,7 @@ func (x *MaxNrofSlQFisPerDestr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlQFisPerDestr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlQFisPerDestr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{168}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *MaxNrofSlQFisPerDestr16) GetValue() int32 {
@@ -11420,7 +11506,7 @@ type MaxNrofObjectId struct {
 func (x *MaxNrofObjectId) Reset() {
 	*x = MaxNrofObjectId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[169]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[170]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11433,7 +11519,7 @@ func (x *MaxNrofObjectId) String() string {
 func (*MaxNrofObjectId) ProtoMessage() {}
 
 func (x *MaxNrofObjectId) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[169]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[170]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11446,7 +11532,7 @@ func (x *MaxNrofObjectId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofObjectId.ProtoReflect.Descriptor instead.
 func (*MaxNrofObjectId) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{169}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *MaxNrofObjectId) GetValue() int32 {
@@ -11470,7 +11556,7 @@ type MaxNrofPageRec struct {
 func (x *MaxNrofPageRec) Reset() {
 	*x = MaxNrofPageRec{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[170]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[171]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11483,7 +11569,7 @@ func (x *MaxNrofPageRec) String() string {
 func (*MaxNrofPageRec) ProtoMessage() {}
 
 func (x *MaxNrofPageRec) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[170]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[171]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11496,7 +11582,7 @@ func (x *MaxNrofPageRec) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPageRec.ProtoReflect.Descriptor instead.
 func (*MaxNrofPageRec) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{170}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *MaxNrofPageRec) GetValue() int32 {
@@ -11520,7 +11606,7 @@ type MaxNrofPciRanges struct {
 func (x *MaxNrofPciRanges) Reset() {
 	*x = MaxNrofPciRanges{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[171]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[172]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11533,7 +11619,7 @@ func (x *MaxNrofPciRanges) String() string {
 func (*MaxNrofPciRanges) ProtoMessage() {}
 
 func (x *MaxNrofPciRanges) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[171]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[172]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11546,7 +11632,7 @@ func (x *MaxNrofPciRanges) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPciRanges.ProtoReflect.Descriptor instead.
 func (*MaxNrofPciRanges) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{171}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *MaxNrofPciRanges) GetValue() int32 {
@@ -11570,7 +11656,7 @@ type MaxPlmn struct {
 func (x *MaxPlmn) Reset() {
 	*x = MaxPlmn{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[172]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[173]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11583,7 +11669,7 @@ func (x *MaxPlmn) String() string {
 func (*MaxPlmn) ProtoMessage() {}
 
 func (x *MaxPlmn) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[172]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[173]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11596,7 +11682,7 @@ func (x *MaxPlmn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxPlmn.ProtoReflect.Descriptor instead.
 func (*MaxPlmn) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{172}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *MaxPlmn) GetValue() int32 {
@@ -11620,7 +11706,7 @@ type MaxNrofCsiRSResourcesRrm struct {
 func (x *MaxNrofCsiRSResourcesRrm) Reset() {
 	*x = MaxNrofCsiRSResourcesRrm{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[173]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[174]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11633,7 +11719,7 @@ func (x *MaxNrofCsiRSResourcesRrm) String() string {
 func (*MaxNrofCsiRSResourcesRrm) ProtoMessage() {}
 
 func (x *MaxNrofCsiRSResourcesRrm) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[173]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[174]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11646,7 +11732,7 @@ func (x *MaxNrofCsiRSResourcesRrm) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiRSResourcesRrm.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiRSResourcesRrm) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{173}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *MaxNrofCsiRSResourcesRrm) GetValue() int32 {
@@ -11670,7 +11756,7 @@ type MaxNrofCsiRSResourcesRrm1 struct {
 func (x *MaxNrofCsiRSResourcesRrm1) Reset() {
 	*x = MaxNrofCsiRSResourcesRrm1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[174]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[175]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11683,7 +11769,7 @@ func (x *MaxNrofCsiRSResourcesRrm1) String() string {
 func (*MaxNrofCsiRSResourcesRrm1) ProtoMessage() {}
 
 func (x *MaxNrofCsiRSResourcesRrm1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[174]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[175]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11696,7 +11782,7 @@ func (x *MaxNrofCsiRSResourcesRrm1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiRSResourcesRrm1.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiRSResourcesRrm1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{174}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *MaxNrofCsiRSResourcesRrm1) GetValue() int32 {
@@ -11720,7 +11806,7 @@ type MaxNrofMeasId struct {
 func (x *MaxNrofMeasId) Reset() {
 	*x = MaxNrofMeasId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[175]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[176]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11733,7 +11819,7 @@ func (x *MaxNrofMeasId) String() string {
 func (*MaxNrofMeasId) ProtoMessage() {}
 
 func (x *MaxNrofMeasId) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[175]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[176]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11746,7 +11832,7 @@ func (x *MaxNrofMeasId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofMeasId.ProtoReflect.Descriptor instead.
 func (*MaxNrofMeasId) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{175}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *MaxNrofMeasId) GetValue() int32 {
@@ -11770,7 +11856,7 @@ type MaxNrofQuantityConfig struct {
 func (x *MaxNrofQuantityConfig) Reset() {
 	*x = MaxNrofQuantityConfig{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[176]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[177]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11783,7 +11869,7 @@ func (x *MaxNrofQuantityConfig) String() string {
 func (*MaxNrofQuantityConfig) ProtoMessage() {}
 
 func (x *MaxNrofQuantityConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[176]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[177]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11796,7 +11882,7 @@ func (x *MaxNrofQuantityConfig) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofQuantityConfig.ProtoReflect.Descriptor instead.
 func (*MaxNrofQuantityConfig) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{176}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *MaxNrofQuantityConfig) GetValue() int32 {
@@ -11820,7 +11906,7 @@ type MaxNrofCsiRSCellsRrm struct {
 func (x *MaxNrofCsiRSCellsRrm) Reset() {
 	*x = MaxNrofCsiRSCellsRrm{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[177]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[178]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11833,7 +11919,7 @@ func (x *MaxNrofCsiRSCellsRrm) String() string {
 func (*MaxNrofCsiRSCellsRrm) ProtoMessage() {}
 
 func (x *MaxNrofCsiRSCellsRrm) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[177]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[178]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11846,7 +11932,7 @@ func (x *MaxNrofCsiRSCellsRrm) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiRSCellsRrm.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiRSCellsRrm) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{177}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *MaxNrofCsiRSCellsRrm) GetValue() int32 {
@@ -11870,7 +11956,7 @@ type MaxNrofSlDestr16 struct {
 func (x *MaxNrofSlDestr16) Reset() {
 	*x = MaxNrofSlDestr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[178]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[179]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11883,7 +11969,7 @@ func (x *MaxNrofSlDestr16) String() string {
 func (*MaxNrofSlDestr16) ProtoMessage() {}
 
 func (x *MaxNrofSlDestr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[178]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[179]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11896,7 +11982,7 @@ func (x *MaxNrofSlDestr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlDestr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlDestr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{178}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *MaxNrofSlDestr16) GetValue() int32 {
@@ -11920,7 +12006,7 @@ type MaxNrofSlDest1R16 struct {
 func (x *MaxNrofSlDest1R16) Reset() {
 	*x = MaxNrofSlDest1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[179]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[180]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11933,7 +12019,7 @@ func (x *MaxNrofSlDest1R16) String() string {
 func (*MaxNrofSlDest1R16) ProtoMessage() {}
 
 func (x *MaxNrofSlDest1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[179]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[180]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11946,7 +12032,7 @@ func (x *MaxNrofSlDest1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlDest1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlDest1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{179}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *MaxNrofSlDest1R16) GetValue() int32 {
@@ -11970,7 +12056,7 @@ type MaxNrofSlrbr16 struct {
 func (x *MaxNrofSlrbr16) Reset() {
 	*x = MaxNrofSlrbr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[180]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[181]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -11983,7 +12069,7 @@ func (x *MaxNrofSlrbr16) String() string {
 func (*MaxNrofSlrbr16) ProtoMessage() {}
 
 func (x *MaxNrofSlrbr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[180]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[181]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11996,7 +12082,7 @@ func (x *MaxNrofSlrbr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlrbr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlrbr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{180}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *MaxNrofSlrbr16) GetValue() int32 {
@@ -12020,7 +12106,7 @@ type MaxSlLCidr16 struct {
 func (x *MaxSlLCidr16) Reset() {
 	*x = MaxSlLCidr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[181]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[182]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12033,7 +12119,7 @@ func (x *MaxSlLCidr16) String() string {
 func (*MaxSlLCidr16) ProtoMessage() {}
 
 func (x *MaxSlLCidr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[181]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[182]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12046,7 +12132,7 @@ func (x *MaxSlLCidr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxSlLCidr16.ProtoReflect.Descriptor instead.
 func (*MaxSlLCidr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{181}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{182}
 }
 
 func (x *MaxSlLCidr16) GetValue() int32 {
@@ -12070,7 +12156,7 @@ type MaxSlSyncConfigr16 struct {
 func (x *MaxSlSyncConfigr16) Reset() {
 	*x = MaxSlSyncConfigr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[182]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[183]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12083,7 +12169,7 @@ func (x *MaxSlSyncConfigr16) String() string {
 func (*MaxSlSyncConfigr16) ProtoMessage() {}
 
 func (x *MaxSlSyncConfigr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[182]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[183]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12096,7 +12182,7 @@ func (x *MaxSlSyncConfigr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxSlSyncConfigr16.ProtoReflect.Descriptor instead.
 func (*MaxSlSyncConfigr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{182}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{183}
 }
 
 func (x *MaxSlSyncConfigr16) GetValue() int32 {
@@ -12120,7 +12206,7 @@ type MaxNrofRxpoolr16 struct {
 func (x *MaxNrofRxpoolr16) Reset() {
 	*x = MaxNrofRxpoolr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[183]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[184]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12133,7 +12219,7 @@ func (x *MaxNrofRxpoolr16) String() string {
 func (*MaxNrofRxpoolr16) ProtoMessage() {}
 
 func (x *MaxNrofRxpoolr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[183]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[184]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12146,7 +12232,7 @@ func (x *MaxNrofRxpoolr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofRxpoolr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofRxpoolr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{183}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{184}
 }
 
 func (x *MaxNrofRxpoolr16) GetValue() int32 {
@@ -12170,7 +12256,7 @@ type MaxNrofTxpoolr16 struct {
 func (x *MaxNrofTxpoolr16) Reset() {
 	*x = MaxNrofTxpoolr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[184]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[185]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12183,7 +12269,7 @@ func (x *MaxNrofTxpoolr16) String() string {
 func (*MaxNrofTxpoolr16) ProtoMessage() {}
 
 func (x *MaxNrofTxpoolr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[184]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[185]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12196,7 +12282,7 @@ func (x *MaxNrofTxpoolr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofTxpoolr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofTxpoolr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{184}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{185}
 }
 
 func (x *MaxNrofTxpoolr16) GetValue() int32 {
@@ -12220,7 +12306,7 @@ type MaxNrofPoolIdr16 struct {
 func (x *MaxNrofPoolIdr16) Reset() {
 	*x = MaxNrofPoolIdr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[185]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[186]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12233,7 +12319,7 @@ func (x *MaxNrofPoolIdr16) String() string {
 func (*MaxNrofPoolIdr16) ProtoMessage() {}
 
 func (x *MaxNrofPoolIdr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[185]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[186]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12246,7 +12332,7 @@ func (x *MaxNrofPoolIdr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPoolIdr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPoolIdr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{185}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{186}
 }
 
 func (x *MaxNrofPoolIdr16) GetValue() int32 {
@@ -12270,7 +12356,7 @@ type MaxNrofSrsPathlossReferenceRsr16 struct {
 func (x *MaxNrofSrsPathlossReferenceRsr16) Reset() {
 	*x = MaxNrofSrsPathlossReferenceRsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[186]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[187]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12283,7 +12369,7 @@ func (x *MaxNrofSrsPathlossReferenceRsr16) String() string {
 func (*MaxNrofSrsPathlossReferenceRsr16) ProtoMessage() {}
 
 func (x *MaxNrofSrsPathlossReferenceRsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[186]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[187]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12296,7 +12382,7 @@ func (x *MaxNrofSrsPathlossReferenceRsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsPathlossReferenceRsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsPathlossReferenceRsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{186}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{187}
 }
 
 func (x *MaxNrofSrsPathlossReferenceRsr16) GetValue() int32 {
@@ -12320,7 +12406,7 @@ type MaxNrofSrsPathlossReferenceRs1R16 struct {
 func (x *MaxNrofSrsPathlossReferenceRs1R16) Reset() {
 	*x = MaxNrofSrsPathlossReferenceRs1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[187]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[188]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12333,7 +12419,7 @@ func (x *MaxNrofSrsPathlossReferenceRs1R16) String() string {
 func (*MaxNrofSrsPathlossReferenceRs1R16) ProtoMessage() {}
 
 func (x *MaxNrofSrsPathlossReferenceRs1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[187]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[188]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12346,7 +12432,7 @@ func (x *MaxNrofSrsPathlossReferenceRs1R16) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use MaxNrofSrsPathlossReferenceRs1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsPathlossReferenceRs1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{187}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{188}
 }
 
 func (x *MaxNrofSrsPathlossReferenceRs1R16) GetValue() int32 {
@@ -12370,7 +12456,7 @@ type MaxNrofSrsResourceSets struct {
 func (x *MaxNrofSrsResourceSets) Reset() {
 	*x = MaxNrofSrsResourceSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[188]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[189]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12383,7 +12469,7 @@ func (x *MaxNrofSrsResourceSets) String() string {
 func (*MaxNrofSrsResourceSets) ProtoMessage() {}
 
 func (x *MaxNrofSrsResourceSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[188]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[189]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12396,7 +12482,7 @@ func (x *MaxNrofSrsResourceSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsResourceSets.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsResourceSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{188}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{189}
 }
 
 func (x *MaxNrofSrsResourceSets) GetValue() int32 {
@@ -12420,7 +12506,7 @@ type MaxNrofSrsResourceSets1 struct {
 func (x *MaxNrofSrsResourceSets1) Reset() {
 	*x = MaxNrofSrsResourceSets1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[189]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[190]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12433,7 +12519,7 @@ func (x *MaxNrofSrsResourceSets1) String() string {
 func (*MaxNrofSrsResourceSets1) ProtoMessage() {}
 
 func (x *MaxNrofSrsResourceSets1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[189]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[190]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12446,7 +12532,7 @@ func (x *MaxNrofSrsResourceSets1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsResourceSets1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsResourceSets1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{189}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{190}
 }
 
 func (x *MaxNrofSrsResourceSets1) GetValue() int32 {
@@ -12470,7 +12556,7 @@ type MaxNrofSrsPosResourceSetsr16 struct {
 func (x *MaxNrofSrsPosResourceSetsr16) Reset() {
 	*x = MaxNrofSrsPosResourceSetsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[190]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[191]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12483,7 +12569,7 @@ func (x *MaxNrofSrsPosResourceSetsr16) String() string {
 func (*MaxNrofSrsPosResourceSetsr16) ProtoMessage() {}
 
 func (x *MaxNrofSrsPosResourceSetsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[190]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[191]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12496,7 +12582,7 @@ func (x *MaxNrofSrsPosResourceSetsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsPosResourceSetsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsPosResourceSetsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{190}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{191}
 }
 
 func (x *MaxNrofSrsPosResourceSetsr16) GetValue() int32 {
@@ -12520,7 +12606,7 @@ type MaxNrofSrsPosResourceSets1R16 struct {
 func (x *MaxNrofSrsPosResourceSets1R16) Reset() {
 	*x = MaxNrofSrsPosResourceSets1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[191]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[192]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12533,7 +12619,7 @@ func (x *MaxNrofSrsPosResourceSets1R16) String() string {
 func (*MaxNrofSrsPosResourceSets1R16) ProtoMessage() {}
 
 func (x *MaxNrofSrsPosResourceSets1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[191]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[192]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12546,7 +12632,7 @@ func (x *MaxNrofSrsPosResourceSets1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsPosResourceSets1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsPosResourceSets1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{191}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *MaxNrofSrsPosResourceSets1R16) GetValue() int32 {
@@ -12570,7 +12656,7 @@ type MaxNrofSrsResources struct {
 func (x *MaxNrofSrsResources) Reset() {
 	*x = MaxNrofSrsResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[192]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[193]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12583,7 +12669,7 @@ func (x *MaxNrofSrsResources) String() string {
 func (*MaxNrofSrsResources) ProtoMessage() {}
 
 func (x *MaxNrofSrsResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[192]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[193]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12596,7 +12682,7 @@ func (x *MaxNrofSrsResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsResources.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{192}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{193}
 }
 
 func (x *MaxNrofSrsResources) GetValue() int32 {
@@ -12620,7 +12706,7 @@ type MaxNrofSrsResources1 struct {
 func (x *MaxNrofSrsResources1) Reset() {
 	*x = MaxNrofSrsResources1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[193]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[194]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12633,7 +12719,7 @@ func (x *MaxNrofSrsResources1) String() string {
 func (*MaxNrofSrsResources1) ProtoMessage() {}
 
 func (x *MaxNrofSrsResources1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[193]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[194]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12646,7 +12732,7 @@ func (x *MaxNrofSrsResources1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsResources1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsResources1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{193}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{194}
 }
 
 func (x *MaxNrofSrsResources1) GetValue() int32 {
@@ -12670,7 +12756,7 @@ type MaxNrofSrsPosResourcesr16 struct {
 func (x *MaxNrofSrsPosResourcesr16) Reset() {
 	*x = MaxNrofSrsPosResourcesr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[194]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[195]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12683,7 +12769,7 @@ func (x *MaxNrofSrsPosResourcesr16) String() string {
 func (*MaxNrofSrsPosResourcesr16) ProtoMessage() {}
 
 func (x *MaxNrofSrsPosResourcesr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[194]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[195]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12696,7 +12782,7 @@ func (x *MaxNrofSrsPosResourcesr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsPosResourcesr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsPosResourcesr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{194}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{195}
 }
 
 func (x *MaxNrofSrsPosResourcesr16) GetValue() int32 {
@@ -12720,7 +12806,7 @@ type MaxNrofSrsPosResources1R16 struct {
 func (x *MaxNrofSrsPosResources1R16) Reset() {
 	*x = MaxNrofSrsPosResources1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[195]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[196]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12733,7 +12819,7 @@ func (x *MaxNrofSrsPosResources1R16) String() string {
 func (*MaxNrofSrsPosResources1R16) ProtoMessage() {}
 
 func (x *MaxNrofSrsPosResources1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[195]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[196]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12746,7 +12832,7 @@ func (x *MaxNrofSrsPosResources1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsPosResources1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsPosResources1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{195}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{196}
 }
 
 func (x *MaxNrofSrsPosResources1R16) GetValue() int32 {
@@ -12770,7 +12856,7 @@ type MaxNrofSrsResourcesPerSet struct {
 func (x *MaxNrofSrsResourcesPerSet) Reset() {
 	*x = MaxNrofSrsResourcesPerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[196]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[197]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12783,7 +12869,7 @@ func (x *MaxNrofSrsResourcesPerSet) String() string {
 func (*MaxNrofSrsResourcesPerSet) ProtoMessage() {}
 
 func (x *MaxNrofSrsResourcesPerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[196]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[197]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12796,7 +12882,7 @@ func (x *MaxNrofSrsResourcesPerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsResourcesPerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsResourcesPerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{196}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{197}
 }
 
 func (x *MaxNrofSrsResourcesPerSet) GetValue() int32 {
@@ -12820,7 +12906,7 @@ type MaxNrofSrsTriggerStates1 struct {
 func (x *MaxNrofSrsTriggerStates1) Reset() {
 	*x = MaxNrofSrsTriggerStates1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[197]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[198]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12833,7 +12919,7 @@ func (x *MaxNrofSrsTriggerStates1) String() string {
 func (*MaxNrofSrsTriggerStates1) ProtoMessage() {}
 
 func (x *MaxNrofSrsTriggerStates1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[197]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[198]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12846,7 +12932,7 @@ func (x *MaxNrofSrsTriggerStates1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsTriggerStates1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsTriggerStates1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{197}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{198}
 }
 
 func (x *MaxNrofSrsTriggerStates1) GetValue() int32 {
@@ -12870,7 +12956,7 @@ type MaxNrofSrsTriggerStates2 struct {
 func (x *MaxNrofSrsTriggerStates2) Reset() {
 	*x = MaxNrofSrsTriggerStates2{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[198]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[199]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12883,7 +12969,7 @@ func (x *MaxNrofSrsTriggerStates2) String() string {
 func (*MaxNrofSrsTriggerStates2) ProtoMessage() {}
 
 func (x *MaxNrofSrsTriggerStates2) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[198]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[199]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12896,7 +12982,7 @@ func (x *MaxNrofSrsTriggerStates2) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrsTriggerStates2.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrsTriggerStates2) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{198}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *MaxNrofSrsTriggerStates2) GetValue() int32 {
@@ -12920,7 +13006,7 @@ type MaxRatCapabilityContainers struct {
 func (x *MaxRatCapabilityContainers) Reset() {
 	*x = MaxRatCapabilityContainers{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[199]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[200]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12933,7 +13019,7 @@ func (x *MaxRatCapabilityContainers) String() string {
 func (*MaxRatCapabilityContainers) ProtoMessage() {}
 
 func (x *MaxRatCapabilityContainers) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[199]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[200]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12946,7 +13032,7 @@ func (x *MaxRatCapabilityContainers) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxRatCapabilityContainers.ProtoReflect.Descriptor instead.
 func (*MaxRatCapabilityContainers) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{199}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{200}
 }
 
 func (x *MaxRatCapabilityContainers) GetValue() int32 {
@@ -12970,7 +13056,7 @@ type MaxSimultaneousBands struct {
 func (x *MaxSimultaneousBands) Reset() {
 	*x = MaxSimultaneousBands{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[200]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[201]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -12983,7 +13069,7 @@ func (x *MaxSimultaneousBands) String() string {
 func (*MaxSimultaneousBands) ProtoMessage() {}
 
 func (x *MaxSimultaneousBands) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[200]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[201]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12996,7 +13082,7 @@ func (x *MaxSimultaneousBands) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxSimultaneousBands.ProtoReflect.Descriptor instead.
 func (*MaxSimultaneousBands) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{200}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *MaxSimultaneousBands) GetValue() int32 {
@@ -13020,7 +13106,7 @@ type MaxUltxSwitchingBandPairs struct {
 func (x *MaxUltxSwitchingBandPairs) Reset() {
 	*x = MaxUltxSwitchingBandPairs{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[201]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[202]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13033,7 +13119,7 @@ func (x *MaxUltxSwitchingBandPairs) String() string {
 func (*MaxUltxSwitchingBandPairs) ProtoMessage() {}
 
 func (x *MaxUltxSwitchingBandPairs) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[201]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[202]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13046,7 +13132,7 @@ func (x *MaxUltxSwitchingBandPairs) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxUltxSwitchingBandPairs.ProtoReflect.Descriptor instead.
 func (*MaxUltxSwitchingBandPairs) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{201}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{202}
 }
 
 func (x *MaxUltxSwitchingBandPairs) GetValue() int32 {
@@ -13070,7 +13156,7 @@ type MaxNrofSlotFormatCombinationsPerSet struct {
 func (x *MaxNrofSlotFormatCombinationsPerSet) Reset() {
 	*x = MaxNrofSlotFormatCombinationsPerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[202]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[203]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13083,7 +13169,7 @@ func (x *MaxNrofSlotFormatCombinationsPerSet) String() string {
 func (*MaxNrofSlotFormatCombinationsPerSet) ProtoMessage() {}
 
 func (x *MaxNrofSlotFormatCombinationsPerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[202]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[203]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13096,7 +13182,7 @@ func (x *MaxNrofSlotFormatCombinationsPerSet) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use MaxNrofSlotFormatCombinationsPerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlotFormatCombinationsPerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{202}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *MaxNrofSlotFormatCombinationsPerSet) GetValue() int32 {
@@ -13120,7 +13206,7 @@ type MaxNrofSlotFormatCombinationsPerSet1 struct {
 func (x *MaxNrofSlotFormatCombinationsPerSet1) Reset() {
 	*x = MaxNrofSlotFormatCombinationsPerSet1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[203]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[204]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13133,7 +13219,7 @@ func (x *MaxNrofSlotFormatCombinationsPerSet1) String() string {
 func (*MaxNrofSlotFormatCombinationsPerSet1) ProtoMessage() {}
 
 func (x *MaxNrofSlotFormatCombinationsPerSet1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[203]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[204]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13146,7 +13232,7 @@ func (x *MaxNrofSlotFormatCombinationsPerSet1) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use MaxNrofSlotFormatCombinationsPerSet1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlotFormatCombinationsPerSet1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{203}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{204}
 }
 
 func (x *MaxNrofSlotFormatCombinationsPerSet1) GetValue() int32 {
@@ -13170,7 +13256,7 @@ type MaxNrofTrafficPatternr16 struct {
 func (x *MaxNrofTrafficPatternr16) Reset() {
 	*x = MaxNrofTrafficPatternr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[204]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[205]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13183,7 +13269,7 @@ func (x *MaxNrofTrafficPatternr16) String() string {
 func (*MaxNrofTrafficPatternr16) ProtoMessage() {}
 
 func (x *MaxNrofTrafficPatternr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[204]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[205]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13196,7 +13282,7 @@ func (x *MaxNrofTrafficPatternr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofTrafficPatternr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofTrafficPatternr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{204}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *MaxNrofTrafficPatternr16) GetValue() int32 {
@@ -13220,7 +13306,7 @@ type MaxNrofPucchResources struct {
 func (x *MaxNrofPucchResources) Reset() {
 	*x = MaxNrofPucchResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[205]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[206]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13233,7 +13319,7 @@ func (x *MaxNrofPucchResources) String() string {
 func (*MaxNrofPucchResources) ProtoMessage() {}
 
 func (x *MaxNrofPucchResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[205]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[206]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13246,7 +13332,7 @@ func (x *MaxNrofPucchResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchResources.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{205}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{206}
 }
 
 func (x *MaxNrofPucchResources) GetValue() int32 {
@@ -13270,7 +13356,7 @@ type MaxNrofPucchResources1 struct {
 func (x *MaxNrofPucchResources1) Reset() {
 	*x = MaxNrofPucchResources1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[206]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[207]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13283,7 +13369,7 @@ func (x *MaxNrofPucchResources1) String() string {
 func (*MaxNrofPucchResources1) ProtoMessage() {}
 
 func (x *MaxNrofPucchResources1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[206]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[207]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13296,7 +13382,7 @@ func (x *MaxNrofPucchResources1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchResources1.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchResources1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{206}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{207}
 }
 
 func (x *MaxNrofPucchResources1) GetValue() int32 {
@@ -13320,7 +13406,7 @@ type MaxNrofPucchResourceSets struct {
 func (x *MaxNrofPucchResourceSets) Reset() {
 	*x = MaxNrofPucchResourceSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[207]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[208]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13333,7 +13419,7 @@ func (x *MaxNrofPucchResourceSets) String() string {
 func (*MaxNrofPucchResourceSets) ProtoMessage() {}
 
 func (x *MaxNrofPucchResourceSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[207]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[208]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13346,7 +13432,7 @@ func (x *MaxNrofPucchResourceSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchResourceSets.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchResourceSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{207}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{208}
 }
 
 func (x *MaxNrofPucchResourceSets) GetValue() int32 {
@@ -13370,7 +13456,7 @@ type MaxNrofPucchResourceSets1 struct {
 func (x *MaxNrofPucchResourceSets1) Reset() {
 	*x = MaxNrofPucchResourceSets1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[208]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[209]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13383,7 +13469,7 @@ func (x *MaxNrofPucchResourceSets1) String() string {
 func (*MaxNrofPucchResourceSets1) ProtoMessage() {}
 
 func (x *MaxNrofPucchResourceSets1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[208]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[209]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13396,7 +13482,7 @@ func (x *MaxNrofPucchResourceSets1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchResourceSets1.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchResourceSets1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{208}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{209}
 }
 
 func (x *MaxNrofPucchResourceSets1) GetValue() int32 {
@@ -13420,7 +13506,7 @@ type MaxNrofPucchResourcesPerSet struct {
 func (x *MaxNrofPucchResourcesPerSet) Reset() {
 	*x = MaxNrofPucchResourcesPerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[209]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[210]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13433,7 +13519,7 @@ func (x *MaxNrofPucchResourcesPerSet) String() string {
 func (*MaxNrofPucchResourcesPerSet) ProtoMessage() {}
 
 func (x *MaxNrofPucchResourcesPerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[209]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[210]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13446,7 +13532,7 @@ func (x *MaxNrofPucchResourcesPerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchResourcesPerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchResourcesPerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{209}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{210}
 }
 
 func (x *MaxNrofPucchResourcesPerSet) GetValue() int32 {
@@ -13470,7 +13556,7 @@ type MaxNrofPucchP0PerSet struct {
 func (x *MaxNrofPucchP0PerSet) Reset() {
 	*x = MaxNrofPucchP0PerSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[210]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[211]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13483,7 +13569,7 @@ func (x *MaxNrofPucchP0PerSet) String() string {
 func (*MaxNrofPucchP0PerSet) ProtoMessage() {}
 
 func (x *MaxNrofPucchP0PerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[210]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[211]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13496,7 +13582,7 @@ func (x *MaxNrofPucchP0PerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchP0PerSet.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchP0PerSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{210}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{211}
 }
 
 func (x *MaxNrofPucchP0PerSet) GetValue() int32 {
@@ -13520,7 +13606,7 @@ type MaxNrofPucchPathlossReferenceRss struct {
 func (x *MaxNrofPucchPathlossReferenceRss) Reset() {
 	*x = MaxNrofPucchPathlossReferenceRss{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[211]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[212]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13533,7 +13619,7 @@ func (x *MaxNrofPucchPathlossReferenceRss) String() string {
 func (*MaxNrofPucchPathlossReferenceRss) ProtoMessage() {}
 
 func (x *MaxNrofPucchPathlossReferenceRss) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[211]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[212]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13546,7 +13632,7 @@ func (x *MaxNrofPucchPathlossReferenceRss) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchPathlossReferenceRss.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchPathlossReferenceRss) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{211}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{212}
 }
 
 func (x *MaxNrofPucchPathlossReferenceRss) GetValue() int32 {
@@ -13570,7 +13656,7 @@ type MaxNrofPucchPathlossReferenceRss1 struct {
 func (x *MaxNrofPucchPathlossReferenceRss1) Reset() {
 	*x = MaxNrofPucchPathlossReferenceRss1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[212]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[213]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13583,7 +13669,7 @@ func (x *MaxNrofPucchPathlossReferenceRss1) String() string {
 func (*MaxNrofPucchPathlossReferenceRss1) ProtoMessage() {}
 
 func (x *MaxNrofPucchPathlossReferenceRss1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[212]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[213]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13596,7 +13682,7 @@ func (x *MaxNrofPucchPathlossReferenceRss1) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use MaxNrofPucchPathlossReferenceRss1.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchPathlossReferenceRss1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{212}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{213}
 }
 
 func (x *MaxNrofPucchPathlossReferenceRss1) GetValue() int32 {
@@ -13620,7 +13706,7 @@ type MaxNrofPucchPathlossReferenceRssr16 struct {
 func (x *MaxNrofPucchPathlossReferenceRssr16) Reset() {
 	*x = MaxNrofPucchPathlossReferenceRssr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[213]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[214]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13633,7 +13719,7 @@ func (x *MaxNrofPucchPathlossReferenceRssr16) String() string {
 func (*MaxNrofPucchPathlossReferenceRssr16) ProtoMessage() {}
 
 func (x *MaxNrofPucchPathlossReferenceRssr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[213]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[214]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13646,7 +13732,7 @@ func (x *MaxNrofPucchPathlossReferenceRssr16) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use MaxNrofPucchPathlossReferenceRssr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchPathlossReferenceRssr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{213}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{214}
 }
 
 func (x *MaxNrofPucchPathlossReferenceRssr16) GetValue() int32 {
@@ -13670,7 +13756,7 @@ type MaxNrofPucchPathlossReferenceRss1R16 struct {
 func (x *MaxNrofPucchPathlossReferenceRss1R16) Reset() {
 	*x = MaxNrofPucchPathlossReferenceRss1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[214]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[215]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13683,7 +13769,7 @@ func (x *MaxNrofPucchPathlossReferenceRss1R16) String() string {
 func (*MaxNrofPucchPathlossReferenceRss1R16) ProtoMessage() {}
 
 func (x *MaxNrofPucchPathlossReferenceRss1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[214]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[215]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13696,7 +13782,7 @@ func (x *MaxNrofPucchPathlossReferenceRss1R16) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use MaxNrofPucchPathlossReferenceRss1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchPathlossReferenceRss1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{214}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{215}
 }
 
 func (x *MaxNrofPucchPathlossReferenceRss1R16) GetValue() int32 {
@@ -13720,7 +13806,7 @@ type MaxNrofPucchPathlossReferenceRssDiffr16 struct {
 func (x *MaxNrofPucchPathlossReferenceRssDiffr16) Reset() {
 	*x = MaxNrofPucchPathlossReferenceRssDiffr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[215]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[216]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13733,7 +13819,7 @@ func (x *MaxNrofPucchPathlossReferenceRssDiffr16) String() string {
 func (*MaxNrofPucchPathlossReferenceRssDiffr16) ProtoMessage() {}
 
 func (x *MaxNrofPucchPathlossReferenceRssDiffr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[215]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[216]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13746,7 +13832,7 @@ func (x *MaxNrofPucchPathlossReferenceRssDiffr16) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use MaxNrofPucchPathlossReferenceRssDiffr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchPathlossReferenceRssDiffr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{215}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{216}
 }
 
 func (x *MaxNrofPucchPathlossReferenceRssDiffr16) GetValue() int32 {
@@ -13770,7 +13856,7 @@ type MaxNrofPucchResourceGroupsr16 struct {
 func (x *MaxNrofPucchResourceGroupsr16) Reset() {
 	*x = MaxNrofPucchResourceGroupsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[216]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[217]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13783,7 +13869,7 @@ func (x *MaxNrofPucchResourceGroupsr16) String() string {
 func (*MaxNrofPucchResourceGroupsr16) ProtoMessage() {}
 
 func (x *MaxNrofPucchResourceGroupsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[216]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[217]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13796,7 +13882,7 @@ func (x *MaxNrofPucchResourceGroupsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchResourceGroupsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchResourceGroupsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{216}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{217}
 }
 
 func (x *MaxNrofPucchResourceGroupsr16) GetValue() int32 {
@@ -13820,7 +13906,7 @@ type MaxNrofPucchResourcesPerGroupr16 struct {
 func (x *MaxNrofPucchResourcesPerGroupr16) Reset() {
 	*x = MaxNrofPucchResourcesPerGroupr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[217]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[218]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13833,7 +13919,7 @@ func (x *MaxNrofPucchResourcesPerGroupr16) String() string {
 func (*MaxNrofPucchResourcesPerGroupr16) ProtoMessage() {}
 
 func (x *MaxNrofPucchResourcesPerGroupr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[217]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[218]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13846,7 +13932,7 @@ func (x *MaxNrofPucchResourcesPerGroupr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchResourcesPerGroupr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchResourcesPerGroupr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{217}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{218}
 }
 
 func (x *MaxNrofPucchResourcesPerGroupr16) GetValue() int32 {
@@ -13870,7 +13956,7 @@ type MaxNrofMultiplePuschsr16 struct {
 func (x *MaxNrofMultiplePuschsr16) Reset() {
 	*x = MaxNrofMultiplePuschsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[218]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[219]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13883,7 +13969,7 @@ func (x *MaxNrofMultiplePuschsr16) String() string {
 func (*MaxNrofMultiplePuschsr16) ProtoMessage() {}
 
 func (x *MaxNrofMultiplePuschsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[218]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[219]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13896,7 +13982,7 @@ func (x *MaxNrofMultiplePuschsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofMultiplePuschsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofMultiplePuschsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{218}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{219}
 }
 
 func (x *MaxNrofMultiplePuschsr16) GetValue() int32 {
@@ -13920,7 +14006,7 @@ type MaxNrofP0PUschAlphaSets struct {
 func (x *MaxNrofP0PUschAlphaSets) Reset() {
 	*x = MaxNrofP0PUschAlphaSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[219]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[220]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13933,7 +14019,7 @@ func (x *MaxNrofP0PUschAlphaSets) String() string {
 func (*MaxNrofP0PUschAlphaSets) ProtoMessage() {}
 
 func (x *MaxNrofP0PUschAlphaSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[219]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[220]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13946,7 +14032,7 @@ func (x *MaxNrofP0PUschAlphaSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofP0PUschAlphaSets.ProtoReflect.Descriptor instead.
 func (*MaxNrofP0PUschAlphaSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{219}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{220}
 }
 
 func (x *MaxNrofP0PUschAlphaSets) GetValue() int32 {
@@ -13970,7 +14056,7 @@ type MaxNrofP0PUschAlphaSets1 struct {
 func (x *MaxNrofP0PUschAlphaSets1) Reset() {
 	*x = MaxNrofP0PUschAlphaSets1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[220]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[221]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -13983,7 +14069,7 @@ func (x *MaxNrofP0PUschAlphaSets1) String() string {
 func (*MaxNrofP0PUschAlphaSets1) ProtoMessage() {}
 
 func (x *MaxNrofP0PUschAlphaSets1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[220]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[221]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13996,7 +14082,7 @@ func (x *MaxNrofP0PUschAlphaSets1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofP0PUschAlphaSets1.ProtoReflect.Descriptor instead.
 func (*MaxNrofP0PUschAlphaSets1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{220}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{221}
 }
 
 func (x *MaxNrofP0PUschAlphaSets1) GetValue() int32 {
@@ -14020,7 +14106,7 @@ type MaxNrofPuschPathlossReferenceRss struct {
 func (x *MaxNrofPuschPathlossReferenceRss) Reset() {
 	*x = MaxNrofPuschPathlossReferenceRss{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[221]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[222]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14033,7 +14119,7 @@ func (x *MaxNrofPuschPathlossReferenceRss) String() string {
 func (*MaxNrofPuschPathlossReferenceRss) ProtoMessage() {}
 
 func (x *MaxNrofPuschPathlossReferenceRss) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[221]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[222]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14046,7 +14132,7 @@ func (x *MaxNrofPuschPathlossReferenceRss) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPuschPathlossReferenceRss.ProtoReflect.Descriptor instead.
 func (*MaxNrofPuschPathlossReferenceRss) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{221}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{222}
 }
 
 func (x *MaxNrofPuschPathlossReferenceRss) GetValue() int32 {
@@ -14070,7 +14156,7 @@ type MaxNrofPuschPathlossReferenceRss1 struct {
 func (x *MaxNrofPuschPathlossReferenceRss1) Reset() {
 	*x = MaxNrofPuschPathlossReferenceRss1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[222]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[223]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14083,7 +14169,7 @@ func (x *MaxNrofPuschPathlossReferenceRss1) String() string {
 func (*MaxNrofPuschPathlossReferenceRss1) ProtoMessage() {}
 
 func (x *MaxNrofPuschPathlossReferenceRss1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[222]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[223]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14096,7 +14182,7 @@ func (x *MaxNrofPuschPathlossReferenceRss1) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use MaxNrofPuschPathlossReferenceRss1.ProtoReflect.Descriptor instead.
 func (*MaxNrofPuschPathlossReferenceRss1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{222}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{223}
 }
 
 func (x *MaxNrofPuschPathlossReferenceRss1) GetValue() int32 {
@@ -14120,7 +14206,7 @@ type MaxNrofPuschPathlossReferenceRssr16 struct {
 func (x *MaxNrofPuschPathlossReferenceRssr16) Reset() {
 	*x = MaxNrofPuschPathlossReferenceRssr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[223]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[224]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14133,7 +14219,7 @@ func (x *MaxNrofPuschPathlossReferenceRssr16) String() string {
 func (*MaxNrofPuschPathlossReferenceRssr16) ProtoMessage() {}
 
 func (x *MaxNrofPuschPathlossReferenceRssr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[223]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[224]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14146,7 +14232,7 @@ func (x *MaxNrofPuschPathlossReferenceRssr16) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use MaxNrofPuschPathlossReferenceRssr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPuschPathlossReferenceRssr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{223}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{224}
 }
 
 func (x *MaxNrofPuschPathlossReferenceRssr16) GetValue() int32 {
@@ -14170,7 +14256,7 @@ type MaxNrofPuschPathlossReferenceRss1R16 struct {
 func (x *MaxNrofPuschPathlossReferenceRss1R16) Reset() {
 	*x = MaxNrofPuschPathlossReferenceRss1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[224]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[225]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14183,7 +14269,7 @@ func (x *MaxNrofPuschPathlossReferenceRss1R16) String() string {
 func (*MaxNrofPuschPathlossReferenceRss1R16) ProtoMessage() {}
 
 func (x *MaxNrofPuschPathlossReferenceRss1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[224]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[225]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14196,7 +14282,7 @@ func (x *MaxNrofPuschPathlossReferenceRss1R16) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use MaxNrofPuschPathlossReferenceRss1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPuschPathlossReferenceRss1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{224}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{225}
 }
 
 func (x *MaxNrofPuschPathlossReferenceRss1R16) GetValue() int32 {
@@ -14220,7 +14306,7 @@ type MaxNrofPuschPathlossReferenceRssDiffr16 struct {
 func (x *MaxNrofPuschPathlossReferenceRssDiffr16) Reset() {
 	*x = MaxNrofPuschPathlossReferenceRssDiffr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[225]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[226]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14233,7 +14319,7 @@ func (x *MaxNrofPuschPathlossReferenceRssDiffr16) String() string {
 func (*MaxNrofPuschPathlossReferenceRssDiffr16) ProtoMessage() {}
 
 func (x *MaxNrofPuschPathlossReferenceRssDiffr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[225]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[226]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14246,7 +14332,7 @@ func (x *MaxNrofPuschPathlossReferenceRssDiffr16) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use MaxNrofPuschPathlossReferenceRssDiffr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPuschPathlossReferenceRssDiffr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{225}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{226}
 }
 
 func (x *MaxNrofPuschPathlossReferenceRssDiffr16) GetValue() int32 {
@@ -14270,7 +14356,7 @@ type MaxNrofNaicsEntries struct {
 func (x *MaxNrofNaicsEntries) Reset() {
 	*x = MaxNrofNaicsEntries{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[226]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[227]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14283,7 +14369,7 @@ func (x *MaxNrofNaicsEntries) String() string {
 func (*MaxNrofNaicsEntries) ProtoMessage() {}
 
 func (x *MaxNrofNaicsEntries) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[226]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[227]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14296,7 +14382,7 @@ func (x *MaxNrofNaicsEntries) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofNaicsEntries.ProtoReflect.Descriptor instead.
 func (*MaxNrofNaicsEntries) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{226}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{227}
 }
 
 func (x *MaxNrofNaicsEntries) GetValue() int32 {
@@ -14320,7 +14406,7 @@ type MaxBands struct {
 func (x *MaxBands) Reset() {
 	*x = MaxBands{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[227]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[228]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14333,7 +14419,7 @@ func (x *MaxBands) String() string {
 func (*MaxBands) ProtoMessage() {}
 
 func (x *MaxBands) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[227]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[228]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14346,7 +14432,7 @@ func (x *MaxBands) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBands.ProtoReflect.Descriptor instead.
 func (*MaxBands) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{227}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{228}
 }
 
 func (x *MaxBands) GetValue() int32 {
@@ -14370,7 +14456,7 @@ type MaxBandsMrdc struct {
 func (x *MaxBandsMrdc) Reset() {
 	*x = MaxBandsMrdc{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[228]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[229]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14383,7 +14469,7 @@ func (x *MaxBandsMrdc) String() string {
 func (*MaxBandsMrdc) ProtoMessage() {}
 
 func (x *MaxBandsMrdc) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[228]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[229]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14396,7 +14482,7 @@ func (x *MaxBandsMrdc) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBandsMrdc.ProtoReflect.Descriptor instead.
 func (*MaxBandsMrdc) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{228}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{229}
 }
 
 func (x *MaxBandsMrdc) GetValue() int32 {
@@ -14420,7 +14506,7 @@ type MaxBandsEutra struct {
 func (x *MaxBandsEutra) Reset() {
 	*x = MaxBandsEutra{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[229]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[230]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14433,7 +14519,7 @@ func (x *MaxBandsEutra) String() string {
 func (*MaxBandsEutra) ProtoMessage() {}
 
 func (x *MaxBandsEutra) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[229]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[230]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14446,7 +14532,7 @@ func (x *MaxBandsEutra) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBandsEutra.ProtoReflect.Descriptor instead.
 func (*MaxBandsEutra) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{229}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{230}
 }
 
 func (x *MaxBandsEutra) GetValue() int32 {
@@ -14470,7 +14556,7 @@ type MaxCellReport struct {
 func (x *MaxCellReport) Reset() {
 	*x = MaxCellReport{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[230]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[231]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14483,7 +14569,7 @@ func (x *MaxCellReport) String() string {
 func (*MaxCellReport) ProtoMessage() {}
 
 func (x *MaxCellReport) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[230]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[231]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14496,7 +14582,7 @@ func (x *MaxCellReport) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellReport.ProtoReflect.Descriptor instead.
 func (*MaxCellReport) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{230}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{231}
 }
 
 func (x *MaxCellReport) GetValue() int32 {
@@ -14520,7 +14606,7 @@ type MaxDrb struct {
 func (x *MaxDrb) Reset() {
 	*x = MaxDrb{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[231]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[232]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14533,7 +14619,7 @@ func (x *MaxDrb) String() string {
 func (*MaxDrb) ProtoMessage() {}
 
 func (x *MaxDrb) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[231]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[232]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14546,7 +14632,7 @@ func (x *MaxDrb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxDrb.ProtoReflect.Descriptor instead.
 func (*MaxDrb) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{231}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{232}
 }
 
 func (x *MaxDrb) GetValue() int32 {
@@ -14570,7 +14656,7 @@ type MaxFreq struct {
 func (x *MaxFreq) Reset() {
 	*x = MaxFreq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[232]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[233]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14583,7 +14669,7 @@ func (x *MaxFreq) String() string {
 func (*MaxFreq) ProtoMessage() {}
 
 func (x *MaxFreq) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[232]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[233]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14596,7 +14682,7 @@ func (x *MaxFreq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFreq.ProtoReflect.Descriptor instead.
 func (*MaxFreq) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{232}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{233}
 }
 
 func (x *MaxFreq) GetValue() int32 {
@@ -14620,7 +14706,7 @@ type MaxFreqLayers struct {
 func (x *MaxFreqLayers) Reset() {
 	*x = MaxFreqLayers{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[233]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[234]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14633,7 +14719,7 @@ func (x *MaxFreqLayers) String() string {
 func (*MaxFreqLayers) ProtoMessage() {}
 
 func (x *MaxFreqLayers) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[233]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[234]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14646,7 +14732,7 @@ func (x *MaxFreqLayers) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFreqLayers.ProtoReflect.Descriptor instead.
 func (*MaxFreqLayers) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{233}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{234}
 }
 
 func (x *MaxFreqLayers) GetValue() int32 {
@@ -14670,7 +14756,7 @@ type MaxFreqIdcr16 struct {
 func (x *MaxFreqIdcr16) Reset() {
 	*x = MaxFreqIdcr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[234]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[235]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14683,7 +14769,7 @@ func (x *MaxFreqIdcr16) String() string {
 func (*MaxFreqIdcr16) ProtoMessage() {}
 
 func (x *MaxFreqIdcr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[234]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[235]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14696,7 +14782,7 @@ func (x *MaxFreqIdcr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFreqIdcr16.ProtoReflect.Descriptor instead.
 func (*MaxFreqIdcr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{234}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{235}
 }
 
 func (x *MaxFreqIdcr16) GetValue() int32 {
@@ -14720,7 +14806,7 @@ type MaxCombIdcr16 struct {
 func (x *MaxCombIdcr16) Reset() {
 	*x = MaxCombIdcr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[235]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[236]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14733,7 +14819,7 @@ func (x *MaxCombIdcr16) String() string {
 func (*MaxCombIdcr16) ProtoMessage() {}
 
 func (x *MaxCombIdcr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[235]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[236]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14746,7 +14832,7 @@ func (x *MaxCombIdcr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCombIdcr16.ProtoReflect.Descriptor instead.
 func (*MaxCombIdcr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{235}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{236}
 }
 
 func (x *MaxCombIdcr16) GetValue() int32 {
@@ -14770,7 +14856,7 @@ type MaxFreqIdcMRdc struct {
 func (x *MaxFreqIdcMRdc) Reset() {
 	*x = MaxFreqIdcMRdc{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[236]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[237]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14783,7 +14869,7 @@ func (x *MaxFreqIdcMRdc) String() string {
 func (*MaxFreqIdcMRdc) ProtoMessage() {}
 
 func (x *MaxFreqIdcMRdc) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[236]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[237]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14796,7 +14882,7 @@ func (x *MaxFreqIdcMRdc) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFreqIdcMRdc.ProtoReflect.Descriptor instead.
 func (*MaxFreqIdcMRdc) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{236}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{237}
 }
 
 func (x *MaxFreqIdcMRdc) GetValue() int32 {
@@ -14820,7 +14906,7 @@ type MaxNrofCandidateBeams struct {
 func (x *MaxNrofCandidateBeams) Reset() {
 	*x = MaxNrofCandidateBeams{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[237]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[238]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14833,7 +14919,7 @@ func (x *MaxNrofCandidateBeams) String() string {
 func (*MaxNrofCandidateBeams) ProtoMessage() {}
 
 func (x *MaxNrofCandidateBeams) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[237]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[238]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14846,7 +14932,7 @@ func (x *MaxNrofCandidateBeams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCandidateBeams.ProtoReflect.Descriptor instead.
 func (*MaxNrofCandidateBeams) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{237}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{238}
 }
 
 func (x *MaxNrofCandidateBeams) GetValue() int32 {
@@ -14870,7 +14956,7 @@ type MaxNrofCandidateBeamsr16 struct {
 func (x *MaxNrofCandidateBeamsr16) Reset() {
 	*x = MaxNrofCandidateBeamsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[238]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[239]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14883,7 +14969,7 @@ func (x *MaxNrofCandidateBeamsr16) String() string {
 func (*MaxNrofCandidateBeamsr16) ProtoMessage() {}
 
 func (x *MaxNrofCandidateBeamsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[238]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[239]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14896,7 +14982,7 @@ func (x *MaxNrofCandidateBeamsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCandidateBeamsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCandidateBeamsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{238}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{239}
 }
 
 func (x *MaxNrofCandidateBeamsr16) GetValue() int32 {
@@ -14920,7 +15006,7 @@ type MaxNrofCandidateBeamsExtr16 struct {
 func (x *MaxNrofCandidateBeamsExtr16) Reset() {
 	*x = MaxNrofCandidateBeamsExtr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[239]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[240]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14933,7 +15019,7 @@ func (x *MaxNrofCandidateBeamsExtr16) String() string {
 func (*MaxNrofCandidateBeamsExtr16) ProtoMessage() {}
 
 func (x *MaxNrofCandidateBeamsExtr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[239]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[240]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14946,7 +15032,7 @@ func (x *MaxNrofCandidateBeamsExtr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCandidateBeamsExtr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCandidateBeamsExtr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{239}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{240}
 }
 
 func (x *MaxNrofCandidateBeamsExtr16) GetValue() int32 {
@@ -14970,7 +15056,7 @@ type MaxNrofPcisPerSmtc struct {
 func (x *MaxNrofPcisPerSmtc) Reset() {
 	*x = MaxNrofPcisPerSmtc{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[240]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[241]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -14983,7 +15069,7 @@ func (x *MaxNrofPcisPerSmtc) String() string {
 func (*MaxNrofPcisPerSmtc) ProtoMessage() {}
 
 func (x *MaxNrofPcisPerSmtc) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[240]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[241]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14996,7 +15082,7 @@ func (x *MaxNrofPcisPerSmtc) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPcisPerSmtc.ProtoReflect.Descriptor instead.
 func (*MaxNrofPcisPerSmtc) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{240}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{241}
 }
 
 func (x *MaxNrofPcisPerSmtc) GetValue() int32 {
@@ -15020,7 +15106,7 @@ type MaxNrofQfis struct {
 func (x *MaxNrofQfis) Reset() {
 	*x = MaxNrofQfis{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[241]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[242]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15033,7 +15119,7 @@ func (x *MaxNrofQfis) String() string {
 func (*MaxNrofQfis) ProtoMessage() {}
 
 func (x *MaxNrofQfis) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[241]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[242]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15046,7 +15132,7 @@ func (x *MaxNrofQfis) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofQfis.ProtoReflect.Descriptor instead.
 func (*MaxNrofQfis) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{241}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{242}
 }
 
 func (x *MaxNrofQfis) GetValue() int32 {
@@ -15070,7 +15156,7 @@ type MaxNrofResourceAvailabilityPerCombinationr16 struct {
 func (x *MaxNrofResourceAvailabilityPerCombinationr16) Reset() {
 	*x = MaxNrofResourceAvailabilityPerCombinationr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[242]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[243]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15083,7 +15169,7 @@ func (x *MaxNrofResourceAvailabilityPerCombinationr16) String() string {
 func (*MaxNrofResourceAvailabilityPerCombinationr16) ProtoMessage() {}
 
 func (x *MaxNrofResourceAvailabilityPerCombinationr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[242]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[243]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15096,7 +15182,7 @@ func (x *MaxNrofResourceAvailabilityPerCombinationr16) ProtoReflect() protorefle
 
 // Deprecated: Use MaxNrofResourceAvailabilityPerCombinationr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofResourceAvailabilityPerCombinationr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{242}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{243}
 }
 
 func (x *MaxNrofResourceAvailabilityPerCombinationr16) GetValue() int32 {
@@ -15120,7 +15206,7 @@ type MaxNrOfSemiPersistentPuschTriggers struct {
 func (x *MaxNrOfSemiPersistentPuschTriggers) Reset() {
 	*x = MaxNrOfSemiPersistentPuschTriggers{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[243]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[244]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15133,7 +15219,7 @@ func (x *MaxNrOfSemiPersistentPuschTriggers) String() string {
 func (*MaxNrOfSemiPersistentPuschTriggers) ProtoMessage() {}
 
 func (x *MaxNrOfSemiPersistentPuschTriggers) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[243]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[244]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15146,7 +15232,7 @@ func (x *MaxNrOfSemiPersistentPuschTriggers) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use MaxNrOfSemiPersistentPuschTriggers.ProtoReflect.Descriptor instead.
 func (*MaxNrOfSemiPersistentPuschTriggers) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{243}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{244}
 }
 
 func (x *MaxNrOfSemiPersistentPuschTriggers) GetValue() int32 {
@@ -15170,7 +15256,7 @@ type MaxNrofSrResources struct {
 func (x *MaxNrofSrResources) Reset() {
 	*x = MaxNrofSrResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[244]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[245]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15183,7 +15269,7 @@ func (x *MaxNrofSrResources) String() string {
 func (*MaxNrofSrResources) ProtoMessage() {}
 
 func (x *MaxNrofSrResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[244]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[245]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15196,7 +15282,7 @@ func (x *MaxNrofSrResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSrResources.ProtoReflect.Descriptor instead.
 func (*MaxNrofSrResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{244}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{245}
 }
 
 func (x *MaxNrofSrResources) GetValue() int32 {
@@ -15220,7 +15306,7 @@ type MaxNrofSlotFormatsPerCombination struct {
 func (x *MaxNrofSlotFormatsPerCombination) Reset() {
 	*x = MaxNrofSlotFormatsPerCombination{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[245]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[246]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15233,7 +15319,7 @@ func (x *MaxNrofSlotFormatsPerCombination) String() string {
 func (*MaxNrofSlotFormatsPerCombination) ProtoMessage() {}
 
 func (x *MaxNrofSlotFormatsPerCombination) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[245]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[246]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15246,7 +15332,7 @@ func (x *MaxNrofSlotFormatsPerCombination) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSlotFormatsPerCombination.ProtoReflect.Descriptor instead.
 func (*MaxNrofSlotFormatsPerCombination) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{245}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{246}
 }
 
 func (x *MaxNrofSlotFormatsPerCombination) GetValue() int32 {
@@ -15270,7 +15356,7 @@ type MaxNrofSpatialRelationInfos struct {
 func (x *MaxNrofSpatialRelationInfos) Reset() {
 	*x = MaxNrofSpatialRelationInfos{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[246]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[247]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15283,7 +15369,7 @@ func (x *MaxNrofSpatialRelationInfos) String() string {
 func (*MaxNrofSpatialRelationInfos) ProtoMessage() {}
 
 func (x *MaxNrofSpatialRelationInfos) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[246]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[247]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15296,7 +15382,7 @@ func (x *MaxNrofSpatialRelationInfos) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSpatialRelationInfos.ProtoReflect.Descriptor instead.
 func (*MaxNrofSpatialRelationInfos) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{246}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{247}
 }
 
 func (x *MaxNrofSpatialRelationInfos) GetValue() int32 {
@@ -15320,7 +15406,7 @@ type MaxNrofSpatialRelationInfosplus1 struct {
 func (x *MaxNrofSpatialRelationInfosplus1) Reset() {
 	*x = MaxNrofSpatialRelationInfosplus1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[247]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[248]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15333,7 +15419,7 @@ func (x *MaxNrofSpatialRelationInfosplus1) String() string {
 func (*MaxNrofSpatialRelationInfosplus1) ProtoMessage() {}
 
 func (x *MaxNrofSpatialRelationInfosplus1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[247]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[248]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15346,7 +15432,7 @@ func (x *MaxNrofSpatialRelationInfosplus1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSpatialRelationInfosplus1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSpatialRelationInfosplus1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{247}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{248}
 }
 
 func (x *MaxNrofSpatialRelationInfosplus1) GetValue() int32 {
@@ -15370,7 +15456,7 @@ type MaxNrofSpatialRelationInfosr16 struct {
 func (x *MaxNrofSpatialRelationInfosr16) Reset() {
 	*x = MaxNrofSpatialRelationInfosr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[248]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[249]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15383,7 +15469,7 @@ func (x *MaxNrofSpatialRelationInfosr16) String() string {
 func (*MaxNrofSpatialRelationInfosr16) ProtoMessage() {}
 
 func (x *MaxNrofSpatialRelationInfosr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[248]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[249]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15396,7 +15482,7 @@ func (x *MaxNrofSpatialRelationInfosr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSpatialRelationInfosr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSpatialRelationInfosr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{248}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{249}
 }
 
 func (x *MaxNrofSpatialRelationInfosr16) GetValue() int32 {
@@ -15420,7 +15506,7 @@ type MaxNrofSpatialRelationInfosDiffr16 struct {
 func (x *MaxNrofSpatialRelationInfosDiffr16) Reset() {
 	*x = MaxNrofSpatialRelationInfosDiffr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[249]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[250]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15433,7 +15519,7 @@ func (x *MaxNrofSpatialRelationInfosDiffr16) String() string {
 func (*MaxNrofSpatialRelationInfosDiffr16) ProtoMessage() {}
 
 func (x *MaxNrofSpatialRelationInfosDiffr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[249]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[250]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15446,7 +15532,7 @@ func (x *MaxNrofSpatialRelationInfosDiffr16) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use MaxNrofSpatialRelationInfosDiffr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSpatialRelationInfosDiffr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{249}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{250}
 }
 
 func (x *MaxNrofSpatialRelationInfosDiffr16) GetValue() int32 {
@@ -15470,7 +15556,7 @@ type MaxNrofIndexesToReport struct {
 func (x *MaxNrofIndexesToReport) Reset() {
 	*x = MaxNrofIndexesToReport{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[250]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[251]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15483,7 +15569,7 @@ func (x *MaxNrofIndexesToReport) String() string {
 func (*MaxNrofIndexesToReport) ProtoMessage() {}
 
 func (x *MaxNrofIndexesToReport) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[250]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[251]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15496,7 +15582,7 @@ func (x *MaxNrofIndexesToReport) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofIndexesToReport.ProtoReflect.Descriptor instead.
 func (*MaxNrofIndexesToReport) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{250}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{251}
 }
 
 func (x *MaxNrofIndexesToReport) GetValue() int32 {
@@ -15520,7 +15606,7 @@ type MaxNrofIndexesToReport2 struct {
 func (x *MaxNrofIndexesToReport2) Reset() {
 	*x = MaxNrofIndexesToReport2{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[251]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[252]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15533,7 +15619,7 @@ func (x *MaxNrofIndexesToReport2) String() string {
 func (*MaxNrofIndexesToReport2) ProtoMessage() {}
 
 func (x *MaxNrofIndexesToReport2) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[251]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[252]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15546,7 +15632,7 @@ func (x *MaxNrofIndexesToReport2) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofIndexesToReport2.ProtoReflect.Descriptor instead.
 func (*MaxNrofIndexesToReport2) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{251}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{252}
 }
 
 func (x *MaxNrofIndexesToReport2) GetValue() int32 {
@@ -15570,7 +15656,7 @@ type MaxNrofSsbsr16 struct {
 func (x *MaxNrofSsbsr16) Reset() {
 	*x = MaxNrofSsbsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[252]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[253]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15583,7 +15669,7 @@ func (x *MaxNrofSsbsr16) String() string {
 func (*MaxNrofSsbsr16) ProtoMessage() {}
 
 func (x *MaxNrofSsbsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[252]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[253]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15596,7 +15682,7 @@ func (x *MaxNrofSsbsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSsbsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSsbsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{252}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{253}
 }
 
 func (x *MaxNrofSsbsr16) GetValue() int32 {
@@ -15620,7 +15706,7 @@ type MaxNrofSsbs1 struct {
 func (x *MaxNrofSsbs1) Reset() {
 	*x = MaxNrofSsbs1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[253]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[254]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15633,7 +15719,7 @@ func (x *MaxNrofSsbs1) String() string {
 func (*MaxNrofSsbs1) ProtoMessage() {}
 
 func (x *MaxNrofSsbs1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[253]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[254]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15646,7 +15732,7 @@ func (x *MaxNrofSsbs1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSsbs1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSsbs1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{253}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{254}
 }
 
 func (x *MaxNrofSsbs1) GetValue() int32 {
@@ -15670,7 +15756,7 @@ type MaxNrofSNSsai struct {
 func (x *MaxNrofSNSsai) Reset() {
 	*x = MaxNrofSNSsai{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[254]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[255]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15683,7 +15769,7 @@ func (x *MaxNrofSNSsai) String() string {
 func (*MaxNrofSNSsai) ProtoMessage() {}
 
 func (x *MaxNrofSNSsai) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[254]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[255]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15696,7 +15782,7 @@ func (x *MaxNrofSNSsai) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSNSsai.ProtoReflect.Descriptor instead.
 func (*MaxNrofSNSsai) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{254}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{255}
 }
 
 func (x *MaxNrofSNSsai) GetValue() int32 {
@@ -15720,7 +15806,7 @@ type MaxNrofTciStatesPdcch struct {
 func (x *MaxNrofTciStatesPdcch) Reset() {
 	*x = MaxNrofTciStatesPdcch{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[255]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[256]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15733,7 +15819,7 @@ func (x *MaxNrofTciStatesPdcch) String() string {
 func (*MaxNrofTciStatesPdcch) ProtoMessage() {}
 
 func (x *MaxNrofTciStatesPdcch) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[255]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[256]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15746,7 +15832,7 @@ func (x *MaxNrofTciStatesPdcch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofTciStatesPdcch.ProtoReflect.Descriptor instead.
 func (*MaxNrofTciStatesPdcch) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{255}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{256}
 }
 
 func (x *MaxNrofTciStatesPdcch) GetValue() int32 {
@@ -15770,7 +15856,7 @@ type MaxNrofTciStates struct {
 func (x *MaxNrofTciStates) Reset() {
 	*x = MaxNrofTciStates{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[256]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[257]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15783,7 +15869,7 @@ func (x *MaxNrofTciStates) String() string {
 func (*MaxNrofTciStates) ProtoMessage() {}
 
 func (x *MaxNrofTciStates) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[256]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[257]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15796,7 +15882,7 @@ func (x *MaxNrofTciStates) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofTciStates.ProtoReflect.Descriptor instead.
 func (*MaxNrofTciStates) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{256}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{257}
 }
 
 func (x *MaxNrofTciStates) GetValue() int32 {
@@ -15820,7 +15906,7 @@ type MaxNrofTciStates1 struct {
 func (x *MaxNrofTciStates1) Reset() {
 	*x = MaxNrofTciStates1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[257]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[258]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15833,7 +15919,7 @@ func (x *MaxNrofTciStates1) String() string {
 func (*MaxNrofTciStates1) ProtoMessage() {}
 
 func (x *MaxNrofTciStates1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[257]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[258]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15846,7 +15932,7 @@ func (x *MaxNrofTciStates1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofTciStates1.ProtoReflect.Descriptor instead.
 func (*MaxNrofTciStates1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{257}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{258}
 }
 
 func (x *MaxNrofTciStates1) GetValue() int32 {
@@ -15870,7 +15956,7 @@ type MaxNrofUlAllocations struct {
 func (x *MaxNrofUlAllocations) Reset() {
 	*x = MaxNrofUlAllocations{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[258]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[259]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15883,7 +15969,7 @@ func (x *MaxNrofUlAllocations) String() string {
 func (*MaxNrofUlAllocations) ProtoMessage() {}
 
 func (x *MaxNrofUlAllocations) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[258]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[259]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15896,7 +15982,7 @@ func (x *MaxNrofUlAllocations) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofUlAllocations.ProtoReflect.Descriptor instead.
 func (*MaxNrofUlAllocations) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{258}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{259}
 }
 
 func (x *MaxNrofUlAllocations) GetValue() int32 {
@@ -15920,7 +16006,7 @@ type MaxQfi struct {
 func (x *MaxQfi) Reset() {
 	*x = MaxQfi{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[259]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[260]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15933,7 +16019,7 @@ func (x *MaxQfi) String() string {
 func (*MaxQfi) ProtoMessage() {}
 
 func (x *MaxQfi) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[259]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[260]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15946,7 +16032,7 @@ func (x *MaxQfi) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxQfi.ProtoReflect.Descriptor instead.
 func (*MaxQfi) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{259}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{260}
 }
 
 func (x *MaxQfi) GetValue() int32 {
@@ -15970,7 +16056,7 @@ type MaxRaCSirsResources struct {
 func (x *MaxRaCSirsResources) Reset() {
 	*x = MaxRaCSirsResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[260]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[261]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -15983,7 +16069,7 @@ func (x *MaxRaCSirsResources) String() string {
 func (*MaxRaCSirsResources) ProtoMessage() {}
 
 func (x *MaxRaCSirsResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[260]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[261]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15996,7 +16082,7 @@ func (x *MaxRaCSirsResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxRaCSirsResources.ProtoReflect.Descriptor instead.
 func (*MaxRaCSirsResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{260}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{261}
 }
 
 func (x *MaxRaCSirsResources) GetValue() int32 {
@@ -16020,7 +16106,7 @@ type MaxRaOccasionsPerCsirs struct {
 func (x *MaxRaOccasionsPerCsirs) Reset() {
 	*x = MaxRaOccasionsPerCsirs{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[261]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[262]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16033,7 +16119,7 @@ func (x *MaxRaOccasionsPerCsirs) String() string {
 func (*MaxRaOccasionsPerCsirs) ProtoMessage() {}
 
 func (x *MaxRaOccasionsPerCsirs) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[261]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[262]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16046,7 +16132,7 @@ func (x *MaxRaOccasionsPerCsirs) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxRaOccasionsPerCsirs.ProtoReflect.Descriptor instead.
 func (*MaxRaOccasionsPerCsirs) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{261}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{262}
 }
 
 func (x *MaxRaOccasionsPerCsirs) GetValue() int32 {
@@ -16070,7 +16156,7 @@ type MaxRaOccasions1 struct {
 func (x *MaxRaOccasions1) Reset() {
 	*x = MaxRaOccasions1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[262]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[263]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16083,7 +16169,7 @@ func (x *MaxRaOccasions1) String() string {
 func (*MaxRaOccasions1) ProtoMessage() {}
 
 func (x *MaxRaOccasions1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[262]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[263]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16096,7 +16182,7 @@ func (x *MaxRaOccasions1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxRaOccasions1.ProtoReflect.Descriptor instead.
 func (*MaxRaOccasions1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{262}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{263}
 }
 
 func (x *MaxRaOccasions1) GetValue() int32 {
@@ -16120,7 +16206,7 @@ type MaxRaSSbResources struct {
 func (x *MaxRaSSbResources) Reset() {
 	*x = MaxRaSSbResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[263]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[264]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16133,7 +16219,7 @@ func (x *MaxRaSSbResources) String() string {
 func (*MaxRaSSbResources) ProtoMessage() {}
 
 func (x *MaxRaSSbResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[263]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[264]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16146,7 +16232,7 @@ func (x *MaxRaSSbResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxRaSSbResources.ProtoReflect.Descriptor instead.
 func (*MaxRaSSbResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{263}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{264}
 }
 
 func (x *MaxRaSSbResources) GetValue() int32 {
@@ -16170,7 +16256,7 @@ type MaxScss struct {
 func (x *MaxScss) Reset() {
 	*x = MaxScss{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[264]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[265]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16183,7 +16269,7 @@ func (x *MaxScss) String() string {
 func (*MaxScss) ProtoMessage() {}
 
 func (x *MaxScss) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[264]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[265]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16196,7 +16282,7 @@ func (x *MaxScss) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxScss.ProtoReflect.Descriptor instead.
 func (*MaxScss) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{264}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{265}
 }
 
 func (x *MaxScss) GetValue() int32 {
@@ -16220,7 +16306,7 @@ type MaxSecondaryCellGroups struct {
 func (x *MaxSecondaryCellGroups) Reset() {
 	*x = MaxSecondaryCellGroups{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[265]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[266]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16233,7 +16319,7 @@ func (x *MaxSecondaryCellGroups) String() string {
 func (*MaxSecondaryCellGroups) ProtoMessage() {}
 
 func (x *MaxSecondaryCellGroups) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[265]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[266]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16246,7 +16332,7 @@ func (x *MaxSecondaryCellGroups) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxSecondaryCellGroups.ProtoReflect.Descriptor instead.
 func (*MaxSecondaryCellGroups) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{265}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{266}
 }
 
 func (x *MaxSecondaryCellGroups) GetValue() int32 {
@@ -16270,7 +16356,7 @@ type MaxNrofServingCellsEutra struct {
 func (x *MaxNrofServingCellsEutra) Reset() {
 	*x = MaxNrofServingCellsEutra{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[266]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[267]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16283,7 +16369,7 @@ func (x *MaxNrofServingCellsEutra) String() string {
 func (*MaxNrofServingCellsEutra) ProtoMessage() {}
 
 func (x *MaxNrofServingCellsEutra) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[266]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[267]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16296,7 +16382,7 @@ func (x *MaxNrofServingCellsEutra) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofServingCellsEutra.ProtoReflect.Descriptor instead.
 func (*MaxNrofServingCellsEutra) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{266}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{267}
 }
 
 func (x *MaxNrofServingCellsEutra) GetValue() int32 {
@@ -16320,7 +16406,7 @@ type MaxMbsfnAllocations struct {
 func (x *MaxMbsfnAllocations) Reset() {
 	*x = MaxMbsfnAllocations{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[267]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[268]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16333,7 +16419,7 @@ func (x *MaxMbsfnAllocations) String() string {
 func (*MaxMbsfnAllocations) ProtoMessage() {}
 
 func (x *MaxMbsfnAllocations) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[267]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[268]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16346,7 +16432,7 @@ func (x *MaxMbsfnAllocations) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxMbsfnAllocations.ProtoReflect.Descriptor instead.
 func (*MaxMbsfnAllocations) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{267}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{268}
 }
 
 func (x *MaxMbsfnAllocations) GetValue() int32 {
@@ -16370,7 +16456,7 @@ type MaxNrofMultiBands struct {
 func (x *MaxNrofMultiBands) Reset() {
 	*x = MaxNrofMultiBands{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[268]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[269]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16383,7 +16469,7 @@ func (x *MaxNrofMultiBands) String() string {
 func (*MaxNrofMultiBands) ProtoMessage() {}
 
 func (x *MaxNrofMultiBands) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[268]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[269]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16396,7 +16482,7 @@ func (x *MaxNrofMultiBands) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofMultiBands.ProtoReflect.Descriptor instead.
 func (*MaxNrofMultiBands) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{268}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{269}
 }
 
 func (x *MaxNrofMultiBands) GetValue() int32 {
@@ -16420,7 +16506,7 @@ type MaxCellSftd struct {
 func (x *MaxCellSftd) Reset() {
 	*x = MaxCellSftd{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[269]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[270]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16433,7 +16519,7 @@ func (x *MaxCellSftd) String() string {
 func (*MaxCellSftd) ProtoMessage() {}
 
 func (x *MaxCellSftd) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[269]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[270]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16446,7 +16532,7 @@ func (x *MaxCellSftd) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellSftd.ProtoReflect.Descriptor instead.
 func (*MaxCellSftd) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{269}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{270}
 }
 
 func (x *MaxCellSftd) GetValue() int32 {
@@ -16470,7 +16556,7 @@ type MaxReportConfigId struct {
 func (x *MaxReportConfigId) Reset() {
 	*x = MaxReportConfigId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[270]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[271]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16483,7 +16569,7 @@ func (x *MaxReportConfigId) String() string {
 func (*MaxReportConfigId) ProtoMessage() {}
 
 func (x *MaxReportConfigId) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[270]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[271]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16496,7 +16582,7 @@ func (x *MaxReportConfigId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxReportConfigId.ProtoReflect.Descriptor instead.
 func (*MaxReportConfigId) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{270}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{271}
 }
 
 func (x *MaxReportConfigId) GetValue() int32 {
@@ -16520,7 +16606,7 @@ type MaxNrofCodebooks struct {
 func (x *MaxNrofCodebooks) Reset() {
 	*x = MaxNrofCodebooks{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[271]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[272]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16533,7 +16619,7 @@ func (x *MaxNrofCodebooks) String() string {
 func (*MaxNrofCodebooks) ProtoMessage() {}
 
 func (x *MaxNrofCodebooks) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[271]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[272]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16546,7 +16632,7 @@ func (x *MaxNrofCodebooks) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCodebooks.ProtoReflect.Descriptor instead.
 func (*MaxNrofCodebooks) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{271}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{272}
 }
 
 func (x *MaxNrofCodebooks) GetValue() int32 {
@@ -16570,7 +16656,7 @@ type MaxNrofCsiRSResourcesExtr16 struct {
 func (x *MaxNrofCsiRSResourcesExtr16) Reset() {
 	*x = MaxNrofCsiRSResourcesExtr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[272]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[273]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16583,7 +16669,7 @@ func (x *MaxNrofCsiRSResourcesExtr16) String() string {
 func (*MaxNrofCsiRSResourcesExtr16) ProtoMessage() {}
 
 func (x *MaxNrofCsiRSResourcesExtr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[272]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[273]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16596,7 +16682,7 @@ func (x *MaxNrofCsiRSResourcesExtr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiRSResourcesExtr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiRSResourcesExtr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{272}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{273}
 }
 
 func (x *MaxNrofCsiRSResourcesExtr16) GetValue() int32 {
@@ -16620,7 +16706,7 @@ type MaxNrofCsiRSResources struct {
 func (x *MaxNrofCsiRSResources) Reset() {
 	*x = MaxNrofCsiRSResources{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[273]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[274]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16633,7 +16719,7 @@ func (x *MaxNrofCsiRSResources) String() string {
 func (*MaxNrofCsiRSResources) ProtoMessage() {}
 
 func (x *MaxNrofCsiRSResources) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[273]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[274]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16646,7 +16732,7 @@ func (x *MaxNrofCsiRSResources) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiRSResources.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiRSResources) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{273}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{274}
 }
 
 func (x *MaxNrofCsiRSResources) GetValue() int32 {
@@ -16670,7 +16756,7 @@ type MaxNrofCsiRSResourcesAltr16 struct {
 func (x *MaxNrofCsiRSResourcesAltr16) Reset() {
 	*x = MaxNrofCsiRSResourcesAltr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[274]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[275]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16683,7 +16769,7 @@ func (x *MaxNrofCsiRSResourcesAltr16) String() string {
 func (*MaxNrofCsiRSResourcesAltr16) ProtoMessage() {}
 
 func (x *MaxNrofCsiRSResourcesAltr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[274]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[275]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16696,7 +16782,7 @@ func (x *MaxNrofCsiRSResourcesAltr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiRSResourcesAltr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiRSResourcesAltr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{274}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{275}
 }
 
 func (x *MaxNrofCsiRSResourcesAltr16) GetValue() int32 {
@@ -16720,7 +16806,7 @@ type MaxNrofCsiRSResourcesAlt1R16 struct {
 func (x *MaxNrofCsiRSResourcesAlt1R16) Reset() {
 	*x = MaxNrofCsiRSResourcesAlt1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[275]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[276]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16733,7 +16819,7 @@ func (x *MaxNrofCsiRSResourcesAlt1R16) String() string {
 func (*MaxNrofCsiRSResourcesAlt1R16) ProtoMessage() {}
 
 func (x *MaxNrofCsiRSResourcesAlt1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[275]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[276]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16746,7 +16832,7 @@ func (x *MaxNrofCsiRSResourcesAlt1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCsiRSResourcesAlt1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCsiRSResourcesAlt1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{275}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{276}
 }
 
 func (x *MaxNrofCsiRSResourcesAlt1R16) GetValue() int32 {
@@ -16770,7 +16856,7 @@ type MaxNrofSriPUschMappings struct {
 func (x *MaxNrofSriPUschMappings) Reset() {
 	*x = MaxNrofSriPUschMappings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[276]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[277]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16783,7 +16869,7 @@ func (x *MaxNrofSriPUschMappings) String() string {
 func (*MaxNrofSriPUschMappings) ProtoMessage() {}
 
 func (x *MaxNrofSriPUschMappings) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[276]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[277]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16796,7 +16882,7 @@ func (x *MaxNrofSriPUschMappings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSriPUschMappings.ProtoReflect.Descriptor instead.
 func (*MaxNrofSriPUschMappings) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{276}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{277}
 }
 
 func (x *MaxNrofSriPUschMappings) GetValue() int32 {
@@ -16820,7 +16906,7 @@ type MaxNrofSriPUschMappings1 struct {
 func (x *MaxNrofSriPUschMappings1) Reset() {
 	*x = MaxNrofSriPUschMappings1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[277]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[278]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16833,7 +16919,7 @@ func (x *MaxNrofSriPUschMappings1) String() string {
 func (*MaxNrofSriPUschMappings1) ProtoMessage() {}
 
 func (x *MaxNrofSriPUschMappings1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[277]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[278]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16846,7 +16932,7 @@ func (x *MaxNrofSriPUschMappings1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSriPUschMappings1.ProtoReflect.Descriptor instead.
 func (*MaxNrofSriPUschMappings1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{277}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{278}
 }
 
 func (x *MaxNrofSriPUschMappings1) GetValue() int32 {
@@ -16870,7 +16956,7 @@ type MaxSib struct {
 func (x *MaxSib) Reset() {
 	*x = MaxSib{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[278]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[279]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16883,7 +16969,7 @@ func (x *MaxSib) String() string {
 func (*MaxSib) ProtoMessage() {}
 
 func (x *MaxSib) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[278]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[279]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16896,7 +16982,7 @@ func (x *MaxSib) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxSib.ProtoReflect.Descriptor instead.
 func (*MaxSib) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{278}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{279}
 }
 
 func (x *MaxSib) GetValue() int32 {
@@ -16920,7 +17006,7 @@ type MaxSiMessage struct {
 func (x *MaxSiMessage) Reset() {
 	*x = MaxSiMessage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[279]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[280]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16933,7 +17019,7 @@ func (x *MaxSiMessage) String() string {
 func (*MaxSiMessage) ProtoMessage() {}
 
 func (x *MaxSiMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[279]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[280]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16946,7 +17032,7 @@ func (x *MaxSiMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxSiMessage.ProtoReflect.Descriptor instead.
 func (*MaxSiMessage) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{279}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{280}
 }
 
 func (x *MaxSiMessage) GetValue() int32 {
@@ -16970,7 +17056,7 @@ type MaxPoperPf struct {
 func (x *MaxPoperPf) Reset() {
 	*x = MaxPoperPf{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[280]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[281]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -16983,7 +17069,7 @@ func (x *MaxPoperPf) String() string {
 func (*MaxPoperPf) ProtoMessage() {}
 
 func (x *MaxPoperPf) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[280]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[281]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16996,7 +17082,7 @@ func (x *MaxPoperPf) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxPoperPf.ProtoReflect.Descriptor instead.
 func (*MaxPoperPf) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{280}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{281}
 }
 
 func (x *MaxPoperPf) GetValue() int32 {
@@ -17020,7 +17106,7 @@ type MaxAccessCat1 struct {
 func (x *MaxAccessCat1) Reset() {
 	*x = MaxAccessCat1{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[281]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[282]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17033,7 +17119,7 @@ func (x *MaxAccessCat1) String() string {
 func (*MaxAccessCat1) ProtoMessage() {}
 
 func (x *MaxAccessCat1) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[281]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[282]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17046,7 +17132,7 @@ func (x *MaxAccessCat1) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxAccessCat1.ProtoReflect.Descriptor instead.
 func (*MaxAccessCat1) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{281}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{282}
 }
 
 func (x *MaxAccessCat1) GetValue() int32 {
@@ -17070,7 +17156,7 @@ type MaxBarringInfoSet struct {
 func (x *MaxBarringInfoSet) Reset() {
 	*x = MaxBarringInfoSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[282]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[283]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17083,7 +17169,7 @@ func (x *MaxBarringInfoSet) String() string {
 func (*MaxBarringInfoSet) ProtoMessage() {}
 
 func (x *MaxBarringInfoSet) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[282]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[283]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17096,7 +17182,7 @@ func (x *MaxBarringInfoSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxBarringInfoSet.ProtoReflect.Descriptor instead.
 func (*MaxBarringInfoSet) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{282}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{283}
 }
 
 func (x *MaxBarringInfoSet) GetValue() int32 {
@@ -17120,7 +17206,7 @@ type MaxCellEutra struct {
 func (x *MaxCellEutra) Reset() {
 	*x = MaxCellEutra{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[283]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[284]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17133,7 +17219,7 @@ func (x *MaxCellEutra) String() string {
 func (*MaxCellEutra) ProtoMessage() {}
 
 func (x *MaxCellEutra) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[283]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[284]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17146,7 +17232,7 @@ func (x *MaxCellEutra) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCellEutra.ProtoReflect.Descriptor instead.
 func (*MaxCellEutra) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{283}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{284}
 }
 
 func (x *MaxCellEutra) GetValue() int32 {
@@ -17170,7 +17256,7 @@ type MaxEutraCarrier struct {
 func (x *MaxEutraCarrier) Reset() {
 	*x = MaxEutraCarrier{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[284]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[285]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17183,7 +17269,7 @@ func (x *MaxEutraCarrier) String() string {
 func (*MaxEutraCarrier) ProtoMessage() {}
 
 func (x *MaxEutraCarrier) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[284]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[285]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17196,7 +17282,7 @@ func (x *MaxEutraCarrier) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxEutraCarrier.ProtoReflect.Descriptor instead.
 func (*MaxEutraCarrier) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{284}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{285}
 }
 
 func (x *MaxEutraCarrier) GetValue() int32 {
@@ -17220,7 +17306,7 @@ type MaxPlmnidentities struct {
 func (x *MaxPlmnidentities) Reset() {
 	*x = MaxPlmnidentities{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[285]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[286]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17233,7 +17319,7 @@ func (x *MaxPlmnidentities) String() string {
 func (*MaxPlmnidentities) ProtoMessage() {}
 
 func (x *MaxPlmnidentities) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[285]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[286]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17246,7 +17332,7 @@ func (x *MaxPlmnidentities) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxPlmnidentities.ProtoReflect.Descriptor instead.
 func (*MaxPlmnidentities) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{285}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{286}
 }
 
 func (x *MaxPlmnidentities) GetValue() int32 {
@@ -17270,7 +17356,7 @@ type MaxDownlinkFeatureSets struct {
 func (x *MaxDownlinkFeatureSets) Reset() {
 	*x = MaxDownlinkFeatureSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[286]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[287]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17283,7 +17369,7 @@ func (x *MaxDownlinkFeatureSets) String() string {
 func (*MaxDownlinkFeatureSets) ProtoMessage() {}
 
 func (x *MaxDownlinkFeatureSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[286]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[287]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17296,7 +17382,7 @@ func (x *MaxDownlinkFeatureSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxDownlinkFeatureSets.ProtoReflect.Descriptor instead.
 func (*MaxDownlinkFeatureSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{286}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{287}
 }
 
 func (x *MaxDownlinkFeatureSets) GetValue() int32 {
@@ -17320,7 +17406,7 @@ type MaxUplinkFeatureSets struct {
 func (x *MaxUplinkFeatureSets) Reset() {
 	*x = MaxUplinkFeatureSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[287]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[288]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17333,7 +17419,7 @@ func (x *MaxUplinkFeatureSets) String() string {
 func (*MaxUplinkFeatureSets) ProtoMessage() {}
 
 func (x *MaxUplinkFeatureSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[287]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[288]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17346,7 +17432,7 @@ func (x *MaxUplinkFeatureSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxUplinkFeatureSets.ProtoReflect.Descriptor instead.
 func (*MaxUplinkFeatureSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{287}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{288}
 }
 
 func (x *MaxUplinkFeatureSets) GetValue() int32 {
@@ -17370,7 +17456,7 @@ type MaxEutraDLFeatureSets struct {
 func (x *MaxEutraDLFeatureSets) Reset() {
 	*x = MaxEutraDLFeatureSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[288]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[289]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17383,7 +17469,7 @@ func (x *MaxEutraDLFeatureSets) String() string {
 func (*MaxEutraDLFeatureSets) ProtoMessage() {}
 
 func (x *MaxEutraDLFeatureSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[288]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[289]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17396,7 +17482,7 @@ func (x *MaxEutraDLFeatureSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxEutraDLFeatureSets.ProtoReflect.Descriptor instead.
 func (*MaxEutraDLFeatureSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{288}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{289}
 }
 
 func (x *MaxEutraDLFeatureSets) GetValue() int32 {
@@ -17420,7 +17506,7 @@ type MaxEutraULFeatureSets struct {
 func (x *MaxEutraULFeatureSets) Reset() {
 	*x = MaxEutraULFeatureSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[289]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[290]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17433,7 +17519,7 @@ func (x *MaxEutraULFeatureSets) String() string {
 func (*MaxEutraULFeatureSets) ProtoMessage() {}
 
 func (x *MaxEutraULFeatureSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[289]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[290]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17446,7 +17532,7 @@ func (x *MaxEutraULFeatureSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxEutraULFeatureSets.ProtoReflect.Descriptor instead.
 func (*MaxEutraULFeatureSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{289}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{290}
 }
 
 func (x *MaxEutraULFeatureSets) GetValue() int32 {
@@ -17470,7 +17556,7 @@ type MaxFeatureSetsPerBand struct {
 func (x *MaxFeatureSetsPerBand) Reset() {
 	*x = MaxFeatureSetsPerBand{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[290]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[291]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17483,7 +17569,7 @@ func (x *MaxFeatureSetsPerBand) String() string {
 func (*MaxFeatureSetsPerBand) ProtoMessage() {}
 
 func (x *MaxFeatureSetsPerBand) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[290]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[291]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17496,7 +17582,7 @@ func (x *MaxFeatureSetsPerBand) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFeatureSetsPerBand.ProtoReflect.Descriptor instead.
 func (*MaxFeatureSetsPerBand) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{290}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{291}
 }
 
 func (x *MaxFeatureSetsPerBand) GetValue() int32 {
@@ -17520,7 +17606,7 @@ type MaxPerCcFeatureSets struct {
 func (x *MaxPerCcFeatureSets) Reset() {
 	*x = MaxPerCcFeatureSets{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[291]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[292]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17533,7 +17619,7 @@ func (x *MaxPerCcFeatureSets) String() string {
 func (*MaxPerCcFeatureSets) ProtoMessage() {}
 
 func (x *MaxPerCcFeatureSets) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[291]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[292]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17546,7 +17632,7 @@ func (x *MaxPerCcFeatureSets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxPerCcFeatureSets.ProtoReflect.Descriptor instead.
 func (*MaxPerCcFeatureSets) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{291}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{292}
 }
 
 func (x *MaxPerCcFeatureSets) GetValue() int32 {
@@ -17570,7 +17656,7 @@ type MaxFeatureSetCombinations struct {
 func (x *MaxFeatureSetCombinations) Reset() {
 	*x = MaxFeatureSetCombinations{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[292]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[293]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17583,7 +17669,7 @@ func (x *MaxFeatureSetCombinations) String() string {
 func (*MaxFeatureSetCombinations) ProtoMessage() {}
 
 func (x *MaxFeatureSetCombinations) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[292]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[293]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17596,7 +17682,7 @@ func (x *MaxFeatureSetCombinations) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxFeatureSetCombinations.ProtoReflect.Descriptor instead.
 func (*MaxFeatureSetCombinations) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{292}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{293}
 }
 
 func (x *MaxFeatureSetCombinations) GetValue() int32 {
@@ -17620,7 +17706,7 @@ type MaxInterRatRStdFreq struct {
 func (x *MaxInterRatRStdFreq) Reset() {
 	*x = MaxInterRatRStdFreq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[293]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[294]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17633,7 +17719,7 @@ func (x *MaxInterRatRStdFreq) String() string {
 func (*MaxInterRatRStdFreq) ProtoMessage() {}
 
 func (x *MaxInterRatRStdFreq) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[293]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[294]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17646,7 +17732,7 @@ func (x *MaxInterRatRStdFreq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxInterRatRStdFreq.ProtoReflect.Descriptor instead.
 func (*MaxInterRatRStdFreq) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{293}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{294}
 }
 
 func (x *MaxInterRatRStdFreq) GetValue() int32 {
@@ -17670,7 +17756,7 @@ type MaxHrnnLenr16 struct {
 func (x *MaxHrnnLenr16) Reset() {
 	*x = MaxHrnnLenr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[294]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[295]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17683,7 +17769,7 @@ func (x *MaxHrnnLenr16) String() string {
 func (*MaxHrnnLenr16) ProtoMessage() {}
 
 func (x *MaxHrnnLenr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[294]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[295]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17696,7 +17782,7 @@ func (x *MaxHrnnLenr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxHrnnLenr16.ProtoReflect.Descriptor instead.
 func (*MaxHrnnLenr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{294}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{295}
 }
 
 func (x *MaxHrnnLenr16) GetValue() int32 {
@@ -17720,7 +17806,7 @@ type MaxNpnr16 struct {
 func (x *MaxNpnr16) Reset() {
 	*x = MaxNpnr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[295]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[296]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17733,7 +17819,7 @@ func (x *MaxNpnr16) String() string {
 func (*MaxNpnr16) ProtoMessage() {}
 
 func (x *MaxNpnr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[295]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[296]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17746,7 +17832,7 @@ func (x *MaxNpnr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNpnr16.ProtoReflect.Descriptor instead.
 func (*MaxNpnr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{295}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{296}
 }
 
 func (x *MaxNpnr16) GetValue() int32 {
@@ -17770,7 +17856,7 @@ type MaxNrOfMinSchedulingOffsetValuesr16 struct {
 func (x *MaxNrOfMinSchedulingOffsetValuesr16) Reset() {
 	*x = MaxNrOfMinSchedulingOffsetValuesr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[296]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[297]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17783,7 +17869,7 @@ func (x *MaxNrOfMinSchedulingOffsetValuesr16) String() string {
 func (*MaxNrOfMinSchedulingOffsetValuesr16) ProtoMessage() {}
 
 func (x *MaxNrOfMinSchedulingOffsetValuesr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[296]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[297]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17796,7 +17882,7 @@ func (x *MaxNrOfMinSchedulingOffsetValuesr16) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use MaxNrOfMinSchedulingOffsetValuesr16.ProtoReflect.Descriptor instead.
 func (*MaxNrOfMinSchedulingOffsetValuesr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{296}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{297}
 }
 
 func (x *MaxNrOfMinSchedulingOffsetValuesr16) GetValue() int32 {
@@ -17820,7 +17906,7 @@ type MaxK0SchedulingOffsetr16 struct {
 func (x *MaxK0SchedulingOffsetr16) Reset() {
 	*x = MaxK0SchedulingOffsetr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[297]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[298]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17833,7 +17919,7 @@ func (x *MaxK0SchedulingOffsetr16) String() string {
 func (*MaxK0SchedulingOffsetr16) ProtoMessage() {}
 
 func (x *MaxK0SchedulingOffsetr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[297]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[298]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17846,7 +17932,7 @@ func (x *MaxK0SchedulingOffsetr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxK0SchedulingOffsetr16.ProtoReflect.Descriptor instead.
 func (*MaxK0SchedulingOffsetr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{297}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{298}
 }
 
 func (x *MaxK0SchedulingOffsetr16) GetValue() int32 {
@@ -17870,7 +17956,7 @@ type MaxK2SchedulingOffsetr16 struct {
 func (x *MaxK2SchedulingOffsetr16) Reset() {
 	*x = MaxK2SchedulingOffsetr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[298]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[299]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17883,7 +17969,7 @@ func (x *MaxK2SchedulingOffsetr16) String() string {
 func (*MaxK2SchedulingOffsetr16) ProtoMessage() {}
 
 func (x *MaxK2SchedulingOffsetr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[298]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[299]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17896,7 +17982,7 @@ func (x *MaxK2SchedulingOffsetr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxK2SchedulingOffsetr16.ProtoReflect.Descriptor instead.
 func (*MaxK2SchedulingOffsetr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{298}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{299}
 }
 
 func (x *MaxK2SchedulingOffsetr16) GetValue() int32 {
@@ -17920,7 +18006,7 @@ type MaxDci26Sizer16 struct {
 func (x *MaxDci26Sizer16) Reset() {
 	*x = MaxDci26Sizer16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[299]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[300]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17933,7 +18019,7 @@ func (x *MaxDci26Sizer16) String() string {
 func (*MaxDci26Sizer16) ProtoMessage() {}
 
 func (x *MaxDci26Sizer16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[299]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[300]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17946,7 +18032,7 @@ func (x *MaxDci26Sizer16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxDci26Sizer16.ProtoReflect.Descriptor instead.
 func (*MaxDci26Sizer16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{299}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{300}
 }
 
 func (x *MaxDci26Sizer16) GetValue() int32 {
@@ -17970,7 +18056,7 @@ type MaxDci26Size1R16 struct {
 func (x *MaxDci26Size1R16) Reset() {
 	*x = MaxDci26Size1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[300]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[301]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -17983,7 +18069,7 @@ func (x *MaxDci26Size1R16) String() string {
 func (*MaxDci26Size1R16) ProtoMessage() {}
 
 func (x *MaxDci26Size1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[300]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[301]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17996,7 +18082,7 @@ func (x *MaxDci26Size1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxDci26Size1R16.ProtoReflect.Descriptor instead.
 func (*MaxDci26Size1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{300}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{301}
 }
 
 func (x *MaxDci26Size1R16) GetValue() int32 {
@@ -18020,7 +18106,7 @@ type MaxNrofUlAllocationsr16 struct {
 func (x *MaxNrofUlAllocationsr16) Reset() {
 	*x = MaxNrofUlAllocationsr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[301]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[302]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18033,7 +18119,7 @@ func (x *MaxNrofUlAllocationsr16) String() string {
 func (*MaxNrofUlAllocationsr16) ProtoMessage() {}
 
 func (x *MaxNrofUlAllocationsr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[301]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[302]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18046,7 +18132,7 @@ func (x *MaxNrofUlAllocationsr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofUlAllocationsr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofUlAllocationsr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{301}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{302}
 }
 
 func (x *MaxNrofUlAllocationsr16) GetValue() int32 {
@@ -18070,7 +18156,7 @@ type MaxNrofP0PUschSetr16 struct {
 func (x *MaxNrofP0PUschSetr16) Reset() {
 	*x = MaxNrofP0PUschSetr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[302]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[303]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18083,7 +18169,7 @@ func (x *MaxNrofP0PUschSetr16) String() string {
 func (*MaxNrofP0PUschSetr16) ProtoMessage() {}
 
 func (x *MaxNrofP0PUschSetr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[302]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[303]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18096,7 +18182,7 @@ func (x *MaxNrofP0PUschSetr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofP0PUschSetr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofP0PUschSetr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{302}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{303}
 }
 
 func (x *MaxNrofP0PUschSetr16) GetValue() int32 {
@@ -18120,7 +18206,7 @@ type MaxOnDemandSibr16 struct {
 func (x *MaxOnDemandSibr16) Reset() {
 	*x = MaxOnDemandSibr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[303]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[304]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18133,7 +18219,7 @@ func (x *MaxOnDemandSibr16) String() string {
 func (*MaxOnDemandSibr16) ProtoMessage() {}
 
 func (x *MaxOnDemandSibr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[303]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[304]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18146,7 +18232,7 @@ func (x *MaxOnDemandSibr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxOnDemandSibr16.ProtoReflect.Descriptor instead.
 func (*MaxOnDemandSibr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{303}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{304}
 }
 
 func (x *MaxOnDemandSibr16) GetValue() int32 {
@@ -18170,7 +18256,7 @@ type MaxOnDemandPosSibr16 struct {
 func (x *MaxOnDemandPosSibr16) Reset() {
 	*x = MaxOnDemandPosSibr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[304]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[305]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18183,7 +18269,7 @@ func (x *MaxOnDemandPosSibr16) String() string {
 func (*MaxOnDemandPosSibr16) ProtoMessage() {}
 
 func (x *MaxOnDemandPosSibr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[304]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[305]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18196,7 +18282,7 @@ func (x *MaxOnDemandPosSibr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxOnDemandPosSibr16.ProtoReflect.Descriptor instead.
 func (*MaxOnDemandPosSibr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{304}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{305}
 }
 
 func (x *MaxOnDemandPosSibr16) GetValue() int32 {
@@ -18220,7 +18306,7 @@ type MaxCiDCiPayloadSizer16 struct {
 func (x *MaxCiDCiPayloadSizer16) Reset() {
 	*x = MaxCiDCiPayloadSizer16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[305]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[306]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18233,7 +18319,7 @@ func (x *MaxCiDCiPayloadSizer16) String() string {
 func (*MaxCiDCiPayloadSizer16) ProtoMessage() {}
 
 func (x *MaxCiDCiPayloadSizer16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[305]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[306]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18246,7 +18332,7 @@ func (x *MaxCiDCiPayloadSizer16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCiDCiPayloadSizer16.ProtoReflect.Descriptor instead.
 func (*MaxCiDCiPayloadSizer16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{305}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{306}
 }
 
 func (x *MaxCiDCiPayloadSizer16) GetValue() int32 {
@@ -18270,7 +18356,7 @@ type MaxCiDCiPayloadSize1R16 struct {
 func (x *MaxCiDCiPayloadSize1R16) Reset() {
 	*x = MaxCiDCiPayloadSize1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[306]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[307]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18283,7 +18369,7 @@ func (x *MaxCiDCiPayloadSize1R16) String() string {
 func (*MaxCiDCiPayloadSize1R16) ProtoMessage() {}
 
 func (x *MaxCiDCiPayloadSize1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[306]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[307]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18296,7 +18382,7 @@ func (x *MaxCiDCiPayloadSize1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCiDCiPayloadSize1R16.ProtoReflect.Descriptor instead.
 func (*MaxCiDCiPayloadSize1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{306}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{307}
 }
 
 func (x *MaxCiDCiPayloadSize1R16) GetValue() int32 {
@@ -18320,7 +18406,7 @@ type MaxWlanIdReportr16 struct {
 func (x *MaxWlanIdReportr16) Reset() {
 	*x = MaxWlanIdReportr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[307]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[308]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18333,7 +18419,7 @@ func (x *MaxWlanIdReportr16) String() string {
 func (*MaxWlanIdReportr16) ProtoMessage() {}
 
 func (x *MaxWlanIdReportr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[307]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[308]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18346,7 +18432,7 @@ func (x *MaxWlanIdReportr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxWlanIdReportr16.ProtoReflect.Descriptor instead.
 func (*MaxWlanIdReportr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{307}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{308}
 }
 
 func (x *MaxWlanIdReportr16) GetValue() int32 {
@@ -18370,7 +18456,7 @@ type MaxWlanNamer16 struct {
 func (x *MaxWlanNamer16) Reset() {
 	*x = MaxWlanNamer16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[308]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[309]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18383,7 +18469,7 @@ func (x *MaxWlanNamer16) String() string {
 func (*MaxWlanNamer16) ProtoMessage() {}
 
 func (x *MaxWlanNamer16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[308]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[309]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18396,7 +18482,7 @@ func (x *MaxWlanNamer16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxWlanNamer16.ProtoReflect.Descriptor instead.
 func (*MaxWlanNamer16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{308}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{309}
 }
 
 func (x *MaxWlanNamer16) GetValue() int32 {
@@ -18420,7 +18506,7 @@ type MaxRareportr16 struct {
 func (x *MaxRareportr16) Reset() {
 	*x = MaxRareportr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[309]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[310]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18433,7 +18519,7 @@ func (x *MaxRareportr16) String() string {
 func (*MaxRareportr16) ProtoMessage() {}
 
 func (x *MaxRareportr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[309]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[310]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18446,7 +18532,7 @@ func (x *MaxRareportr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxRareportr16.ProtoReflect.Descriptor instead.
 func (*MaxRareportr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{309}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{310}
 }
 
 func (x *MaxRareportr16) GetValue() int32 {
@@ -18470,7 +18556,7 @@ type MaxTxConfigr16 struct {
 func (x *MaxTxConfigr16) Reset() {
 	*x = MaxTxConfigr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[310]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[311]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18483,7 +18569,7 @@ func (x *MaxTxConfigr16) String() string {
 func (*MaxTxConfigr16) ProtoMessage() {}
 
 func (x *MaxTxConfigr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[310]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[311]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18496,7 +18582,7 @@ func (x *MaxTxConfigr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxTxConfigr16.ProtoReflect.Descriptor instead.
 func (*MaxTxConfigr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{310}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{311}
 }
 
 func (x *MaxTxConfigr16) GetValue() int32 {
@@ -18520,7 +18606,7 @@ type MaxTxConfig1R16 struct {
 func (x *MaxTxConfig1R16) Reset() {
 	*x = MaxTxConfig1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[311]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[312]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18533,7 +18619,7 @@ func (x *MaxTxConfig1R16) String() string {
 func (*MaxTxConfig1R16) ProtoMessage() {}
 
 func (x *MaxTxConfig1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[311]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[312]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18546,7 +18632,7 @@ func (x *MaxTxConfig1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxTxConfig1R16.ProtoReflect.Descriptor instead.
 func (*MaxTxConfig1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{311}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{312}
 }
 
 func (x *MaxTxConfig1R16) GetValue() int32 {
@@ -18570,7 +18656,7 @@ type MaxPsschTxConfigr16 struct {
 func (x *MaxPsschTxConfigr16) Reset() {
 	*x = MaxPsschTxConfigr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[312]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[313]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18583,7 +18669,7 @@ func (x *MaxPsschTxConfigr16) String() string {
 func (*MaxPsschTxConfigr16) ProtoMessage() {}
 
 func (x *MaxPsschTxConfigr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[312]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[313]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18596,7 +18682,7 @@ func (x *MaxPsschTxConfigr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxPsschTxConfigr16.ProtoReflect.Descriptor instead.
 func (*MaxPsschTxConfigr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{312}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{313}
 }
 
 func (x *MaxPsschTxConfigr16) GetValue() int32 {
@@ -18620,7 +18706,7 @@ type MaxNrofCliRSsiResourcesr16 struct {
 func (x *MaxNrofCliRSsiResourcesr16) Reset() {
 	*x = MaxNrofCliRSsiResourcesr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[313]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[314]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18633,7 +18719,7 @@ func (x *MaxNrofCliRSsiResourcesr16) String() string {
 func (*MaxNrofCliRSsiResourcesr16) ProtoMessage() {}
 
 func (x *MaxNrofCliRSsiResourcesr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[313]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[314]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18646,7 +18732,7 @@ func (x *MaxNrofCliRSsiResourcesr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCliRSsiResourcesr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCliRSsiResourcesr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{313}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{314}
 }
 
 func (x *MaxNrofCliRSsiResourcesr16) GetValue() int32 {
@@ -18670,7 +18756,7 @@ type MaxNrofCliRSsiResources1R16 struct {
 func (x *MaxNrofCliRSsiResources1R16) Reset() {
 	*x = MaxNrofCliRSsiResources1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[314]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[315]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18683,7 +18769,7 @@ func (x *MaxNrofCliRSsiResources1R16) String() string {
 func (*MaxNrofCliRSsiResources1R16) ProtoMessage() {}
 
 func (x *MaxNrofCliRSsiResources1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[314]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[315]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18696,7 +18782,7 @@ func (x *MaxNrofCliRSsiResources1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCliRSsiResources1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCliRSsiResources1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{314}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{315}
 }
 
 func (x *MaxNrofCliRSsiResources1R16) GetValue() int32 {
@@ -18720,7 +18806,7 @@ type MaxNrofCliSRsResourcesr16 struct {
 func (x *MaxNrofCliSRsResourcesr16) Reset() {
 	*x = MaxNrofCliSRsResourcesr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[315]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[316]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18733,7 +18819,7 @@ func (x *MaxNrofCliSRsResourcesr16) String() string {
 func (*MaxNrofCliSRsResourcesr16) ProtoMessage() {}
 
 func (x *MaxNrofCliSRsResourcesr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[315]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[316]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18746,7 +18832,7 @@ func (x *MaxNrofCliSRsResourcesr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCliSRsResourcesr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofCliSRsResourcesr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{315}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{316}
 }
 
 func (x *MaxNrofCliSRsResourcesr16) GetValue() int32 {
@@ -18770,7 +18856,7 @@ type MaxCliReportr16 struct {
 func (x *MaxCliReportr16) Reset() {
 	*x = MaxCliReportr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[316]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[317]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18783,7 +18869,7 @@ func (x *MaxCliReportr16) String() string {
 func (*MaxCliReportr16) ProtoMessage() {}
 
 func (x *MaxCliReportr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[316]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[317]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18796,7 +18882,7 @@ func (x *MaxCliReportr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxCliReportr16.ProtoReflect.Descriptor instead.
 func (*MaxCliReportr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{316}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{317}
 }
 
 func (x *MaxCliReportr16) GetValue() int32 {
@@ -18820,7 +18906,7 @@ type MaxNrofConfiguredGrantConfigr16 struct {
 func (x *MaxNrofConfiguredGrantConfigr16) Reset() {
 	*x = MaxNrofConfiguredGrantConfigr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[317]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[318]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18833,7 +18919,7 @@ func (x *MaxNrofConfiguredGrantConfigr16) String() string {
 func (*MaxNrofConfiguredGrantConfigr16) ProtoMessage() {}
 
 func (x *MaxNrofConfiguredGrantConfigr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[317]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[318]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18846,7 +18932,7 @@ func (x *MaxNrofConfiguredGrantConfigr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofConfiguredGrantConfigr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofConfiguredGrantConfigr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{317}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{318}
 }
 
 func (x *MaxNrofConfiguredGrantConfigr16) GetValue() int32 {
@@ -18870,7 +18956,7 @@ type MaxNrofConfiguredGrantConfig1R16 struct {
 func (x *MaxNrofConfiguredGrantConfig1R16) Reset() {
 	*x = MaxNrofConfiguredGrantConfig1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[318]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[319]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18883,7 +18969,7 @@ func (x *MaxNrofConfiguredGrantConfig1R16) String() string {
 func (*MaxNrofConfiguredGrantConfig1R16) ProtoMessage() {}
 
 func (x *MaxNrofConfiguredGrantConfig1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[318]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[319]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18896,7 +18982,7 @@ func (x *MaxNrofConfiguredGrantConfig1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofConfiguredGrantConfig1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofConfiguredGrantConfig1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{318}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{319}
 }
 
 func (x *MaxNrofConfiguredGrantConfig1R16) GetValue() int32 {
@@ -18920,7 +19006,7 @@ type MaxNrofCgType2DeactivationState struct {
 func (x *MaxNrofCgType2DeactivationState) Reset() {
 	*x = MaxNrofCgType2DeactivationState{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[319]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[320]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18933,7 +19019,7 @@ func (x *MaxNrofCgType2DeactivationState) String() string {
 func (*MaxNrofCgType2DeactivationState) ProtoMessage() {}
 
 func (x *MaxNrofCgType2DeactivationState) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[319]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[320]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18946,7 +19032,7 @@ func (x *MaxNrofCgType2DeactivationState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofCgType2DeactivationState.ProtoReflect.Descriptor instead.
 func (*MaxNrofCgType2DeactivationState) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{319}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{320}
 }
 
 func (x *MaxNrofCgType2DeactivationState) GetValue() int32 {
@@ -18970,7 +19056,7 @@ type MaxNrofConfiguredGrantConfigMac1R16 struct {
 func (x *MaxNrofConfiguredGrantConfigMac1R16) Reset() {
 	*x = MaxNrofConfiguredGrantConfigMac1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[320]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[321]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -18983,7 +19069,7 @@ func (x *MaxNrofConfiguredGrantConfigMac1R16) String() string {
 func (*MaxNrofConfiguredGrantConfigMac1R16) ProtoMessage() {}
 
 func (x *MaxNrofConfiguredGrantConfigMac1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[320]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[321]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18996,7 +19082,7 @@ func (x *MaxNrofConfiguredGrantConfigMac1R16) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use MaxNrofConfiguredGrantConfigMac1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofConfiguredGrantConfigMac1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{320}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{321}
 }
 
 func (x *MaxNrofConfiguredGrantConfigMac1R16) GetValue() int32 {
@@ -19020,7 +19106,7 @@ type MaxNrofSpsConfigr16 struct {
 func (x *MaxNrofSpsConfigr16) Reset() {
 	*x = MaxNrofSpsConfigr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[321]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[322]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -19033,7 +19119,7 @@ func (x *MaxNrofSpsConfigr16) String() string {
 func (*MaxNrofSpsConfigr16) ProtoMessage() {}
 
 func (x *MaxNrofSpsConfigr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[321]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[322]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19046,7 +19132,7 @@ func (x *MaxNrofSpsConfigr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSpsConfigr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSpsConfigr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{321}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{322}
 }
 
 func (x *MaxNrofSpsConfigr16) GetValue() int32 {
@@ -19070,7 +19156,7 @@ type MaxNrofSpsConfig1R16 struct {
 func (x *MaxNrofSpsConfig1R16) Reset() {
 	*x = MaxNrofSpsConfig1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[322]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[323]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -19083,7 +19169,7 @@ func (x *MaxNrofSpsConfig1R16) String() string {
 func (*MaxNrofSpsConfig1R16) ProtoMessage() {}
 
 func (x *MaxNrofSpsConfig1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[322]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[323]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19096,7 +19182,7 @@ func (x *MaxNrofSpsConfig1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSpsConfig1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofSpsConfig1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{322}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{323}
 }
 
 func (x *MaxNrofSpsConfig1R16) GetValue() int32 {
@@ -19120,7 +19206,7 @@ type MaxNrofSpsDeactivationState struct {
 func (x *MaxNrofSpsDeactivationState) Reset() {
 	*x = MaxNrofSpsDeactivationState{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[323]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[324]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -19133,7 +19219,7 @@ func (x *MaxNrofSpsDeactivationState) String() string {
 func (*MaxNrofSpsDeactivationState) ProtoMessage() {}
 
 func (x *MaxNrofSpsDeactivationState) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[323]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[324]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19146,7 +19232,7 @@ func (x *MaxNrofSpsDeactivationState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofSpsDeactivationState.ProtoReflect.Descriptor instead.
 func (*MaxNrofSpsDeactivationState) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{323}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{324}
 }
 
 func (x *MaxNrofSpsDeactivationState) GetValue() int32 {
@@ -19170,7 +19256,7 @@ type MaxNrofDormancyGroups struct {
 func (x *MaxNrofDormancyGroups) Reset() {
 	*x = MaxNrofDormancyGroups{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[324]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[325]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -19183,7 +19269,7 @@ func (x *MaxNrofDormancyGroups) String() string {
 func (*MaxNrofDormancyGroups) ProtoMessage() {}
 
 func (x *MaxNrofDormancyGroups) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[324]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[325]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19196,7 +19282,7 @@ func (x *MaxNrofDormancyGroups) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofDormancyGroups.ProtoReflect.Descriptor instead.
 func (*MaxNrofDormancyGroups) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{324}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{325}
 }
 
 func (x *MaxNrofDormancyGroups) GetValue() int32 {
@@ -19220,7 +19306,7 @@ type MaxNrofPucchResourceGroups1R16 struct {
 func (x *MaxNrofPucchResourceGroups1R16) Reset() {
 	*x = MaxNrofPucchResourceGroups1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[325]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[326]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -19233,7 +19319,7 @@ func (x *MaxNrofPucchResourceGroups1R16) String() string {
 func (*MaxNrofPucchResourceGroups1R16) ProtoMessage() {}
 
 func (x *MaxNrofPucchResourceGroups1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[325]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[326]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19246,7 +19332,7 @@ func (x *MaxNrofPucchResourceGroups1R16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofPucchResourceGroups1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPucchResourceGroups1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{325}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{326}
 }
 
 func (x *MaxNrofPucchResourceGroups1R16) GetValue() int32 {
@@ -19270,7 +19356,7 @@ type MaxNrofServingCellsTcir16 struct {
 func (x *MaxNrofServingCellsTcir16) Reset() {
 	*x = MaxNrofServingCellsTcir16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[326]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[327]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -19283,7 +19369,7 @@ func (x *MaxNrofServingCellsTcir16) String() string {
 func (*MaxNrofServingCellsTcir16) ProtoMessage() {}
 
 func (x *MaxNrofServingCellsTcir16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[326]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[327]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19296,7 +19382,7 @@ func (x *MaxNrofServingCellsTcir16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofServingCellsTcir16.ProtoReflect.Descriptor instead.
 func (*MaxNrofServingCellsTcir16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{326}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{327}
 }
 
 func (x *MaxNrofServingCellsTcir16) GetValue() int32 {
@@ -19320,7 +19406,7 @@ type MaxNrofTxDcTwoCarrierr16 struct {
 func (x *MaxNrofTxDcTwoCarrierr16) Reset() {
 	*x = MaxNrofTxDcTwoCarrierr16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[327]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[328]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -19333,7 +19419,7 @@ func (x *MaxNrofTxDcTwoCarrierr16) String() string {
 func (*MaxNrofTxDcTwoCarrierr16) ProtoMessage() {}
 
 func (x *MaxNrofTxDcTwoCarrierr16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[327]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[328]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19346,7 +19432,7 @@ func (x *MaxNrofTxDcTwoCarrierr16) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MaxNrofTxDcTwoCarrierr16.ProtoReflect.Descriptor instead.
 func (*MaxNrofTxDcTwoCarrierr16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{327}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{328}
 }
 
 func (x *MaxNrofTxDcTwoCarrierr16) GetValue() int32 {
@@ -19370,7 +19456,7 @@ type MaxNrofPdcchBlindDetectionMixed1R16 struct {
 func (x *MaxNrofPdcchBlindDetectionMixed1R16) Reset() {
 	*x = MaxNrofPdcchBlindDetectionMixed1R16{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_CSI_ReportConfig_proto_msgTypes[328]
+		mi := &file_CSI_ReportConfig_proto_msgTypes[329]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -19383,7 +19469,7 @@ func (x *MaxNrofPdcchBlindDetectionMixed1R16) String() string {
 func (*MaxNrofPdcchBlindDetectionMixed1R16) ProtoMessage() {}
 
 func (x *MaxNrofPdcchBlindDetectionMixed1R16) ProtoReflect() protoreflect.Message {
-	mi := &file_CSI_ReportConfig_proto_msgTypes[328]
+	mi := &file_CSI_ReportConfig_proto_msgTypes[329]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19396,7 +19482,7 @@ func (x *MaxNrofPdcchBlindDetectionMixed1R16) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use MaxNrofPdcchBlindDetectionMixed1R16.ProtoReflect.Descriptor instead.
 func (*MaxNrofPdcchBlindDetectionMixed1R16) Descriptor() ([]byte, []int) {
-	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{328}
+	return file_CSI_ReportConfig_proto_rawDescGZIP(), []int{329}
 }
 
 func (x *MaxNrofPdcchBlindDetectionMixed1R16) GetValue() int32 {
@@ -20466,1207 +20552,1223 @@ var file_CSI_ReportConfig_proto_rawDesc = []byte{
 	0x2e, 0x42, 0x69, 0x74, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x26, 0x74, 0x79, 0x70, 0x65,
 	0x49, 0x49, 0x2d, 0x50, 0x6f, 0x72, 0x74, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e,
 	0x52, 0x49, 0x2d, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x2d, 0x72,
-	0x31, 0x36, 0x22, 0xe7, 0x01, 0x0a, 0x14, 0x54, 0x79, 0x70, 0x65, 0x32, 0x63, 0x6f, 0x64, 0x65,
-	0x62, 0x6f, 0x6f, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x72, 0x31, 0x36, 0x12, 0x3e, 0x0a, 0x08, 0x73,
-	0x75, 0x62, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x23, 0x2e,
-	0x5f, 0x63, 0x73, 0x69, 0x5f, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x5f, 0x63, 0x6f, 0x6e, 0x66,
-	0x69, 0x67, 0x2e, 0x76, 0x32, 0x2e, 0x53, 0x75, 0x62, 0x54, 0x79, 0x70, 0x65, 0x74, 0x79, 0x70,
-	0x65, 0x32, 0x52, 0x07, 0x73, 0x75, 0x62, 0x54, 0x79, 0x70, 0x65, 0x12, 0x5a, 0x0a, 0x2a, 0x6e,
-	0x75, 0x6d, 0x62, 0x65, 0x72, 0x5f, 0x6f, 0x66, 0x5f, 0x70, 0x6d, 0x69, 0x5f, 0x73, 0x75, 0x62,
-	0x62, 0x61, 0x6e, 0x64, 0x73, 0x5f, 0x70, 0x65, 0x72, 0x5f, 0x63, 0x71, 0x69, 0x5f, 0x73, 0x75,
-	0x62, 0x62, 0x61, 0x6e, 0x64, 0x5f, 0x72, 0x31, 0x36, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52,
-	0x26, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x4f, 0x66, 0x50, 0x4d, 0x49, 0x2d, 0x53, 0x75, 0x62,
-	0x62, 0x61, 0x6e, 0x64, 0x73, 0x50, 0x65, 0x72, 0x43, 0x51, 0x49, 0x2d, 0x53, 0x75, 0x62, 0x62,
-	0x61, 0x6e, 0x64, 0x2d, 0x72, 0x31, 0x36, 0x12, 0x33, 0x0a, 0x15, 0x70, 0x61, 0x72, 0x61, 0x6d,
-	0x5f, 0x63, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x72, 0x31, 0x36,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52, 0x14, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x43, 0x6f, 0x6d,
-	0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2d, 0x72, 0x31, 0x36, 0x22, 0x90, 0x01, 0x0a,
-	0x20, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x72, 0x31, 0x36,
-	0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31,
-	0x36, 0x12, 0x43, 0x0a, 0x05, 0x74, 0x79, 0x70, 0x65, 0x32, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x2b, 0x2e, 0x5f, 0x63, 0x73, 0x69, 0x5f, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x5f, 0x63,
-	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x2e, 0x76, 0x32, 0x2e, 0x54, 0x79, 0x70, 0x65, 0x32, 0x63, 0x6f,
-	0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x72, 0x31, 0x36, 0x48, 0x00, 0x52,
-	0x05, 0x74, 0x79, 0x70, 0x65, 0x32, 0x42, 0x27, 0x0a, 0x25, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f,
-	0x6f, 0x6b, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x5f, 0x72, 0x31, 0x36, 0x5f, 0x63, 0x6f, 0x64, 0x65,
-	0x62, 0x6f, 0x6f, 0x6b, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x5f, 0x72, 0x31, 0x36, 0x22,
-	0x79, 0x0a, 0x11, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x43, 0x6f, 0x6e, 0x66, 0x69,
-	0x67, 0x72, 0x31, 0x36, 0x12, 0x64, 0x0a, 0x11, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b,
-	0x5f, 0x74, 0x79, 0x70, 0x65, 0x5f, 0x72, 0x31, 0x36, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x37, 0x2e, 0x5f, 0x63, 0x73, 0x69, 0x5f, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x5f, 0x63, 0x6f,
-	0x6e, 0x66, 0x69, 0x67, 0x2e, 0x76, 0x32, 0x2e, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b,
-	0x54, 0x79, 0x70, 0x65, 0x72, 0x31, 0x36, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x43,
-	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31, 0x36, 0x52, 0x10, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f,
-	0x6f, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x2d, 0x72, 0x31, 0x36, 0x22, 0x28, 0x0a, 0x05, 0x42, 0x77,
-	0x70, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a, 0x04, 0x18, 0x04, 0x28, 0x00, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x0f, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65, 0x73,
-	0x6f, 0x75, 0x72, 0x63, 0x65, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a, 0x04, 0x18, 0x7f, 0x28,
-	0x00, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x41,
-	0x69, 0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x72,
-	0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x41, 0x69, 0x44, 0x43, 0x69, 0x50, 0x61,
-	0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x7f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0b,
-	0x4d, 0x61, 0x78, 0x42, 0x61, 0x6e, 0x64, 0x43, 0x6f, 0x6d, 0x62, 0x12, 0x1f, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a,
-	0x04, 0x08, 0x80, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12,
-	0x4d, 0x61, 0x78, 0x42, 0x61, 0x6e, 0x64, 0x73, 0x55, 0x74, 0x72, 0x61, 0x46, 0x44, 0x64, 0x72,
-	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x37, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x42, 0x68, 0x52, 0x4c, 0x63, 0x43, 0x68, 0x61,
-	0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a, 0x04, 0x08,
-	0x80, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61,
-	0x78, 0x42, 0x74, 0x49, 0x64, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a,
-	0x0c, 0x4d, 0x61, 0x78, 0x42, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d,
-	0x4d, 0x61, 0x78, 0x43, 0x61, 0x67, 0x43, 0x65, 0x6c, 0x6c, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b,
-	0x4d, 0x61, 0x78, 0x54, 0x77, 0x6f, 0x50, 0x75, 0x63, 0x63, 0x68, 0x47, 0x72, 0x70, 0x43, 0x6f,
-	0x6e, 0x66, 0x69, 0x67, 0x4c, 0x69, 0x73, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61,
-	0x78, 0x43, 0x62, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10,
-	0x4d, 0x61, 0x78, 0x43, 0x62, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x31, 0x72, 0x31, 0x36,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x43, 0x62, 0x72, 0x4c, 0x65, 0x76, 0x65, 0x6c, 0x72, 0x31,
-	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x43, 0x62, 0x72, 0x4c, 0x65, 0x76, 0x65, 0x6c, 0x31,
-	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x42, 0x6c, 0x61,
-	0x63, 0x6b, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x47, 0x72, 0x6f, 0x75,
-	0x70, 0x69, 0x6e, 0x67, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x43, 0x65,
-	0x6c, 0x6c, 0x48, 0x69, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d,
-	0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61,
-	0x78, 0x43, 0x65, 0x6c, 0x6c, 0x49, 0x6e, 0x74, 0x72, 0x61, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78,
-	0x43, 0x65, 0x6c, 0x6c, 0x4d, 0x65, 0x61, 0x73, 0x45, 0x75, 0x74, 0x72, 0x61, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12,
-	0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x4d, 0x65, 0x61, 0x73, 0x49, 0x64, 0x6c, 0x65, 0x72,
-	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x4d, 0x65, 0x61, 0x73,
-	0x55, 0x74, 0x72, 0x61, 0x46, 0x44, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78,
-	0x43, 0x61, 0x72, 0x72, 0x69, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x50, 0x61, 0x69, 0x72, 0x4c,
-	0x69, 0x73, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c,
-	0x57, 0x68, 0x69, 0x74, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x2c, 0x0a, 0x09, 0x4d, 0x61, 0x78, 0x45, 0x61, 0x72, 0x66, 0x63,
-	0x6e, 0x12, 0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a, 0x04, 0x08, 0xff, 0xff, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x45, 0x75, 0x74, 0x72, 0x61, 0x43, 0x65,
-	0x6c, 0x6c, 0x42, 0x6c, 0x61, 0x63, 0x6b, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x45, 0x75, 0x74,
-	0x72, 0x61, 0x4e, 0x53, 0x50, 0x6d, 0x61, 0x78, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4c, 0x6f,
-	0x67, 0x4d, 0x65, 0x61, 0x73, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1e,
+	0x31, 0x36, 0x22, 0xe8, 0x01, 0x0a, 0x0f, 0x53, 0x75, 0x62, 0x54, 0x79, 0x70, 0x65, 0x74, 0x79,
+	0x70, 0x65, 0x32, 0x72, 0x31, 0x36, 0x12, 0x4a, 0x0a, 0x0b, 0x74, 0x79, 0x70, 0x65, 0x5f, 0x69,
+	0x69, 0x5f, 0x72, 0x31, 0x36, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x5f, 0x63,
+	0x73, 0x69, 0x5f, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67,
+	0x2e, 0x76, 0x32, 0x2e, 0x54, 0x79, 0x70, 0x65, 0x49, 0x69, 0x72, 0x31, 0x36, 0x73, 0x75, 0x62,
+	0x54, 0x79, 0x70, 0x65, 0x48, 0x00, 0x52, 0x0a, 0x74, 0x79, 0x70, 0x65, 0x49, 0x49, 0x2d, 0x72,
+	0x31, 0x36, 0x12, 0x74, 0x0a, 0x1a, 0x74, 0x79, 0x70, 0x65, 0x5f, 0x69, 0x69, 0x5f, 0x70, 0x6f,
+	0x72, 0x74, 0x5f, 0x73, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x72, 0x31, 0x36,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x34, 0x2e, 0x5f, 0x63, 0x73, 0x69, 0x5f, 0x72, 0x65,
+	0x70, 0x6f, 0x72, 0x74, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x2e, 0x76, 0x32, 0x2e, 0x54,
+	0x79, 0x70, 0x65, 0x49, 0x69, 0x50, 0x6f, 0x72, 0x74, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x69,
+	0x6f, 0x6e, 0x72, 0x31, 0x36, 0x73, 0x75, 0x62, 0x54, 0x79, 0x70, 0x65, 0x48, 0x00, 0x52, 0x18,
+	0x74, 0x79, 0x70, 0x65, 0x49, 0x49, 0x2d, 0x50, 0x6f, 0x72, 0x74, 0x53, 0x65, 0x6c, 0x65, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x2d, 0x72, 0x31, 0x36, 0x42, 0x13, 0x0a, 0x11, 0x73, 0x75, 0x62, 0x5f,
+	0x74, 0x79, 0x70, 0x65, 0x74, 0x79, 0x70, 0x65, 0x32, 0x5f, 0x72, 0x31, 0x36, 0x22, 0xed, 0x01,
+	0x0a, 0x17, 0x54, 0x79, 0x70, 0x65, 0x32, 0x72, 0x31, 0x36, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f,
+	0x6f, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x72, 0x31, 0x36, 0x12, 0x41, 0x0a, 0x08, 0x73, 0x75, 0x62,
+	0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x5f, 0x63,
+	0x73, 0x69, 0x5f, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67,
+	0x2e, 0x76, 0x32, 0x2e, 0x53, 0x75, 0x62, 0x54, 0x79, 0x70, 0x65, 0x74, 0x79, 0x70, 0x65, 0x32,
+	0x72, 0x31, 0x36, 0x52, 0x07, 0x73, 0x75, 0x62, 0x54, 0x79, 0x70, 0x65, 0x12, 0x5a, 0x0a, 0x2a,
+	0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x5f, 0x6f, 0x66, 0x5f, 0x70, 0x6d, 0x69, 0x5f, 0x73, 0x75,
+	0x62, 0x62, 0x61, 0x6e, 0x64, 0x73, 0x5f, 0x70, 0x65, 0x72, 0x5f, 0x63, 0x71, 0x69, 0x5f, 0x73,
+	0x75, 0x62, 0x62, 0x61, 0x6e, 0x64, 0x5f, 0x72, 0x31, 0x36, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05,
+	0x52, 0x26, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x4f, 0x66, 0x50, 0x4d, 0x49, 0x2d, 0x53, 0x75,
+	0x62, 0x62, 0x61, 0x6e, 0x64, 0x73, 0x50, 0x65, 0x72, 0x43, 0x51, 0x49, 0x2d, 0x53, 0x75, 0x62,
+	0x62, 0x61, 0x6e, 0x64, 0x2d, 0x72, 0x31, 0x36, 0x12, 0x33, 0x0a, 0x15, 0x70, 0x61, 0x72, 0x61,
+	0x6d, 0x5f, 0x63, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x72, 0x31,
+	0x36, 0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52, 0x14, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x43, 0x6f,
+	0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2d, 0x72, 0x31, 0x36, 0x22, 0x9b, 0x01,
+	0x0a, 0x20, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x72, 0x31,
+	0x36, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72,
+	0x31, 0x36, 0x12, 0x4e, 0x0a, 0x09, 0x74, 0x79, 0x70, 0x65, 0x32, 0x5f, 0x72, 0x31, 0x36, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2e, 0x2e, 0x5f, 0x63, 0x73, 0x69, 0x5f, 0x72, 0x65, 0x70,
+	0x6f, 0x72, 0x74, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x2e, 0x76, 0x32, 0x2e, 0x54, 0x79,
+	0x70, 0x65, 0x32, 0x72, 0x31, 0x36, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x54, 0x79,
+	0x70, 0x65, 0x72, 0x31, 0x36, 0x48, 0x00, 0x52, 0x09, 0x74, 0x79, 0x70, 0x65, 0x32, 0x2d, 0x72,
+	0x31, 0x36, 0x42, 0x27, 0x0a, 0x25, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x5f, 0x74,
+	0x79, 0x70, 0x65, 0x5f, 0x72, 0x31, 0x36, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b,
+	0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x5f, 0x72, 0x31, 0x36, 0x22, 0x79, 0x0a, 0x11, 0x43,
+	0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31, 0x36,
+	0x12, 0x64, 0x0a, 0x11, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x5f, 0x74, 0x79, 0x70,
+	0x65, 0x5f, 0x72, 0x31, 0x36, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x37, 0x2e, 0x5f, 0x63,
+	0x73, 0x69, 0x5f, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67,
+	0x2e, 0x76, 0x32, 0x2e, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x54, 0x79, 0x70, 0x65,
+	0x72, 0x31, 0x36, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x43, 0x6f, 0x6e, 0x66, 0x69,
+	0x67, 0x72, 0x31, 0x36, 0x52, 0x10, 0x63, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x54, 0x79,
+	0x70, 0x65, 0x2d, 0x72, 0x31, 0x36, 0x22, 0x28, 0x0a, 0x05, 0x42, 0x77, 0x70, 0x49, 0x64, 0x12,
+	0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x09,
+	0xfa, 0x42, 0x06, 0x1a, 0x04, 0x18, 0x04, 0x28, 0x00, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x32, 0x0a, 0x0f, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
+	0x65, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a, 0x04, 0x18, 0x7f, 0x28, 0x00, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x41, 0x69, 0x44, 0x43, 0x69,
+	0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1e,
 	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa,
-	0x42, 0x05, 0x1a, 0x03, 0x08, 0x88, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e,
-	0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x42, 0x61, 0x6e, 0x64, 0x73, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d,
-	0x0a, 0x09, 0x4d, 0x61, 0x78, 0x4e, 0x61, 0x72, 0x66, 0x63, 0x6e, 0x12, 0x20, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x0a, 0xfa, 0x42, 0x07, 0x1a,
-	0x05, 0x08, 0xbd, 0x92, 0xc8, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2c, 0x0a,
-	0x0b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x4e, 0x53, 0x50, 0x6d, 0x61, 0x78, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d,
-	0x61, 0x78, 0x46, 0x72, 0x65, 0x71, 0x49, 0x64, 0x6c, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13,
-	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x65, 0x72, 0x76, 0x69, 0x6e, 0x67, 0x43, 0x65,
-	0x6c, 0x6c, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x6e, 0x67, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x1f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x43, 0x0a, 0x22, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x41, 0x67, 0x67, 0x72, 0x65, 0x67, 0x61, 0x74, 0x65, 0x64, 0x43, 0x65,
-	0x6c, 0x6c, 0x73, 0x50, 0x65, 0x72, 0x43, 0x65, 0x6c, 0x6c, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x4c,
-	0x0a, 0x2b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x41, 0x67, 0x67, 0x72, 0x65, 0x67, 0x61,
-	0x74, 0x65, 0x64, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x50, 0x65, 0x72, 0x43, 0x65, 0x6c, 0x6c, 0x47,
-	0x72, 0x6f, 0x75, 0x70, 0x4d, 0x69, 0x6e, 0x75, 0x73, 0x34, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x11,
-	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x44, 0x75, 0x63, 0x65, 0x6c, 0x6c, 0x73, 0x72, 0x31,
-	0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x4a, 0x0a, 0x28, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x41, 0x76, 0x61, 0x69,
-	0x6c, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
-	0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x4b, 0x0a,
-	0x29, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x41, 0x76, 0x61, 0x69, 0x6c, 0x61, 0x62, 0x69,
-	0x6c, 0x69, 0x74, 0x79, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73,
-	0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03,
-	0x08, 0xff, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x63, 0x65, 0x6c, 0x6c, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x1f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x65, 0x6c, 0x6c, 0x4d, 0x65, 0x61, 0x73, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e,
-	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x67, 0x53, 0x4c, 0x72, 0x31, 0x36, 0x12, 0x1d,
+	0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38,
+	0x0a, 0x17, 0x4d, 0x61, 0x78, 0x41, 0x69, 0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61,
+	0x64, 0x53, 0x69, 0x7a, 0x65, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x7f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0b, 0x4d, 0x61, 0x78, 0x42,
+	0x61, 0x6e, 0x64, 0x43, 0x6f, 0x6d, 0x62, 0x12, 0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a, 0x04, 0x08, 0x80, 0x80,
+	0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78, 0x42,
+	0x61, 0x6e, 0x64, 0x73, 0x55, 0x74, 0x72, 0x61, 0x46, 0x44, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d,
 	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a,
-	0x0f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x67, 0x53, 0x4c, 0x31, 0x72, 0x31, 0x36,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x73, 0x42, 0x6c, 0x6f, 0x63,
-	0x6b, 0x73, 0x54, 0x6f, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e, 0x64, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x72, 0x31,
-	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x3f, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53,
-	0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x54, 0x6f, 0x41, 0x76, 0x65, 0x72, 0x61,
-	0x67, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x44, 0x6c, 0x41, 0x6c,
-	0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e,
-	0x72, 0x6f, 0x66, 0x53, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x50, 0x65, 0x72, 0x43, 0x65,
-	0x6c, 0x6c, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x29, 0x0a, 0x08, 0x4d, 0x61, 0x78, 0x4c, 0x63, 0x67,
-	0x49, 0x44, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x28, 0x0a, 0x07, 0x4d, 0x61, 0x78, 0x4c, 0x63, 0x49, 0x44, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0d, 0x4d,
-	0x61, 0x78, 0x4c, 0x63, 0x49, 0x44, 0x49, 0x61, 0x62, 0x72, 0x31, 0x36, 0x12, 0x1f, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06,
-	0x1a, 0x04, 0x08, 0xbf, 0x82, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a,
-	0x14, 0x4d, 0x61, 0x78, 0x4c, 0x74, 0x65, 0x43, 0x52, 0x73, 0x50, 0x61, 0x74, 0x74, 0x65, 0x72,
-	0x6e, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x2c, 0x0a, 0x0b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54,
-	0x61, 0x67, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x61, 0x67,
-	0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x2c, 0x0a, 0x0b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x42, 0x77, 0x70, 0x73,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x30, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6d, 0x62, 0x49, 0x64,
-	0x63, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x79, 0x6d, 0x62,
-	0x6f, 0x6c, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0d, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c,
-	0x6f, 0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xc0, 0x02, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c,
-	0x6f, 0x74, 0x73, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xbf, 0x02, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50,
-	0x68, 0x79, 0x73, 0x69, 0x63, 0x61, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x42,
-	0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x93, 0x02, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x40, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x50, 0x68, 0x79, 0x73, 0x69, 0x63, 0x61, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
-	0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x92, 0x02,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x6f, 0x66, 0x50, 0x68, 0x79, 0x73, 0x69, 0x63, 0x61, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72,
-	0x63, 0x65, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x50, 0x6c, 0x75, 0x73, 0x31, 0x12, 0x1e, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
-	0x05, 0x1a, 0x03, 0x08, 0x94, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a,
-	0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x52,
-	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x52, 0x65, 0x73, 0x6f,
-	0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x0b, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e,
-	0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72,
-	0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a,
+	0x14, 0x4d, 0x61, 0x78, 0x42, 0x68, 0x52, 0x4c, 0x63, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c,
+	0x49, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a, 0x04, 0x08, 0x80, 0x80, 0x04, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x42, 0x74, 0x49,
+	0x64, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x72, 0x65, 0x73, 0x65, 0x74, 0x50, 0x6f, 0x6f, 0x6c, 0x73,
-	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78, 0x43, 0x6f, 0x52, 0x65, 0x53, 0x65, 0x74,
-	0x44, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x6f, 0x66, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x53, 0x70, 0x61, 0x63, 0x65, 0x73, 0x31, 0x12,
+	0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78,
+	0x42, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x43,
+	0x61, 0x67, 0x43, 0x65, 0x6c, 0x6c, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x54,
+	0x77, 0x6f, 0x50, 0x75, 0x63, 0x63, 0x68, 0x47, 0x72, 0x70, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67,
+	0x4c, 0x69, 0x73, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x43, 0x62, 0x72,
+	0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x43,
+	0x62, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d,
+	0x61, 0x78, 0x43, 0x62, 0x72, 0x4c, 0x65, 0x76, 0x65, 0x6c, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f,
+	0x4d, 0x61, 0x78, 0x43, 0x62, 0x72, 0x4c, 0x65, 0x76, 0x65, 0x6c, 0x31, 0x72, 0x31, 0x36, 0x12,
 	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x27, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36,
-	0x0a, 0x14, 0x4d, 0x61, 0x78, 0x53, 0x66, 0x69, 0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f,
-	0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x53, 0x66, 0x69,
-	0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x31, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x7f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33,
-	0x0a, 0x12, 0x4d, 0x61, 0x78, 0x49, 0x61, 0x62, 0x49, 0x50, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d,
+	0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x42, 0x6c, 0x61, 0x63, 0x6b, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a,
+	0x13, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x69, 0x6e, 0x67,
 	0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x49, 0x6e, 0x74, 0x44, 0x43, 0x69,
-	0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x7e, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61,
-	0x78, 0x49, 0x6e, 0x74, 0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69,
-	0x7a, 0x65, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x7d, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x61, 0x74,
-	0x65, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x50, 0x61, 0x74, 0x74, 0x65, 0x72, 0x6e, 0x73, 0x12, 0x1d,
+	0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x48, 0x69,
+	0x73, 0x74, 0x6f, 0x72, 0x79, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x43, 0x65,
+	0x6c, 0x6c, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c,
+	0x6c, 0x49, 0x6e, 0x74, 0x72, 0x61, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c,
+	0x4d, 0x65, 0x61, 0x73, 0x45, 0x75, 0x74, 0x72, 0x61, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78, 0x43,
+	0x65, 0x6c, 0x6c, 0x4d, 0x65, 0x61, 0x73, 0x49, 0x64, 0x6c, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1d,
 	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a,
-	0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x61, 0x74, 0x65, 0x4d, 0x61, 0x74, 0x63,
-	0x68, 0x50, 0x61, 0x74, 0x74, 0x65, 0x72, 0x6e, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a,
+	0x15, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x4d, 0x65, 0x61, 0x73, 0x55, 0x74, 0x72, 0x61,
+	0x46, 0x44, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x43, 0x61, 0x72, 0x72,
+	0x69, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x50, 0x61, 0x69, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x72,
+	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x57, 0x68, 0x69, 0x74,
+	0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x2c, 0x0a, 0x09, 0x4d, 0x61, 0x78, 0x45, 0x61, 0x72, 0x66, 0x63, 0x6e, 0x12, 0x1f, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x09, 0xfa, 0x42,
+	0x06, 0x1a, 0x04, 0x08, 0xff, 0xff, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32,
+	0x0a, 0x11, 0x4d, 0x61, 0x78, 0x45, 0x75, 0x74, 0x72, 0x61, 0x43, 0x65, 0x6c, 0x6c, 0x42, 0x6c,
+	0x61, 0x63, 0x6b, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x45, 0x75, 0x74, 0x72, 0x61, 0x4e, 0x53,
+	0x50, 0x6d, 0x61, 0x78, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4c, 0x6f, 0x67, 0x4d, 0x65, 0x61,
+	0x73, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03,
+	0x08, 0x88, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61,
+	0x78, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x42, 0x61, 0x6e, 0x64, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x09, 0x4d, 0x61,
+	0x78, 0x4e, 0x61, 0x72, 0x66, 0x63, 0x6e, 0x12, 0x20, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x0a, 0xfa, 0x42, 0x07, 0x1a, 0x05, 0x08, 0xbd, 0x92,
+	0xc8, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2c, 0x0a, 0x0b, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x4e, 0x53, 0x50, 0x6d, 0x61, 0x78, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x46, 0x72,
+	0x65, 0x71, 0x49, 0x64, 0x6c, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4e,
+	0x72, 0x6f, 0x66, 0x53, 0x65, 0x72, 0x76, 0x69, 0x6e, 0x67, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35,
+	0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x65, 0x72, 0x76, 0x69, 0x6e, 0x67,
+	0x43, 0x65, 0x6c, 0x6c, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1f, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x43, 0x0a, 0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x41, 0x67, 0x67, 0x72, 0x65, 0x67, 0x61, 0x74, 0x65, 0x64, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x50,
+	0x65, 0x72, 0x43, 0x65, 0x6c, 0x6c, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x4c, 0x0a, 0x2b, 0x4d, 0x61,
+	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x41, 0x67, 0x67, 0x72, 0x65, 0x67, 0x61, 0x74, 0x65, 0x64, 0x43,
+	0x65, 0x6c, 0x6c, 0x73, 0x50, 0x65, 0x72, 0x43, 0x65, 0x6c, 0x6c, 0x47, 0x72, 0x6f, 0x75, 0x70,
+	0x4d, 0x69, 0x6e, 0x75, 0x73, 0x34, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x4e,
+	0x72, 0x6f, 0x66, 0x44, 0x75, 0x63, 0x65, 0x6c, 0x6c, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
+	0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x4a, 0x0a,
+	0x28, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x41, 0x76, 0x61, 0x69, 0x6c, 0x61, 0x62, 0x69,
+	0x6c, 0x69, 0x74, 0x79, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73,
+	0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08,
+	0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x4b, 0x0a, 0x29, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x41, 0x76, 0x61, 0x69, 0x6c, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79,
+	0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x50, 0x65, 0x72, 0x53,
+	0x65, 0x74, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xff, 0x03, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x53, 0x63, 0x65, 0x6c, 0x6c, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1f, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x43, 0x65, 0x6c, 0x6c, 0x4d, 0x65, 0x61, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x4e,
+	0x72, 0x6f, 0x66, 0x43, 0x67, 0x53, 0x4c, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x52, 0x61, 0x74, 0x65, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x50, 0x61, 0x74,
-	0x74, 0x65, 0x72, 0x6e, 0x73, 0x50, 0x65, 0x72, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x1d, 0x0a,
+	0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x67, 0x53, 0x4c, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x73, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x54, 0x6f,
+	0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x43, 0x6f, 0x6e, 0x64, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
 	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
 	0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1e,
-	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74,
-	0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x1d,
+	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f,
+	0x75, 0x72, 0x63, 0x65, 0x73, 0x54, 0x6f, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x12, 0x1d,
 	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x30, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x40, 0x0a,
-	0x1f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x65, 0x70, 0x6f, 0x72,
-	0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x31,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x2f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x65, 0x73,
-	0x6f, 0x75, 0x72, 0x63, 0x65, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x70, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69,
-	0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x6f, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3e, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x41, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
-	0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3d, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x4f,
-	0x66, 0x43, 0x73, 0x69, 0x41, 0x70, 0x65, 0x72, 0x69, 0x6f, 0x64, 0x69, 0x63, 0x54, 0x72, 0x69,
-	0x67, 0x67, 0x65, 0x72, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x47, 0x0a, 0x26, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x50, 0x65, 0x72, 0x41,
-	0x70, 0x65, 0x72, 0x69, 0x6f, 0x64, 0x69, 0x63, 0x54, 0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x12,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a,
+	0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x44, 0x6c, 0x41, 0x6c, 0x6c, 0x6f, 0x63, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53,
+	0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x50, 0x65, 0x72, 0x43, 0x65, 0x6c, 0x6c, 0x47, 0x72,
+	0x6f, 0x75, 0x70, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x29, 0x0a, 0x08, 0x4d, 0x61, 0x78, 0x4c, 0x63, 0x67, 0x49, 0x44, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x28, 0x0a,
+	0x07, 0x4d, 0x61, 0x78, 0x4c, 0x63, 0x49, 0x44, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x4c, 0x63,
+	0x49, 0x44, 0x49, 0x61, 0x62, 0x72, 0x31, 0x36, 0x12, 0x1f, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x09, 0xfa, 0x42, 0x06, 0x1a, 0x04, 0x08, 0xbf,
+	0x82, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78,
+	0x4c, 0x74, 0x65, 0x43, 0x52, 0x73, 0x50, 0x61, 0x74, 0x74, 0x65, 0x72, 0x6e, 0x73, 0x72, 0x31,
+	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x2c, 0x0a, 0x0b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x61, 0x67, 0x73, 0x12,
 	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a,
-	0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52,
-	0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03,
-	0x08, 0xc0, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x19, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73,
-	0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xbf, 0x01,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x6f, 0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72,
-	0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e,
-	0x72, 0x6f, 0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75,
-	0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3d, 0x0a, 0x1c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
-	0x65, 0x53, 0x65, 0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x45, 0x0a, 0x24, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
-	0x53, 0x65, 0x74, 0x73, 0x50, 0x65, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x43, 0x0a, 0x21,
-	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52,
-	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69,
-	0x67, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x5a, 0x70, 0x43, 0x53,
-	0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d,
+	0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x61, 0x67, 0x73, 0x31, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2c, 0x0a,
+	0x0b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x42, 0x77, 0x70, 0x73, 0x12, 0x1d, 0x0a, 0x05,
 	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x5a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73,
-	0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1f, 0x52,
+	0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0e, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6d, 0x62, 0x49, 0x64, 0x63, 0x12, 0x1e, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
+	0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a,
+	0x0f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x79, 0x6d, 0x62, 0x6f, 0x6c, 0x73, 0x31,
+	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0d, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x2e, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x6f, 0x74, 0x73, 0x12,
+	0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08,
+	0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xc0, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x2f, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x6f, 0x74, 0x73, 0x31,
+	0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xbf, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x3f, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x68, 0x79, 0x73, 0x69,
+	0x63, 0x61, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x42, 0x6c, 0x6f, 0x63, 0x6b,
+	0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x93, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x40, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x68, 0x79, 0x73,
+	0x69, 0x63, 0x61, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x42, 0x6c, 0x6f, 0x63,
+	0x6b, 0x73, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x92, 0x02, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x68,
+	0x79, 0x73, 0x69, 0x63, 0x61, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x42, 0x6c,
+	0x6f, 0x63, 0x6b, 0x73, 0x50, 0x6c, 0x75, 0x73, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08,
+	0x94, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75,
+	0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0c, 0x52,
 	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x5a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
+	0x66, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
 	0x53, 0x65, 0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3e, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x5a,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0b, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43,
+	0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65,
+	0x74, 0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x43, 0x6f, 0x72, 0x65, 0x73, 0x65, 0x74, 0x50, 0x6f, 0x6f, 0x6c, 0x73, 0x72, 0x31, 0x36, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33,
+	0x0a, 0x12, 0x4d, 0x61, 0x78, 0x43, 0x6f, 0x52, 0x65, 0x53, 0x65, 0x74, 0x44, 0x75, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x65,
+	0x61, 0x72, 0x63, 0x68, 0x53, 0x70, 0x61, 0x63, 0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x27, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x14, 0x4d, 0x61,
+	0x78, 0x53, 0x66, 0x69, 0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69,
+	0x7a, 0x65, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x53, 0x66, 0x69, 0x44, 0x43, 0x69, 0x50,
+	0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x7f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61,
+	0x78, 0x49, 0x61, 0x62, 0x49, 0x50, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x72, 0x31, 0x36,
+	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x49, 0x6e, 0x74, 0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c,
+	0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x7e, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x49, 0x6e, 0x74,
+	0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x31, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x7d, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39,
+	0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x61, 0x74, 0x65, 0x4d, 0x61, 0x74,
+	0x63, 0x68, 0x50, 0x61, 0x74, 0x74, 0x65, 0x72, 0x6e, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
+	0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x52, 0x61, 0x74, 0x65, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x50, 0x61, 0x74,
+	0x74, 0x65, 0x72, 0x6e, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x52, 0x61, 0x74, 0x65, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x50, 0x61, 0x74, 0x74, 0x65, 0x72, 0x6e,
+	0x73, 0x50, 0x65, 0x72, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e,
+	0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66,
+	0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
+	0x08, 0x30, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x40, 0x0a, 0x1f, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e,
+	0x66, 0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x2f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
+	0x65, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x70, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42,
+	0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x65, 0x73, 0x6f,
+	0x75, 0x72, 0x63, 0x65, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x6f, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x3e, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x41, 0x70, 0x43,
+	0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72,
+	0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x3d, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x4f, 0x66, 0x43, 0x73, 0x69,
+	0x41, 0x70, 0x65, 0x72, 0x69, 0x6f, 0x64, 0x69, 0x63, 0x54, 0x72, 0x69, 0x67, 0x67, 0x65, 0x72,
+	0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x47, 0x0a, 0x26, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x65, 0x70, 0x6f,
+	0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x50, 0x65, 0x72, 0x41, 0x70, 0x65, 0x72, 0x69,
+	0x6f, 0x64, 0x69, 0x63, 0x54, 0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x18, 0x4d, 0x61,
+	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73,
+	0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xc0, 0x01, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
+	0x65, 0x73, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xbf, 0x01, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e, 0x7a,
 	0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50,
 	0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x5a,
-	0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65,
-	0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x49,
-	0x4d, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x49, 0x4d, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
-	0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1f, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69,
-	0x49, 0x4d, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65,
-	0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x49, 0x4d,
-	0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x49, 0x4d, 0x52, 0x65, 0x73, 0x6f, 0x75,
-	0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x6f, 0x66, 0x43, 0x73, 0x69, 0x49, 0x4d, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53,
-	0x65, 0x74, 0x73, 0x50, 0x65, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x53, 0x53, 0x62, 0x52, 0x65, 0x73, 0x6f,
-	0x75, 0x72, 0x63, 0x65, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x53, 0x53, 0x62, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72,
-	0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x43, 0x73, 0x69, 0x53, 0x53, 0x62, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65,
-	0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x43, 0x0a, 0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69,
-	0x53, 0x53, 0x62, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x50,
-	0x65, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x01,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x6f, 0x66, 0x46, 0x61, 0x69, 0x6c, 0x75, 0x72, 0x65, 0x44, 0x65, 0x74, 0x65, 0x63, 0x74, 0x69,
-	0x6f, 0x6e, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x0a, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x46, 0x61, 0x69, 0x6c, 0x75, 0x72, 0x65, 0x44, 0x65, 0x74, 0x65,
-	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31,
-	0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x46, 0x72, 0x65, 0x71, 0x53, 0x6c, 0x72,
-	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x42, 0x57,
-	0x70, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x46, 0x72, 0x65, 0x71, 0x53,
-	0x6c, 0x45, 0x55, 0x74, 0x72, 0x61, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78, 0x4e,
-	0x72, 0x6f, 0x66, 0x53, 0x6c, 0x4d, 0x65, 0x61, 0x73, 0x49, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a,
-	0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74,
-	0x49, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53,
-	0x6c, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x49, 0x64, 0x72,
-	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x50, 0x6f,
-	0x6f, 0x6c, 0x54, 0x6f, 0x4d, 0x65, 0x61, 0x73, 0x75, 0x72, 0x65, 0x4e, 0x72, 0x72, 0x31, 0x36,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x46, 0x72, 0x65, 0x71, 0x53, 0x6c, 0x4e, 0x52, 0x72, 0x31,
-	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x32, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x51, 0x46, 0x69,
-	0x73, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x10, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53,
-	0x6c, 0x51, 0x46, 0x69, 0x73, 0x50, 0x65, 0x72, 0x44, 0x65, 0x73, 0x74, 0x72, 0x31, 0x36, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30,
-	0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49,
-	0x64, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x61, 0x67, 0x65, 0x52,
-	0x65, 0x63, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x63, 0x69, 0x52,
-	0x61, 0x6e, 0x67, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x28, 0x0a, 0x07, 0x4d, 0x61, 0x78, 0x50, 0x6c, 0x6d, 0x6e, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39,
-	0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65,
-	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x72, 0x6d, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x60, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
-	0x65, 0x73, 0x52, 0x72, 0x6d, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x5f, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x4d, 0x65, 0x61, 0x73, 0x49, 0x64, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x51, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a,
-	0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x43, 0x65, 0x6c,
-	0x6c, 0x73, 0x52, 0x72, 0x6d, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x60, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53,
-	0x6c, 0x44, 0x65, 0x73, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x6f, 0x66, 0x53, 0x6c, 0x44, 0x65, 0x73, 0x74, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x1f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0e, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x72, 0x62, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
-	0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a,
-	0x0c, 0x4d, 0x61, 0x78, 0x53, 0x6c, 0x4c, 0x43, 0x69, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
-	0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a,
-	0x12, 0x4d, 0x61, 0x78, 0x53, 0x6c, 0x53, 0x79, 0x6e, 0x63, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67,
-	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x78, 0x70,
-	0x6f, 0x6f, 0x6c, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x54, 0x78, 0x70, 0x6f, 0x6f, 0x6c, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e,
-	0x72, 0x6f, 0x66, 0x50, 0x6f, 0x6f, 0x6c, 0x49, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73,
-	0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x72, 0x31, 0x36, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42,
-	0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50, 0x61, 0x74, 0x68,
-	0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x31,
-	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73,
-	0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
-	0x65, 0x53, 0x65, 0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3d, 0x0a, 0x1c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x53, 0x72, 0x73, 0x50, 0x6f, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65,
-	0x74, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3e, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53,
-	0x72, 0x73, 0x50, 0x6f, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74,
-	0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53,
-	0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e,
+	0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53,
+	0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x3d, 0x0a, 0x1c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e, 0x7a, 0x70,
+	0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74,
 	0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50,
-	0x6f, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a,
-	0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50, 0x6f, 0x73, 0x52, 0x65,
-	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
-	0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x53, 0x72, 0x73, 0x54, 0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x65,
-	0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x54,
-	0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x32, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a,
-	0x4d, 0x61, 0x78, 0x52, 0x61, 0x74, 0x43, 0x61, 0x70, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79,
-	0x43, 0x6f, 0x6e, 0x74, 0x61, 0x69, 0x6e, 0x65, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78,
-	0x53, 0x69, 0x6d, 0x75, 0x6c, 0x74, 0x61, 0x6e, 0x65, 0x6f, 0x75, 0x73, 0x42, 0x61, 0x6e, 0x64,
-	0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x55, 0x6c, 0x74, 0x78, 0x53, 0x77, 0x69, 0x74, 0x63,
-	0x68, 0x69, 0x6e, 0x67, 0x42, 0x61, 0x6e, 0x64, 0x50, 0x61, 0x69, 0x72, 0x73, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x45, 0x0a, 0x23,
-	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x6f, 0x74, 0x46, 0x6f, 0x72, 0x6d, 0x61,
-	0x74, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x50, 0x65, 0x72,
-	0x53, 0x65, 0x74, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x46, 0x0a, 0x24, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c,
-	0x6f, 0x74, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a,
-	0x03, 0x08, 0xff, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x72, 0x61, 0x66, 0x66, 0x69, 0x63, 0x50, 0x61, 0x74,
-	0x74, 0x65, 0x72, 0x6e, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12,
-	0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08,
-	0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52,
-	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x65, 0x22, 0x45, 0x0a, 0x24, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e, 0x7a, 0x70, 0x43,
+	0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73,
+	0x50, 0x65, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
 	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x7f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e,
-	0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
-	0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75,
-	0x63, 0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x31,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52,
-	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d,
+	0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x43, 0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e,
+	0x72, 0x6f, 0x66, 0x4e, 0x7a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75,
+	0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x1e, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
+	0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a,
+	0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x5a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52,
+	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x5a, 0x70, 0x43, 0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63,
+	0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1f, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x5a, 0x70, 0x43,
+	0x53, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73,
+	0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x3e, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x5a, 0x70, 0x43, 0x53, 0x69,
+	0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65,
+	0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x5a, 0x70, 0x43, 0x53, 0x69,
+	0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d,
 	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a,
-	0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x50, 0x30, 0x50,
-	0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50,
-	0x75, 0x63, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65,
-	0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52,
-	0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c,
-	0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x72,
-	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a,
+	0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x49, 0x4d, 0x52, 0x65, 0x73,
+	0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x43, 0x73, 0x69, 0x49, 0x4d, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c,
+	0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x49, 0x4d, 0x52, 0x65,
+	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18,
+	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x49, 0x4d, 0x52, 0x65, 0x73, 0x6f,
+	0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x43, 0x73, 0x69, 0x49, 0x4d, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53,
+	0x65, 0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73,
+	0x69, 0x49, 0x4d, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x50,
+	0x65, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x43, 0x73, 0x69, 0x53, 0x53, 0x62, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
+	0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x43, 0x73, 0x69, 0x53, 0x53, 0x62, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65,
+	0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x45, 0x0a, 0x24, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63,
-	0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e,
-	0x63, 0x65, 0x52, 0x73, 0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x48, 0x0a, 0x27, 0x4d, 0x61, 0x78, 0x4e,
-	0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73,
-	0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x44, 0x69, 0x66, 0x66,
-	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3c, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x3e, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63,
-	0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73,
-	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x42, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63,
-	0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x47, 0x72,
-	0x6f, 0x75, 0x70, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x70, 0x6c, 0x65, 0x50, 0x75, 0x73, 0x63, 0x68, 0x73, 0x72,
-	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x30, 0x50, 0x55,
-	0x73, 0x63, 0x68, 0x41, 0x6c, 0x70, 0x68, 0x61, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x1e, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x30, 0x50, 0x55, 0x73, 0x63, 0x68, 0x41, 0x6c, 0x70,
-	0x68, 0x61, 0x53, 0x65, 0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1d, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x50, 0x75, 0x73, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65,
-	0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x53,
+	0x53, 0x62, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x31, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x43,
+	0x0a, 0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x53, 0x53, 0x62, 0x52,
+	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x50, 0x65, 0x72, 0x43, 0x6f,
+	0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x01, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x46, 0x61,
+	0x69, 0x6c, 0x75, 0x72, 0x65, 0x44, 0x65, 0x74, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65,
+	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0a, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x46, 0x61, 0x69, 0x6c, 0x75, 0x72, 0x65, 0x44, 0x65, 0x74, 0x65, 0x63, 0x74, 0x69, 0x6f,
+	0x6e, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61,
+	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x46, 0x72, 0x65, 0x71, 0x53, 0x6c, 0x72, 0x31, 0x36, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a,
+	0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x42, 0x57, 0x70, 0x73, 0x72, 0x31,
+	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x46, 0x72, 0x65, 0x71, 0x53, 0x6c, 0x45, 0x55, 0x74,
+	0x72, 0x61, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53,
+	0x6c, 0x4d, 0x65, 0x61, 0x73, 0x49, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x73, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73,
-	0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x31, 0x12, 0x1d,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a,
-	0x23, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x73, 0x63, 0x68, 0x50, 0x61, 0x74,
-	0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73,
-	0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x45, 0x0a, 0x24, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75,
-	0x73, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72,
-	0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x48, 0x0a, 0x27, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x73, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f,
-	0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x44, 0x69,
-	0x66, 0x66, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3c, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e,
-	0x61, 0x69, 0x63, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x69, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2a, 0x0a, 0x08, 0x4d, 0x61,
-	0x78, 0x42, 0x61, 0x6e, 0x64, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x08, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x42, 0x61, 0x6e,
-	0x64, 0x73, 0x4d, 0x72, 0x64, 0x63, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x0a, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x42, 0x61, 0x6e,
-	0x64, 0x73, 0x45, 0x75, 0x74, 0x72, 0x61, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x02,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x43, 0x65,
-	0x6c, 0x6c, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x27, 0x0a, 0x06, 0x4d, 0x61, 0x78, 0x44, 0x72,
-	0x62, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1d, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x28, 0x0a, 0x07, 0x4d, 0x61, 0x78, 0x46, 0x72, 0x65, 0x71, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61,
-	0x78, 0x46, 0x72, 0x65, 0x71, 0x4c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0d, 0x4d, 0x61,
-	0x78, 0x46, 0x72, 0x65, 0x71, 0x49, 0x64, 0x63, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a,
-	0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0d, 0x4d,
-	0x61, 0x78, 0x43, 0x6f, 0x6d, 0x62, 0x49, 0x64, 0x63, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05,
-	0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e,
-	0x4d, 0x61, 0x78, 0x46, 0x72, 0x65, 0x71, 0x49, 0x64, 0x63, 0x4d, 0x52, 0x64, 0x63, 0x12, 0x1d,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a,
-	0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x61, 0x6e, 0x64, 0x69, 0x64, 0x61, 0x74,
-	0x65, 0x42, 0x65, 0x61, 0x6d, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x43, 0x61, 0x6e, 0x64, 0x69, 0x64, 0x61, 0x74, 0x65, 0x42, 0x65, 0x61, 0x6d, 0x73, 0x72, 0x31,
+	0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x72, 0x31,
 	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
 	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x61, 0x6e, 0x64, 0x69,
-	0x64, 0x61, 0x74, 0x65, 0x42, 0x65, 0x61, 0x6d, 0x73, 0x45, 0x78, 0x74, 0x72, 0x31, 0x36, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x30, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33,
-	0x0a, 0x12, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x63, 0x69, 0x73, 0x50, 0x65, 0x72,
-	0x53, 0x6d, 0x74, 0x63, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x2c, 0x0a, 0x0b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x51, 0x66,
-	0x69, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x4e, 0x0a, 0x2c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x65, 0x73, 0x6f,
-	0x75, 0x72, 0x63, 0x65, 0x41, 0x76, 0x61, 0x69, 0x6c, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79,
-	0x50, 0x65, 0x72, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x72, 0x31,
-	0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x43, 0x0a, 0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x4f, 0x66, 0x53, 0x65, 0x6d, 0x69,
-	0x50, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x74, 0x50, 0x75, 0x73, 0x63, 0x68, 0x54,
-	0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x53, 0x72, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05,
+	0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x52, 0x65, 0x70,
+	0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x49, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a,
+	0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x50, 0x6f, 0x6f, 0x6c, 0x54, 0x6f,
+	0x4d, 0x65, 0x61, 0x73, 0x75, 0x72, 0x65, 0x4e, 0x72, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
 	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x20, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x6f, 0x74, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74,
-	0x73, 0x50, 0x65, 0x72, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12,
-	0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08,
-	0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x61, 0x74, 0x69, 0x61,
-	0x6c, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x12, 0x1d,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a,
-	0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x61, 0x74, 0x69, 0x61, 0x6c, 0x52,
-	0x65, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x70, 0x6c, 0x75, 0x73,
-	0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x3f, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x61, 0x74, 0x69,
-	0x61, 0x6c, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x72,
-	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x43, 0x0a, 0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x61, 0x74,
-	0x69, 0x61, 0x6c, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x73,
-	0x44, 0x69, 0x66, 0x66, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x38, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x65, 0x73, 0x54, 0x6f, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x65,
-	0x73, 0x54, 0x6f, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x32, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x53, 0x73, 0x62, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x73, 0x62, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x53, 0x4e, 0x53, 0x73, 0x61, 0x69, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x54, 0x63, 0x69, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x50, 0x64, 0x63,
-	0x63, 0x68, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x32, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x63, 0x69, 0x53,
-	0x74, 0x61, 0x74, 0x65, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x54, 0x63, 0x69, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x7f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x55, 0x6c, 0x41, 0x6c, 0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x27, 0x0a, 0x06, 0x4d, 0x61, 0x78, 0x51, 0x66, 0x69, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78,
-	0x52, 0x61, 0x43, 0x53, 0x69, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x60, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x52, 0x61, 0x4f, 0x63, 0x63, 0x61, 0x73, 0x69, 0x6f, 0x6e,
-	0x73, 0x50, 0x65, 0x72, 0x43, 0x73, 0x69, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x52,
-	0x61, 0x4f, 0x63, 0x63, 0x61, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a,
-	0x03, 0x08, 0xff, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d,
-	0x61, 0x78, 0x52, 0x61, 0x53, 0x53, 0x62, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x28, 0x0a, 0x07, 0x4d, 0x61, 0x78, 0x53, 0x63, 0x73, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x05, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78,
-	0x53, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x61, 0x72, 0x79, 0x43, 0x65, 0x6c, 0x6c, 0x47, 0x72, 0x6f,
-	0x75, 0x70, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x6e, 0x67, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x45, 0x75, 0x74, 0x72, 0x61, 0x12, 0x1d,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a,
-	0x13, 0x4d, 0x61, 0x78, 0x4d, 0x62, 0x73, 0x66, 0x6e, 0x41, 0x6c, 0x6c, 0x6f, 0x63, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4d, 0x75,
-	0x6c, 0x74, 0x69, 0x42, 0x61, 0x6e, 0x64, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2c, 0x0a, 0x0b, 0x4d, 0x61, 0x78, 0x43, 0x65,
-	0x6c, 0x6c, 0x53, 0x66, 0x74, 0x64, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x52, 0x65, 0x70, 0x6f,
-	0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x49, 0x64, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x73, 0x12, 0x1d, 0x0a,
+	0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d,
+	0x61, 0x78, 0x46, 0x72, 0x65, 0x71, 0x53, 0x6c, 0x4e, 0x52, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
 	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b,
-	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f,
-	0x75, 0x72, 0x63, 0x65, 0x73, 0x45, 0x78, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x10,
+	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x51, 0x46, 0x69, 0x73, 0x72, 0x31, 0x36,
+	0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x51, 0x46, 0x69,
+	0x73, 0x50, 0x65, 0x72, 0x44, 0x65, 0x73, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
 	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72,
-	0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x3d, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69,
-	0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x41, 0x6c, 0x74, 0x72, 0x31,
-	0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x3e, 0x0a, 0x1c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52,
-	0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x41, 0x6c, 0x74, 0x31, 0x72, 0x31,
-	0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xff, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x69, 0x50,
-	0x55, 0x73, 0x63, 0x68, 0x4d, 0x61, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x73, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d,
-	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x69, 0x50, 0x55, 0x73, 0x63, 0x68, 0x4d, 0x61,
-	0x70, 0x70, 0x69, 0x6e, 0x67, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x27, 0x0a, 0x06, 0x4d, 0x61, 0x78, 0x53, 0x69, 0x62,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x53, 0x69, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2b,
-	0x0a, 0x0a, 0x4d, 0x61, 0x78, 0x50, 0x6f, 0x70, 0x65, 0x72, 0x50, 0x66, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d,
-	0x61, 0x78, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x43, 0x61, 0x74, 0x31, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d,
-	0x61, 0x78, 0x42, 0x61, 0x72, 0x72, 0x69, 0x6e, 0x67, 0x49, 0x6e, 0x66, 0x6f, 0x53, 0x65, 0x74,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x45, 0x75, 0x74, 0x72, 0x61, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30,
-	0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x45, 0x75, 0x74, 0x72, 0x61, 0x43, 0x61, 0x72, 0x72, 0x69, 0x65,
-	0x72, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x50, 0x6c, 0x6d, 0x6e, 0x69, 0x64, 0x65, 0x6e, 0x74,
-	0x69, 0x74, 0x69, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x44, 0x6f, 0x77, 0x6e, 0x6c,
-	0x69, 0x6e, 0x6b, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1e,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa,
-	0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36,
-	0x0a, 0x14, 0x4d, 0x61, 0x78, 0x55, 0x70, 0x6c, 0x69, 0x6e, 0x6b, 0x46, 0x65, 0x61, 0x74, 0x75,
-	0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x08, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x45, 0x75, 0x74,
-	0x72, 0x61, 0x44, 0x4c, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12,
-	0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08,
-	0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x37, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x45, 0x75, 0x74, 0x72, 0x61, 0x55, 0x4c, 0x46, 0x65, 0x61,
-	0x74, 0x75, 0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80,
-	0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x46,
-	0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x50, 0x65, 0x72, 0x42, 0x61, 0x6e,
-	0x64, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x35, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x50, 0x65, 0x72, 0x43, 0x63, 0x46, 0x65, 0x61,
-	0x74, 0x75, 0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80,
-	0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x46,
-	0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x53, 0x65, 0x74, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x08, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x49, 0x6e, 0x74, 0x65,
-	0x72, 0x52, 0x61, 0x74, 0x52, 0x53, 0x74, 0x64, 0x46, 0x72, 0x65, 0x71, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d,
-	0x61, 0x78, 0x48, 0x72, 0x6e, 0x6e, 0x4c, 0x65, 0x6e, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x30, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2a, 0x0a, 0x09, 0x4d,
-	0x61, 0x78, 0x4e, 0x70, 0x6e, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0c,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x4f, 0x66, 0x4d, 0x69, 0x6e, 0x53, 0x63, 0x68, 0x65, 0x64, 0x75, 0x6c, 0x69, 0x6e, 0x67, 0x4f,
-	0x66, 0x66, 0x73, 0x65, 0x74, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d,
+	0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61,
+	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e,
+	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x63, 0x12, 0x1d,
 	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x1a, 0x02, 0x08, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a,
-	0x18, 0x4d, 0x61, 0x78, 0x4b, 0x30, 0x53, 0x63, 0x68, 0x65, 0x64, 0x75, 0x6c, 0x69, 0x6e, 0x67,
-	0x4f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
-	0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4b,
-	0x32, 0x53, 0x63, 0x68, 0x65, 0x64, 0x75, 0x6c, 0x69, 0x6e, 0x67, 0x4f, 0x66, 0x66, 0x73, 0x65,
-	0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x44, 0x63, 0x69, 0x32, 0x36, 0x53,
-	0x69, 0x7a, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x8c, 0x01, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x44, 0x63, 0x69,
-	0x32, 0x36, 0x53, 0x69, 0x7a, 0x65, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03,
-	0x08, 0x8b, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x55, 0x6c, 0x41, 0x6c, 0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f,
-	0x6e, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50,
-	0x30, 0x50, 0x55, 0x73, 0x63, 0x68, 0x53, 0x65, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x1a, 0x02, 0x08, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d,
-	0x61, 0x78, 0x4f, 0x6e, 0x44, 0x65, 0x6d, 0x61, 0x6e, 0x64, 0x53, 0x69, 0x62, 0x72, 0x31, 0x36,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4f, 0x6e, 0x44, 0x65, 0x6d, 0x61, 0x6e, 0x64, 0x50, 0x6f,
-	0x73, 0x53, 0x69, 0x62, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x43, 0x69, 0x44,
-	0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x72, 0x31, 0x36,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x7e, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x43, 0x69, 0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f,
-	0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x7d, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78,
-	0x57, 0x6c, 0x61, 0x6e, 0x49, 0x64, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31, 0x36, 0x12,
-	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f,
-	0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x57, 0x6c, 0x61, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x72, 0x31, 0x36,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x52, 0x61, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31,
-	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a,
+	0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x63, 0x69, 0x52, 0x61, 0x6e, 0x67, 0x65,
+	0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
 	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x54, 0x78, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72,
-	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x22, 0x28, 0x0a, 0x07, 0x4d, 0x61, 0x78, 0x50, 0x6c, 0x6d, 0x6e, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61,
+	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72,
+	0x63, 0x65, 0x73, 0x52, 0x72, 0x6d, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x60, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x52, 0x72,
+	0x6d, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x5f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4d, 0x65, 0x61, 0x73,
+	0x49, 0x64, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x54, 0x78, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67,
-	0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x50, 0x73, 0x73, 0x63, 0x68, 0x54,
-	0x78, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x51, 0x75, 0x61, 0x6e,
+	0x74, 0x69, 0x74, 0x79, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6c, 0x69, 0x52, 0x53, 0x73, 0x69, 0x52, 0x65, 0x73, 0x6f, 0x75,
-	0x72, 0x63, 0x65, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
-	0x66, 0x43, 0x6c, 0x69, 0x52, 0x53, 0x73, 0x69, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
-	0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43,
-	0x6c, 0x69, 0x53, 0x52, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x72, 0x31,
+	0x08, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x52, 0x72,
+	0x6d, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x60, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x44, 0x65, 0x73,
+	0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c,
+	0x44, 0x65, 0x73, 0x74, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1f,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x53, 0x6c, 0x72, 0x62, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08,
+	0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0c, 0x4d, 0x61, 0x78,
+	0x53, 0x6c, 0x4c, 0x43, 0x69, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08,
+	0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78,
+	0x53, 0x6c, 0x53, 0x79, 0x6e, 0x63, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31, 0x36, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31,
+	0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x78, 0x70, 0x6f, 0x6f, 0x6c, 0x72,
+	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x78, 0x70, 0x6f,
+	0x6f, 0x6c, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50,
+	0x6f, 0x6f, 0x6c, 0x49, 0x64, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x53, 0x72, 0x73, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66,
+	0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61,
+	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73,
+	0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x31, 0x72, 0x31, 0x36, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37,
+	0x0a, 0x16, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f,
+	0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x53, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74,
+	0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x3d, 0x0a, 0x1c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50,
+	0x6f, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x72, 0x31,
 	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x43, 0x6c, 0x69, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x3e, 0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50, 0x6f,
+	0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x31, 0x72, 0x31,
+	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x52, 0x65,
+	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x53, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a,
+	0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50, 0x6f, 0x73, 0x52, 0x65,
+	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
+	0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x50, 0x6f, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72,
+	0x63, 0x65, 0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x53, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72,
+	0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73,
+	0x54, 0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x31, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a,
+	0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x73, 0x54, 0x72, 0x69, 0x67, 0x67,
+	0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x32, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78, 0x52,
+	0x61, 0x74, 0x43, 0x61, 0x70, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x43, 0x6f, 0x6e, 0x74,
+	0x61, 0x69, 0x6e, 0x65, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x53, 0x69, 0x6d, 0x75,
+	0x6c, 0x74, 0x61, 0x6e, 0x65, 0x6f, 0x75, 0x73, 0x42, 0x61, 0x6e, 0x64, 0x73, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19,
+	0x4d, 0x61, 0x78, 0x55, 0x6c, 0x74, 0x78, 0x53, 0x77, 0x69, 0x74, 0x63, 0x68, 0x69, 0x6e, 0x67,
+	0x42, 0x61, 0x6e, 0x64, 0x50, 0x61, 0x69, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x45, 0x0a, 0x23, 0x4d, 0x61, 0x78, 0x4e,
+	0x72, 0x6f, 0x66, 0x53, 0x6c, 0x6f, 0x74, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x43, 0x6f, 0x6d,
+	0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12,
+	0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08,
+	0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x46, 0x0a, 0x24, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x6c, 0x6f, 0x74, 0x46, 0x6f,
+	0x72, 0x6d, 0x61, 0x74, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73,
+	0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xff, 0x03,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x54, 0x72, 0x61, 0x66, 0x66, 0x69, 0x63, 0x50, 0x61, 0x74, 0x74, 0x65, 0x72, 0x6e,
 	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x40, 0x0a, 0x1f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e,
-	0x66, 0x69, 0x67, 0x75, 0x72, 0x65, 0x64, 0x47, 0x72, 0x61, 0x6e, 0x74, 0x43, 0x6f, 0x6e, 0x66,
-	0x69, 0x67, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0c, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43,
-	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x65, 0x64, 0x47, 0x72, 0x61, 0x6e, 0x74, 0x43, 0x6f,
-	0x6e, 0x66, 0x69, 0x67, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0b,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x40, 0x0a, 0x1f, 0x4d, 0x61, 0x78, 0x4e, 0x72,
-	0x6f, 0x66, 0x43, 0x67, 0x54, 0x79, 0x70, 0x65, 0x32, 0x44, 0x65, 0x61, 0x63, 0x74, 0x69, 0x76,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x75, 0x65, 0x22, 0x37, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63,
+	0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a,
+	0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75,
+	0x72, 0x63, 0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x7f, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50,
+	0x75, 0x63, 0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73,
+	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52,
+	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x53, 0x65, 0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75,
+	0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
-	0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d, 0x61, 0x78,
-	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x65, 0x64, 0x47, 0x72,
-	0x61, 0x6e, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x4d, 0x61, 0x63, 0x31, 0x72, 0x31, 0x36,
+	0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x50, 0x30, 0x50, 0x65, 0x72, 0x53, 0x65,
+	0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68,
+	0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63,
+	0x65, 0x52, 0x73, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75,
+	0x63, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72,
+	0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52,
+	0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x45, 0x0a,
+	0x24, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x50, 0x61, 0x74,
+	0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73,
+	0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x48, 0x0a, 0x27, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50,
+	0x75, 0x63, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65,
+	0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x44, 0x69, 0x66, 0x66, 0x72, 0x31, 0x36, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3e,
+	0x0a, 0x1d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65,
+	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x72, 0x31, 0x36, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42,
+	0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65,
+	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x50, 0x65, 0x72, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x72,
+	0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4d, 0x75, 0x6c,
+	0x74, 0x69, 0x70, 0x6c, 0x65, 0x50, 0x75, 0x73, 0x63, 0x68, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a,
+	0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x30, 0x50, 0x55, 0x73, 0x63, 0x68, 0x41,
+	0x6c, 0x70, 0x68, 0x61, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1e,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x50, 0x30, 0x50, 0x55, 0x73, 0x63, 0x68, 0x41, 0x6c, 0x70, 0x68, 0x61, 0x53, 0x65,
+	0x74, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1d, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x73,
+	0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65,
+	0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x21, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x50, 0x75, 0x73, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66,
+	0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
+	0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x73, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73,
+	0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x72, 0x31, 0x36,
 	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x1f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x73, 0x43, 0x6f, 0x6e,
-	0x66, 0x69, 0x67, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
-	0x53, 0x70, 0x73, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
-	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b,
-	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x73, 0x44, 0x65, 0x61, 0x63, 0x74, 0x69,
-	0x76, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x44, 0x6f, 0x72, 0x6d, 0x61, 0x6e, 0x63, 0x79, 0x47, 0x72, 0x6f,
-	0x75, 0x70, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x05, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63,
-	0x63, 0x68, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73,
-	0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x65,
-	0x72, 0x76, 0x69, 0x6e, 0x67, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x54, 0x63, 0x69, 0x72, 0x31, 0x36,
-	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x78, 0x44, 0x63, 0x54, 0x77,
-	0x6f, 0x43, 0x61, 0x72, 0x72, 0x69, 0x65, 0x72, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
-	0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d, 0x61,
-	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x64, 0x63, 0x63, 0x68, 0x42, 0x6c, 0x69, 0x6e, 0x64, 0x44,
-	0x65, 0x74, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4d, 0x69, 0x78, 0x65, 0x64, 0x31, 0x72, 0x31,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x45, 0x0a, 0x24, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x73, 0x63, 0x68, 0x50,
+	0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65,
+	0x52, 0x73, 0x73, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x48, 0x0a, 0x27, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x50, 0x75, 0x73, 0x63, 0x68, 0x50, 0x61, 0x74, 0x68, 0x6c, 0x6f, 0x73, 0x73, 0x52, 0x65,
+	0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x73, 0x73, 0x44, 0x69, 0x66, 0x66, 0x72, 0x31,
 	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x2a, 0x9b, 0x03, 0x0a, 0x25, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x6c, 0x6f, 0x74, 0x43,
-	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x73, 0x65, 0x6d, 0x69, 0x50, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74,
-	0x65, 0x6e, 0x74, 0x4f, 0x6e, 0x50, 0x75, 0x73, 0x63, 0x68, 0x12, 0x32, 0x0a, 0x2e, 0x52, 0x45,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4e, 0x61, 0x69, 0x63, 0x73,
+	0x45, 0x6e, 0x74, 0x72, 0x69, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2a, 0x0a, 0x08, 0x4d, 0x61, 0x78, 0x42, 0x61, 0x6e,
+	0x64, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x42, 0x61, 0x6e, 0x64, 0x73, 0x4d, 0x72,
+	0x64, 0x63, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x0a, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x42, 0x61, 0x6e, 0x64, 0x73, 0x45, 0x75,
+	0x74, 0x72, 0x61, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x02, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x52, 0x65,
+	0x70, 0x6f, 0x72, 0x74, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x27, 0x0a, 0x06, 0x4d, 0x61, 0x78, 0x44, 0x72, 0x62, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x1d, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x28, 0x0a, 0x07,
+	0x4d, 0x61, 0x78, 0x46, 0x72, 0x65, 0x71, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x46, 0x72, 0x65,
+	0x71, 0x4c, 0x61, 0x79, 0x65, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x46, 0x72, 0x65,
+	0x71, 0x49, 0x64, 0x63, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x43, 0x6f,
+	0x6d, 0x62, 0x49, 0x64, 0x63, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80,
+	0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x46,
+	0x72, 0x65, 0x71, 0x49, 0x64, 0x63, 0x4d, 0x52, 0x64, 0x63, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
+	0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x43, 0x61, 0x6e, 0x64, 0x69, 0x64, 0x61, 0x74, 0x65, 0x42, 0x65, 0x61,
+	0x6d, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x61, 0x6e, 0x64,
+	0x69, 0x64, 0x61, 0x74, 0x65, 0x42, 0x65, 0x61, 0x6d, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b,
+	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x61, 0x6e, 0x64, 0x69, 0x64, 0x61, 0x74, 0x65,
+	0x42, 0x65, 0x61, 0x6d, 0x73, 0x45, 0x78, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x30, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61,
+	0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x63, 0x69, 0x73, 0x50, 0x65, 0x72, 0x53, 0x6d, 0x74, 0x63,
+	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x2c, 0x0a, 0x0b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x51, 0x66, 0x69, 0x73, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x4e, 0x0a,
+	0x2c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
+	0x41, 0x76, 0x61, 0x69, 0x6c, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x50, 0x65, 0x72, 0x43,
+	0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
+	0x05, 0x1a, 0x03, 0x08, 0x80, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x43, 0x0a,
+	0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x4f, 0x66, 0x53, 0x65, 0x6d, 0x69, 0x50, 0x65, 0x72, 0x73,
+	0x69, 0x73, 0x74, 0x65, 0x6e, 0x74, 0x50, 0x75, 0x73, 0x63, 0x68, 0x54, 0x72, 0x69, 0x67, 0x67,
+	0x65, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x52,
+	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x53, 0x6c, 0x6f, 0x74, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x73, 0x50, 0x65, 0x72,
+	0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1e, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a,
+	0x03, 0x08, 0x80, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x61, 0x74, 0x69, 0x61, 0x6c, 0x52, 0x65, 0x6c,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
+	0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78,
+	0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x61, 0x74, 0x69, 0x61, 0x6c, 0x52, 0x65, 0x6c, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x70, 0x6c, 0x75, 0x73, 0x31, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3f, 0x0a, 0x1e,
+	0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x61, 0x74, 0x69, 0x61, 0x6c, 0x52, 0x65,
+	0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x43, 0x0a,
+	0x22, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x61, 0x74, 0x69, 0x61, 0x6c, 0x52,
+	0x65, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x44, 0x69, 0x66, 0x66,
+	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x38, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x49, 0x6e, 0x64,
+	0x65, 0x78, 0x65, 0x73, 0x54, 0x6f, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x65, 0x73, 0x54, 0x6f, 0x52,
+	0x65, 0x70, 0x6f, 0x72, 0x74, 0x32, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x53, 0x73, 0x62, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x53, 0x73, 0x62, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x53, 0x4e, 0x53, 0x73, 0x61, 0x69, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x54, 0x63, 0x69, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x50, 0x64, 0x63, 0x63, 0x68, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a,
+	0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x63, 0x69, 0x53, 0x74, 0x61, 0x74, 0x65,
+	0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x63, 0x69, 0x53,
+	0x74, 0x61, 0x74, 0x65, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x7f, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x55, 0x6c, 0x41, 0x6c, 0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x27, 0x0a, 0x06,
+	0x4d, 0x61, 0x78, 0x51, 0x66, 0x69, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x52, 0x61, 0x43, 0x53,
+	0x69, 0x72, 0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x60, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d,
+	0x61, 0x78, 0x52, 0x61, 0x4f, 0x63, 0x63, 0x61, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x50, 0x65, 0x72,
+	0x43, 0x73, 0x69, 0x72, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x52, 0x61, 0x4f, 0x63, 0x63,
+	0x61, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x31, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0xff, 0x03,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x52, 0x61,
+	0x53, 0x53, 0x62, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x28, 0x0a, 0x07, 0x4d,
+	0x61, 0x78, 0x53, 0x63, 0x73, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x05, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x53, 0x65, 0x63, 0x6f,
+	0x6e, 0x64, 0x61, 0x72, 0x79, 0x43, 0x65, 0x6c, 0x6c, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39,
+	0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x65, 0x72, 0x76, 0x69, 0x6e, 0x67,
+	0x43, 0x65, 0x6c, 0x6c, 0x73, 0x45, 0x75, 0x74, 0x72, 0x61, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
+	0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78,
+	0x4d, 0x62, 0x73, 0x66, 0x6e, 0x41, 0x6c, 0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73,
+	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x42,
+	0x61, 0x6e, 0x64, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x2c, 0x0a, 0x0b, 0x4d, 0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x53, 0x66,
+	0x74, 0x64, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f,
+	0x6e, 0x66, 0x69, 0x67, 0x49, 0x64, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x31, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x43, 0x6f, 0x64, 0x65, 0x62, 0x6f, 0x6f, 0x6b, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e,
+	0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
+	0x73, 0x45, 0x78, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3d,
+	0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65,
+	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x41, 0x6c, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
+	0x05, 0x1a, 0x03, 0x08, 0x80, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3e, 0x0a,
+	0x1c, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x73, 0x69, 0x52, 0x53, 0x52, 0x65, 0x73,
+	0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x41, 0x6c, 0x74, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
+	0x05, 0x1a, 0x03, 0x08, 0xff, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a,
+	0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x72, 0x69, 0x50, 0x55, 0x73, 0x63, 0x68,
+	0x4d, 0x61, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4e, 0x72,
+	0x6f, 0x66, 0x53, 0x72, 0x69, 0x50, 0x55, 0x73, 0x63, 0x68, 0x4d, 0x61, 0x70, 0x70, 0x69, 0x6e,
+	0x67, 0x73, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0f, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x27, 0x0a, 0x06, 0x4d, 0x61, 0x78, 0x53, 0x69, 0x62, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d,
+	0x61, 0x78, 0x53, 0x69, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2b, 0x0a, 0x0a, 0x4d, 0x61,
+	0x78, 0x50, 0x6f, 0x70, 0x65, 0x72, 0x50, 0x66, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x04,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x41, 0x63,
+	0x63, 0x65, 0x73, 0x73, 0x43, 0x61, 0x74, 0x31, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x42, 0x61,
+	0x72, 0x72, 0x69, 0x6e, 0x67, 0x49, 0x6e, 0x66, 0x6f, 0x53, 0x65, 0x74, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2d, 0x0a, 0x0c, 0x4d,
+	0x61, 0x78, 0x43, 0x65, 0x6c, 0x6c, 0x45, 0x75, 0x74, 0x72, 0x61, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f, 0x4d, 0x61,
+	0x78, 0x45, 0x75, 0x74, 0x72, 0x61, 0x43, 0x61, 0x72, 0x72, 0x69, 0x65, 0x72, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11,
+	0x4d, 0x61, 0x78, 0x50, 0x6c, 0x6d, 0x6e, 0x69, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x69, 0x65,
+	0x73, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x38, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x44, 0x6f, 0x77, 0x6e, 0x6c, 0x69, 0x6e, 0x6b, 0x46,
+	0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03,
+	0x08, 0x80, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x14, 0x4d, 0x61,
+	0x78, 0x55, 0x70, 0x6c, 0x69, 0x6e, 0x6b, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x53, 0x65,
+	0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x37, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x45, 0x75, 0x74, 0x72, 0x61, 0x44, 0x4c,
+	0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a,
+	0x03, 0x08, 0x80, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x15, 0x4d,
+	0x61, 0x78, 0x45, 0x75, 0x74, 0x72, 0x61, 0x55, 0x4c, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65,
+	0x53, 0x65, 0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x02, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x37, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x46, 0x65, 0x61, 0x74, 0x75,
+	0x72, 0x65, 0x53, 0x65, 0x74, 0x73, 0x50, 0x65, 0x72, 0x42, 0x61, 0x6e, 0x64, 0x12, 0x1e, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42,
+	0x05, 0x1a, 0x03, 0x08, 0x80, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a,
+	0x13, 0x4d, 0x61, 0x78, 0x50, 0x65, 0x72, 0x43, 0x63, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65,
+	0x53, 0x65, 0x74, 0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x08, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x46, 0x65, 0x61, 0x74, 0x75,
+	0x72, 0x65, 0x53, 0x65, 0x74, 0x43, 0x6f, 0x6d, 0x62, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x73, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x80, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x52, 0x61, 0x74,
+	0x52, 0x53, 0x74, 0x64, 0x46, 0x72, 0x65, 0x71, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2e, 0x0a, 0x0d, 0x4d, 0x61, 0x78, 0x48, 0x72,
+	0x6e, 0x6e, 0x4c, 0x65, 0x6e, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x30,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2a, 0x0a, 0x09, 0x4d, 0x61, 0x78, 0x4e, 0x70,
+	0x6e, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0c, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x4f, 0x66, 0x4d, 0x69,
+	0x6e, 0x53, 0x63, 0x68, 0x65, 0x64, 0x75, 0x6c, 0x69, 0x6e, 0x67, 0x4f, 0x66, 0x66, 0x73, 0x65,
+	0x74, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02,
+	0x08, 0x02, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78,
+	0x4b, 0x30, 0x53, 0x63, 0x68, 0x65, 0x64, 0x75, 0x6c, 0x69, 0x6e, 0x67, 0x4f, 0x66, 0x66, 0x73,
+	0x65, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d, 0x61, 0x78, 0x4b, 0x32, 0x53, 0x63, 0x68,
+	0x65, 0x64, 0x75, 0x6c, 0x69, 0x6e, 0x67, 0x4f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x72, 0x31, 0x36,
+	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x31, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x44, 0x63, 0x69, 0x32, 0x36, 0x53, 0x69, 0x7a, 0x65, 0x72,
+	0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x8c, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x32, 0x0a, 0x10, 0x4d, 0x61, 0x78, 0x44, 0x63, 0x69, 0x32, 0x36, 0x53, 0x69,
+	0x7a, 0x65, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1e, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x1a, 0x03, 0x08, 0x8b, 0x01, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x55, 0x6c, 0x41, 0x6c, 0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x72, 0x31,
+	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x30, 0x50, 0x55, 0x73,
+	0x63, 0x68, 0x53, 0x65, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x02,
+	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x32, 0x0a, 0x11, 0x4d, 0x61, 0x78, 0x4f, 0x6e,
+	0x44, 0x65, 0x6d, 0x61, 0x6e, 0x64, 0x53, 0x69, 0x62, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d,
+	0x61, 0x78, 0x4f, 0x6e, 0x44, 0x65, 0x6d, 0x61, 0x6e, 0x64, 0x50, 0x6f, 0x73, 0x53, 0x69, 0x62,
+	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x37, 0x0a, 0x16, 0x4d, 0x61, 0x78, 0x43, 0x69, 0x44, 0x43, 0x69, 0x50, 0x61,
+	0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x7e, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x38, 0x0a, 0x17, 0x4d,
+	0x61, 0x78, 0x43, 0x69, 0x44, 0x43, 0x69, 0x50, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x69,
+	0x7a, 0x65, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x7d, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x33, 0x0a, 0x12, 0x4d, 0x61, 0x78, 0x57, 0x6c, 0x61, 0x6e,
+	0x49, 0x64, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a,
+	0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d, 0x61,
+	0x78, 0x57, 0x6c, 0x61, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e, 0x4d,
+	0x61, 0x78, 0x52, 0x61, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x2f, 0x0a, 0x0e,
+	0x4d, 0x61, 0x78, 0x54, 0x78, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31, 0x36, 0x12, 0x1d,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a,
+	0x0f, 0x4d, 0x61, 0x78, 0x54, 0x78, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x31, 0x72, 0x31, 0x36,
+	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x34, 0x0a, 0x13, 0x4d, 0x61, 0x78, 0x50, 0x73, 0x73, 0x63, 0x68, 0x54, 0x78, 0x43, 0x6f, 0x6e,
+	0x66, 0x69, 0x67, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3b, 0x0a, 0x1a, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x43, 0x6c, 0x69, 0x52, 0x53, 0x73, 0x69, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73,
+	0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6c, 0x69,
+	0x52, 0x53, 0x73, 0x69, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x31, 0x72, 0x31,
+	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x3f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6c, 0x69, 0x53, 0x52,
+	0x73, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x73, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x30, 0x0a, 0x0f,
+	0x4d, 0x61, 0x78, 0x43, 0x6c, 0x69, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x72, 0x31, 0x36, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x40,
+	0x0a, 0x1f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75,
+	0x72, 0x65, 0x64, 0x47, 0x72, 0x61, 0x6e, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72, 0x31,
+	0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x41, 0x0a, 0x20, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x6f, 0x6e, 0x66, 0x69,
+	0x67, 0x75, 0x72, 0x65, 0x64, 0x47, 0x72, 0x61, 0x6e, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67,
+	0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x0b, 0x52, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x22, 0x40, 0x0a, 0x1f, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x43, 0x67,
+	0x54, 0x79, 0x70, 0x65, 0x32, 0x44, 0x65, 0x61, 0x63, 0x74, 0x69, 0x76, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66,
+	0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x65, 0x64, 0x47, 0x72, 0x61, 0x6e, 0x74, 0x43,
+	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x4d, 0x61, 0x63, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x1f, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x34, 0x0a, 0x13, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x73, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x72,
+	0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x22, 0x35, 0x0a, 0x14, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x70, 0x73, 0x43,
+	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08,
+	0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3c, 0x0a, 0x1b, 0x4d, 0x61, 0x78, 0x4e,
+	0x72, 0x6f, 0x66, 0x53, 0x70, 0x73, 0x44, 0x65, 0x61, 0x63, 0x74, 0x69, 0x76, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x10, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x36, 0x0a, 0x15, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x44, 0x6f, 0x72, 0x6d, 0x61, 0x6e, 0x63, 0x79, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x12,
+	0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x05, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x3f,
+	0x0a, 0x1e, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x50, 0x75, 0x63, 0x63, 0x68, 0x52, 0x65,
+	0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x31, 0x72, 0x31, 0x36,
+	0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42,
+	0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22,
+	0x3a, 0x0a, 0x19, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x53, 0x65, 0x72, 0x76, 0x69, 0x6e,
+	0x67, 0x43, 0x65, 0x6c, 0x6c, 0x73, 0x54, 0x63, 0x69, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04,
+	0x1a, 0x02, 0x08, 0x20, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x39, 0x0a, 0x18, 0x4d,
+	0x61, 0x78, 0x4e, 0x72, 0x6f, 0x66, 0x54, 0x78, 0x44, 0x63, 0x54, 0x77, 0x6f, 0x43, 0x61, 0x72,
+	0x72, 0x69, 0x65, 0x72, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x1a, 0x02, 0x08, 0x40, 0x52,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x44, 0x0a, 0x23, 0x4d, 0x61, 0x78, 0x4e, 0x72, 0x6f,
+	0x66, 0x50, 0x64, 0x63, 0x63, 0x68, 0x42, 0x6c, 0x69, 0x6e, 0x64, 0x44, 0x65, 0x74, 0x65, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x4d, 0x69, 0x78, 0x65, 0x64, 0x31, 0x72, 0x31, 0x36, 0x12, 0x1d, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x1a, 0x02, 0x08, 0x07, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x2a, 0x9b, 0x03, 0x0a,
+	0x25, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x6c, 0x6f, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69,
+	0x67, 0x73, 0x65, 0x6d, 0x69, 0x50, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x74, 0x4f,
+	0x6e, 0x50, 0x75, 0x73, 0x63, 0x68, 0x12, 0x32, 0x0a, 0x2e, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54,
+	0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53, 0x45, 0x4d, 0x49,
+	0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50,
+	0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c, 0x35, 0x10, 0x00, 0x12, 0x33, 0x0a, 0x2f, 0x52, 0x45,
 	0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47,
 	0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f,
-	0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c, 0x35, 0x10, 0x00, 0x12, 0x33,
-	0x0a, 0x2f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f,
+	0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c, 0x31, 0x30, 0x10, 0x01, 0x12,
+	0x33, 0x0a, 0x2f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43,
+	0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53,
+	0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c,
+	0x32, 0x30, 0x10, 0x02, 0x12, 0x33, 0x0a, 0x2f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53,
+	0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50,
+	0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53,
+	0x43, 0x48, 0x5f, 0x53, 0x4c, 0x34, 0x30, 0x10, 0x03, 0x12, 0x33, 0x0a, 0x2f, 0x52, 0x45, 0x50,
+	0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53,
+	0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f,
+	0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c, 0x38, 0x30, 0x10, 0x04, 0x12, 0x34,
+	0x0a, 0x30, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f,
 	0x4e, 0x46, 0x49, 0x47, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54,
 	0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c, 0x31,
-	0x30, 0x10, 0x01, 0x12, 0x33, 0x0a, 0x2f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c,
-	0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45,
-	0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43,
-	0x48, 0x5f, 0x53, 0x4c, 0x32, 0x30, 0x10, 0x02, 0x12, 0x33, 0x0a, 0x2f, 0x52, 0x45, 0x50, 0x4f,
-	0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53, 0x45,
-	0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e,
-	0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c, 0x34, 0x30, 0x10, 0x03, 0x12, 0x33, 0x0a,
-	0x2f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e,
-	0x46, 0x49, 0x47, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45,
-	0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c, 0x38, 0x30,
-	0x10, 0x04, 0x12, 0x34, 0x0a, 0x30, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f,
-	0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52,
-	0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48,
-	0x5f, 0x53, 0x4c, 0x31, 0x36, 0x30, 0x10, 0x05, 0x12, 0x34, 0x0a, 0x30, 0x52, 0x45, 0x50, 0x4f,
-	0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53, 0x45,
-	0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e,
-	0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x5f, 0x53, 0x4c, 0x33, 0x32, 0x30, 0x10, 0x06, 0x2a, 0x7d,
-	0x0a, 0x1f, 0x50, 0x64, 0x73, 0x63, 0x68, 0x42, 0x75, 0x6e, 0x64, 0x6c, 0x65, 0x53, 0x69, 0x7a,
-	0x65, 0x46, 0x6f, 0x72, 0x43, 0x73, 0x69, 0x63, 0x72, 0x69, 0x52, 0x69, 0x69, 0x31, 0x43, 0x71,
-	0x69, 0x12, 0x2c, 0x0a, 0x28, 0x50, 0x44, 0x53, 0x43, 0x48, 0x5f, 0x42, 0x55, 0x4e, 0x44, 0x4c,
-	0x45, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x5f, 0x46, 0x4f, 0x52, 0x5f, 0x43, 0x53, 0x49, 0x43, 0x52,
-	0x49, 0x5f, 0x52, 0x49, 0x49, 0x31, 0x5f, 0x43, 0x51, 0x49, 0x5f, 0x4e, 0x32, 0x10, 0x00, 0x12,
-	0x2c, 0x0a, 0x28, 0x50, 0x44, 0x53, 0x43, 0x48, 0x5f, 0x42, 0x55, 0x4e, 0x44, 0x4c, 0x45, 0x5f,
-	0x53, 0x49, 0x5a, 0x45, 0x5f, 0x46, 0x4f, 0x52, 0x5f, 0x43, 0x53, 0x49, 0x43, 0x52, 0x49, 0x5f,
-	0x52, 0x49, 0x49, 0x31, 0x5f, 0x43, 0x51, 0x49, 0x5f, 0x4e, 0x34, 0x10, 0x01, 0x2a, 0xaa, 0x01,
-	0x0a, 0x29, 0x43, 0x71, 0x69, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63,
-	0x61, 0x74, 0x6f, 0x72, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x46, 0x72, 0x65, 0x71, 0x43, 0x6f,
-	0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x3e, 0x0a, 0x3a, 0x43,
-	0x51, 0x49, 0x5f, 0x46, 0x4f, 0x52, 0x4d, 0x41, 0x54, 0x5f, 0x49, 0x4e, 0x44, 0x49, 0x43, 0x41,
-	0x54, 0x4f, 0x52, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x46, 0x52, 0x45, 0x51, 0x5f, 0x43,
-	0x4f, 0x4e, 0x46, 0x49, 0x47, 0x55, 0x52, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x57, 0x49, 0x44,
-	0x45, 0x42, 0x41, 0x4e, 0x44, 0x5f, 0x43, 0x51, 0x49, 0x10, 0x00, 0x12, 0x3d, 0x0a, 0x39, 0x43,
-	0x51, 0x49, 0x5f, 0x46, 0x4f, 0x52, 0x4d, 0x41, 0x54, 0x5f, 0x49, 0x4e, 0x44, 0x49, 0x43, 0x41,
-	0x54, 0x4f, 0x52, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x46, 0x52, 0x45, 0x51, 0x5f, 0x43,
-	0x4f, 0x4e, 0x46, 0x49, 0x47, 0x55, 0x52, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x55, 0x42,
-	0x42, 0x41, 0x4e, 0x44, 0x5f, 0x43, 0x51, 0x49, 0x10, 0x01, 0x2a, 0xaa, 0x01, 0x0a, 0x29, 0x50,
-	0x6d, 0x69, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x61, 0x74, 0x6f,
-	0x72, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x46, 0x72, 0x65, 0x71, 0x43, 0x6f, 0x6e, 0x66, 0x69,
-	0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4d, 0x49, 0x5f,
-	0x46, 0x4f, 0x52, 0x4d, 0x41, 0x54, 0x5f, 0x49, 0x4e, 0x44, 0x49, 0x43, 0x41, 0x54, 0x4f, 0x52,
-	0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x46, 0x52, 0x45, 0x51, 0x5f, 0x43, 0x4f, 0x4e, 0x46,
-	0x49, 0x47, 0x55, 0x52, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x57, 0x49, 0x44, 0x45, 0x42, 0x41,
-	0x4e, 0x44, 0x5f, 0x50, 0x4d, 0x49, 0x10, 0x00, 0x12, 0x3d, 0x0a, 0x39, 0x50, 0x4d, 0x49, 0x5f,
-	0x46, 0x4f, 0x52, 0x4d, 0x41, 0x54, 0x5f, 0x49, 0x4e, 0x44, 0x49, 0x43, 0x41, 0x54, 0x4f, 0x52,
-	0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x46, 0x52, 0x45, 0x51, 0x5f, 0x43, 0x4f, 0x4e, 0x46,
-	0x49, 0x47, 0x55, 0x52, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x55, 0x42, 0x42, 0x41, 0x4e,
-	0x44, 0x5f, 0x50, 0x4d, 0x49, 0x10, 0x01, 0x2a, 0xd0, 0x01, 0x0a, 0x34, 0x54, 0x69, 0x6d, 0x65,
-	0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x46, 0x6f, 0x72, 0x43, 0x68,
-	0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x4d, 0x65, 0x61, 0x73, 0x75, 0x72, 0x65, 0x6d, 0x65, 0x6e, 0x74,
-	0x73, 0x43, 0x73, 0x69, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67,
-	0x12, 0x49, 0x0a, 0x45, 0x54, 0x49, 0x4d, 0x45, 0x5f, 0x52, 0x45, 0x53, 0x54, 0x52, 0x49, 0x43,
-	0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x46, 0x4f, 0x52, 0x5f, 0x43, 0x48, 0x41, 0x4e, 0x4e, 0x45, 0x4c,
-	0x5f, 0x4d, 0x45, 0x41, 0x53, 0x55, 0x52, 0x45, 0x4d, 0x45, 0x4e, 0x54, 0x53, 0x5f, 0x43, 0x53,
-	0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x43,
-	0x4f, 0x4e, 0x46, 0x49, 0x47, 0x55, 0x52, 0x45, 0x44, 0x10, 0x00, 0x12, 0x4d, 0x0a, 0x49, 0x54,
-	0x49, 0x4d, 0x45, 0x5f, 0x52, 0x45, 0x53, 0x54, 0x52, 0x49, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f,
-	0x46, 0x4f, 0x52, 0x5f, 0x43, 0x48, 0x41, 0x4e, 0x4e, 0x45, 0x4c, 0x5f, 0x4d, 0x45, 0x41, 0x53,
-	0x55, 0x52, 0x45, 0x4d, 0x45, 0x4e, 0x54, 0x53, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f,
-	0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x4e, 0x4f, 0x54, 0x5f, 0x43, 0x4f,
-	0x4e, 0x46, 0x49, 0x47, 0x55, 0x52, 0x45, 0x44, 0x10, 0x01, 0x2a, 0xdf, 0x01, 0x0a, 0x39, 0x54,
-	0x69, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x46, 0x6f,
-	0x72, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x4d, 0x65, 0x61,
-	0x73, 0x75, 0x72, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x43, 0x73, 0x69, 0x72, 0x65, 0x70, 0x6f,
-	0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x4e, 0x0a, 0x4a, 0x54, 0x49, 0x4d, 0x45,
-	0x5f, 0x52, 0x45, 0x53, 0x54, 0x52, 0x49, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x46, 0x4f, 0x52,
-	0x5f, 0x49, 0x4e, 0x54, 0x45, 0x52, 0x46, 0x45, 0x52, 0x45, 0x4e, 0x43, 0x45, 0x5f, 0x4d, 0x45,
-	0x41, 0x53, 0x55, 0x52, 0x45, 0x4d, 0x45, 0x4e, 0x54, 0x53, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45,
-	0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x43, 0x4f, 0x4e, 0x46,
-	0x49, 0x47, 0x55, 0x52, 0x45, 0x44, 0x10, 0x00, 0x12, 0x52, 0x0a, 0x4e, 0x54, 0x49, 0x4d, 0x45,
-	0x5f, 0x52, 0x45, 0x53, 0x54, 0x52, 0x49, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x46, 0x4f, 0x52,
-	0x5f, 0x49, 0x4e, 0x54, 0x45, 0x52, 0x46, 0x45, 0x52, 0x45, 0x4e, 0x43, 0x45, 0x5f, 0x4d, 0x45,
-	0x41, 0x53, 0x55, 0x52, 0x45, 0x4d, 0x45, 0x4e, 0x54, 0x53, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45,
-	0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x4e, 0x4f, 0x54, 0x5f,
-	0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x55, 0x52, 0x45, 0x44, 0x10, 0x01, 0x2a, 0x54, 0x0a, 0x14,
-	0x44, 0x75, 0x6d, 0x6d, 0x79, 0x43, 0x73, 0x69, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f,
-	0x6e, 0x66, 0x69, 0x67, 0x12, 0x1d, 0x0a, 0x19, 0x44, 0x55, 0x4d, 0x4d, 0x59, 0x5f, 0x43, 0x53,
-	0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x4e,
-	0x31, 0x10, 0x00, 0x12, 0x1d, 0x0a, 0x19, 0x44, 0x55, 0x4d, 0x4d, 0x59, 0x5f, 0x43, 0x53, 0x49,
-	0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x4e, 0x32,
-	0x10, 0x01, 0x2a, 0x9c, 0x01, 0x0a, 0x16, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x65, 0x70, 0x6f, 0x72,
-	0x74, 0x65, 0x64, 0x52, 0x73, 0x64, 0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x64, 0x12, 0x1f, 0x0a,
-	0x1b, 0x4e, 0x52, 0x4f, 0x46, 0x5f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x45, 0x44, 0x5f, 0x52,
-	0x53, 0x44, 0x49, 0x53, 0x41, 0x42, 0x4c, 0x45, 0x44, 0x5f, 0x4e, 0x31, 0x10, 0x00, 0x12, 0x1f,
-	0x0a, 0x1b, 0x4e, 0x52, 0x4f, 0x46, 0x5f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x45, 0x44, 0x5f,
-	0x52, 0x53, 0x44, 0x49, 0x53, 0x41, 0x42, 0x4c, 0x45, 0x44, 0x5f, 0x4e, 0x32, 0x10, 0x01, 0x12,
-	0x1f, 0x0a, 0x1b, 0x4e, 0x52, 0x4f, 0x46, 0x5f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x45, 0x44,
-	0x5f, 0x52, 0x53, 0x44, 0x49, 0x53, 0x41, 0x42, 0x4c, 0x45, 0x44, 0x5f, 0x4e, 0x33, 0x10, 0x02,
-	0x12, 0x1f, 0x0a, 0x1b, 0x4e, 0x52, 0x4f, 0x46, 0x5f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x45,
-	0x44, 0x5f, 0x52, 0x53, 0x44, 0x49, 0x53, 0x41, 0x42, 0x4c, 0x45, 0x44, 0x5f, 0x4e, 0x34, 0x10,
-	0x03, 0x2a, 0xb5, 0x01, 0x0a, 0x17, 0x43, 0x71, 0x69, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x43, 0x73,
-	0x69, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x25, 0x0a,
-	0x21, 0x43, 0x51, 0x49, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45,
-	0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x54, 0x41, 0x42, 0x4c,
-	0x45, 0x31, 0x10, 0x00, 0x12, 0x25, 0x0a, 0x21, 0x43, 0x51, 0x49, 0x5f, 0x54, 0x41, 0x42, 0x4c,
-	0x45, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46,
-	0x49, 0x47, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x32, 0x10, 0x01, 0x12, 0x25, 0x0a, 0x21, 0x43,
-	0x51, 0x49, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f,
-	0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x33,
-	0x10, 0x02, 0x12, 0x25, 0x0a, 0x21, 0x43, 0x51, 0x49, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x5f,
-	0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47,
-	0x5f, 0x53, 0x50, 0x41, 0x52, 0x45, 0x31, 0x10, 0x03, 0x2a, 0x70, 0x0a, 0x1a, 0x53, 0x75, 0x62,
-	0x62, 0x61, 0x6e, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x43, 0x73, 0x69, 0x72, 0x65, 0x70, 0x6f, 0x72,
-	0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x28, 0x0a, 0x24, 0x53, 0x55, 0x42, 0x42, 0x41,
-	0x4e, 0x44, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52,
-	0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x56, 0x41, 0x4c, 0x55, 0x45, 0x31, 0x10,
-	0x00, 0x12, 0x28, 0x0a, 0x24, 0x53, 0x55, 0x42, 0x42, 0x41, 0x4e, 0x44, 0x5f, 0x53, 0x49, 0x5a,
-	0x45, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46,
-	0x49, 0x47, 0x5f, 0x56, 0x41, 0x4c, 0x55, 0x45, 0x32, 0x10, 0x01, 0x2a, 0xec, 0x01, 0x0a, 0x2f,
-	0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x6c, 0x6f, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67,
-	0x76, 0x31, 0x35, 0x33, 0x30, 0x73, 0x65, 0x6d, 0x69, 0x50, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74,
-	0x65, 0x6e, 0x74, 0x4f, 0x6e, 0x50, 0x75, 0x73, 0x63, 0x68, 0x76, 0x31, 0x35, 0x33, 0x30, 0x12,
-	0x3c, 0x0a, 0x38, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43,
-	0x4f, 0x4e, 0x46, 0x49, 0x47, 0x56, 0x31, 0x35, 0x33, 0x30, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50,
+	0x36, 0x30, 0x10, 0x05, 0x12, 0x34, 0x0a, 0x30, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53,
+	0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50,
 	0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53,
-	0x43, 0x48, 0x56, 0x31, 0x35, 0x33, 0x30, 0x5f, 0x53, 0x4c, 0x34, 0x10, 0x00, 0x12, 0x3c, 0x0a,
-	0x38, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e,
-	0x46, 0x49, 0x47, 0x56, 0x31, 0x35, 0x33, 0x30, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52,
-	0x53, 0x49, 0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48,
-	0x56, 0x31, 0x35, 0x33, 0x30, 0x5f, 0x53, 0x4c, 0x38, 0x10, 0x01, 0x12, 0x3d, 0x0a, 0x39, 0x52,
+	0x43, 0x48, 0x5f, 0x53, 0x4c, 0x33, 0x32, 0x30, 0x10, 0x06, 0x2a, 0x7d, 0x0a, 0x1f, 0x50, 0x64,
+	0x73, 0x63, 0x68, 0x42, 0x75, 0x6e, 0x64, 0x6c, 0x65, 0x53, 0x69, 0x7a, 0x65, 0x46, 0x6f, 0x72,
+	0x43, 0x73, 0x69, 0x63, 0x72, 0x69, 0x52, 0x69, 0x69, 0x31, 0x43, 0x71, 0x69, 0x12, 0x2c, 0x0a,
+	0x28, 0x50, 0x44, 0x53, 0x43, 0x48, 0x5f, 0x42, 0x55, 0x4e, 0x44, 0x4c, 0x45, 0x5f, 0x53, 0x49,
+	0x5a, 0x45, 0x5f, 0x46, 0x4f, 0x52, 0x5f, 0x43, 0x53, 0x49, 0x43, 0x52, 0x49, 0x5f, 0x52, 0x49,
+	0x49, 0x31, 0x5f, 0x43, 0x51, 0x49, 0x5f, 0x4e, 0x32, 0x10, 0x00, 0x12, 0x2c, 0x0a, 0x28, 0x50,
+	0x44, 0x53, 0x43, 0x48, 0x5f, 0x42, 0x55, 0x4e, 0x44, 0x4c, 0x45, 0x5f, 0x53, 0x49, 0x5a, 0x45,
+	0x5f, 0x46, 0x4f, 0x52, 0x5f, 0x43, 0x53, 0x49, 0x43, 0x52, 0x49, 0x5f, 0x52, 0x49, 0x49, 0x31,
+	0x5f, 0x43, 0x51, 0x49, 0x5f, 0x4e, 0x34, 0x10, 0x01, 0x2a, 0xaa, 0x01, 0x0a, 0x29, 0x43, 0x71,
+	0x69, 0x46, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x61, 0x74, 0x6f, 0x72,
+	0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x46, 0x72, 0x65, 0x71, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67,
+	0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x3e, 0x0a, 0x3a, 0x43, 0x51, 0x49, 0x5f, 0x46,
+	0x4f, 0x52, 0x4d, 0x41, 0x54, 0x5f, 0x49, 0x4e, 0x44, 0x49, 0x43, 0x41, 0x54, 0x4f, 0x52, 0x52,
+	0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x46, 0x52, 0x45, 0x51, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49,
+	0x47, 0x55, 0x52, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x57, 0x49, 0x44, 0x45, 0x42, 0x41, 0x4e,
+	0x44, 0x5f, 0x43, 0x51, 0x49, 0x10, 0x00, 0x12, 0x3d, 0x0a, 0x39, 0x43, 0x51, 0x49, 0x5f, 0x46,
+	0x4f, 0x52, 0x4d, 0x41, 0x54, 0x5f, 0x49, 0x4e, 0x44, 0x49, 0x43, 0x41, 0x54, 0x4f, 0x52, 0x52,
+	0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x46, 0x52, 0x45, 0x51, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49,
+	0x47, 0x55, 0x52, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x55, 0x42, 0x42, 0x41, 0x4e, 0x44,
+	0x5f, 0x43, 0x51, 0x49, 0x10, 0x01, 0x2a, 0xaa, 0x01, 0x0a, 0x29, 0x50, 0x6d, 0x69, 0x46, 0x6f,
+	0x72, 0x6d, 0x61, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x61, 0x74, 0x6f, 0x72, 0x72, 0x65, 0x70,
+	0x6f, 0x72, 0x74, 0x46, 0x72, 0x65, 0x71, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4d, 0x49, 0x5f, 0x46, 0x4f, 0x52, 0x4d,
+	0x41, 0x54, 0x5f, 0x49, 0x4e, 0x44, 0x49, 0x43, 0x41, 0x54, 0x4f, 0x52, 0x52, 0x45, 0x50, 0x4f,
+	0x52, 0x54, 0x5f, 0x46, 0x52, 0x45, 0x51, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x55, 0x52,
+	0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x57, 0x49, 0x44, 0x45, 0x42, 0x41, 0x4e, 0x44, 0x5f, 0x50,
+	0x4d, 0x49, 0x10, 0x00, 0x12, 0x3d, 0x0a, 0x39, 0x50, 0x4d, 0x49, 0x5f, 0x46, 0x4f, 0x52, 0x4d,
+	0x41, 0x54, 0x5f, 0x49, 0x4e, 0x44, 0x49, 0x43, 0x41, 0x54, 0x4f, 0x52, 0x52, 0x45, 0x50, 0x4f,
+	0x52, 0x54, 0x5f, 0x46, 0x52, 0x45, 0x51, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x55, 0x52,
+	0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x55, 0x42, 0x42, 0x41, 0x4e, 0x44, 0x5f, 0x50, 0x4d,
+	0x49, 0x10, 0x01, 0x2a, 0xd0, 0x01, 0x0a, 0x34, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x74,
+	0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x46, 0x6f, 0x72, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65,
+	0x6c, 0x4d, 0x65, 0x61, 0x73, 0x75, 0x72, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x43, 0x73, 0x69,
+	0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x49, 0x0a, 0x45,
+	0x54, 0x49, 0x4d, 0x45, 0x5f, 0x52, 0x45, 0x53, 0x54, 0x52, 0x49, 0x43, 0x54, 0x49, 0x4f, 0x4e,
+	0x5f, 0x46, 0x4f, 0x52, 0x5f, 0x43, 0x48, 0x41, 0x4e, 0x4e, 0x45, 0x4c, 0x5f, 0x4d, 0x45, 0x41,
+	0x53, 0x55, 0x52, 0x45, 0x4d, 0x45, 0x4e, 0x54, 0x53, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50,
+	0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49,
+	0x47, 0x55, 0x52, 0x45, 0x44, 0x10, 0x00, 0x12, 0x4d, 0x0a, 0x49, 0x54, 0x49, 0x4d, 0x45, 0x5f,
+	0x52, 0x45, 0x53, 0x54, 0x52, 0x49, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x46, 0x4f, 0x52, 0x5f,
+	0x43, 0x48, 0x41, 0x4e, 0x4e, 0x45, 0x4c, 0x5f, 0x4d, 0x45, 0x41, 0x53, 0x55, 0x52, 0x45, 0x4d,
+	0x45, 0x4e, 0x54, 0x53, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43,
+	0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x4e, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47,
+	0x55, 0x52, 0x45, 0x44, 0x10, 0x01, 0x2a, 0xdf, 0x01, 0x0a, 0x39, 0x54, 0x69, 0x6d, 0x65, 0x52,
+	0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x46, 0x6f, 0x72, 0x49, 0x6e, 0x74,
+	0x65, 0x72, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x4d, 0x65, 0x61, 0x73, 0x75, 0x72, 0x65,
+	0x6d, 0x65, 0x6e, 0x74, 0x73, 0x43, 0x73, 0x69, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f,
+	0x6e, 0x66, 0x69, 0x67, 0x12, 0x4e, 0x0a, 0x4a, 0x54, 0x49, 0x4d, 0x45, 0x5f, 0x52, 0x45, 0x53,
+	0x54, 0x52, 0x49, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x46, 0x4f, 0x52, 0x5f, 0x49, 0x4e, 0x54,
+	0x45, 0x52, 0x46, 0x45, 0x52, 0x45, 0x4e, 0x43, 0x45, 0x5f, 0x4d, 0x45, 0x41, 0x53, 0x55, 0x52,
+	0x45, 0x4d, 0x45, 0x4e, 0x54, 0x53, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54,
+	0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x55, 0x52,
+	0x45, 0x44, 0x10, 0x00, 0x12, 0x52, 0x0a, 0x4e, 0x54, 0x49, 0x4d, 0x45, 0x5f, 0x52, 0x45, 0x53,
+	0x54, 0x52, 0x49, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x46, 0x4f, 0x52, 0x5f, 0x49, 0x4e, 0x54,
+	0x45, 0x52, 0x46, 0x45, 0x52, 0x45, 0x4e, 0x43, 0x45, 0x5f, 0x4d, 0x45, 0x41, 0x53, 0x55, 0x52,
+	0x45, 0x4d, 0x45, 0x4e, 0x54, 0x53, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54,
+	0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x4e, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46,
+	0x49, 0x47, 0x55, 0x52, 0x45, 0x44, 0x10, 0x01, 0x2a, 0x54, 0x0a, 0x14, 0x44, 0x75, 0x6d, 0x6d,
+	0x79, 0x43, 0x73, 0x69, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67,
+	0x12, 0x1d, 0x0a, 0x19, 0x44, 0x55, 0x4d, 0x4d, 0x59, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50,
+	0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x4e, 0x31, 0x10, 0x00, 0x12,
+	0x1d, 0x0a, 0x19, 0x44, 0x55, 0x4d, 0x4d, 0x59, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f,
+	0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x4e, 0x32, 0x10, 0x01, 0x2a, 0x9c,
+	0x01, 0x0a, 0x16, 0x4e, 0x72, 0x6f, 0x66, 0x52, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x65, 0x64, 0x52,
+	0x73, 0x64, 0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x64, 0x12, 0x1f, 0x0a, 0x1b, 0x4e, 0x52, 0x4f,
+	0x46, 0x5f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x45, 0x44, 0x5f, 0x52, 0x53, 0x44, 0x49, 0x53,
+	0x41, 0x42, 0x4c, 0x45, 0x44, 0x5f, 0x4e, 0x31, 0x10, 0x00, 0x12, 0x1f, 0x0a, 0x1b, 0x4e, 0x52,
+	0x4f, 0x46, 0x5f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x45, 0x44, 0x5f, 0x52, 0x53, 0x44, 0x49,
+	0x53, 0x41, 0x42, 0x4c, 0x45, 0x44, 0x5f, 0x4e, 0x32, 0x10, 0x01, 0x12, 0x1f, 0x0a, 0x1b, 0x4e,
+	0x52, 0x4f, 0x46, 0x5f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x45, 0x44, 0x5f, 0x52, 0x53, 0x44,
+	0x49, 0x53, 0x41, 0x42, 0x4c, 0x45, 0x44, 0x5f, 0x4e, 0x33, 0x10, 0x02, 0x12, 0x1f, 0x0a, 0x1b,
+	0x4e, 0x52, 0x4f, 0x46, 0x5f, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x45, 0x44, 0x5f, 0x52, 0x53,
+	0x44, 0x49, 0x53, 0x41, 0x42, 0x4c, 0x45, 0x44, 0x5f, 0x4e, 0x34, 0x10, 0x03, 0x2a, 0xb5, 0x01,
+	0x0a, 0x17, 0x43, 0x71, 0x69, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x43, 0x73, 0x69, 0x72, 0x65, 0x70,
+	0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x25, 0x0a, 0x21, 0x43, 0x51, 0x49,
+	0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54,
+	0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x31, 0x10, 0x00,
+	0x12, 0x25, 0x0a, 0x21, 0x43, 0x51, 0x49, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x5f, 0x43, 0x53,
+	0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x54,
+	0x41, 0x42, 0x4c, 0x45, 0x32, 0x10, 0x01, 0x12, 0x25, 0x0a, 0x21, 0x43, 0x51, 0x49, 0x5f, 0x54,
+	0x41, 0x42, 0x4c, 0x45, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43,
+	0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x33, 0x10, 0x02, 0x12, 0x25,
+	0x0a, 0x21, 0x43, 0x51, 0x49, 0x5f, 0x54, 0x41, 0x42, 0x4c, 0x45, 0x5f, 0x43, 0x53, 0x49, 0x52,
+	0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x53, 0x50, 0x41,
+	0x52, 0x45, 0x31, 0x10, 0x03, 0x2a, 0x70, 0x0a, 0x1a, 0x53, 0x75, 0x62, 0x62, 0x61, 0x6e, 0x64,
+	0x53, 0x69, 0x7a, 0x65, 0x43, 0x73, 0x69, 0x72, 0x65, 0x70, 0x6f, 0x72, 0x74, 0x43, 0x6f, 0x6e,
+	0x66, 0x69, 0x67, 0x12, 0x28, 0x0a, 0x24, 0x53, 0x55, 0x42, 0x42, 0x41, 0x4e, 0x44, 0x5f, 0x53,
+	0x49, 0x5a, 0x45, 0x5f, 0x43, 0x53, 0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f,
+	0x4e, 0x46, 0x49, 0x47, 0x5f, 0x56, 0x41, 0x4c, 0x55, 0x45, 0x31, 0x10, 0x00, 0x12, 0x28, 0x0a,
+	0x24, 0x53, 0x55, 0x42, 0x42, 0x41, 0x4e, 0x44, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x5f, 0x43, 0x53,
+	0x49, 0x52, 0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x5f, 0x56,
+	0x41, 0x4c, 0x55, 0x45, 0x32, 0x10, 0x01, 0x2a, 0xec, 0x01, 0x0a, 0x2f, 0x52, 0x65, 0x70, 0x6f,
+	0x72, 0x74, 0x53, 0x6c, 0x6f, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x76, 0x31, 0x35, 0x33,
+	0x30, 0x73, 0x65, 0x6d, 0x69, 0x50, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x74, 0x4f,
+	0x6e, 0x50, 0x75, 0x73, 0x63, 0x68, 0x76, 0x31, 0x35, 0x33, 0x30, 0x12, 0x3c, 0x0a, 0x38, 0x52,
 	0x45, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49,
 	0x47, 0x56, 0x31, 0x35, 0x33, 0x30, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49,
 	0x53, 0x54, 0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x56, 0x31,
-	0x35, 0x33, 0x30, 0x5f, 0x53, 0x4c, 0x31, 0x36, 0x10, 0x02, 0x2a, 0x96, 0x02, 0x0a, 0x2c, 0x50,
-	0x6f, 0x72, 0x74, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x61, 0x6d, 0x70,
-	0x6c, 0x69, 0x6e, 0x67, 0x53, 0x69, 0x7a, 0x65, 0x74, 0x79, 0x70, 0x65, 0x49, 0x69, 0x70, 0x6f,
-	0x72, 0x74, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x38, 0x0a, 0x34, 0x50,
+	0x35, 0x33, 0x30, 0x5f, 0x53, 0x4c, 0x34, 0x10, 0x00, 0x12, 0x3c, 0x0a, 0x38, 0x52, 0x45, 0x50,
+	0x4f, 0x52, 0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x56,
+	0x31, 0x35, 0x33, 0x30, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54,
+	0x45, 0x4e, 0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x56, 0x31, 0x35, 0x33,
+	0x30, 0x5f, 0x53, 0x4c, 0x38, 0x10, 0x01, 0x12, 0x3d, 0x0a, 0x39, 0x52, 0x45, 0x50, 0x4f, 0x52,
+	0x54, 0x5f, 0x53, 0x4c, 0x4f, 0x54, 0x5f, 0x43, 0x4f, 0x4e, 0x46, 0x49, 0x47, 0x56, 0x31, 0x35,
+	0x33, 0x30, 0x53, 0x45, 0x4d, 0x49, 0x5f, 0x50, 0x45, 0x52, 0x53, 0x49, 0x53, 0x54, 0x45, 0x4e,
+	0x54, 0x5f, 0x4f, 0x4e, 0x5f, 0x50, 0x55, 0x53, 0x43, 0x48, 0x56, 0x31, 0x35, 0x33, 0x30, 0x5f,
+	0x53, 0x4c, 0x31, 0x36, 0x10, 0x02, 0x2a, 0x96, 0x02, 0x0a, 0x2c, 0x50, 0x6f, 0x72, 0x74, 0x53,
+	0x65, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x61, 0x6d, 0x70, 0x6c, 0x69, 0x6e, 0x67,
+	0x53, 0x69, 0x7a, 0x65, 0x74, 0x79, 0x70, 0x65, 0x49, 0x69, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x65,
+	0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x38, 0x0a, 0x34, 0x50, 0x4f, 0x52, 0x54, 0x5f,
+	0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50, 0x4c, 0x49,
+	0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x49, 0x50, 0x4f,
+	0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x4e, 0x31, 0x10,
+	0x00, 0x12, 0x38, 0x0a, 0x34, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54,
+	0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50, 0x4c, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a,
+	0x45, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x49, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c,
+	0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x4e, 0x32, 0x10, 0x01, 0x12, 0x38, 0x0a, 0x34, 0x50,
 	0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41,
 	0x4d, 0x50, 0x4c, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x54, 0x59, 0x50, 0x45, 0x5f,
 	0x49, 0x49, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e,
-	0x5f, 0x4e, 0x31, 0x10, 0x00, 0x12, 0x38, 0x0a, 0x34, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45,
+	0x5f, 0x4e, 0x33, 0x10, 0x02, 0x12, 0x38, 0x0a, 0x34, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45,
 	0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50, 0x4c, 0x49, 0x4e, 0x47,
 	0x5f, 0x53, 0x49, 0x5a, 0x45, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x49, 0x50, 0x4f, 0x52, 0x54,
-	0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x4e, 0x32, 0x10, 0x01, 0x12,
-	0x38, 0x0a, 0x34, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f,
-	0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50, 0x4c, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x54,
-	0x59, 0x50, 0x45, 0x5f, 0x49, 0x49, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43,
-	0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x4e, 0x33, 0x10, 0x02, 0x12, 0x38, 0x0a, 0x34, 0x50, 0x4f, 0x52,
-	0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50,
-	0x4c, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x49,
-	0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x4e,
-	0x34, 0x10, 0x03, 0x2a, 0x5a, 0x0a, 0x16, 0x50, 0x68, 0x61, 0x73, 0x65, 0x41, 0x6c, 0x70, 0x68,
-	0x61, 0x62, 0x65, 0x74, 0x53, 0x69, 0x7a, 0x65, 0x74, 0x79, 0x70, 0x65, 0x32, 0x12, 0x1f, 0x0a,
-	0x1b, 0x50, 0x48, 0x41, 0x53, 0x45, 0x5f, 0x41, 0x4c, 0x50, 0x48, 0x41, 0x42, 0x45, 0x54, 0x5f,
-	0x53, 0x49, 0x5a, 0x45, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x4e, 0x34, 0x10, 0x00, 0x12, 0x1f,
-	0x0a, 0x1b, 0x50, 0x48, 0x41, 0x53, 0x45, 0x5f, 0x41, 0x4c, 0x50, 0x48, 0x41, 0x42, 0x45, 0x54,
-	0x5f, 0x53, 0x49, 0x5a, 0x45, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x4e, 0x38, 0x10, 0x01, 0x2a,
-	0x71, 0x0a, 0x12, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x4f, 0x66, 0x42, 0x65, 0x61, 0x6d, 0x73,
-	0x74, 0x79, 0x70, 0x65, 0x32, 0x12, 0x1c, 0x0a, 0x18, 0x4e, 0x55, 0x4d, 0x42, 0x45, 0x52, 0x5f,
-	0x4f, 0x46, 0x5f, 0x42, 0x45, 0x41, 0x4d, 0x53, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x54, 0x57,
-	0x4f, 0x10, 0x00, 0x12, 0x1e, 0x0a, 0x1a, 0x4e, 0x55, 0x4d, 0x42, 0x45, 0x52, 0x5f, 0x4f, 0x46,
-	0x5f, 0x42, 0x45, 0x41, 0x4d, 0x53, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x54, 0x48, 0x52, 0x45,
-	0x45, 0x10, 0x01, 0x12, 0x1d, 0x0a, 0x19, 0x4e, 0x55, 0x4d, 0x42, 0x45, 0x52, 0x5f, 0x4f, 0x46,
-	0x5f, 0x42, 0x45, 0x41, 0x4d, 0x53, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x46, 0x4f, 0x55, 0x52,
-	0x10, 0x02, 0x2a, 0xb4, 0x02, 0x0a, 0x32, 0x50, 0x6f, 0x72, 0x74, 0x53, 0x65, 0x6c, 0x65, 0x63,
-	0x74, 0x69, 0x6f, 0x6e, 0x53, 0x61, 0x6d, 0x70, 0x6c, 0x69, 0x6e, 0x67, 0x53, 0x69, 0x7a, 0x65,
-	0x72, 0x31, 0x36, 0x74, 0x79, 0x70, 0x65, 0x49, 0x69, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x65, 0x6c,
-	0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x72, 0x31, 0x36, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4f, 0x52,
-	0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50,
-	0x4c, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x52, 0x31, 0x36, 0x54, 0x59, 0x50, 0x45,
-	0x5f, 0x49, 0x49, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f,
-	0x4e, 0x52, 0x31, 0x36, 0x5f, 0x4e, 0x31, 0x10, 0x00, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4f, 0x52,
-	0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50,
-	0x4c, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x52, 0x31, 0x36, 0x54, 0x59, 0x50, 0x45,
-	0x5f, 0x49, 0x49, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f,
-	0x4e, 0x52, 0x31, 0x36, 0x5f, 0x4e, 0x32, 0x10, 0x01, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4f, 0x52,
-	0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50,
-	0x4c, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x52, 0x31, 0x36, 0x54, 0x59, 0x50, 0x45,
-	0x5f, 0x49, 0x49, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f,
-	0x4e, 0x52, 0x31, 0x36, 0x5f, 0x4e, 0x33, 0x10, 0x02, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4f, 0x52,
-	0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50,
-	0x4c, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x49, 0x5a, 0x45, 0x52, 0x31, 0x36, 0x54, 0x59, 0x50, 0x45,
-	0x5f, 0x49, 0x49, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f,
-	0x4e, 0x52, 0x31, 0x36, 0x5f, 0x4e, 0x34, 0x10, 0x03, 0x42, 0x19, 0x5a, 0x17, 0x2e, 0x2f, 0x6e,
-	0x72, 0x2d, 0x72, 0x72, 0x63, 0x2d, 0x69, 0x65, 0x73, 0x3b, 0x6e, 0x72, 0x72, 0x72, 0x63, 0x69,
-	0x65, 0x73, 0x76, 0x32, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x4e, 0x34, 0x10, 0x03, 0x2a,
+	0x5a, 0x0a, 0x16, 0x50, 0x68, 0x61, 0x73, 0x65, 0x41, 0x6c, 0x70, 0x68, 0x61, 0x62, 0x65, 0x74,
+	0x53, 0x69, 0x7a, 0x65, 0x74, 0x79, 0x70, 0x65, 0x32, 0x12, 0x1f, 0x0a, 0x1b, 0x50, 0x48, 0x41,
+	0x53, 0x45, 0x5f, 0x41, 0x4c, 0x50, 0x48, 0x41, 0x42, 0x45, 0x54, 0x5f, 0x53, 0x49, 0x5a, 0x45,
+	0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x4e, 0x34, 0x10, 0x00, 0x12, 0x1f, 0x0a, 0x1b, 0x50, 0x48,
+	0x41, 0x53, 0x45, 0x5f, 0x41, 0x4c, 0x50, 0x48, 0x41, 0x42, 0x45, 0x54, 0x5f, 0x53, 0x49, 0x5a,
+	0x45, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x4e, 0x38, 0x10, 0x01, 0x2a, 0x71, 0x0a, 0x12, 0x4e,
+	0x75, 0x6d, 0x62, 0x65, 0x72, 0x4f, 0x66, 0x42, 0x65, 0x61, 0x6d, 0x73, 0x74, 0x79, 0x70, 0x65,
+	0x32, 0x12, 0x1c, 0x0a, 0x18, 0x4e, 0x55, 0x4d, 0x42, 0x45, 0x52, 0x5f, 0x4f, 0x46, 0x5f, 0x42,
+	0x45, 0x41, 0x4d, 0x53, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x54, 0x57, 0x4f, 0x10, 0x00, 0x12,
+	0x1e, 0x0a, 0x1a, 0x4e, 0x55, 0x4d, 0x42, 0x45, 0x52, 0x5f, 0x4f, 0x46, 0x5f, 0x42, 0x45, 0x41,
+	0x4d, 0x53, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x54, 0x48, 0x52, 0x45, 0x45, 0x10, 0x01, 0x12,
+	0x1d, 0x0a, 0x19, 0x4e, 0x55, 0x4d, 0x42, 0x45, 0x52, 0x5f, 0x4f, 0x46, 0x5f, 0x42, 0x45, 0x41,
+	0x4d, 0x53, 0x54, 0x59, 0x50, 0x45, 0x32, 0x5f, 0x46, 0x4f, 0x55, 0x52, 0x10, 0x02, 0x2a, 0xb4,
+	0x02, 0x0a, 0x32, 0x50, 0x6f, 0x72, 0x74, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e,
+	0x53, 0x61, 0x6d, 0x70, 0x6c, 0x69, 0x6e, 0x67, 0x53, 0x69, 0x7a, 0x65, 0x72, 0x31, 0x36, 0x74,
+	0x79, 0x70, 0x65, 0x49, 0x69, 0x70, 0x6f, 0x72, 0x74, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x69,
+	0x6f, 0x6e, 0x72, 0x31, 0x36, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45,
+	0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50, 0x4c, 0x49, 0x4e, 0x47,
+	0x5f, 0x53, 0x49, 0x5a, 0x45, 0x52, 0x31, 0x36, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x49, 0x50,
+	0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x52, 0x31, 0x36,
+	0x5f, 0x4e, 0x31, 0x10, 0x00, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45,
+	0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50, 0x4c, 0x49, 0x4e, 0x47,
+	0x5f, 0x53, 0x49, 0x5a, 0x45, 0x52, 0x31, 0x36, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x49, 0x50,
+	0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x52, 0x31, 0x36,
+	0x5f, 0x4e, 0x32, 0x10, 0x01, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45,
+	0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50, 0x4c, 0x49, 0x4e, 0x47,
+	0x5f, 0x53, 0x49, 0x5a, 0x45, 0x52, 0x31, 0x36, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x49, 0x50,
+	0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x52, 0x31, 0x36,
+	0x5f, 0x4e, 0x33, 0x10, 0x02, 0x12, 0x3e, 0x0a, 0x3a, 0x50, 0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45,
+	0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x53, 0x41, 0x4d, 0x50, 0x4c, 0x49, 0x4e, 0x47,
+	0x5f, 0x53, 0x49, 0x5a, 0x45, 0x52, 0x31, 0x36, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x49, 0x50,
+	0x4f, 0x52, 0x54, 0x5f, 0x53, 0x45, 0x4c, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x52, 0x31, 0x36,
+	0x5f, 0x4e, 0x34, 0x10, 0x03, 0x42, 0x19, 0x5a, 0x17, 0x2e, 0x2f, 0x6e, 0x72, 0x2d, 0x72, 0x72,
+	0x63, 0x2d, 0x69, 0x65, 0x73, 0x3b, 0x6e, 0x72, 0x72, 0x72, 0x63, 0x69, 0x65, 0x73, 0x76, 0x32,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -21682,7 +21784,7 @@ func file_CSI_ReportConfig_proto_rawDescGZIP() []byte {
 }
 
 var file_CSI_ReportConfig_proto_enumTypes = make([]protoimpl.EnumInfo, 15)
-var file_CSI_ReportConfig_proto_msgTypes = make([]protoimpl.MessageInfo, 329)
+var file_CSI_ReportConfig_proto_msgTypes = make([]protoimpl.MessageInfo, 330)
 var file_CSI_ReportConfig_proto_goTypes = []interface{}{
 	(ReportSlotConfigsemiPersistentOnPusch)(0),                     // 0: _csi_report_config.v2.ReportSlotConfigsemiPersistentOnPusch
 	(PdschBundleSizeForCsicriRii1Cqi)(0),                           // 1: _csi_report_config.v2.PdschBundleSizeForCsicriRii1Cqi
@@ -21747,288 +21849,289 @@ var file_CSI_ReportConfig_proto_goTypes = []interface{}{
 	(*N1N2CodebookSubsetRestrictionr16TypeIir16)(nil),              // 60: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16
 	(*TypeIir16SubType)(nil),                                       // 61: _csi_report_config.v2.TypeIir16subType
 	(*TypeIiPortSelectionr16SubType)(nil),                          // 62: _csi_report_config.v2.TypeIiPortSelectionr16subType
-	(*Type2CodebookTyper16)(nil),                                   // 63: _csi_report_config.v2.Type2codebookTyper16
-	(*CodebookTyper16CodebookConfigr16)(nil),                       // 64: _csi_report_config.v2.CodebookTyper16CodebookConfigr16
-	(*CodebookConfigr16)(nil),                                      // 65: _csi_report_config.v2.CodebookConfigr16
-	(*BwpId)(nil),                                                  // 66: _csi_report_config.v2.BwpId
-	(*PucchResourceId)(nil),                                        // 67: _csi_report_config.v2.PucchResourceId
-	(*MaxAiDCiPayloadSizer16)(nil),                                 // 68: _csi_report_config.v2.MaxAiDCiPayloadSizer16
-	(*MaxAiDCiPayloadSize1R16)(nil),                                // 69: _csi_report_config.v2.MaxAiDCiPayloadSize1r16
-	(*MaxBandComb)(nil),                                            // 70: _csi_report_config.v2.MaxBandComb
-	(*MaxBandsUtraFDdr16)(nil),                                     // 71: _csi_report_config.v2.MaxBandsUtraFDdr16
-	(*MaxBhRLcChannelIdr16)(nil),                                   // 72: _csi_report_config.v2.MaxBhRLcChannelIdr16
-	(*MaxBtIdReportr16)(nil),                                       // 73: _csi_report_config.v2.MaxBtIdReportr16
-	(*MaxBtNamer16)(nil),                                           // 74: _csi_report_config.v2.MaxBtNamer16
-	(*MaxCagCellr16)(nil),                                          // 75: _csi_report_config.v2.MaxCagCellr16
-	(*MaxTwoPucchGrpConfigListr16)(nil),                            // 76: _csi_report_config.v2.MaxTwoPucchGrpConfigListr16
-	(*MaxCbrConfigr16)(nil),                                        // 77: _csi_report_config.v2.MaxCbrConfigr16
-	(*MaxCbrConfig1R16)(nil),                                       // 78: _csi_report_config.v2.MaxCbrConfig1r16
-	(*MaxCbrLevelr16)(nil),                                         // 79: _csi_report_config.v2.MaxCbrLevelr16
-	(*MaxCbrLevel1R16)(nil),                                        // 80: _csi_report_config.v2.MaxCbrLevel1r16
-	(*MaxCellBlack)(nil),                                           // 81: _csi_report_config.v2.MaxCellBlack
-	(*MaxCellGroupingsr16)(nil),                                    // 82: _csi_report_config.v2.MaxCellGroupingsr16
-	(*MaxCellHistoryr16)(nil),                                      // 83: _csi_report_config.v2.MaxCellHistoryr16
-	(*MaxCellInter)(nil),                                           // 84: _csi_report_config.v2.MaxCellInter
-	(*MaxCellIntra)(nil),                                           // 85: _csi_report_config.v2.MaxCellIntra
-	(*MaxCellMeasEutra)(nil),                                       // 86: _csi_report_config.v2.MaxCellMeasEutra
-	(*MaxCellMeasIdler16)(nil),                                     // 87: _csi_report_config.v2.MaxCellMeasIdler16
-	(*MaxCellMeasUtraFDdr16)(nil),                                  // 88: _csi_report_config.v2.MaxCellMeasUtraFDdr16
-	(*MaxCarrierTypePairListr16)(nil),                              // 89: _csi_report_config.v2.MaxCarrierTypePairListr16
-	(*MaxCellWhite)(nil),                                           // 90: _csi_report_config.v2.MaxCellWhite
-	(*MaxEarfcn)(nil),                                              // 91: _csi_report_config.v2.MaxEarfcn
-	(*MaxEutraCellBlack)(nil),                                      // 92: _csi_report_config.v2.MaxEutraCellBlack
-	(*MaxEutraNSPmax)(nil),                                         // 93: _csi_report_config.v2.MaxEutraNSPmax
-	(*MaxLogMeasReportr16)(nil),                                    // 94: _csi_report_config.v2.MaxLogMeasReportr16
-	(*MaxMultiBands)(nil),                                          // 95: _csi_report_config.v2.MaxMultiBands
-	(*MaxNarfcn)(nil),                                              // 96: _csi_report_config.v2.MaxNarfcn
-	(*MaxNrNSPmax)(nil),                                            // 97: _csi_report_config.v2.MaxNrNSPmax
-	(*MaxFreqIdler16)(nil),                                         // 98: _csi_report_config.v2.MaxFreqIdler16
-	(*MaxNrofServingCells)(nil),                                    // 99: _csi_report_config.v2.MaxNrofServingCells
-	(*MaxNrofServingCells1)(nil),                                   // 100: _csi_report_config.v2.MaxNrofServingCells1
-	(*MaxNrofAggregatedCellsPerCellGroup)(nil),                     // 101: _csi_report_config.v2.MaxNrofAggregatedCellsPerCellGroup
-	(*MaxNrofAggregatedCellsPerCellGroupMinus4R16)(nil),            // 102: _csi_report_config.v2.MaxNrofAggregatedCellsPerCellGroupMinus4r16
-	(*MaxNrofDucellsr16)(nil),                                      // 103: _csi_report_config.v2.MaxNrofDucellsr16
-	(*MaxNrofAvailabilityCombinationsPerSetr16)(nil),               // 104: _csi_report_config.v2.MaxNrofAvailabilityCombinationsPerSetr16
-	(*MaxNrofAvailabilityCombinationsPerSet1R16)(nil),              // 105: _csi_report_config.v2.MaxNrofAvailabilityCombinationsPerSet1r16
-	(*MaxNrofScells)(nil),                                          // 106: _csi_report_config.v2.MaxNrofScells
-	(*MaxNrofCellMeas)(nil),                                        // 107: _csi_report_config.v2.MaxNrofCellMeas
-	(*MaxNrofCgSLr16)(nil),                                         // 108: _csi_report_config.v2.MaxNrofCgSLr16
-	(*MaxNrofCgSL1R16)(nil),                                        // 109: _csi_report_config.v2.MaxNrofCgSL1r16
-	(*MaxNrofSsBlocksToAverage)(nil),                               // 110: _csi_report_config.v2.MaxNrofSsBlocksToAverage
-	(*MaxNrofCondCellsr16)(nil),                                    // 111: _csi_report_config.v2.MaxNrofCondCellsr16
-	(*MaxNrofCsiRSResourcesToAverage)(nil),                         // 112: _csi_report_config.v2.MaxNrofCsiRSResourcesToAverage
-	(*MaxNrofDlAllocations)(nil),                                   // 113: _csi_report_config.v2.MaxNrofDlAllocations
-	(*MaxNrofSrConfigPerCellGroup)(nil),                            // 114: _csi_report_config.v2.MaxNrofSrConfigPerCellGroup
-	(*MaxLcgID)(nil),                                               // 115: _csi_report_config.v2.MaxLcgID
-	(*MaxLcID)(nil),                                                // 116: _csi_report_config.v2.MaxLcID
-	(*MaxLcIDIabr16)(nil),                                          // 117: _csi_report_config.v2.MaxLcIDIabr16
-	(*MaxLteCRsPatternsr16)(nil),                                   // 118: _csi_report_config.v2.MaxLteCRsPatternsr16
-	(*MaxNrofTags)(nil),                                            // 119: _csi_report_config.v2.MaxNrofTags
-	(*MaxNrofTags1)(nil),                                           // 120: _csi_report_config.v2.MaxNrofTags1
-	(*MaxNrofBwps)(nil),                                            // 121: _csi_report_config.v2.MaxNrofBwps
-	(*MaxNrofCombIdc)(nil),                                         // 122: _csi_report_config.v2.MaxNrofCombIdc
-	(*MaxNrofSymbols1)(nil),                                        // 123: _csi_report_config.v2.MaxNrofSymbols1
-	(*MaxNrofSlots)(nil),                                           // 124: _csi_report_config.v2.MaxNrofSlots
-	(*MaxNrofSlots1)(nil),                                          // 125: _csi_report_config.v2.MaxNrofSlots1
-	(*MaxNrofPhysicalResourceBlocks)(nil),                          // 126: _csi_report_config.v2.MaxNrofPhysicalResourceBlocks
-	(*MaxNrofPhysicalResourceBlocks1)(nil),                         // 127: _csi_report_config.v2.MaxNrofPhysicalResourceBlocks1
-	(*MaxNrofPhysicalResourceBlocksPlus1)(nil),                     // 128: _csi_report_config.v2.MaxNrofPhysicalResourceBlocksPlus1
-	(*MaxNrofControlResourceSets)(nil),                             // 129: _csi_report_config.v2.MaxNrofControlResourceSets
-	(*MaxNrofControlResourceSets1)(nil),                            // 130: _csi_report_config.v2.MaxNrofControlResourceSets1
-	(*MaxNrofControlResourceSets1R16)(nil),                         // 131: _csi_report_config.v2.MaxNrofControlResourceSets1r16
-	(*MaxNrofCoresetPoolsr16)(nil),                                 // 132: _csi_report_config.v2.MaxNrofCoresetPoolsr16
-	(*MaxCoReSetDuration)(nil),                                     // 133: _csi_report_config.v2.MaxCoReSetDuration
-	(*MaxNrofSearchSpaces1)(nil),                                   // 134: _csi_report_config.v2.MaxNrofSearchSpaces1
-	(*MaxSfiDCiPayloadSize)(nil),                                   // 135: _csi_report_config.v2.MaxSfiDCiPayloadSize
-	(*MaxSfiDCiPayloadSize1)(nil),                                  // 136: _csi_report_config.v2.MaxSfiDCiPayloadSize1
-	(*MaxIabIPAddressr16)(nil),                                     // 137: _csi_report_config.v2.MaxIabIPAddressr16
-	(*MaxIntDCiPayloadSize)(nil),                                   // 138: _csi_report_config.v2.MaxIntDCiPayloadSize
-	(*MaxIntDCiPayloadSize1)(nil),                                  // 139: _csi_report_config.v2.MaxIntDCiPayloadSize1
-	(*MaxNrofRateMatchPatterns)(nil),                               // 140: _csi_report_config.v2.MaxNrofRateMatchPatterns
-	(*MaxNrofRateMatchPatterns1)(nil),                              // 141: _csi_report_config.v2.MaxNrofRateMatchPatterns1
-	(*MaxNrofRateMatchPatternsPerGroup)(nil),                       // 142: _csi_report_config.v2.MaxNrofRateMatchPatternsPerGroup
-	(*MaxNrofCsiReportConfigurations)(nil),                         // 143: _csi_report_config.v2.MaxNrofCsiReportConfigurations
-	(*MaxNrofCsiReportConfigurations1)(nil),                        // 144: _csi_report_config.v2.MaxNrofCsiReportConfigurations1
-	(*MaxNrofCsiResourceConfigurations)(nil),                       // 145: _csi_report_config.v2.MaxNrofCsiResourceConfigurations
-	(*MaxNrofCsiResourceConfigurations1)(nil),                      // 146: _csi_report_config.v2.MaxNrofCsiResourceConfigurations1
-	(*MaxNrofApCSiRSResourcesPerSet)(nil),                          // 147: _csi_report_config.v2.MaxNrofApCSiRSResourcesPerSet
-	(*MaxNrOfCsiAperiodicTriggers)(nil),                            // 148: _csi_report_config.v2.MaxNrOfCsiAperiodicTriggers
-	(*MaxNrofReportConfigPerAperiodicTrigger)(nil),                 // 149: _csi_report_config.v2.MaxNrofReportConfigPerAperiodicTrigger
-	(*MaxNrofNzpCSiRSResources)(nil),                               // 150: _csi_report_config.v2.MaxNrofNzpCSiRSResources
-	(*MaxNrofNzpCSiRSResources1)(nil),                              // 151: _csi_report_config.v2.MaxNrofNzpCSiRSResources1
-	(*MaxNrofNzpCSiRSResourcesPerSet)(nil),                         // 152: _csi_report_config.v2.MaxNrofNzpCSiRSResourcesPerSet
-	(*MaxNrofNzpCSiRSResourceSets)(nil),                            // 153: _csi_report_config.v2.MaxNrofNzpCSiRSResourceSets
-	(*MaxNrofNzpCSiRSResourceSets1)(nil),                           // 154: _csi_report_config.v2.MaxNrofNzpCSiRSResourceSets1
-	(*MaxNrofNzpCSiRSResourceSetsPerConfig)(nil),                   // 155: _csi_report_config.v2.MaxNrofNzpCSiRSResourceSetsPerConfig
-	(*MaxNrofNzpCSiRSResourcesPerConfig)(nil),                      // 156: _csi_report_config.v2.MaxNrofNzpCSiRSResourcesPerConfig
-	(*MaxNrofZpCSiRSResources)(nil),                                // 157: _csi_report_config.v2.MaxNrofZpCSiRSResources
-	(*MaxNrofZpCSiRSResources1)(nil),                               // 158: _csi_report_config.v2.MaxNrofZpCSiRSResources1
-	(*MaxNrofZpCSiRSResourceSets1)(nil),                            // 159: _csi_report_config.v2.MaxNrofZpCSiRSResourceSets1
-	(*MaxNrofZpCSiRSResourcesPerSet)(nil),                          // 160: _csi_report_config.v2.MaxNrofZpCSiRSResourcesPerSet
-	(*MaxNrofZpCSiRSResourceSets)(nil),                             // 161: _csi_report_config.v2.MaxNrofZpCSiRSResourceSets
-	(*MaxNrofCsiIMResources)(nil),                                  // 162: _csi_report_config.v2.MaxNrofCsiIMResources
-	(*MaxNrofCsiIMResources1)(nil),                                 // 163: _csi_report_config.v2.MaxNrofCsiIMResources1
-	(*MaxNrofCsiIMResourcesPerSet)(nil),                            // 164: _csi_report_config.v2.MaxNrofCsiIMResourcesPerSet
-	(*MaxNrofCsiIMResourceSets)(nil),                               // 165: _csi_report_config.v2.MaxNrofCsiIMResourceSets
-	(*MaxNrofCsiIMResourceSets1)(nil),                              // 166: _csi_report_config.v2.MaxNrofCsiIMResourceSets1
-	(*MaxNrofCsiIMResourceSetsPerConfig)(nil),                      // 167: _csi_report_config.v2.MaxNrofCsiIMResourceSetsPerConfig
-	(*MaxNrofCsiSSbResourcePerSet)(nil),                            // 168: _csi_report_config.v2.MaxNrofCsiSSbResourcePerSet
-	(*MaxNrofCsiSSbResourceSets)(nil),                              // 169: _csi_report_config.v2.MaxNrofCsiSSbResourceSets
-	(*MaxNrofCsiSSbResourceSets1)(nil),                             // 170: _csi_report_config.v2.MaxNrofCsiSSbResourceSets1
-	(*MaxNrofCsiSSbResourceSetsPerConfig)(nil),                     // 171: _csi_report_config.v2.MaxNrofCsiSSbResourceSetsPerConfig
-	(*MaxNrofFailureDetectionResources)(nil),                       // 172: _csi_report_config.v2.MaxNrofFailureDetectionResources
-	(*MaxNrofFailureDetectionResources1)(nil),                      // 173: _csi_report_config.v2.MaxNrofFailureDetectionResources1
-	(*MaxNrofFreqSlr16)(nil),                                       // 174: _csi_report_config.v2.MaxNrofFreqSlr16
-	(*MaxNrofSlBWpsr16)(nil),                                       // 175: _csi_report_config.v2.MaxNrofSlBWpsr16
-	(*MaxFreqSlEUtrar16)(nil),                                      // 176: _csi_report_config.v2.MaxFreqSlEUtrar16
-	(*MaxNrofSlMeasIdr16)(nil),                                     // 177: _csi_report_config.v2.MaxNrofSlMeasIdr16
-	(*MaxNrofSlObjectIdr16)(nil),                                   // 178: _csi_report_config.v2.MaxNrofSlObjectIdr16
-	(*MaxNrofSlReportConfigIdr16)(nil),                             // 179: _csi_report_config.v2.MaxNrofSlReportConfigIdr16
-	(*MaxNrofSlPoolToMeasureNrr16)(nil),                            // 180: _csi_report_config.v2.MaxNrofSlPoolToMeasureNrr16
-	(*MaxFreqSlNRr16)(nil),                                         // 181: _csi_report_config.v2.MaxFreqSlNRr16
-	(*MaxNrofSlQFisr16)(nil),                                       // 182: _csi_report_config.v2.MaxNrofSlQFisr16
-	(*MaxNrofSlQFisPerDestr16)(nil),                                // 183: _csi_report_config.v2.MaxNrofSlQFisPerDestr16
-	(*MaxNrofObjectId)(nil),                                        // 184: _csi_report_config.v2.MaxNrofObjectId
-	(*MaxNrofPageRec)(nil),                                         // 185: _csi_report_config.v2.MaxNrofPageRec
-	(*MaxNrofPciRanges)(nil),                                       // 186: _csi_report_config.v2.MaxNrofPciRanges
-	(*MaxPlmn)(nil),                                                // 187: _csi_report_config.v2.MaxPlmn
-	(*MaxNrofCsiRSResourcesRrm)(nil),                               // 188: _csi_report_config.v2.MaxNrofCsiRSResourcesRrm
-	(*MaxNrofCsiRSResourcesRrm1)(nil),                              // 189: _csi_report_config.v2.MaxNrofCsiRSResourcesRrm1
-	(*MaxNrofMeasId)(nil),                                          // 190: _csi_report_config.v2.MaxNrofMeasId
-	(*MaxNrofQuantityConfig)(nil),                                  // 191: _csi_report_config.v2.MaxNrofQuantityConfig
-	(*MaxNrofCsiRSCellsRrm)(nil),                                   // 192: _csi_report_config.v2.MaxNrofCsiRSCellsRrm
-	(*MaxNrofSlDestr16)(nil),                                       // 193: _csi_report_config.v2.MaxNrofSlDestr16
-	(*MaxNrofSlDest1R16)(nil),                                      // 194: _csi_report_config.v2.MaxNrofSlDest1r16
-	(*MaxNrofSlrbr16)(nil),                                         // 195: _csi_report_config.v2.MaxNrofSlrbr16
-	(*MaxSlLCidr16)(nil),                                           // 196: _csi_report_config.v2.MaxSlLCidr16
-	(*MaxSlSyncConfigr16)(nil),                                     // 197: _csi_report_config.v2.MaxSlSyncConfigr16
-	(*MaxNrofRxpoolr16)(nil),                                       // 198: _csi_report_config.v2.MaxNrofRxpoolr16
-	(*MaxNrofTxpoolr16)(nil),                                       // 199: _csi_report_config.v2.MaxNrofTxpoolr16
-	(*MaxNrofPoolIdr16)(nil),                                       // 200: _csi_report_config.v2.MaxNrofPoolIdr16
-	(*MaxNrofSrsPathlossReferenceRsr16)(nil),                       // 201: _csi_report_config.v2.MaxNrofSrsPathlossReferenceRsr16
-	(*MaxNrofSrsPathlossReferenceRs1R16)(nil),                      // 202: _csi_report_config.v2.MaxNrofSrsPathlossReferenceRs1r16
-	(*MaxNrofSrsResourceSets)(nil),                                 // 203: _csi_report_config.v2.MaxNrofSrsResourceSets
-	(*MaxNrofSrsResourceSets1)(nil),                                // 204: _csi_report_config.v2.MaxNrofSrsResourceSets1
-	(*MaxNrofSrsPosResourceSetsr16)(nil),                           // 205: _csi_report_config.v2.MaxNrofSrsPosResourceSetsr16
-	(*MaxNrofSrsPosResourceSets1R16)(nil),                          // 206: _csi_report_config.v2.MaxNrofSrsPosResourceSets1r16
-	(*MaxNrofSrsResources)(nil),                                    // 207: _csi_report_config.v2.MaxNrofSrsResources
-	(*MaxNrofSrsResources1)(nil),                                   // 208: _csi_report_config.v2.MaxNrofSrsResources1
-	(*MaxNrofSrsPosResourcesr16)(nil),                              // 209: _csi_report_config.v2.MaxNrofSrsPosResourcesr16
-	(*MaxNrofSrsPosResources1R16)(nil),                             // 210: _csi_report_config.v2.MaxNrofSrsPosResources1r16
-	(*MaxNrofSrsResourcesPerSet)(nil),                              // 211: _csi_report_config.v2.MaxNrofSrsResourcesPerSet
-	(*MaxNrofSrsTriggerStates1)(nil),                               // 212: _csi_report_config.v2.MaxNrofSrsTriggerStates1
-	(*MaxNrofSrsTriggerStates2)(nil),                               // 213: _csi_report_config.v2.MaxNrofSrsTriggerStates2
-	(*MaxRatCapabilityContainers)(nil),                             // 214: _csi_report_config.v2.MaxRatCapabilityContainers
-	(*MaxSimultaneousBands)(nil),                                   // 215: _csi_report_config.v2.MaxSimultaneousBands
-	(*MaxUltxSwitchingBandPairs)(nil),                              // 216: _csi_report_config.v2.MaxUltxSwitchingBandPairs
-	(*MaxNrofSlotFormatCombinationsPerSet)(nil),                    // 217: _csi_report_config.v2.MaxNrofSlotFormatCombinationsPerSet
-	(*MaxNrofSlotFormatCombinationsPerSet1)(nil),                   // 218: _csi_report_config.v2.MaxNrofSlotFormatCombinationsPerSet1
-	(*MaxNrofTrafficPatternr16)(nil),                               // 219: _csi_report_config.v2.MaxNrofTrafficPatternr16
-	(*MaxNrofPucchResources)(nil),                                  // 220: _csi_report_config.v2.MaxNrofPucchResources
-	(*MaxNrofPucchResources1)(nil),                                 // 221: _csi_report_config.v2.MaxNrofPucchResources1
-	(*MaxNrofPucchResourceSets)(nil),                               // 222: _csi_report_config.v2.MaxNrofPucchResourceSets
-	(*MaxNrofPucchResourceSets1)(nil),                              // 223: _csi_report_config.v2.MaxNrofPucchResourceSets1
-	(*MaxNrofPucchResourcesPerSet)(nil),                            // 224: _csi_report_config.v2.MaxNrofPucchResourcesPerSet
-	(*MaxNrofPucchP0PerSet)(nil),                                   // 225: _csi_report_config.v2.MaxNrofPucchP0PerSet
-	(*MaxNrofPucchPathlossReferenceRss)(nil),                       // 226: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRss
-	(*MaxNrofPucchPathlossReferenceRss1)(nil),                      // 227: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRss1
-	(*MaxNrofPucchPathlossReferenceRssr16)(nil),                    // 228: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRssr16
-	(*MaxNrofPucchPathlossReferenceRss1R16)(nil),                   // 229: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRss1r16
-	(*MaxNrofPucchPathlossReferenceRssDiffr16)(nil),                // 230: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRssDiffr16
-	(*MaxNrofPucchResourceGroupsr16)(nil),                          // 231: _csi_report_config.v2.MaxNrofPucchResourceGroupsr16
-	(*MaxNrofPucchResourcesPerGroupr16)(nil),                       // 232: _csi_report_config.v2.MaxNrofPucchResourcesPerGroupr16
-	(*MaxNrofMultiplePuschsr16)(nil),                               // 233: _csi_report_config.v2.MaxNrofMultiplePuschsr16
-	(*MaxNrofP0PUschAlphaSets)(nil),                                // 234: _csi_report_config.v2.MaxNrofP0PUschAlphaSets
-	(*MaxNrofP0PUschAlphaSets1)(nil),                               // 235: _csi_report_config.v2.MaxNrofP0PUschAlphaSets1
-	(*MaxNrofPuschPathlossReferenceRss)(nil),                       // 236: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRss
-	(*MaxNrofPuschPathlossReferenceRss1)(nil),                      // 237: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRss1
-	(*MaxNrofPuschPathlossReferenceRssr16)(nil),                    // 238: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRssr16
-	(*MaxNrofPuschPathlossReferenceRss1R16)(nil),                   // 239: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRss1r16
-	(*MaxNrofPuschPathlossReferenceRssDiffr16)(nil),                // 240: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRssDiffr16
-	(*MaxNrofNaicsEntries)(nil),                                    // 241: _csi_report_config.v2.MaxNrofNaicsEntries
-	(*MaxBands)(nil),                                               // 242: _csi_report_config.v2.MaxBands
-	(*MaxBandsMrdc)(nil),                                           // 243: _csi_report_config.v2.MaxBandsMrdc
-	(*MaxBandsEutra)(nil),                                          // 244: _csi_report_config.v2.MaxBandsEutra
-	(*MaxCellReport)(nil),                                          // 245: _csi_report_config.v2.MaxCellReport
-	(*MaxDrb)(nil),                                                 // 246: _csi_report_config.v2.MaxDrb
-	(*MaxFreq)(nil),                                                // 247: _csi_report_config.v2.MaxFreq
-	(*MaxFreqLayers)(nil),                                          // 248: _csi_report_config.v2.MaxFreqLayers
-	(*MaxFreqIdcr16)(nil),                                          // 249: _csi_report_config.v2.MaxFreqIdcr16
-	(*MaxCombIdcr16)(nil),                                          // 250: _csi_report_config.v2.MaxCombIdcr16
-	(*MaxFreqIdcMRdc)(nil),                                         // 251: _csi_report_config.v2.MaxFreqIdcMRdc
-	(*MaxNrofCandidateBeams)(nil),                                  // 252: _csi_report_config.v2.MaxNrofCandidateBeams
-	(*MaxNrofCandidateBeamsr16)(nil),                               // 253: _csi_report_config.v2.MaxNrofCandidateBeamsr16
-	(*MaxNrofCandidateBeamsExtr16)(nil),                            // 254: _csi_report_config.v2.MaxNrofCandidateBeamsExtr16
-	(*MaxNrofPcisPerSmtc)(nil),                                     // 255: _csi_report_config.v2.MaxNrofPcisPerSmtc
-	(*MaxNrofQfis)(nil),                                            // 256: _csi_report_config.v2.MaxNrofQfis
-	(*MaxNrofResourceAvailabilityPerCombinationr16)(nil),           // 257: _csi_report_config.v2.MaxNrofResourceAvailabilityPerCombinationr16
-	(*MaxNrOfSemiPersistentPuschTriggers)(nil),                     // 258: _csi_report_config.v2.MaxNrOfSemiPersistentPuschTriggers
-	(*MaxNrofSrResources)(nil),                                     // 259: _csi_report_config.v2.MaxNrofSrResources
-	(*MaxNrofSlotFormatsPerCombination)(nil),                       // 260: _csi_report_config.v2.MaxNrofSlotFormatsPerCombination
-	(*MaxNrofSpatialRelationInfos)(nil),                            // 261: _csi_report_config.v2.MaxNrofSpatialRelationInfos
-	(*MaxNrofSpatialRelationInfosplus1)(nil),                       // 262: _csi_report_config.v2.MaxNrofSpatialRelationInfosplus1
-	(*MaxNrofSpatialRelationInfosr16)(nil),                         // 263: _csi_report_config.v2.MaxNrofSpatialRelationInfosr16
-	(*MaxNrofSpatialRelationInfosDiffr16)(nil),                     // 264: _csi_report_config.v2.MaxNrofSpatialRelationInfosDiffr16
-	(*MaxNrofIndexesToReport)(nil),                                 // 265: _csi_report_config.v2.MaxNrofIndexesToReport
-	(*MaxNrofIndexesToReport2)(nil),                                // 266: _csi_report_config.v2.MaxNrofIndexesToReport2
-	(*MaxNrofSsbsr16)(nil),                                         // 267: _csi_report_config.v2.MaxNrofSsbsr16
-	(*MaxNrofSsbs1)(nil),                                           // 268: _csi_report_config.v2.MaxNrofSsbs1
-	(*MaxNrofSNSsai)(nil),                                          // 269: _csi_report_config.v2.MaxNrofSNSsai
-	(*MaxNrofTciStatesPdcch)(nil),                                  // 270: _csi_report_config.v2.MaxNrofTciStatesPdcch
-	(*MaxNrofTciStates)(nil),                                       // 271: _csi_report_config.v2.MaxNrofTciStates
-	(*MaxNrofTciStates1)(nil),                                      // 272: _csi_report_config.v2.MaxNrofTciStates1
-	(*MaxNrofUlAllocations)(nil),                                   // 273: _csi_report_config.v2.MaxNrofUlAllocations
-	(*MaxQfi)(nil),                                                 // 274: _csi_report_config.v2.MaxQfi
-	(*MaxRaCSirsResources)(nil),                                    // 275: _csi_report_config.v2.MaxRaCSirsResources
-	(*MaxRaOccasionsPerCsirs)(nil),                                 // 276: _csi_report_config.v2.MaxRaOccasionsPerCsirs
-	(*MaxRaOccasions1)(nil),                                        // 277: _csi_report_config.v2.MaxRaOccasions1
-	(*MaxRaSSbResources)(nil),                                      // 278: _csi_report_config.v2.MaxRaSSbResources
-	(*MaxScss)(nil),                                                // 279: _csi_report_config.v2.MaxScss
-	(*MaxSecondaryCellGroups)(nil),                                 // 280: _csi_report_config.v2.MaxSecondaryCellGroups
-	(*MaxNrofServingCellsEutra)(nil),                               // 281: _csi_report_config.v2.MaxNrofServingCellsEutra
-	(*MaxMbsfnAllocations)(nil),                                    // 282: _csi_report_config.v2.MaxMbsfnAllocations
-	(*MaxNrofMultiBands)(nil),                                      // 283: _csi_report_config.v2.MaxNrofMultiBands
-	(*MaxCellSftd)(nil),                                            // 284: _csi_report_config.v2.MaxCellSftd
-	(*MaxReportConfigId)(nil),                                      // 285: _csi_report_config.v2.MaxReportConfigId
-	(*MaxNrofCodebooks)(nil),                                       // 286: _csi_report_config.v2.MaxNrofCodebooks
-	(*MaxNrofCsiRSResourcesExtr16)(nil),                            // 287: _csi_report_config.v2.MaxNrofCsiRSResourcesExtr16
-	(*MaxNrofCsiRSResources)(nil),                                  // 288: _csi_report_config.v2.MaxNrofCsiRSResources
-	(*MaxNrofCsiRSResourcesAltr16)(nil),                            // 289: _csi_report_config.v2.MaxNrofCsiRSResourcesAltr16
-	(*MaxNrofCsiRSResourcesAlt1R16)(nil),                           // 290: _csi_report_config.v2.MaxNrofCsiRSResourcesAlt1r16
-	(*MaxNrofSriPUschMappings)(nil),                                // 291: _csi_report_config.v2.MaxNrofSriPUschMappings
-	(*MaxNrofSriPUschMappings1)(nil),                               // 292: _csi_report_config.v2.MaxNrofSriPUschMappings1
-	(*MaxSib)(nil),                                                 // 293: _csi_report_config.v2.MaxSib
-	(*MaxSiMessage)(nil),                                           // 294: _csi_report_config.v2.MaxSiMessage
-	(*MaxPoperPf)(nil),                                             // 295: _csi_report_config.v2.MaxPoperPf
-	(*MaxAccessCat1)(nil),                                          // 296: _csi_report_config.v2.MaxAccessCat1
-	(*MaxBarringInfoSet)(nil),                                      // 297: _csi_report_config.v2.MaxBarringInfoSet
-	(*MaxCellEutra)(nil),                                           // 298: _csi_report_config.v2.MaxCellEutra
-	(*MaxEutraCarrier)(nil),                                        // 299: _csi_report_config.v2.MaxEutraCarrier
-	(*MaxPlmnidentities)(nil),                                      // 300: _csi_report_config.v2.MaxPlmnidentities
-	(*MaxDownlinkFeatureSets)(nil),                                 // 301: _csi_report_config.v2.MaxDownlinkFeatureSets
-	(*MaxUplinkFeatureSets)(nil),                                   // 302: _csi_report_config.v2.MaxUplinkFeatureSets
-	(*MaxEutraDLFeatureSets)(nil),                                  // 303: _csi_report_config.v2.MaxEutraDLFeatureSets
-	(*MaxEutraULFeatureSets)(nil),                                  // 304: _csi_report_config.v2.MaxEutraULFeatureSets
-	(*MaxFeatureSetsPerBand)(nil),                                  // 305: _csi_report_config.v2.MaxFeatureSetsPerBand
-	(*MaxPerCcFeatureSets)(nil),                                    // 306: _csi_report_config.v2.MaxPerCcFeatureSets
-	(*MaxFeatureSetCombinations)(nil),                              // 307: _csi_report_config.v2.MaxFeatureSetCombinations
-	(*MaxInterRatRStdFreq)(nil),                                    // 308: _csi_report_config.v2.MaxInterRatRStdFreq
-	(*MaxHrnnLenr16)(nil),                                          // 309: _csi_report_config.v2.MaxHrnnLenr16
-	(*MaxNpnr16)(nil),                                              // 310: _csi_report_config.v2.MaxNpnr16
-	(*MaxNrOfMinSchedulingOffsetValuesr16)(nil),                    // 311: _csi_report_config.v2.MaxNrOfMinSchedulingOffsetValuesr16
-	(*MaxK0SchedulingOffsetr16)(nil),                               // 312: _csi_report_config.v2.MaxK0SchedulingOffsetr16
-	(*MaxK2SchedulingOffsetr16)(nil),                               // 313: _csi_report_config.v2.MaxK2SchedulingOffsetr16
-	(*MaxDci26Sizer16)(nil),                                        // 314: _csi_report_config.v2.MaxDci26Sizer16
-	(*MaxDci26Size1R16)(nil),                                       // 315: _csi_report_config.v2.MaxDci26Size1r16
-	(*MaxNrofUlAllocationsr16)(nil),                                // 316: _csi_report_config.v2.MaxNrofUlAllocationsr16
-	(*MaxNrofP0PUschSetr16)(nil),                                   // 317: _csi_report_config.v2.MaxNrofP0PUschSetr16
-	(*MaxOnDemandSibr16)(nil),                                      // 318: _csi_report_config.v2.MaxOnDemandSibr16
-	(*MaxOnDemandPosSibr16)(nil),                                   // 319: _csi_report_config.v2.MaxOnDemandPosSibr16
-	(*MaxCiDCiPayloadSizer16)(nil),                                 // 320: _csi_report_config.v2.MaxCiDCiPayloadSizer16
-	(*MaxCiDCiPayloadSize1R16)(nil),                                // 321: _csi_report_config.v2.MaxCiDCiPayloadSize1r16
-	(*MaxWlanIdReportr16)(nil),                                     // 322: _csi_report_config.v2.MaxWlanIdReportr16
-	(*MaxWlanNamer16)(nil),                                         // 323: _csi_report_config.v2.MaxWlanNamer16
-	(*MaxRareportr16)(nil),                                         // 324: _csi_report_config.v2.MaxRareportr16
-	(*MaxTxConfigr16)(nil),                                         // 325: _csi_report_config.v2.MaxTxConfigr16
-	(*MaxTxConfig1R16)(nil),                                        // 326: _csi_report_config.v2.MaxTxConfig1r16
-	(*MaxPsschTxConfigr16)(nil),                                    // 327: _csi_report_config.v2.MaxPsschTxConfigr16
-	(*MaxNrofCliRSsiResourcesr16)(nil),                             // 328: _csi_report_config.v2.MaxNrofCliRSsiResourcesr16
-	(*MaxNrofCliRSsiResources1R16)(nil),                            // 329: _csi_report_config.v2.MaxNrofCliRSsiResources1r16
-	(*MaxNrofCliSRsResourcesr16)(nil),                              // 330: _csi_report_config.v2.MaxNrofCliSRsResourcesr16
-	(*MaxCliReportr16)(nil),                                        // 331: _csi_report_config.v2.MaxCliReportr16
-	(*MaxNrofConfiguredGrantConfigr16)(nil),                        // 332: _csi_report_config.v2.MaxNrofConfiguredGrantConfigr16
-	(*MaxNrofConfiguredGrantConfig1R16)(nil),                       // 333: _csi_report_config.v2.MaxNrofConfiguredGrantConfig1r16
-	(*MaxNrofCgType2DeactivationState)(nil),                        // 334: _csi_report_config.v2.MaxNrofCgType2DeactivationState
-	(*MaxNrofConfiguredGrantConfigMac1R16)(nil),                    // 335: _csi_report_config.v2.MaxNrofConfiguredGrantConfigMac1r16
-	(*MaxNrofSpsConfigr16)(nil),                                    // 336: _csi_report_config.v2.MaxNrofSpsConfigr16
-	(*MaxNrofSpsConfig1R16)(nil),                                   // 337: _csi_report_config.v2.MaxNrofSpsConfig1r16
-	(*MaxNrofSpsDeactivationState)(nil),                            // 338: _csi_report_config.v2.MaxNrofSpsDeactivationState
-	(*MaxNrofDormancyGroups)(nil),                                  // 339: _csi_report_config.v2.MaxNrofDormancyGroups
-	(*MaxNrofPucchResourceGroups1R16)(nil),                         // 340: _csi_report_config.v2.MaxNrofPucchResourceGroups1r16
-	(*MaxNrofServingCellsTcir16)(nil),                              // 341: _csi_report_config.v2.MaxNrofServingCellsTcir16
-	(*MaxNrofTxDcTwoCarrierr16)(nil),                               // 342: _csi_report_config.v2.MaxNrofTxDcTwoCarrierr16
-	(*MaxNrofPdcchBlindDetectionMixed1R16)(nil),                    // 343: _csi_report_config.v2.MaxNrofPdcchBlindDetectionMixed1r16
-	(*asn1.BitString)(nil),                                         // 344: asn1.v1.BitString
+	(*SubTypetype2R16)(nil),                                        // 63: _csi_report_config.v2.SubTypetype2r16
+	(*Type2R16CodebookTyper16)(nil),                                // 64: _csi_report_config.v2.Type2r16codebookTyper16
+	(*CodebookTyper16CodebookConfigr16)(nil),                       // 65: _csi_report_config.v2.CodebookTyper16CodebookConfigr16
+	(*CodebookConfigr16)(nil),                                      // 66: _csi_report_config.v2.CodebookConfigr16
+	(*BwpId)(nil),                                                  // 67: _csi_report_config.v2.BwpId
+	(*PucchResourceId)(nil),                                        // 68: _csi_report_config.v2.PucchResourceId
+	(*MaxAiDCiPayloadSizer16)(nil),                                 // 69: _csi_report_config.v2.MaxAiDCiPayloadSizer16
+	(*MaxAiDCiPayloadSize1R16)(nil),                                // 70: _csi_report_config.v2.MaxAiDCiPayloadSize1r16
+	(*MaxBandComb)(nil),                                            // 71: _csi_report_config.v2.MaxBandComb
+	(*MaxBandsUtraFDdr16)(nil),                                     // 72: _csi_report_config.v2.MaxBandsUtraFDdr16
+	(*MaxBhRLcChannelIdr16)(nil),                                   // 73: _csi_report_config.v2.MaxBhRLcChannelIdr16
+	(*MaxBtIdReportr16)(nil),                                       // 74: _csi_report_config.v2.MaxBtIdReportr16
+	(*MaxBtNamer16)(nil),                                           // 75: _csi_report_config.v2.MaxBtNamer16
+	(*MaxCagCellr16)(nil),                                          // 76: _csi_report_config.v2.MaxCagCellr16
+	(*MaxTwoPucchGrpConfigListr16)(nil),                            // 77: _csi_report_config.v2.MaxTwoPucchGrpConfigListr16
+	(*MaxCbrConfigr16)(nil),                                        // 78: _csi_report_config.v2.MaxCbrConfigr16
+	(*MaxCbrConfig1R16)(nil),                                       // 79: _csi_report_config.v2.MaxCbrConfig1r16
+	(*MaxCbrLevelr16)(nil),                                         // 80: _csi_report_config.v2.MaxCbrLevelr16
+	(*MaxCbrLevel1R16)(nil),                                        // 81: _csi_report_config.v2.MaxCbrLevel1r16
+	(*MaxCellBlack)(nil),                                           // 82: _csi_report_config.v2.MaxCellBlack
+	(*MaxCellGroupingsr16)(nil),                                    // 83: _csi_report_config.v2.MaxCellGroupingsr16
+	(*MaxCellHistoryr16)(nil),                                      // 84: _csi_report_config.v2.MaxCellHistoryr16
+	(*MaxCellInter)(nil),                                           // 85: _csi_report_config.v2.MaxCellInter
+	(*MaxCellIntra)(nil),                                           // 86: _csi_report_config.v2.MaxCellIntra
+	(*MaxCellMeasEutra)(nil),                                       // 87: _csi_report_config.v2.MaxCellMeasEutra
+	(*MaxCellMeasIdler16)(nil),                                     // 88: _csi_report_config.v2.MaxCellMeasIdler16
+	(*MaxCellMeasUtraFDdr16)(nil),                                  // 89: _csi_report_config.v2.MaxCellMeasUtraFDdr16
+	(*MaxCarrierTypePairListr16)(nil),                              // 90: _csi_report_config.v2.MaxCarrierTypePairListr16
+	(*MaxCellWhite)(nil),                                           // 91: _csi_report_config.v2.MaxCellWhite
+	(*MaxEarfcn)(nil),                                              // 92: _csi_report_config.v2.MaxEarfcn
+	(*MaxEutraCellBlack)(nil),                                      // 93: _csi_report_config.v2.MaxEutraCellBlack
+	(*MaxEutraNSPmax)(nil),                                         // 94: _csi_report_config.v2.MaxEutraNSPmax
+	(*MaxLogMeasReportr16)(nil),                                    // 95: _csi_report_config.v2.MaxLogMeasReportr16
+	(*MaxMultiBands)(nil),                                          // 96: _csi_report_config.v2.MaxMultiBands
+	(*MaxNarfcn)(nil),                                              // 97: _csi_report_config.v2.MaxNarfcn
+	(*MaxNrNSPmax)(nil),                                            // 98: _csi_report_config.v2.MaxNrNSPmax
+	(*MaxFreqIdler16)(nil),                                         // 99: _csi_report_config.v2.MaxFreqIdler16
+	(*MaxNrofServingCells)(nil),                                    // 100: _csi_report_config.v2.MaxNrofServingCells
+	(*MaxNrofServingCells1)(nil),                                   // 101: _csi_report_config.v2.MaxNrofServingCells1
+	(*MaxNrofAggregatedCellsPerCellGroup)(nil),                     // 102: _csi_report_config.v2.MaxNrofAggregatedCellsPerCellGroup
+	(*MaxNrofAggregatedCellsPerCellGroupMinus4R16)(nil),            // 103: _csi_report_config.v2.MaxNrofAggregatedCellsPerCellGroupMinus4r16
+	(*MaxNrofDucellsr16)(nil),                                      // 104: _csi_report_config.v2.MaxNrofDucellsr16
+	(*MaxNrofAvailabilityCombinationsPerSetr16)(nil),               // 105: _csi_report_config.v2.MaxNrofAvailabilityCombinationsPerSetr16
+	(*MaxNrofAvailabilityCombinationsPerSet1R16)(nil),              // 106: _csi_report_config.v2.MaxNrofAvailabilityCombinationsPerSet1r16
+	(*MaxNrofScells)(nil),                                          // 107: _csi_report_config.v2.MaxNrofScells
+	(*MaxNrofCellMeas)(nil),                                        // 108: _csi_report_config.v2.MaxNrofCellMeas
+	(*MaxNrofCgSLr16)(nil),                                         // 109: _csi_report_config.v2.MaxNrofCgSLr16
+	(*MaxNrofCgSL1R16)(nil),                                        // 110: _csi_report_config.v2.MaxNrofCgSL1r16
+	(*MaxNrofSsBlocksToAverage)(nil),                               // 111: _csi_report_config.v2.MaxNrofSsBlocksToAverage
+	(*MaxNrofCondCellsr16)(nil),                                    // 112: _csi_report_config.v2.MaxNrofCondCellsr16
+	(*MaxNrofCsiRSResourcesToAverage)(nil),                         // 113: _csi_report_config.v2.MaxNrofCsiRSResourcesToAverage
+	(*MaxNrofDlAllocations)(nil),                                   // 114: _csi_report_config.v2.MaxNrofDlAllocations
+	(*MaxNrofSrConfigPerCellGroup)(nil),                            // 115: _csi_report_config.v2.MaxNrofSrConfigPerCellGroup
+	(*MaxLcgID)(nil),                                               // 116: _csi_report_config.v2.MaxLcgID
+	(*MaxLcID)(nil),                                                // 117: _csi_report_config.v2.MaxLcID
+	(*MaxLcIDIabr16)(nil),                                          // 118: _csi_report_config.v2.MaxLcIDIabr16
+	(*MaxLteCRsPatternsr16)(nil),                                   // 119: _csi_report_config.v2.MaxLteCRsPatternsr16
+	(*MaxNrofTags)(nil),                                            // 120: _csi_report_config.v2.MaxNrofTags
+	(*MaxNrofTags1)(nil),                                           // 121: _csi_report_config.v2.MaxNrofTags1
+	(*MaxNrofBwps)(nil),                                            // 122: _csi_report_config.v2.MaxNrofBwps
+	(*MaxNrofCombIdc)(nil),                                         // 123: _csi_report_config.v2.MaxNrofCombIdc
+	(*MaxNrofSymbols1)(nil),                                        // 124: _csi_report_config.v2.MaxNrofSymbols1
+	(*MaxNrofSlots)(nil),                                           // 125: _csi_report_config.v2.MaxNrofSlots
+	(*MaxNrofSlots1)(nil),                                          // 126: _csi_report_config.v2.MaxNrofSlots1
+	(*MaxNrofPhysicalResourceBlocks)(nil),                          // 127: _csi_report_config.v2.MaxNrofPhysicalResourceBlocks
+	(*MaxNrofPhysicalResourceBlocks1)(nil),                         // 128: _csi_report_config.v2.MaxNrofPhysicalResourceBlocks1
+	(*MaxNrofPhysicalResourceBlocksPlus1)(nil),                     // 129: _csi_report_config.v2.MaxNrofPhysicalResourceBlocksPlus1
+	(*MaxNrofControlResourceSets)(nil),                             // 130: _csi_report_config.v2.MaxNrofControlResourceSets
+	(*MaxNrofControlResourceSets1)(nil),                            // 131: _csi_report_config.v2.MaxNrofControlResourceSets1
+	(*MaxNrofControlResourceSets1R16)(nil),                         // 132: _csi_report_config.v2.MaxNrofControlResourceSets1r16
+	(*MaxNrofCoresetPoolsr16)(nil),                                 // 133: _csi_report_config.v2.MaxNrofCoresetPoolsr16
+	(*MaxCoReSetDuration)(nil),                                     // 134: _csi_report_config.v2.MaxCoReSetDuration
+	(*MaxNrofSearchSpaces1)(nil),                                   // 135: _csi_report_config.v2.MaxNrofSearchSpaces1
+	(*MaxSfiDCiPayloadSize)(nil),                                   // 136: _csi_report_config.v2.MaxSfiDCiPayloadSize
+	(*MaxSfiDCiPayloadSize1)(nil),                                  // 137: _csi_report_config.v2.MaxSfiDCiPayloadSize1
+	(*MaxIabIPAddressr16)(nil),                                     // 138: _csi_report_config.v2.MaxIabIPAddressr16
+	(*MaxIntDCiPayloadSize)(nil),                                   // 139: _csi_report_config.v2.MaxIntDCiPayloadSize
+	(*MaxIntDCiPayloadSize1)(nil),                                  // 140: _csi_report_config.v2.MaxIntDCiPayloadSize1
+	(*MaxNrofRateMatchPatterns)(nil),                               // 141: _csi_report_config.v2.MaxNrofRateMatchPatterns
+	(*MaxNrofRateMatchPatterns1)(nil),                              // 142: _csi_report_config.v2.MaxNrofRateMatchPatterns1
+	(*MaxNrofRateMatchPatternsPerGroup)(nil),                       // 143: _csi_report_config.v2.MaxNrofRateMatchPatternsPerGroup
+	(*MaxNrofCsiReportConfigurations)(nil),                         // 144: _csi_report_config.v2.MaxNrofCsiReportConfigurations
+	(*MaxNrofCsiReportConfigurations1)(nil),                        // 145: _csi_report_config.v2.MaxNrofCsiReportConfigurations1
+	(*MaxNrofCsiResourceConfigurations)(nil),                       // 146: _csi_report_config.v2.MaxNrofCsiResourceConfigurations
+	(*MaxNrofCsiResourceConfigurations1)(nil),                      // 147: _csi_report_config.v2.MaxNrofCsiResourceConfigurations1
+	(*MaxNrofApCSiRSResourcesPerSet)(nil),                          // 148: _csi_report_config.v2.MaxNrofApCSiRSResourcesPerSet
+	(*MaxNrOfCsiAperiodicTriggers)(nil),                            // 149: _csi_report_config.v2.MaxNrOfCsiAperiodicTriggers
+	(*MaxNrofReportConfigPerAperiodicTrigger)(nil),                 // 150: _csi_report_config.v2.MaxNrofReportConfigPerAperiodicTrigger
+	(*MaxNrofNzpCSiRSResources)(nil),                               // 151: _csi_report_config.v2.MaxNrofNzpCSiRSResources
+	(*MaxNrofNzpCSiRSResources1)(nil),                              // 152: _csi_report_config.v2.MaxNrofNzpCSiRSResources1
+	(*MaxNrofNzpCSiRSResourcesPerSet)(nil),                         // 153: _csi_report_config.v2.MaxNrofNzpCSiRSResourcesPerSet
+	(*MaxNrofNzpCSiRSResourceSets)(nil),                            // 154: _csi_report_config.v2.MaxNrofNzpCSiRSResourceSets
+	(*MaxNrofNzpCSiRSResourceSets1)(nil),                           // 155: _csi_report_config.v2.MaxNrofNzpCSiRSResourceSets1
+	(*MaxNrofNzpCSiRSResourceSetsPerConfig)(nil),                   // 156: _csi_report_config.v2.MaxNrofNzpCSiRSResourceSetsPerConfig
+	(*MaxNrofNzpCSiRSResourcesPerConfig)(nil),                      // 157: _csi_report_config.v2.MaxNrofNzpCSiRSResourcesPerConfig
+	(*MaxNrofZpCSiRSResources)(nil),                                // 158: _csi_report_config.v2.MaxNrofZpCSiRSResources
+	(*MaxNrofZpCSiRSResources1)(nil),                               // 159: _csi_report_config.v2.MaxNrofZpCSiRSResources1
+	(*MaxNrofZpCSiRSResourceSets1)(nil),                            // 160: _csi_report_config.v2.MaxNrofZpCSiRSResourceSets1
+	(*MaxNrofZpCSiRSResourcesPerSet)(nil),                          // 161: _csi_report_config.v2.MaxNrofZpCSiRSResourcesPerSet
+	(*MaxNrofZpCSiRSResourceSets)(nil),                             // 162: _csi_report_config.v2.MaxNrofZpCSiRSResourceSets
+	(*MaxNrofCsiIMResources)(nil),                                  // 163: _csi_report_config.v2.MaxNrofCsiIMResources
+	(*MaxNrofCsiIMResources1)(nil),                                 // 164: _csi_report_config.v2.MaxNrofCsiIMResources1
+	(*MaxNrofCsiIMResourcesPerSet)(nil),                            // 165: _csi_report_config.v2.MaxNrofCsiIMResourcesPerSet
+	(*MaxNrofCsiIMResourceSets)(nil),                               // 166: _csi_report_config.v2.MaxNrofCsiIMResourceSets
+	(*MaxNrofCsiIMResourceSets1)(nil),                              // 167: _csi_report_config.v2.MaxNrofCsiIMResourceSets1
+	(*MaxNrofCsiIMResourceSetsPerConfig)(nil),                      // 168: _csi_report_config.v2.MaxNrofCsiIMResourceSetsPerConfig
+	(*MaxNrofCsiSSbResourcePerSet)(nil),                            // 169: _csi_report_config.v2.MaxNrofCsiSSbResourcePerSet
+	(*MaxNrofCsiSSbResourceSets)(nil),                              // 170: _csi_report_config.v2.MaxNrofCsiSSbResourceSets
+	(*MaxNrofCsiSSbResourceSets1)(nil),                             // 171: _csi_report_config.v2.MaxNrofCsiSSbResourceSets1
+	(*MaxNrofCsiSSbResourceSetsPerConfig)(nil),                     // 172: _csi_report_config.v2.MaxNrofCsiSSbResourceSetsPerConfig
+	(*MaxNrofFailureDetectionResources)(nil),                       // 173: _csi_report_config.v2.MaxNrofFailureDetectionResources
+	(*MaxNrofFailureDetectionResources1)(nil),                      // 174: _csi_report_config.v2.MaxNrofFailureDetectionResources1
+	(*MaxNrofFreqSlr16)(nil),                                       // 175: _csi_report_config.v2.MaxNrofFreqSlr16
+	(*MaxNrofSlBWpsr16)(nil),                                       // 176: _csi_report_config.v2.MaxNrofSlBWpsr16
+	(*MaxFreqSlEUtrar16)(nil),                                      // 177: _csi_report_config.v2.MaxFreqSlEUtrar16
+	(*MaxNrofSlMeasIdr16)(nil),                                     // 178: _csi_report_config.v2.MaxNrofSlMeasIdr16
+	(*MaxNrofSlObjectIdr16)(nil),                                   // 179: _csi_report_config.v2.MaxNrofSlObjectIdr16
+	(*MaxNrofSlReportConfigIdr16)(nil),                             // 180: _csi_report_config.v2.MaxNrofSlReportConfigIdr16
+	(*MaxNrofSlPoolToMeasureNrr16)(nil),                            // 181: _csi_report_config.v2.MaxNrofSlPoolToMeasureNrr16
+	(*MaxFreqSlNRr16)(nil),                                         // 182: _csi_report_config.v2.MaxFreqSlNRr16
+	(*MaxNrofSlQFisr16)(nil),                                       // 183: _csi_report_config.v2.MaxNrofSlQFisr16
+	(*MaxNrofSlQFisPerDestr16)(nil),                                // 184: _csi_report_config.v2.MaxNrofSlQFisPerDestr16
+	(*MaxNrofObjectId)(nil),                                        // 185: _csi_report_config.v2.MaxNrofObjectId
+	(*MaxNrofPageRec)(nil),                                         // 186: _csi_report_config.v2.MaxNrofPageRec
+	(*MaxNrofPciRanges)(nil),                                       // 187: _csi_report_config.v2.MaxNrofPciRanges
+	(*MaxPlmn)(nil),                                                // 188: _csi_report_config.v2.MaxPlmn
+	(*MaxNrofCsiRSResourcesRrm)(nil),                               // 189: _csi_report_config.v2.MaxNrofCsiRSResourcesRrm
+	(*MaxNrofCsiRSResourcesRrm1)(nil),                              // 190: _csi_report_config.v2.MaxNrofCsiRSResourcesRrm1
+	(*MaxNrofMeasId)(nil),                                          // 191: _csi_report_config.v2.MaxNrofMeasId
+	(*MaxNrofQuantityConfig)(nil),                                  // 192: _csi_report_config.v2.MaxNrofQuantityConfig
+	(*MaxNrofCsiRSCellsRrm)(nil),                                   // 193: _csi_report_config.v2.MaxNrofCsiRSCellsRrm
+	(*MaxNrofSlDestr16)(nil),                                       // 194: _csi_report_config.v2.MaxNrofSlDestr16
+	(*MaxNrofSlDest1R16)(nil),                                      // 195: _csi_report_config.v2.MaxNrofSlDest1r16
+	(*MaxNrofSlrbr16)(nil),                                         // 196: _csi_report_config.v2.MaxNrofSlrbr16
+	(*MaxSlLCidr16)(nil),                                           // 197: _csi_report_config.v2.MaxSlLCidr16
+	(*MaxSlSyncConfigr16)(nil),                                     // 198: _csi_report_config.v2.MaxSlSyncConfigr16
+	(*MaxNrofRxpoolr16)(nil),                                       // 199: _csi_report_config.v2.MaxNrofRxpoolr16
+	(*MaxNrofTxpoolr16)(nil),                                       // 200: _csi_report_config.v2.MaxNrofTxpoolr16
+	(*MaxNrofPoolIdr16)(nil),                                       // 201: _csi_report_config.v2.MaxNrofPoolIdr16
+	(*MaxNrofSrsPathlossReferenceRsr16)(nil),                       // 202: _csi_report_config.v2.MaxNrofSrsPathlossReferenceRsr16
+	(*MaxNrofSrsPathlossReferenceRs1R16)(nil),                      // 203: _csi_report_config.v2.MaxNrofSrsPathlossReferenceRs1r16
+	(*MaxNrofSrsResourceSets)(nil),                                 // 204: _csi_report_config.v2.MaxNrofSrsResourceSets
+	(*MaxNrofSrsResourceSets1)(nil),                                // 205: _csi_report_config.v2.MaxNrofSrsResourceSets1
+	(*MaxNrofSrsPosResourceSetsr16)(nil),                           // 206: _csi_report_config.v2.MaxNrofSrsPosResourceSetsr16
+	(*MaxNrofSrsPosResourceSets1R16)(nil),                          // 207: _csi_report_config.v2.MaxNrofSrsPosResourceSets1r16
+	(*MaxNrofSrsResources)(nil),                                    // 208: _csi_report_config.v2.MaxNrofSrsResources
+	(*MaxNrofSrsResources1)(nil),                                   // 209: _csi_report_config.v2.MaxNrofSrsResources1
+	(*MaxNrofSrsPosResourcesr16)(nil),                              // 210: _csi_report_config.v2.MaxNrofSrsPosResourcesr16
+	(*MaxNrofSrsPosResources1R16)(nil),                             // 211: _csi_report_config.v2.MaxNrofSrsPosResources1r16
+	(*MaxNrofSrsResourcesPerSet)(nil),                              // 212: _csi_report_config.v2.MaxNrofSrsResourcesPerSet
+	(*MaxNrofSrsTriggerStates1)(nil),                               // 213: _csi_report_config.v2.MaxNrofSrsTriggerStates1
+	(*MaxNrofSrsTriggerStates2)(nil),                               // 214: _csi_report_config.v2.MaxNrofSrsTriggerStates2
+	(*MaxRatCapabilityContainers)(nil),                             // 215: _csi_report_config.v2.MaxRatCapabilityContainers
+	(*MaxSimultaneousBands)(nil),                                   // 216: _csi_report_config.v2.MaxSimultaneousBands
+	(*MaxUltxSwitchingBandPairs)(nil),                              // 217: _csi_report_config.v2.MaxUltxSwitchingBandPairs
+	(*MaxNrofSlotFormatCombinationsPerSet)(nil),                    // 218: _csi_report_config.v2.MaxNrofSlotFormatCombinationsPerSet
+	(*MaxNrofSlotFormatCombinationsPerSet1)(nil),                   // 219: _csi_report_config.v2.MaxNrofSlotFormatCombinationsPerSet1
+	(*MaxNrofTrafficPatternr16)(nil),                               // 220: _csi_report_config.v2.MaxNrofTrafficPatternr16
+	(*MaxNrofPucchResources)(nil),                                  // 221: _csi_report_config.v2.MaxNrofPucchResources
+	(*MaxNrofPucchResources1)(nil),                                 // 222: _csi_report_config.v2.MaxNrofPucchResources1
+	(*MaxNrofPucchResourceSets)(nil),                               // 223: _csi_report_config.v2.MaxNrofPucchResourceSets
+	(*MaxNrofPucchResourceSets1)(nil),                              // 224: _csi_report_config.v2.MaxNrofPucchResourceSets1
+	(*MaxNrofPucchResourcesPerSet)(nil),                            // 225: _csi_report_config.v2.MaxNrofPucchResourcesPerSet
+	(*MaxNrofPucchP0PerSet)(nil),                                   // 226: _csi_report_config.v2.MaxNrofPucchP0PerSet
+	(*MaxNrofPucchPathlossReferenceRss)(nil),                       // 227: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRss
+	(*MaxNrofPucchPathlossReferenceRss1)(nil),                      // 228: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRss1
+	(*MaxNrofPucchPathlossReferenceRssr16)(nil),                    // 229: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRssr16
+	(*MaxNrofPucchPathlossReferenceRss1R16)(nil),                   // 230: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRss1r16
+	(*MaxNrofPucchPathlossReferenceRssDiffr16)(nil),                // 231: _csi_report_config.v2.MaxNrofPucchPathlossReferenceRssDiffr16
+	(*MaxNrofPucchResourceGroupsr16)(nil),                          // 232: _csi_report_config.v2.MaxNrofPucchResourceGroupsr16
+	(*MaxNrofPucchResourcesPerGroupr16)(nil),                       // 233: _csi_report_config.v2.MaxNrofPucchResourcesPerGroupr16
+	(*MaxNrofMultiplePuschsr16)(nil),                               // 234: _csi_report_config.v2.MaxNrofMultiplePuschsr16
+	(*MaxNrofP0PUschAlphaSets)(nil),                                // 235: _csi_report_config.v2.MaxNrofP0PUschAlphaSets
+	(*MaxNrofP0PUschAlphaSets1)(nil),                               // 236: _csi_report_config.v2.MaxNrofP0PUschAlphaSets1
+	(*MaxNrofPuschPathlossReferenceRss)(nil),                       // 237: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRss
+	(*MaxNrofPuschPathlossReferenceRss1)(nil),                      // 238: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRss1
+	(*MaxNrofPuschPathlossReferenceRssr16)(nil),                    // 239: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRssr16
+	(*MaxNrofPuschPathlossReferenceRss1R16)(nil),                   // 240: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRss1r16
+	(*MaxNrofPuschPathlossReferenceRssDiffr16)(nil),                // 241: _csi_report_config.v2.MaxNrofPuschPathlossReferenceRssDiffr16
+	(*MaxNrofNaicsEntries)(nil),                                    // 242: _csi_report_config.v2.MaxNrofNaicsEntries
+	(*MaxBands)(nil),                                               // 243: _csi_report_config.v2.MaxBands
+	(*MaxBandsMrdc)(nil),                                           // 244: _csi_report_config.v2.MaxBandsMrdc
+	(*MaxBandsEutra)(nil),                                          // 245: _csi_report_config.v2.MaxBandsEutra
+	(*MaxCellReport)(nil),                                          // 246: _csi_report_config.v2.MaxCellReport
+	(*MaxDrb)(nil),                                                 // 247: _csi_report_config.v2.MaxDrb
+	(*MaxFreq)(nil),                                                // 248: _csi_report_config.v2.MaxFreq
+	(*MaxFreqLayers)(nil),                                          // 249: _csi_report_config.v2.MaxFreqLayers
+	(*MaxFreqIdcr16)(nil),                                          // 250: _csi_report_config.v2.MaxFreqIdcr16
+	(*MaxCombIdcr16)(nil),                                          // 251: _csi_report_config.v2.MaxCombIdcr16
+	(*MaxFreqIdcMRdc)(nil),                                         // 252: _csi_report_config.v2.MaxFreqIdcMRdc
+	(*MaxNrofCandidateBeams)(nil),                                  // 253: _csi_report_config.v2.MaxNrofCandidateBeams
+	(*MaxNrofCandidateBeamsr16)(nil),                               // 254: _csi_report_config.v2.MaxNrofCandidateBeamsr16
+	(*MaxNrofCandidateBeamsExtr16)(nil),                            // 255: _csi_report_config.v2.MaxNrofCandidateBeamsExtr16
+	(*MaxNrofPcisPerSmtc)(nil),                                     // 256: _csi_report_config.v2.MaxNrofPcisPerSmtc
+	(*MaxNrofQfis)(nil),                                            // 257: _csi_report_config.v2.MaxNrofQfis
+	(*MaxNrofResourceAvailabilityPerCombinationr16)(nil),           // 258: _csi_report_config.v2.MaxNrofResourceAvailabilityPerCombinationr16
+	(*MaxNrOfSemiPersistentPuschTriggers)(nil),                     // 259: _csi_report_config.v2.MaxNrOfSemiPersistentPuschTriggers
+	(*MaxNrofSrResources)(nil),                                     // 260: _csi_report_config.v2.MaxNrofSrResources
+	(*MaxNrofSlotFormatsPerCombination)(nil),                       // 261: _csi_report_config.v2.MaxNrofSlotFormatsPerCombination
+	(*MaxNrofSpatialRelationInfos)(nil),                            // 262: _csi_report_config.v2.MaxNrofSpatialRelationInfos
+	(*MaxNrofSpatialRelationInfosplus1)(nil),                       // 263: _csi_report_config.v2.MaxNrofSpatialRelationInfosplus1
+	(*MaxNrofSpatialRelationInfosr16)(nil),                         // 264: _csi_report_config.v2.MaxNrofSpatialRelationInfosr16
+	(*MaxNrofSpatialRelationInfosDiffr16)(nil),                     // 265: _csi_report_config.v2.MaxNrofSpatialRelationInfosDiffr16
+	(*MaxNrofIndexesToReport)(nil),                                 // 266: _csi_report_config.v2.MaxNrofIndexesToReport
+	(*MaxNrofIndexesToReport2)(nil),                                // 267: _csi_report_config.v2.MaxNrofIndexesToReport2
+	(*MaxNrofSsbsr16)(nil),                                         // 268: _csi_report_config.v2.MaxNrofSsbsr16
+	(*MaxNrofSsbs1)(nil),                                           // 269: _csi_report_config.v2.MaxNrofSsbs1
+	(*MaxNrofSNSsai)(nil),                                          // 270: _csi_report_config.v2.MaxNrofSNSsai
+	(*MaxNrofTciStatesPdcch)(nil),                                  // 271: _csi_report_config.v2.MaxNrofTciStatesPdcch
+	(*MaxNrofTciStates)(nil),                                       // 272: _csi_report_config.v2.MaxNrofTciStates
+	(*MaxNrofTciStates1)(nil),                                      // 273: _csi_report_config.v2.MaxNrofTciStates1
+	(*MaxNrofUlAllocations)(nil),                                   // 274: _csi_report_config.v2.MaxNrofUlAllocations
+	(*MaxQfi)(nil),                                                 // 275: _csi_report_config.v2.MaxQfi
+	(*MaxRaCSirsResources)(nil),                                    // 276: _csi_report_config.v2.MaxRaCSirsResources
+	(*MaxRaOccasionsPerCsirs)(nil),                                 // 277: _csi_report_config.v2.MaxRaOccasionsPerCsirs
+	(*MaxRaOccasions1)(nil),                                        // 278: _csi_report_config.v2.MaxRaOccasions1
+	(*MaxRaSSbResources)(nil),                                      // 279: _csi_report_config.v2.MaxRaSSbResources
+	(*MaxScss)(nil),                                                // 280: _csi_report_config.v2.MaxScss
+	(*MaxSecondaryCellGroups)(nil),                                 // 281: _csi_report_config.v2.MaxSecondaryCellGroups
+	(*MaxNrofServingCellsEutra)(nil),                               // 282: _csi_report_config.v2.MaxNrofServingCellsEutra
+	(*MaxMbsfnAllocations)(nil),                                    // 283: _csi_report_config.v2.MaxMbsfnAllocations
+	(*MaxNrofMultiBands)(nil),                                      // 284: _csi_report_config.v2.MaxNrofMultiBands
+	(*MaxCellSftd)(nil),                                            // 285: _csi_report_config.v2.MaxCellSftd
+	(*MaxReportConfigId)(nil),                                      // 286: _csi_report_config.v2.MaxReportConfigId
+	(*MaxNrofCodebooks)(nil),                                       // 287: _csi_report_config.v2.MaxNrofCodebooks
+	(*MaxNrofCsiRSResourcesExtr16)(nil),                            // 288: _csi_report_config.v2.MaxNrofCsiRSResourcesExtr16
+	(*MaxNrofCsiRSResources)(nil),                                  // 289: _csi_report_config.v2.MaxNrofCsiRSResources
+	(*MaxNrofCsiRSResourcesAltr16)(nil),                            // 290: _csi_report_config.v2.MaxNrofCsiRSResourcesAltr16
+	(*MaxNrofCsiRSResourcesAlt1R16)(nil),                           // 291: _csi_report_config.v2.MaxNrofCsiRSResourcesAlt1r16
+	(*MaxNrofSriPUschMappings)(nil),                                // 292: _csi_report_config.v2.MaxNrofSriPUschMappings
+	(*MaxNrofSriPUschMappings1)(nil),                               // 293: _csi_report_config.v2.MaxNrofSriPUschMappings1
+	(*MaxSib)(nil),                                                 // 294: _csi_report_config.v2.MaxSib
+	(*MaxSiMessage)(nil),                                           // 295: _csi_report_config.v2.MaxSiMessage
+	(*MaxPoperPf)(nil),                                             // 296: _csi_report_config.v2.MaxPoperPf
+	(*MaxAccessCat1)(nil),                                          // 297: _csi_report_config.v2.MaxAccessCat1
+	(*MaxBarringInfoSet)(nil),                                      // 298: _csi_report_config.v2.MaxBarringInfoSet
+	(*MaxCellEutra)(nil),                                           // 299: _csi_report_config.v2.MaxCellEutra
+	(*MaxEutraCarrier)(nil),                                        // 300: _csi_report_config.v2.MaxEutraCarrier
+	(*MaxPlmnidentities)(nil),                                      // 301: _csi_report_config.v2.MaxPlmnidentities
+	(*MaxDownlinkFeatureSets)(nil),                                 // 302: _csi_report_config.v2.MaxDownlinkFeatureSets
+	(*MaxUplinkFeatureSets)(nil),                                   // 303: _csi_report_config.v2.MaxUplinkFeatureSets
+	(*MaxEutraDLFeatureSets)(nil),                                  // 304: _csi_report_config.v2.MaxEutraDLFeatureSets
+	(*MaxEutraULFeatureSets)(nil),                                  // 305: _csi_report_config.v2.MaxEutraULFeatureSets
+	(*MaxFeatureSetsPerBand)(nil),                                  // 306: _csi_report_config.v2.MaxFeatureSetsPerBand
+	(*MaxPerCcFeatureSets)(nil),                                    // 307: _csi_report_config.v2.MaxPerCcFeatureSets
+	(*MaxFeatureSetCombinations)(nil),                              // 308: _csi_report_config.v2.MaxFeatureSetCombinations
+	(*MaxInterRatRStdFreq)(nil),                                    // 309: _csi_report_config.v2.MaxInterRatRStdFreq
+	(*MaxHrnnLenr16)(nil),                                          // 310: _csi_report_config.v2.MaxHrnnLenr16
+	(*MaxNpnr16)(nil),                                              // 311: _csi_report_config.v2.MaxNpnr16
+	(*MaxNrOfMinSchedulingOffsetValuesr16)(nil),                    // 312: _csi_report_config.v2.MaxNrOfMinSchedulingOffsetValuesr16
+	(*MaxK0SchedulingOffsetr16)(nil),                               // 313: _csi_report_config.v2.MaxK0SchedulingOffsetr16
+	(*MaxK2SchedulingOffsetr16)(nil),                               // 314: _csi_report_config.v2.MaxK2SchedulingOffsetr16
+	(*MaxDci26Sizer16)(nil),                                        // 315: _csi_report_config.v2.MaxDci26Sizer16
+	(*MaxDci26Size1R16)(nil),                                       // 316: _csi_report_config.v2.MaxDci26Size1r16
+	(*MaxNrofUlAllocationsr16)(nil),                                // 317: _csi_report_config.v2.MaxNrofUlAllocationsr16
+	(*MaxNrofP0PUschSetr16)(nil),                                   // 318: _csi_report_config.v2.MaxNrofP0PUschSetr16
+	(*MaxOnDemandSibr16)(nil),                                      // 319: _csi_report_config.v2.MaxOnDemandSibr16
+	(*MaxOnDemandPosSibr16)(nil),                                   // 320: _csi_report_config.v2.MaxOnDemandPosSibr16
+	(*MaxCiDCiPayloadSizer16)(nil),                                 // 321: _csi_report_config.v2.MaxCiDCiPayloadSizer16
+	(*MaxCiDCiPayloadSize1R16)(nil),                                // 322: _csi_report_config.v2.MaxCiDCiPayloadSize1r16
+	(*MaxWlanIdReportr16)(nil),                                     // 323: _csi_report_config.v2.MaxWlanIdReportr16
+	(*MaxWlanNamer16)(nil),                                         // 324: _csi_report_config.v2.MaxWlanNamer16
+	(*MaxRareportr16)(nil),                                         // 325: _csi_report_config.v2.MaxRareportr16
+	(*MaxTxConfigr16)(nil),                                         // 326: _csi_report_config.v2.MaxTxConfigr16
+	(*MaxTxConfig1R16)(nil),                                        // 327: _csi_report_config.v2.MaxTxConfig1r16
+	(*MaxPsschTxConfigr16)(nil),                                    // 328: _csi_report_config.v2.MaxPsschTxConfigr16
+	(*MaxNrofCliRSsiResourcesr16)(nil),                             // 329: _csi_report_config.v2.MaxNrofCliRSsiResourcesr16
+	(*MaxNrofCliRSsiResources1R16)(nil),                            // 330: _csi_report_config.v2.MaxNrofCliRSsiResources1r16
+	(*MaxNrofCliSRsResourcesr16)(nil),                              // 331: _csi_report_config.v2.MaxNrofCliSRsResourcesr16
+	(*MaxCliReportr16)(nil),                                        // 332: _csi_report_config.v2.MaxCliReportr16
+	(*MaxNrofConfiguredGrantConfigr16)(nil),                        // 333: _csi_report_config.v2.MaxNrofConfiguredGrantConfigr16
+	(*MaxNrofConfiguredGrantConfig1R16)(nil),                       // 334: _csi_report_config.v2.MaxNrofConfiguredGrantConfig1r16
+	(*MaxNrofCgType2DeactivationState)(nil),                        // 335: _csi_report_config.v2.MaxNrofCgType2DeactivationState
+	(*MaxNrofConfiguredGrantConfigMac1R16)(nil),                    // 336: _csi_report_config.v2.MaxNrofConfiguredGrantConfigMac1r16
+	(*MaxNrofSpsConfigr16)(nil),                                    // 337: _csi_report_config.v2.MaxNrofSpsConfigr16
+	(*MaxNrofSpsConfig1R16)(nil),                                   // 338: _csi_report_config.v2.MaxNrofSpsConfig1r16
+	(*MaxNrofSpsDeactivationState)(nil),                            // 339: _csi_report_config.v2.MaxNrofSpsDeactivationState
+	(*MaxNrofDormancyGroups)(nil),                                  // 340: _csi_report_config.v2.MaxNrofDormancyGroups
+	(*MaxNrofPucchResourceGroups1R16)(nil),                         // 341: _csi_report_config.v2.MaxNrofPucchResourceGroups1r16
+	(*MaxNrofServingCellsTcir16)(nil),                              // 342: _csi_report_config.v2.MaxNrofServingCellsTcir16
+	(*MaxNrofTxDcTwoCarrierr16)(nil),                               // 343: _csi_report_config.v2.MaxNrofTxDcTwoCarrierr16
+	(*MaxNrofPdcchBlindDetectionMixed1R16)(nil),                    // 344: _csi_report_config.v2.MaxNrofPdcchBlindDetectionMixed1r16
+	(*asn1.BitString)(nil),                                         // 345: asn1.v1.BitString
 }
 var file_CSI_ReportConfig_proto_depIdxs = []int32{
 	32,  // 0: _csi_report_config.v2.PeriodicreportConfigType.report_slot_config:type_name -> _csi_report_config.v2.CsiReportPeriodicityAndOffset
@@ -22043,23 +22146,23 @@ var file_CSI_ReportConfig_proto_depIdxs = []int32{
 	19,  // 9: _csi_report_config.v2.ReportConfigTypeCsiReportConfig.aperiodic:type_name -> _csi_report_config.v2.AperiodicreportConfigType
 	1,   // 10: _csi_report_config.v2.CriRIi1CQireportQuantity.pdsch_bundle_size_for_csi:type_name -> _csi_report_config.v2.PdschBundleSizeForCsicriRii1Cqi
 	21,  // 11: _csi_report_config.v2.ReportQuantityCsiReportConfig.cri_ri_i1_cqi:type_name -> _csi_report_config.v2.CriRIi1CQireportQuantity
-	344, // 12: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands3:type_name -> asn1.v1.BitString
-	344, // 13: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands4:type_name -> asn1.v1.BitString
-	344, // 14: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands5:type_name -> asn1.v1.BitString
-	344, // 15: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands6:type_name -> asn1.v1.BitString
-	344, // 16: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands7:type_name -> asn1.v1.BitString
-	344, // 17: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands8:type_name -> asn1.v1.BitString
-	344, // 18: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands9:type_name -> asn1.v1.BitString
-	344, // 19: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands10:type_name -> asn1.v1.BitString
-	344, // 20: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands11:type_name -> asn1.v1.BitString
-	344, // 21: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands12:type_name -> asn1.v1.BitString
-	344, // 22: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands13:type_name -> asn1.v1.BitString
-	344, // 23: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands14:type_name -> asn1.v1.BitString
-	344, // 24: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands15:type_name -> asn1.v1.BitString
-	344, // 25: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands16:type_name -> asn1.v1.BitString
-	344, // 26: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands17:type_name -> asn1.v1.BitString
-	344, // 27: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands18:type_name -> asn1.v1.BitString
-	344, // 28: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands19_v1530:type_name -> asn1.v1.BitString
+	345, // 12: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands3:type_name -> asn1.v1.BitString
+	345, // 13: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands4:type_name -> asn1.v1.BitString
+	345, // 14: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands5:type_name -> asn1.v1.BitString
+	345, // 15: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands6:type_name -> asn1.v1.BitString
+	345, // 16: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands7:type_name -> asn1.v1.BitString
+	345, // 17: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands8:type_name -> asn1.v1.BitString
+	345, // 18: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands9:type_name -> asn1.v1.BitString
+	345, // 19: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands10:type_name -> asn1.v1.BitString
+	345, // 20: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands11:type_name -> asn1.v1.BitString
+	345, // 21: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands12:type_name -> asn1.v1.BitString
+	345, // 22: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands13:type_name -> asn1.v1.BitString
+	345, // 23: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands14:type_name -> asn1.v1.BitString
+	345, // 24: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands15:type_name -> asn1.v1.BitString
+	345, // 25: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands16:type_name -> asn1.v1.BitString
+	345, // 26: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands17:type_name -> asn1.v1.BitString
+	345, // 27: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands18:type_name -> asn1.v1.BitString
+	345, // 28: _csi_report_config.v2.CsiReportingBandreportFreqConfiguration.subbands19_v1530:type_name -> asn1.v1.BitString
 	2,   // 29: _csi_report_config.v2.ReportFreqConfigurationCsiReportConfig.cqi_format_indicator:type_name -> _csi_report_config.v2.CqiFormatIndicatorreportFreqConfiguration
 	3,   // 30: _csi_report_config.v2.ReportFreqConfigurationCsiReportConfig.pmi_format_indicator:type_name -> _csi_report_config.v2.PmiFormatIndicatorreportFreqConfiguration
 	23,  // 31: _csi_report_config.v2.ReportFreqConfigurationCsiReportConfig.csi_reporting_band:type_name -> _csi_report_config.v2.CsiReportingBandreportFreqConfiguration
@@ -22086,9 +22189,9 @@ var file_CSI_ReportConfig_proto_depIdxs = []int32{
 	28,  // 52: _csi_report_config.v2.CsiReportConfig.semi_persistent_on_pusch_v1610:type_name -> _csi_report_config.v2.SemiPersistentOnPuschv1610CsiReportConfig
 	29,  // 53: _csi_report_config.v2.CsiReportConfig.aperiodic_v1610:type_name -> _csi_report_config.v2.Aperiodicv1610CsiReportConfig
 	30,  // 54: _csi_report_config.v2.CsiReportConfig.report_quantity_r16:type_name -> _csi_report_config.v2.ReportQuantityr16CsiReportConfig
-	65,  // 55: _csi_report_config.v2.CsiReportConfig.codebook_config_r16:type_name -> _csi_report_config.v2.CodebookConfigr16
-	66,  // 56: _csi_report_config.v2.PucchCSiResource.uplink_bandwidth_part_id:type_name -> _csi_report_config.v2.BwpId
-	67,  // 57: _csi_report_config.v2.PucchCSiResource.pucch_resource:type_name -> _csi_report_config.v2.PucchResourceId
+	66,  // 55: _csi_report_config.v2.CsiReportConfig.codebook_config_r16:type_name -> _csi_report_config.v2.CodebookConfigr16
+	67,  // 56: _csi_report_config.v2.PucchCSiResource.uplink_bandwidth_part_id:type_name -> _csi_report_config.v2.BwpId
+	68,  // 57: _csi_report_config.v2.PucchCSiResource.pucch_resource:type_name -> _csi_report_config.v2.PucchResourceId
 	38,  // 58: _csi_report_config.v2.PortIndex8PortIndexFor8Ranks.rank1_8:type_name -> _csi_report_config.v2.PortIndex8
 	38,  // 59: _csi_report_config.v2.PortIndex8PortIndexFor8Ranks.rank2_8:type_name -> _csi_report_config.v2.PortIndex8
 	38,  // 60: _csi_report_config.v2.PortIndex8PortIndexFor8Ranks.rank3_8:type_name -> _csi_report_config.v2.PortIndex8
@@ -22106,56 +22209,56 @@ var file_CSI_ReportConfig_proto_depIdxs = []int32{
 	34,  // 72: _csi_report_config.v2.PortIndexFor8Ranks.port_index8:type_name -> _csi_report_config.v2.PortIndex8PortIndexFor8Ranks
 	35,  // 73: _csi_report_config.v2.PortIndexFor8Ranks.port_index4:type_name -> _csi_report_config.v2.PortIndex4PortIndexFor8Ranks
 	36,  // 74: _csi_report_config.v2.PortIndexFor8Ranks.port_index2:type_name -> _csi_report_config.v2.PortIndex2PortIndexFor8Ranks
-	344, // 75: _csi_report_config.v2.TwonrOfAntennaPorts.two_tx_codebook_subset_restriction:type_name -> asn1.v1.BitString
-	344, // 76: _csi_report_config.v2.N1n2moreThanTwo.two_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 77: _csi_report_config.v2.N1n2moreThanTwo.two_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 78: _csi_report_config.v2.N1n2moreThanTwo.four_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 79: _csi_report_config.v2.N1n2moreThanTwo.three_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 80: _csi_report_config.v2.N1n2moreThanTwo.six_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 81: _csi_report_config.v2.N1n2moreThanTwo.four_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 82: _csi_report_config.v2.N1n2moreThanTwo.eight_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 83: _csi_report_config.v2.N1n2moreThanTwo.four_three_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 84: _csi_report_config.v2.N1n2moreThanTwo.six_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 85: _csi_report_config.v2.N1n2moreThanTwo.twelve_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 86: _csi_report_config.v2.N1n2moreThanTwo.four_four_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 87: _csi_report_config.v2.N1n2moreThanTwo.eight_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 88: _csi_report_config.v2.N1n2moreThanTwo.sixteen_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 75: _csi_report_config.v2.TwonrOfAntennaPorts.two_tx_codebook_subset_restriction:type_name -> asn1.v1.BitString
+	345, // 76: _csi_report_config.v2.N1n2moreThanTwo.two_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 77: _csi_report_config.v2.N1n2moreThanTwo.two_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 78: _csi_report_config.v2.N1n2moreThanTwo.four_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 79: _csi_report_config.v2.N1n2moreThanTwo.three_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 80: _csi_report_config.v2.N1n2moreThanTwo.six_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 81: _csi_report_config.v2.N1n2moreThanTwo.four_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 82: _csi_report_config.v2.N1n2moreThanTwo.eight_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 83: _csi_report_config.v2.N1n2moreThanTwo.four_three_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 84: _csi_report_config.v2.N1n2moreThanTwo.six_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 85: _csi_report_config.v2.N1n2moreThanTwo.twelve_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 86: _csi_report_config.v2.N1n2moreThanTwo.four_four_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 87: _csi_report_config.v2.N1n2moreThanTwo.eight_two_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 88: _csi_report_config.v2.N1n2moreThanTwo.sixteen_one_type_i_single_panel_restriction:type_name -> asn1.v1.BitString
 	45,  // 89: _csi_report_config.v2.MoreThanTwonrOfAntennaPorts.n1_n2:type_name -> _csi_report_config.v2.N1n2moreThanTwo
-	344, // 90: _csi_report_config.v2.MoreThanTwonrOfAntennaPorts.type_i_single_panel_codebook_subset_restriction_i2:type_name -> asn1.v1.BitString
+	345, // 90: _csi_report_config.v2.MoreThanTwonrOfAntennaPorts.type_i_single_panel_codebook_subset_restriction_i2:type_name -> asn1.v1.BitString
 	44,  // 91: _csi_report_config.v2.NrOfAntennaPortstypeISinglePanel.two:type_name -> _csi_report_config.v2.TwonrOfAntennaPorts
 	46,  // 92: _csi_report_config.v2.NrOfAntennaPortstypeISinglePanel.more_than_two:type_name -> _csi_report_config.v2.MoreThanTwonrOfAntennaPorts
 	47,  // 93: _csi_report_config.v2.TypeISinglePanelsubType.nr_of_antenna_ports:type_name -> _csi_report_config.v2.NrOfAntennaPortstypeISinglePanel
-	344, // 94: _csi_report_config.v2.TypeISinglePanelsubType.type_i_single_panel_ri_restriction:type_name -> asn1.v1.BitString
-	344, // 95: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_two_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 96: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_four_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 97: _csi_report_config.v2.Ngn1n2typeIMultiPanel.four_two_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 98: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_two_two_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 99: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_eight_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 100: _csi_report_config.v2.Ngn1n2typeIMultiPanel.four_four_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 101: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_four_two_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
-	344, // 102: _csi_report_config.v2.Ngn1n2typeIMultiPanel.four_two_two_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 94: _csi_report_config.v2.TypeISinglePanelsubType.type_i_single_panel_ri_restriction:type_name -> asn1.v1.BitString
+	345, // 95: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_two_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 96: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_four_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 97: _csi_report_config.v2.Ngn1n2typeIMultiPanel.four_two_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 98: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_two_two_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 99: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_eight_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 100: _csi_report_config.v2.Ngn1n2typeIMultiPanel.four_four_one_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 101: _csi_report_config.v2.Ngn1n2typeIMultiPanel.two_four_two_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
+	345, // 102: _csi_report_config.v2.Ngn1n2typeIMultiPanel.four_two_two_type_i_multi_panel_restriction:type_name -> asn1.v1.BitString
 	49,  // 103: _csi_report_config.v2.TypeIMultiPanelsubType.ng_n1_n2:type_name -> _csi_report_config.v2.Ngn1n2typeIMultiPanel
-	344, // 104: _csi_report_config.v2.TypeIMultiPanelsubType.ri_restriction:type_name -> asn1.v1.BitString
+	345, // 104: _csi_report_config.v2.TypeIMultiPanelsubType.ri_restriction:type_name -> asn1.v1.BitString
 	48,  // 105: _csi_report_config.v2.SubTypetype1.type_i_single_panel:type_name -> _csi_report_config.v2.TypeISinglePanelsubType
 	50,  // 106: _csi_report_config.v2.SubTypetype1.type_i_multi_panel:type_name -> _csi_report_config.v2.TypeIMultiPanelsubType
 	51,  // 107: _csi_report_config.v2.Type1codebookType.sub_type:type_name -> _csi_report_config.v2.SubTypetype1
-	344, // 108: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.two_one:type_name -> asn1.v1.BitString
-	344, // 109: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.two_two:type_name -> asn1.v1.BitString
-	344, // 110: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.four_one:type_name -> asn1.v1.BitString
-	344, // 111: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.three_two:type_name -> asn1.v1.BitString
-	344, // 112: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.six_one:type_name -> asn1.v1.BitString
-	344, // 113: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.four_two:type_name -> asn1.v1.BitString
-	344, // 114: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.eight_one:type_name -> asn1.v1.BitString
-	344, // 115: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.four_three:type_name -> asn1.v1.BitString
-	344, // 116: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.six_two:type_name -> asn1.v1.BitString
-	344, // 117: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.twelve_one:type_name -> asn1.v1.BitString
-	344, // 118: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.four_four:type_name -> asn1.v1.BitString
-	344, // 119: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.eight_two:type_name -> asn1.v1.BitString
-	344, // 120: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.sixteen_one:type_name -> asn1.v1.BitString
+	345, // 108: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.two_one:type_name -> asn1.v1.BitString
+	345, // 109: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.two_two:type_name -> asn1.v1.BitString
+	345, // 110: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.four_one:type_name -> asn1.v1.BitString
+	345, // 111: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.three_two:type_name -> asn1.v1.BitString
+	345, // 112: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.six_one:type_name -> asn1.v1.BitString
+	345, // 113: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.four_two:type_name -> asn1.v1.BitString
+	345, // 114: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.eight_one:type_name -> asn1.v1.BitString
+	345, // 115: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.four_three:type_name -> asn1.v1.BitString
+	345, // 116: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.six_two:type_name -> asn1.v1.BitString
+	345, // 117: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.twelve_one:type_name -> asn1.v1.BitString
+	345, // 118: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.four_four:type_name -> asn1.v1.BitString
+	345, // 119: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.eight_two:type_name -> asn1.v1.BitString
+	345, // 120: _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi.sixteen_one:type_name -> asn1.v1.BitString
 	53,  // 121: _csi_report_config.v2.TypeIisubType.n1_n2_codebook_subset_restriction:type_name -> _csi_report_config.v2.N1n2codebookSubsetRestrictiontypeIi
-	344, // 122: _csi_report_config.v2.TypeIisubType.type_ii_ri_restriction:type_name -> asn1.v1.BitString
+	345, // 122: _csi_report_config.v2.TypeIisubType.type_ii_ri_restriction:type_name -> asn1.v1.BitString
 	11,  // 123: _csi_report_config.v2.TypeIiPortSelectionsubType.port_selection_sampling_size:type_name -> _csi_report_config.v2.PortSelectionSamplingSizetypeIiportSelection
-	344, // 124: _csi_report_config.v2.TypeIiPortSelectionsubType.type_ii_port_selection_ri_restriction:type_name -> asn1.v1.BitString
+	345, // 124: _csi_report_config.v2.TypeIiPortSelectionsubType.type_ii_port_selection_ri_restriction:type_name -> asn1.v1.BitString
 	54,  // 125: _csi_report_config.v2.SubTypetype2.type_ii:type_name -> _csi_report_config.v2.TypeIisubType
 	55,  // 126: _csi_report_config.v2.SubTypetype2.type_ii_port_selection:type_name -> _csi_report_config.v2.TypeIiPortSelectionsubType
 	56,  // 127: _csi_report_config.v2.Type2codebookType.sub_type:type_name -> _csi_report_config.v2.SubTypetype2
@@ -22164,31 +22267,33 @@ var file_CSI_ReportConfig_proto_depIdxs = []int32{
 	52,  // 130: _csi_report_config.v2.CodebookTypeCodebookConfig.type1:type_name -> _csi_report_config.v2.Type1codebookType
 	57,  // 131: _csi_report_config.v2.CodebookTypeCodebookConfig.type2:type_name -> _csi_report_config.v2.Type2codebookType
 	58,  // 132: _csi_report_config.v2.CodebookConfig.codebook_type:type_name -> _csi_report_config.v2.CodebookTypeCodebookConfig
-	344, // 133: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.two_one:type_name -> asn1.v1.BitString
-	344, // 134: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.two_two:type_name -> asn1.v1.BitString
-	344, // 135: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.four_one:type_name -> asn1.v1.BitString
-	344, // 136: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.three_two:type_name -> asn1.v1.BitString
-	344, // 137: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.six_one:type_name -> asn1.v1.BitString
-	344, // 138: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.four_two:type_name -> asn1.v1.BitString
-	344, // 139: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.eight_one:type_name -> asn1.v1.BitString
-	344, // 140: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.four_three:type_name -> asn1.v1.BitString
-	344, // 141: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.six_two:type_name -> asn1.v1.BitString
-	344, // 142: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.twelve_one:type_name -> asn1.v1.BitString
-	344, // 143: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.four_four:type_name -> asn1.v1.BitString
-	344, // 144: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.eight_two:type_name -> asn1.v1.BitString
-	344, // 145: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.sixteen_one:type_name -> asn1.v1.BitString
+	345, // 133: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.two_one:type_name -> asn1.v1.BitString
+	345, // 134: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.two_two:type_name -> asn1.v1.BitString
+	345, // 135: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.four_one:type_name -> asn1.v1.BitString
+	345, // 136: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.three_two:type_name -> asn1.v1.BitString
+	345, // 137: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.six_one:type_name -> asn1.v1.BitString
+	345, // 138: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.four_two:type_name -> asn1.v1.BitString
+	345, // 139: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.eight_one:type_name -> asn1.v1.BitString
+	345, // 140: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.four_three:type_name -> asn1.v1.BitString
+	345, // 141: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.six_two:type_name -> asn1.v1.BitString
+	345, // 142: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.twelve_one:type_name -> asn1.v1.BitString
+	345, // 143: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.four_four:type_name -> asn1.v1.BitString
+	345, // 144: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.eight_two:type_name -> asn1.v1.BitString
+	345, // 145: _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16.sixteen_one:type_name -> asn1.v1.BitString
 	60,  // 146: _csi_report_config.v2.TypeIir16subType.n1_n2_codebook_subset_restriction_r16:type_name -> _csi_report_config.v2.N1n2codebookSubsetRestrictionr16typeIir16
-	344, // 147: _csi_report_config.v2.TypeIir16subType.type_ii_ri_restriction_r16:type_name -> asn1.v1.BitString
+	345, // 147: _csi_report_config.v2.TypeIir16subType.type_ii_ri_restriction_r16:type_name -> asn1.v1.BitString
 	14,  // 148: _csi_report_config.v2.TypeIiPortSelectionr16subType.port_selection_sampling_size_r16:type_name -> _csi_report_config.v2.PortSelectionSamplingSizer16typeIiportSelectionr16
-	344, // 149: _csi_report_config.v2.TypeIiPortSelectionr16subType.type_ii_port_selection_ri_restriction_r16:type_name -> asn1.v1.BitString
-	56,  // 150: _csi_report_config.v2.Type2codebookTyper16.sub_type:type_name -> _csi_report_config.v2.SubTypetype2
-	63,  // 151: _csi_report_config.v2.CodebookTyper16CodebookConfigr16.type2:type_name -> _csi_report_config.v2.Type2codebookTyper16
-	64,  // 152: _csi_report_config.v2.CodebookConfigr16.codebook_type_r16:type_name -> _csi_report_config.v2.CodebookTyper16CodebookConfigr16
-	153, // [153:153] is the sub-list for method output_type
-	153, // [153:153] is the sub-list for method input_type
-	153, // [153:153] is the sub-list for extension type_name
-	153, // [153:153] is the sub-list for extension extendee
-	0,   // [0:153] is the sub-list for field type_name
+	345, // 149: _csi_report_config.v2.TypeIiPortSelectionr16subType.type_ii_port_selection_ri_restriction_r16:type_name -> asn1.v1.BitString
+	61,  // 150: _csi_report_config.v2.SubTypetype2r16.type_ii_r16:type_name -> _csi_report_config.v2.TypeIir16subType
+	62,  // 151: _csi_report_config.v2.SubTypetype2r16.type_ii_port_selection_r16:type_name -> _csi_report_config.v2.TypeIiPortSelectionr16subType
+	63,  // 152: _csi_report_config.v2.Type2r16codebookTyper16.sub_type:type_name -> _csi_report_config.v2.SubTypetype2r16
+	64,  // 153: _csi_report_config.v2.CodebookTyper16CodebookConfigr16.type2_r16:type_name -> _csi_report_config.v2.Type2r16codebookTyper16
+	65,  // 154: _csi_report_config.v2.CodebookConfigr16.codebook_type_r16:type_name -> _csi_report_config.v2.CodebookTyper16CodebookConfigr16
+	155, // [155:155] is the sub-list for method output_type
+	155, // [155:155] is the sub-list for method input_type
+	155, // [155:155] is the sub-list for extension type_name
+	155, // [155:155] is the sub-list for extension extendee
+	0,   // [0:155] is the sub-list for field type_name
 }
 
 func init() { file_CSI_ReportConfig_proto_init() }
@@ -22774,7 +22879,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[48].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Type2CodebookTyper16); i {
+			switch v := v.(*SubTypetype2R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22786,7 +22891,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[49].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CodebookTyper16CodebookConfigr16); i {
+			switch v := v.(*Type2R16CodebookTyper16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22798,7 +22903,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CodebookConfigr16); i {
+			switch v := v.(*CodebookTyper16CodebookConfigr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22810,7 +22915,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[51].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BwpId); i {
+			switch v := v.(*CodebookConfigr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22822,7 +22927,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[52].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PucchResourceId); i {
+			switch v := v.(*BwpId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22834,7 +22939,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[53].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxAiDCiPayloadSizer16); i {
+			switch v := v.(*PucchResourceId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22846,7 +22951,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[54].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxAiDCiPayloadSize1R16); i {
+			switch v := v.(*MaxAiDCiPayloadSizer16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22858,7 +22963,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[55].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBandComb); i {
+			switch v := v.(*MaxAiDCiPayloadSize1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22870,7 +22975,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[56].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBandsUtraFDdr16); i {
+			switch v := v.(*MaxBandComb); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22882,7 +22987,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[57].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBhRLcChannelIdr16); i {
+			switch v := v.(*MaxBandsUtraFDdr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22894,7 +22999,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[58].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBtIdReportr16); i {
+			switch v := v.(*MaxBhRLcChannelIdr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22906,7 +23011,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[59].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBtNamer16); i {
+			switch v := v.(*MaxBtIdReportr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22918,7 +23023,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[60].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCagCellr16); i {
+			switch v := v.(*MaxBtNamer16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22930,7 +23035,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[61].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxTwoPucchGrpConfigListr16); i {
+			switch v := v.(*MaxCagCellr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22942,7 +23047,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[62].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCbrConfigr16); i {
+			switch v := v.(*MaxTwoPucchGrpConfigListr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22954,7 +23059,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[63].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCbrConfig1R16); i {
+			switch v := v.(*MaxCbrConfigr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22966,7 +23071,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[64].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCbrLevelr16); i {
+			switch v := v.(*MaxCbrConfig1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22978,7 +23083,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[65].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCbrLevel1R16); i {
+			switch v := v.(*MaxCbrLevelr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -22990,7 +23095,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[66].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellBlack); i {
+			switch v := v.(*MaxCbrLevel1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23002,7 +23107,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[67].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellGroupingsr16); i {
+			switch v := v.(*MaxCellBlack); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23014,7 +23119,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[68].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellHistoryr16); i {
+			switch v := v.(*MaxCellGroupingsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23026,7 +23131,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[69].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellInter); i {
+			switch v := v.(*MaxCellHistoryr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23038,7 +23143,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[70].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellIntra); i {
+			switch v := v.(*MaxCellInter); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23050,7 +23155,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[71].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellMeasEutra); i {
+			switch v := v.(*MaxCellIntra); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23062,7 +23167,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[72].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellMeasIdler16); i {
+			switch v := v.(*MaxCellMeasEutra); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23074,7 +23179,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[73].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellMeasUtraFDdr16); i {
+			switch v := v.(*MaxCellMeasIdler16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23086,7 +23191,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[74].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCarrierTypePairListr16); i {
+			switch v := v.(*MaxCellMeasUtraFDdr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23098,7 +23203,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[75].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellWhite); i {
+			switch v := v.(*MaxCarrierTypePairListr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23110,7 +23215,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[76].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxEarfcn); i {
+			switch v := v.(*MaxCellWhite); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23122,7 +23227,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[77].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxEutraCellBlack); i {
+			switch v := v.(*MaxEarfcn); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23134,7 +23239,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[78].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxEutraNSPmax); i {
+			switch v := v.(*MaxEutraCellBlack); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23146,7 +23251,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[79].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxLogMeasReportr16); i {
+			switch v := v.(*MaxEutraNSPmax); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23158,7 +23263,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[80].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxMultiBands); i {
+			switch v := v.(*MaxLogMeasReportr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23170,7 +23275,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[81].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNarfcn); i {
+			switch v := v.(*MaxMultiBands); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23182,7 +23287,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[82].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrNSPmax); i {
+			switch v := v.(*MaxNarfcn); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23194,7 +23299,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[83].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFreqIdler16); i {
+			switch v := v.(*MaxNrNSPmax); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23206,7 +23311,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[84].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofServingCells); i {
+			switch v := v.(*MaxFreqIdler16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23218,7 +23323,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[85].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofServingCells1); i {
+			switch v := v.(*MaxNrofServingCells); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23230,7 +23335,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[86].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofAggregatedCellsPerCellGroup); i {
+			switch v := v.(*MaxNrofServingCells1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23242,7 +23347,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[87].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofAggregatedCellsPerCellGroupMinus4R16); i {
+			switch v := v.(*MaxNrofAggregatedCellsPerCellGroup); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23254,7 +23359,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[88].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofDucellsr16); i {
+			switch v := v.(*MaxNrofAggregatedCellsPerCellGroupMinus4R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23266,7 +23371,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[89].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofAvailabilityCombinationsPerSetr16); i {
+			switch v := v.(*MaxNrofDucellsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23278,7 +23383,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[90].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofAvailabilityCombinationsPerSet1R16); i {
+			switch v := v.(*MaxNrofAvailabilityCombinationsPerSetr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23290,7 +23395,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[91].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofScells); i {
+			switch v := v.(*MaxNrofAvailabilityCombinationsPerSet1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23302,7 +23407,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[92].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCellMeas); i {
+			switch v := v.(*MaxNrofScells); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23314,7 +23419,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[93].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCgSLr16); i {
+			switch v := v.(*MaxNrofCellMeas); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23326,7 +23431,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[94].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCgSL1R16); i {
+			switch v := v.(*MaxNrofCgSLr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23338,7 +23443,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[95].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSsBlocksToAverage); i {
+			switch v := v.(*MaxNrofCgSL1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23350,7 +23455,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[96].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCondCellsr16); i {
+			switch v := v.(*MaxNrofSsBlocksToAverage); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23362,7 +23467,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[97].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiRSResourcesToAverage); i {
+			switch v := v.(*MaxNrofCondCellsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23374,7 +23479,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[98].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofDlAllocations); i {
+			switch v := v.(*MaxNrofCsiRSResourcesToAverage); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23386,7 +23491,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[99].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrConfigPerCellGroup); i {
+			switch v := v.(*MaxNrofDlAllocations); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23398,7 +23503,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[100].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxLcgID); i {
+			switch v := v.(*MaxNrofSrConfigPerCellGroup); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23410,7 +23515,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[101].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxLcID); i {
+			switch v := v.(*MaxLcgID); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23422,7 +23527,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[102].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxLcIDIabr16); i {
+			switch v := v.(*MaxLcID); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23434,7 +23539,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[103].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxLteCRsPatternsr16); i {
+			switch v := v.(*MaxLcIDIabr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23446,7 +23551,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[104].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofTags); i {
+			switch v := v.(*MaxLteCRsPatternsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23458,7 +23563,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[105].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofTags1); i {
+			switch v := v.(*MaxNrofTags); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23470,7 +23575,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[106].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofBwps); i {
+			switch v := v.(*MaxNrofTags1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23482,7 +23587,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[107].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCombIdc); i {
+			switch v := v.(*MaxNrofBwps); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23494,7 +23599,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[108].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSymbols1); i {
+			switch v := v.(*MaxNrofCombIdc); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23506,7 +23611,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[109].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlots); i {
+			switch v := v.(*MaxNrofSymbols1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23518,7 +23623,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[110].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlots1); i {
+			switch v := v.(*MaxNrofSlots); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23530,7 +23635,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[111].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPhysicalResourceBlocks); i {
+			switch v := v.(*MaxNrofSlots1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23542,7 +23647,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[112].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPhysicalResourceBlocks1); i {
+			switch v := v.(*MaxNrofPhysicalResourceBlocks); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23554,7 +23659,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[113].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPhysicalResourceBlocksPlus1); i {
+			switch v := v.(*MaxNrofPhysicalResourceBlocks1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23566,7 +23671,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[114].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofControlResourceSets); i {
+			switch v := v.(*MaxNrofPhysicalResourceBlocksPlus1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23578,7 +23683,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[115].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofControlResourceSets1); i {
+			switch v := v.(*MaxNrofControlResourceSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23590,7 +23695,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[116].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofControlResourceSets1R16); i {
+			switch v := v.(*MaxNrofControlResourceSets1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23602,7 +23707,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[117].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCoresetPoolsr16); i {
+			switch v := v.(*MaxNrofControlResourceSets1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23614,7 +23719,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[118].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCoReSetDuration); i {
+			switch v := v.(*MaxNrofCoresetPoolsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23626,7 +23731,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[119].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSearchSpaces1); i {
+			switch v := v.(*MaxCoReSetDuration); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23638,7 +23743,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[120].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxSfiDCiPayloadSize); i {
+			switch v := v.(*MaxNrofSearchSpaces1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23650,7 +23755,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[121].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxSfiDCiPayloadSize1); i {
+			switch v := v.(*MaxSfiDCiPayloadSize); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23662,7 +23767,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[122].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxIabIPAddressr16); i {
+			switch v := v.(*MaxSfiDCiPayloadSize1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23674,7 +23779,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[123].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxIntDCiPayloadSize); i {
+			switch v := v.(*MaxIabIPAddressr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23686,7 +23791,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[124].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxIntDCiPayloadSize1); i {
+			switch v := v.(*MaxIntDCiPayloadSize); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23698,7 +23803,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[125].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofRateMatchPatterns); i {
+			switch v := v.(*MaxIntDCiPayloadSize1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23710,7 +23815,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[126].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofRateMatchPatterns1); i {
+			switch v := v.(*MaxNrofRateMatchPatterns); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23722,7 +23827,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[127].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofRateMatchPatternsPerGroup); i {
+			switch v := v.(*MaxNrofRateMatchPatterns1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23734,7 +23839,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[128].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiReportConfigurations); i {
+			switch v := v.(*MaxNrofRateMatchPatternsPerGroup); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23746,7 +23851,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[129].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiReportConfigurations1); i {
+			switch v := v.(*MaxNrofCsiReportConfigurations); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23758,7 +23863,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[130].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiResourceConfigurations); i {
+			switch v := v.(*MaxNrofCsiReportConfigurations1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23770,7 +23875,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[131].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiResourceConfigurations1); i {
+			switch v := v.(*MaxNrofCsiResourceConfigurations); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23782,7 +23887,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[132].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofApCSiRSResourcesPerSet); i {
+			switch v := v.(*MaxNrofCsiResourceConfigurations1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23794,7 +23899,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[133].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrOfCsiAperiodicTriggers); i {
+			switch v := v.(*MaxNrofApCSiRSResourcesPerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23806,7 +23911,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[134].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofReportConfigPerAperiodicTrigger); i {
+			switch v := v.(*MaxNrOfCsiAperiodicTriggers); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23818,7 +23923,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[135].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofNzpCSiRSResources); i {
+			switch v := v.(*MaxNrofReportConfigPerAperiodicTrigger); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23830,7 +23935,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[136].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofNzpCSiRSResources1); i {
+			switch v := v.(*MaxNrofNzpCSiRSResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23842,7 +23947,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[137].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofNzpCSiRSResourcesPerSet); i {
+			switch v := v.(*MaxNrofNzpCSiRSResources1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23854,7 +23959,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[138].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofNzpCSiRSResourceSets); i {
+			switch v := v.(*MaxNrofNzpCSiRSResourcesPerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23866,7 +23971,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[139].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofNzpCSiRSResourceSets1); i {
+			switch v := v.(*MaxNrofNzpCSiRSResourceSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23878,7 +23983,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[140].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofNzpCSiRSResourceSetsPerConfig); i {
+			switch v := v.(*MaxNrofNzpCSiRSResourceSets1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23890,7 +23995,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[141].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofNzpCSiRSResourcesPerConfig); i {
+			switch v := v.(*MaxNrofNzpCSiRSResourceSetsPerConfig); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23902,7 +24007,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[142].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofZpCSiRSResources); i {
+			switch v := v.(*MaxNrofNzpCSiRSResourcesPerConfig); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23914,7 +24019,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[143].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofZpCSiRSResources1); i {
+			switch v := v.(*MaxNrofZpCSiRSResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23926,7 +24031,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[144].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofZpCSiRSResourceSets1); i {
+			switch v := v.(*MaxNrofZpCSiRSResources1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23938,7 +24043,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[145].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofZpCSiRSResourcesPerSet); i {
+			switch v := v.(*MaxNrofZpCSiRSResourceSets1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23950,7 +24055,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[146].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofZpCSiRSResourceSets); i {
+			switch v := v.(*MaxNrofZpCSiRSResourcesPerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23962,7 +24067,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[147].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiIMResources); i {
+			switch v := v.(*MaxNrofZpCSiRSResourceSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23974,7 +24079,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[148].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiIMResources1); i {
+			switch v := v.(*MaxNrofCsiIMResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23986,7 +24091,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[149].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiIMResourcesPerSet); i {
+			switch v := v.(*MaxNrofCsiIMResources1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -23998,7 +24103,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[150].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiIMResourceSets); i {
+			switch v := v.(*MaxNrofCsiIMResourcesPerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24010,7 +24115,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[151].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiIMResourceSets1); i {
+			switch v := v.(*MaxNrofCsiIMResourceSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24022,7 +24127,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[152].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiIMResourceSetsPerConfig); i {
+			switch v := v.(*MaxNrofCsiIMResourceSets1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24034,7 +24139,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[153].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiSSbResourcePerSet); i {
+			switch v := v.(*MaxNrofCsiIMResourceSetsPerConfig); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24046,7 +24151,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[154].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiSSbResourceSets); i {
+			switch v := v.(*MaxNrofCsiSSbResourcePerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24058,7 +24163,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[155].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiSSbResourceSets1); i {
+			switch v := v.(*MaxNrofCsiSSbResourceSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24070,7 +24175,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[156].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiSSbResourceSetsPerConfig); i {
+			switch v := v.(*MaxNrofCsiSSbResourceSets1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24082,7 +24187,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[157].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofFailureDetectionResources); i {
+			switch v := v.(*MaxNrofCsiSSbResourceSetsPerConfig); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24094,7 +24199,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[158].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofFailureDetectionResources1); i {
+			switch v := v.(*MaxNrofFailureDetectionResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24106,7 +24211,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[159].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofFreqSlr16); i {
+			switch v := v.(*MaxNrofFailureDetectionResources1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24118,7 +24223,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[160].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlBWpsr16); i {
+			switch v := v.(*MaxNrofFreqSlr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24130,7 +24235,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[161].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFreqSlEUtrar16); i {
+			switch v := v.(*MaxNrofSlBWpsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24142,7 +24247,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[162].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlMeasIdr16); i {
+			switch v := v.(*MaxFreqSlEUtrar16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24154,7 +24259,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[163].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlObjectIdr16); i {
+			switch v := v.(*MaxNrofSlMeasIdr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24166,7 +24271,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[164].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlReportConfigIdr16); i {
+			switch v := v.(*MaxNrofSlObjectIdr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24178,7 +24283,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[165].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlPoolToMeasureNrr16); i {
+			switch v := v.(*MaxNrofSlReportConfigIdr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24190,7 +24295,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[166].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFreqSlNRr16); i {
+			switch v := v.(*MaxNrofSlPoolToMeasureNrr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24202,7 +24307,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[167].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlQFisr16); i {
+			switch v := v.(*MaxFreqSlNRr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24214,7 +24319,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[168].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlQFisPerDestr16); i {
+			switch v := v.(*MaxNrofSlQFisr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24226,7 +24331,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[169].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofObjectId); i {
+			switch v := v.(*MaxNrofSlQFisPerDestr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24238,7 +24343,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[170].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPageRec); i {
+			switch v := v.(*MaxNrofObjectId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24250,7 +24355,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[171].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPciRanges); i {
+			switch v := v.(*MaxNrofPageRec); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24262,7 +24367,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[172].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxPlmn); i {
+			switch v := v.(*MaxNrofPciRanges); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24274,7 +24379,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[173].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiRSResourcesRrm); i {
+			switch v := v.(*MaxPlmn); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24286,7 +24391,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[174].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiRSResourcesRrm1); i {
+			switch v := v.(*MaxNrofCsiRSResourcesRrm); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24298,7 +24403,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[175].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofMeasId); i {
+			switch v := v.(*MaxNrofCsiRSResourcesRrm1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24310,7 +24415,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[176].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofQuantityConfig); i {
+			switch v := v.(*MaxNrofMeasId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24322,7 +24427,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[177].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiRSCellsRrm); i {
+			switch v := v.(*MaxNrofQuantityConfig); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24334,7 +24439,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[178].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlDestr16); i {
+			switch v := v.(*MaxNrofCsiRSCellsRrm); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24346,7 +24451,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[179].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlDest1R16); i {
+			switch v := v.(*MaxNrofSlDestr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24358,7 +24463,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[180].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlrbr16); i {
+			switch v := v.(*MaxNrofSlDest1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24370,7 +24475,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[181].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxSlLCidr16); i {
+			switch v := v.(*MaxNrofSlrbr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24382,7 +24487,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[182].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxSlSyncConfigr16); i {
+			switch v := v.(*MaxSlLCidr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24394,7 +24499,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[183].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofRxpoolr16); i {
+			switch v := v.(*MaxSlSyncConfigr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24406,7 +24511,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[184].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofTxpoolr16); i {
+			switch v := v.(*MaxNrofRxpoolr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24418,7 +24523,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[185].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPoolIdr16); i {
+			switch v := v.(*MaxNrofTxpoolr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24430,7 +24535,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[186].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsPathlossReferenceRsr16); i {
+			switch v := v.(*MaxNrofPoolIdr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24442,7 +24547,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[187].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsPathlossReferenceRs1R16); i {
+			switch v := v.(*MaxNrofSrsPathlossReferenceRsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24454,7 +24559,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[188].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsResourceSets); i {
+			switch v := v.(*MaxNrofSrsPathlossReferenceRs1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24466,7 +24571,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[189].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsResourceSets1); i {
+			switch v := v.(*MaxNrofSrsResourceSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24478,7 +24583,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[190].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsPosResourceSetsr16); i {
+			switch v := v.(*MaxNrofSrsResourceSets1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24490,7 +24595,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[191].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsPosResourceSets1R16); i {
+			switch v := v.(*MaxNrofSrsPosResourceSetsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24502,7 +24607,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[192].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsResources); i {
+			switch v := v.(*MaxNrofSrsPosResourceSets1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24514,7 +24619,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[193].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsResources1); i {
+			switch v := v.(*MaxNrofSrsResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24526,7 +24631,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[194].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsPosResourcesr16); i {
+			switch v := v.(*MaxNrofSrsResources1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24538,7 +24643,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[195].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsPosResources1R16); i {
+			switch v := v.(*MaxNrofSrsPosResourcesr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24550,7 +24655,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[196].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsResourcesPerSet); i {
+			switch v := v.(*MaxNrofSrsPosResources1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24562,7 +24667,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[197].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsTriggerStates1); i {
+			switch v := v.(*MaxNrofSrsResourcesPerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24574,7 +24679,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[198].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrsTriggerStates2); i {
+			switch v := v.(*MaxNrofSrsTriggerStates1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24586,7 +24691,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[199].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxRatCapabilityContainers); i {
+			switch v := v.(*MaxNrofSrsTriggerStates2); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24598,7 +24703,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[200].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxSimultaneousBands); i {
+			switch v := v.(*MaxRatCapabilityContainers); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24610,7 +24715,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[201].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxUltxSwitchingBandPairs); i {
+			switch v := v.(*MaxSimultaneousBands); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24622,7 +24727,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[202].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlotFormatCombinationsPerSet); i {
+			switch v := v.(*MaxUltxSwitchingBandPairs); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24634,7 +24739,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[203].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlotFormatCombinationsPerSet1); i {
+			switch v := v.(*MaxNrofSlotFormatCombinationsPerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24646,7 +24751,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[204].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofTrafficPatternr16); i {
+			switch v := v.(*MaxNrofSlotFormatCombinationsPerSet1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24658,7 +24763,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[205].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchResources); i {
+			switch v := v.(*MaxNrofTrafficPatternr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24670,7 +24775,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[206].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchResources1); i {
+			switch v := v.(*MaxNrofPucchResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24682,7 +24787,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[207].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchResourceSets); i {
+			switch v := v.(*MaxNrofPucchResources1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24694,7 +24799,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[208].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchResourceSets1); i {
+			switch v := v.(*MaxNrofPucchResourceSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24706,7 +24811,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[209].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchResourcesPerSet); i {
+			switch v := v.(*MaxNrofPucchResourceSets1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24718,7 +24823,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[210].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchP0PerSet); i {
+			switch v := v.(*MaxNrofPucchResourcesPerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24730,7 +24835,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[211].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchPathlossReferenceRss); i {
+			switch v := v.(*MaxNrofPucchP0PerSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24742,7 +24847,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[212].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchPathlossReferenceRss1); i {
+			switch v := v.(*MaxNrofPucchPathlossReferenceRss); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24754,7 +24859,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[213].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchPathlossReferenceRssr16); i {
+			switch v := v.(*MaxNrofPucchPathlossReferenceRss1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24766,7 +24871,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[214].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchPathlossReferenceRss1R16); i {
+			switch v := v.(*MaxNrofPucchPathlossReferenceRssr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24778,7 +24883,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[215].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchPathlossReferenceRssDiffr16); i {
+			switch v := v.(*MaxNrofPucchPathlossReferenceRss1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24790,7 +24895,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[216].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchResourceGroupsr16); i {
+			switch v := v.(*MaxNrofPucchPathlossReferenceRssDiffr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24802,7 +24907,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[217].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchResourcesPerGroupr16); i {
+			switch v := v.(*MaxNrofPucchResourceGroupsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24814,7 +24919,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[218].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofMultiplePuschsr16); i {
+			switch v := v.(*MaxNrofPucchResourcesPerGroupr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24826,7 +24931,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[219].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofP0PUschAlphaSets); i {
+			switch v := v.(*MaxNrofMultiplePuschsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24838,7 +24943,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[220].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofP0PUschAlphaSets1); i {
+			switch v := v.(*MaxNrofP0PUschAlphaSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24850,7 +24955,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[221].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPuschPathlossReferenceRss); i {
+			switch v := v.(*MaxNrofP0PUschAlphaSets1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24862,7 +24967,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[222].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPuschPathlossReferenceRss1); i {
+			switch v := v.(*MaxNrofPuschPathlossReferenceRss); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24874,7 +24979,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[223].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPuschPathlossReferenceRssr16); i {
+			switch v := v.(*MaxNrofPuschPathlossReferenceRss1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24886,7 +24991,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[224].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPuschPathlossReferenceRss1R16); i {
+			switch v := v.(*MaxNrofPuschPathlossReferenceRssr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24898,7 +25003,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[225].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPuschPathlossReferenceRssDiffr16); i {
+			switch v := v.(*MaxNrofPuschPathlossReferenceRss1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24910,7 +25015,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[226].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofNaicsEntries); i {
+			switch v := v.(*MaxNrofPuschPathlossReferenceRssDiffr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24922,7 +25027,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[227].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBands); i {
+			switch v := v.(*MaxNrofNaicsEntries); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24934,7 +25039,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[228].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBandsMrdc); i {
+			switch v := v.(*MaxBands); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24946,7 +25051,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[229].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBandsEutra); i {
+			switch v := v.(*MaxBandsMrdc); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24958,7 +25063,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[230].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellReport); i {
+			switch v := v.(*MaxBandsEutra); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24970,7 +25075,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[231].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxDrb); i {
+			switch v := v.(*MaxCellReport); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24982,7 +25087,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[232].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFreq); i {
+			switch v := v.(*MaxDrb); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -24994,7 +25099,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[233].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFreqLayers); i {
+			switch v := v.(*MaxFreq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25006,7 +25111,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[234].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFreqIdcr16); i {
+			switch v := v.(*MaxFreqLayers); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25018,7 +25123,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[235].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCombIdcr16); i {
+			switch v := v.(*MaxFreqIdcr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25030,7 +25135,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[236].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFreqIdcMRdc); i {
+			switch v := v.(*MaxCombIdcr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25042,7 +25147,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[237].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCandidateBeams); i {
+			switch v := v.(*MaxFreqIdcMRdc); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25054,7 +25159,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[238].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCandidateBeamsr16); i {
+			switch v := v.(*MaxNrofCandidateBeams); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25066,7 +25171,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[239].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCandidateBeamsExtr16); i {
+			switch v := v.(*MaxNrofCandidateBeamsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25078,7 +25183,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[240].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPcisPerSmtc); i {
+			switch v := v.(*MaxNrofCandidateBeamsExtr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25090,7 +25195,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[241].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofQfis); i {
+			switch v := v.(*MaxNrofPcisPerSmtc); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25102,7 +25207,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[242].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofResourceAvailabilityPerCombinationr16); i {
+			switch v := v.(*MaxNrofQfis); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25114,7 +25219,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[243].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrOfSemiPersistentPuschTriggers); i {
+			switch v := v.(*MaxNrofResourceAvailabilityPerCombinationr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25126,7 +25231,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[244].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSrResources); i {
+			switch v := v.(*MaxNrOfSemiPersistentPuschTriggers); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25138,7 +25243,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[245].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSlotFormatsPerCombination); i {
+			switch v := v.(*MaxNrofSrResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25150,7 +25255,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[246].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSpatialRelationInfos); i {
+			switch v := v.(*MaxNrofSlotFormatsPerCombination); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25162,7 +25267,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[247].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSpatialRelationInfosplus1); i {
+			switch v := v.(*MaxNrofSpatialRelationInfos); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25174,7 +25279,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[248].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSpatialRelationInfosr16); i {
+			switch v := v.(*MaxNrofSpatialRelationInfosplus1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25186,7 +25291,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[249].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSpatialRelationInfosDiffr16); i {
+			switch v := v.(*MaxNrofSpatialRelationInfosr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25198,7 +25303,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[250].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofIndexesToReport); i {
+			switch v := v.(*MaxNrofSpatialRelationInfosDiffr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25210,7 +25315,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[251].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofIndexesToReport2); i {
+			switch v := v.(*MaxNrofIndexesToReport); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25222,7 +25327,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[252].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSsbsr16); i {
+			switch v := v.(*MaxNrofIndexesToReport2); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25234,7 +25339,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[253].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSsbs1); i {
+			switch v := v.(*MaxNrofSsbsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25246,7 +25351,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[254].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSNSsai); i {
+			switch v := v.(*MaxNrofSsbs1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25258,7 +25363,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[255].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofTciStatesPdcch); i {
+			switch v := v.(*MaxNrofSNSsai); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25270,7 +25375,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[256].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofTciStates); i {
+			switch v := v.(*MaxNrofTciStatesPdcch); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25282,7 +25387,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[257].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofTciStates1); i {
+			switch v := v.(*MaxNrofTciStates); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25294,7 +25399,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[258].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofUlAllocations); i {
+			switch v := v.(*MaxNrofTciStates1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25306,7 +25411,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[259].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxQfi); i {
+			switch v := v.(*MaxNrofUlAllocations); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25318,7 +25423,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[260].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxRaCSirsResources); i {
+			switch v := v.(*MaxQfi); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25330,7 +25435,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[261].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxRaOccasionsPerCsirs); i {
+			switch v := v.(*MaxRaCSirsResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25342,7 +25447,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[262].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxRaOccasions1); i {
+			switch v := v.(*MaxRaOccasionsPerCsirs); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25354,7 +25459,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[263].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxRaSSbResources); i {
+			switch v := v.(*MaxRaOccasions1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25366,7 +25471,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[264].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxScss); i {
+			switch v := v.(*MaxRaSSbResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25378,7 +25483,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[265].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxSecondaryCellGroups); i {
+			switch v := v.(*MaxScss); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25390,7 +25495,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[266].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofServingCellsEutra); i {
+			switch v := v.(*MaxSecondaryCellGroups); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25402,7 +25507,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[267].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxMbsfnAllocations); i {
+			switch v := v.(*MaxNrofServingCellsEutra); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25414,7 +25519,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[268].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofMultiBands); i {
+			switch v := v.(*MaxMbsfnAllocations); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25426,7 +25531,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[269].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellSftd); i {
+			switch v := v.(*MaxNrofMultiBands); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25438,7 +25543,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[270].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxReportConfigId); i {
+			switch v := v.(*MaxCellSftd); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25450,7 +25555,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[271].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCodebooks); i {
+			switch v := v.(*MaxReportConfigId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25462,7 +25567,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[272].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiRSResourcesExtr16); i {
+			switch v := v.(*MaxNrofCodebooks); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25474,7 +25579,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[273].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiRSResources); i {
+			switch v := v.(*MaxNrofCsiRSResourcesExtr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25486,7 +25591,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[274].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiRSResourcesAltr16); i {
+			switch v := v.(*MaxNrofCsiRSResources); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25498,7 +25603,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[275].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCsiRSResourcesAlt1R16); i {
+			switch v := v.(*MaxNrofCsiRSResourcesAltr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25510,7 +25615,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[276].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSriPUschMappings); i {
+			switch v := v.(*MaxNrofCsiRSResourcesAlt1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25522,7 +25627,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[277].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSriPUschMappings1); i {
+			switch v := v.(*MaxNrofSriPUschMappings); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25534,7 +25639,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[278].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxSib); i {
+			switch v := v.(*MaxNrofSriPUschMappings1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25546,7 +25651,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[279].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxSiMessage); i {
+			switch v := v.(*MaxSib); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25558,7 +25663,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[280].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxPoperPf); i {
+			switch v := v.(*MaxSiMessage); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25570,7 +25675,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[281].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxAccessCat1); i {
+			switch v := v.(*MaxPoperPf); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25582,7 +25687,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[282].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxBarringInfoSet); i {
+			switch v := v.(*MaxAccessCat1); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25594,7 +25699,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[283].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCellEutra); i {
+			switch v := v.(*MaxBarringInfoSet); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25606,7 +25711,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[284].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxEutraCarrier); i {
+			switch v := v.(*MaxCellEutra); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25618,7 +25723,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[285].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxPlmnidentities); i {
+			switch v := v.(*MaxEutraCarrier); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25630,7 +25735,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[286].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxDownlinkFeatureSets); i {
+			switch v := v.(*MaxPlmnidentities); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25642,7 +25747,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[287].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxUplinkFeatureSets); i {
+			switch v := v.(*MaxDownlinkFeatureSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25654,7 +25759,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[288].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxEutraDLFeatureSets); i {
+			switch v := v.(*MaxUplinkFeatureSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25666,7 +25771,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[289].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxEutraULFeatureSets); i {
+			switch v := v.(*MaxEutraDLFeatureSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25678,7 +25783,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[290].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFeatureSetsPerBand); i {
+			switch v := v.(*MaxEutraULFeatureSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25690,7 +25795,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[291].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxPerCcFeatureSets); i {
+			switch v := v.(*MaxFeatureSetsPerBand); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25702,7 +25807,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[292].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxFeatureSetCombinations); i {
+			switch v := v.(*MaxPerCcFeatureSets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25714,7 +25819,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[293].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxInterRatRStdFreq); i {
+			switch v := v.(*MaxFeatureSetCombinations); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25726,7 +25831,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[294].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxHrnnLenr16); i {
+			switch v := v.(*MaxInterRatRStdFreq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25738,7 +25843,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[295].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNpnr16); i {
+			switch v := v.(*MaxHrnnLenr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25750,7 +25855,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[296].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrOfMinSchedulingOffsetValuesr16); i {
+			switch v := v.(*MaxNpnr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25762,7 +25867,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[297].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxK0SchedulingOffsetr16); i {
+			switch v := v.(*MaxNrOfMinSchedulingOffsetValuesr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25774,7 +25879,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[298].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxK2SchedulingOffsetr16); i {
+			switch v := v.(*MaxK0SchedulingOffsetr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25786,7 +25891,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[299].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxDci26Sizer16); i {
+			switch v := v.(*MaxK2SchedulingOffsetr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25798,7 +25903,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[300].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxDci26Size1R16); i {
+			switch v := v.(*MaxDci26Sizer16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25810,7 +25915,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[301].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofUlAllocationsr16); i {
+			switch v := v.(*MaxDci26Size1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25822,7 +25927,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[302].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofP0PUschSetr16); i {
+			switch v := v.(*MaxNrofUlAllocationsr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25834,7 +25939,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[303].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxOnDemandSibr16); i {
+			switch v := v.(*MaxNrofP0PUschSetr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25846,7 +25951,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[304].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxOnDemandPosSibr16); i {
+			switch v := v.(*MaxOnDemandSibr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25858,7 +25963,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[305].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCiDCiPayloadSizer16); i {
+			switch v := v.(*MaxOnDemandPosSibr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25870,7 +25975,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[306].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCiDCiPayloadSize1R16); i {
+			switch v := v.(*MaxCiDCiPayloadSizer16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25882,7 +25987,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[307].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxWlanIdReportr16); i {
+			switch v := v.(*MaxCiDCiPayloadSize1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25894,7 +25999,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[308].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxWlanNamer16); i {
+			switch v := v.(*MaxWlanIdReportr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25906,7 +26011,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[309].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxRareportr16); i {
+			switch v := v.(*MaxWlanNamer16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25918,7 +26023,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[310].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxTxConfigr16); i {
+			switch v := v.(*MaxRareportr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25930,7 +26035,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[311].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxTxConfig1R16); i {
+			switch v := v.(*MaxTxConfigr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25942,7 +26047,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[312].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxPsschTxConfigr16); i {
+			switch v := v.(*MaxTxConfig1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25954,7 +26059,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[313].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCliRSsiResourcesr16); i {
+			switch v := v.(*MaxPsschTxConfigr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25966,7 +26071,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[314].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCliRSsiResources1R16); i {
+			switch v := v.(*MaxNrofCliRSsiResourcesr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25978,7 +26083,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[315].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCliSRsResourcesr16); i {
+			switch v := v.(*MaxNrofCliRSsiResources1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -25990,7 +26095,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[316].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxCliReportr16); i {
+			switch v := v.(*MaxNrofCliSRsResourcesr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26002,7 +26107,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[317].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofConfiguredGrantConfigr16); i {
+			switch v := v.(*MaxCliReportr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26014,7 +26119,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[318].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofConfiguredGrantConfig1R16); i {
+			switch v := v.(*MaxNrofConfiguredGrantConfigr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26026,7 +26131,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[319].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofCgType2DeactivationState); i {
+			switch v := v.(*MaxNrofConfiguredGrantConfig1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26038,7 +26143,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[320].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofConfiguredGrantConfigMac1R16); i {
+			switch v := v.(*MaxNrofCgType2DeactivationState); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26050,7 +26155,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[321].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSpsConfigr16); i {
+			switch v := v.(*MaxNrofConfiguredGrantConfigMac1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26062,7 +26167,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[322].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSpsConfig1R16); i {
+			switch v := v.(*MaxNrofSpsConfigr16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26074,7 +26179,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[323].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofSpsDeactivationState); i {
+			switch v := v.(*MaxNrofSpsConfig1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26086,7 +26191,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[324].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofDormancyGroups); i {
+			switch v := v.(*MaxNrofSpsDeactivationState); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26098,7 +26203,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[325].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofPucchResourceGroups1R16); i {
+			switch v := v.(*MaxNrofDormancyGroups); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26110,7 +26215,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[326].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofServingCellsTcir16); i {
+			switch v := v.(*MaxNrofPucchResourceGroups1R16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26122,7 +26227,7 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[327].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxNrofTxDcTwoCarrierr16); i {
+			switch v := v.(*MaxNrofServingCellsTcir16); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -26134,6 +26239,18 @@ func file_CSI_ReportConfig_proto_init() {
 			}
 		}
 		file_CSI_ReportConfig_proto_msgTypes[328].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MaxNrofTxDcTwoCarrierr16); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_CSI_ReportConfig_proto_msgTypes[329].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MaxNrofPdcchBlindDetectionMixed1R16); i {
 			case 0:
 				return &v.state
@@ -26287,8 +26404,12 @@ func file_CSI_ReportConfig_proto_init() {
 		(*N1N2CodebookSubsetRestrictionr16TypeIir16_EightTwo)(nil),
 		(*N1N2CodebookSubsetRestrictionr16TypeIir16_SixteenOne)(nil),
 	}
-	file_CSI_ReportConfig_proto_msgTypes[49].OneofWrappers = []interface{}{
-		(*CodebookTyper16CodebookConfigr16_Type2)(nil),
+	file_CSI_ReportConfig_proto_msgTypes[48].OneofWrappers = []interface{}{
+		(*SubTypetype2R16_TypeIiR16)(nil),
+		(*SubTypetype2R16_TypeIiPortSelectionR16)(nil),
+	}
+	file_CSI_ReportConfig_proto_msgTypes[50].OneofWrappers = []interface{}{
+		(*CodebookTyper16CodebookConfigr16_Type2R16)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -26296,7 +26417,7 @@ func file_CSI_ReportConfig_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_CSI_ReportConfig_proto_rawDesc,
 			NumEnums:      15,
-			NumMessages:   329,
+			NumMessages:   330,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -395,7 +395,7 @@ message PucchCSiResource {
 // {portIndex8PortIndexFor8Ranks}
 message PortIndex8PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
-    optional PortIndex8 rank1_8 = 1 [ json_name="rank1-8"];
+    optional PortIndex8 rank1_8 = 1 [json_name="rank1-8"];
     // @inject_tag: aper:"optional,sizeLB:2,sizeUB:2,"
     repeated PortIndex8 rank2_8 = 2 [json_name="rank2-8"];
     // @inject_tag: aper:"optional,sizeLB:3,sizeUB:3,"
@@ -416,7 +416,7 @@ message PortIndex8PortIndexFor8Ranks {
 // {portIndex4PortIndexFor8Ranks}
 message PortIndex4PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
-    optional PortIndex4 rank1_4 = 1 [ json_name="rank1-4"];
+    optional PortIndex4 rank1_4 = 1 [json_name="rank1-4"];
     // @inject_tag: aper:"optional,sizeLB:2,sizeUB:2,"
     repeated PortIndex4 rank2_4 = 2 [json_name="rank2-4"];
     // @inject_tag: aper:"optional,sizeLB:3,sizeUB:3,"
@@ -756,10 +756,22 @@ message TypeIiPortSelectionr16subType {
     asn1.v1.BitString type_ii_port_selection_ri_restriction_r16 = 2 [ json_name="typeII-PortSelectionRI-Restriction-r16"];
 };
 
+// choice from CSI-ReportConfig.asn1:277
+// {subTypetype2-r16}
+message SubTypetype2r16 {
+    // choice from CSI-ReportConfig.asn1:277
+    oneof sub_typetype2_r16 {
+        // @inject_tag: aper:"choiceIdx:1,"
+        TypeIir16subType type_ii_r16 = 1 [ json_name="typeII-r16"];
+        // @inject_tag: aper:"choiceIdx:2,"
+        TypeIiPortSelectionr16subType type_ii_port_selection_r16 = 2 [ json_name="typeII-PortSelection-r16"];
+    }
+};
+
 // sequence from CSI-ReportConfig.asn1:282
-// {type2codebookType-r16}
-message Type2codebookTyper16 {
-    SubTypetype2 sub_type = 1 [ json_name="subType"];
+// {type2-r16codebookType-r16}
+message Type2r16codebookTyper16 {
+    SubTypetype2r16 sub_type = 1 [ json_name="subType"];
     // @inject_tag: aper:"valueLB:1,valueUB:2,"
     int32 number_of_pmi_subbands_per_cqi_subband_r16 = 2 [ json_name="numberOfPMI-SubbandsPerCQI-Subband-r16"];
     // @inject_tag: aper:"valueLB:1,valueUB:8,"
@@ -772,7 +784,7 @@ message CodebookTyper16CodebookConfigr16 {
     // choice from CSI-ReportConfig.asn1:286
     oneof codebook_type_r16_codebook_config_r16 {
         // @inject_tag: aper:"choiceIdx:1,"
-        Type2codebookTyper16 type2 = 1 [ json_name="type2"];
+        Type2r16codebookTyper16 type2_r16 = 1 [ json_name="type2-r16"];
     }
 };
 
