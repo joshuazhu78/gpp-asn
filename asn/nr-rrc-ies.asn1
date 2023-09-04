@@ -84,7 +84,7 @@ CSI-ReportConfig ::=                SEQUENCE {
             nrofReportedRS                          ENUMERATED {n1, n2, n3, n4}                                 OPTIONAL    -- Need S
         }
     },
-    cqi-Table                   ENUMERATED {table1, table2, table3, spare1}                                     OPTIONAL,   -- Need R
+    cqi-Table                   ENUMERATED {table1, table2, table3, table4-r17}                                     OPTIONAL,   -- Need R
     subbandSize                 ENUMERATED {value1, value2},
     non-PMI-PortIndication      SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-ResourcesPerConfig)) OF PortIndexFor8Ranks OPTIONAL,   -- Need R
     ...,
@@ -107,6 +107,37 @@ CSI-ReportConfig ::=                SEQUENCE {
        ssb-Index-SINR-r16                   NULL
     }                                                                                                           OPTIONAL,   -- Need R
     codebookConfig-r16                          CodebookConfig-r16                                              OPTIONAL    -- Need R
+    ]],
+    [[
+    cqi-BitsPerSubband-r17              ENUMERATED {bits4}                                                      OPTIONAL,   -- Need R
+    groupBasedBeamReporting-v1710       SEQUENCE {
+        nrofReportedGroups-r17              ENUMERATED {n1, n2, n3, n4}
+    }                                                                                                           OPTIONAL,   -- Need R
+    codebookConfig-r17                  CodebookConfig-r17                                                      OPTIONAL,   -- Need R
+    sharedCMR-r17                       ENUMERATED {enable}                                                     OPTIONAL,   -- Need R
+    csi-ReportMode-r17                  ENUMERATED {mode1, mode2}                                               OPTIONAL,   -- Need R
+    numberOfSingleTRP-CSI-Mode1-r17     ENUMERATED {n0, n1, n2}                                                 OPTIONAL,   -- Need R
+    reportQuantity-r17                  CHOICE {
+        cri-RSRP-Index-r17                  NULL,
+        ssb-Index-RSRP-Index-r17            NULL,
+        cri-SINR-Index-r17                  NULL,
+        ssb-Index-SINR-Index-r17            NULL
+    }                                                                                                           OPTIONAL    -- Need R
+    ]],
+    [[
+    semiPersistentOnPUSCH-v1720         SEQUENCE {
+        reportSlotOffsetList-r17            SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
+        reportSlotOffsetListDCI-0-2-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
+        reportSlotOffsetListDCI-0-1-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL    -- Need R
+    }                                                                                                           OPTIONAL,   -- Need R
+    aperiodic-v1720                     SEQUENCE {
+        reportSlotOffsetList-r17            SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
+        reportSlotOffsetListDCI-0-2-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
+        reportSlotOffsetListDCI-0-1-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL    -- Need R
+    }                                                                                                           OPTIONAL    -- Need R
+    ]],
+    [[
+    codebookConfig-v1730                CodebookConfig-v1730                                                    OPTIONAL    -- Need R
     ]]
 }
 
@@ -282,6 +313,79 @@ CodebookConfig-r16  ::=                SEQUENCE  {
             },
         numberOfPMI-SubbandsPerCQI-Subband-r16 INTEGER (1..2),
         paramCombination-r16                   INTEGER (1..8)
+        }
+    }
+}
+
+CodebookConfig-r17  ::=               SEQUENCE  {
+    codebookType-r17                      CHOICE   {
+        type1-r17                             SEQUENCE  {
+            typeI-SinglePanel-Group1-r17          SEQUENCE {
+                nrOfAntennaPorts                      CHOICE {
+                    two                                   SEQUENCE {
+                        twoTX-CodebookSubsetRestriction1-r17  BIT STRING (SIZE (6))
+                    },
+                    moreThanTwo                            SEQUENCE {
+                        n1-n2                                        CHOICE {
+                            two-one-TypeI-SinglePanel-Restriction1-r17       BIT STRING (SIZE (8)),
+                            two-two-TypeI-SinglePanel-Restriction1-r17       BIT STRING (SIZE (64)),
+                            four-one-TypeI-SinglePanel-Restriction1-r17      BIT STRING (SIZE (16)),
+                            three-two-TypeI-SinglePanel-Restriction1-r17     BIT STRING (SIZE (96)),
+                            six-one-TypeI-SinglePanel-Restriction1-r17       BIT STRING (SIZE (24)),
+                            four-two-TypeI-SinglePanel-Restriction1-r17      BIT STRING (SIZE (128)),
+                            eight-one-TypeI-SinglePanel-Restriction1-r17     BIT STRING (SIZE (32)),
+                            four-three-TypeI-SinglePanel-Restriction1-r17    BIT STRING (SIZE (192)),
+                            six-two-TypeI-SinglePanel-Restriction1-r17       BIT STRING (SIZE (192)),
+                            twelve-one-TypeI-SinglePanel-Restriction1-r17    BIT STRING (SIZE (48)),
+                            four-four-TypeI-SinglePanel-Restriction1-r17     BIT STRING (SIZE (256)),
+                            eight-two-TypeI-SinglePanel-Restriction1-r17     BIT STRING (SIZE (256)),
+                            sixteen-one-TypeI-SinglePanel-Restriction1-r17   BIT STRING (SIZE (64))
+                        }
+                    }
+                }
+            }                                                                                       OPTIONAL,  -- Need R
+            typeI-SinglePanel-Group2-r17           SEQUENCE {
+                nrOfAntennaPorts                       CHOICE {
+                    two                                    SEQUENCE {
+                        twoTX-CodebookSubsetRestriction2-r17   BIT STRING (SIZE (6))
+                    },
+                    moreThanTwo                            SEQUENCE {
+                        n1-n2                                        CHOICE {
+                            two-one-TypeI-SinglePanel-Restriction2-r17       BIT STRING (SIZE (8)),
+                            two-two-TypeI-SinglePanel-Restriction2-r17       BIT STRING (SIZE (64)),
+                            four-one-TypeI-SinglePanel-Restriction2-r17      BIT STRING (SIZE (16)),
+                            three-two-TypeI-SinglePanel-Restriction2-r17     BIT STRING (SIZE (96)),
+                            six-one-TypeI-SinglePanel-Restriction2-r17       BIT STRING (SIZE (24)),
+                            four-two-TypeI-SinglePanel-Restriction2-r17      BIT STRING (SIZE (128)),
+                            eight-one-TypeI-SinglePanel-Restriction2-r17     BIT STRING (SIZE (32)),
+                            four-three-TypeI-SinglePanel-Restriction2-r17    BIT STRING (SIZE (192)),
+                            six-two-TypeI-SinglePanel-Restriction2-r17       BIT STRING (SIZE (192)),
+                            twelve-one-TypeI-SinglePanel-Restriction2-r17    BIT STRING (SIZE (48)),
+                            four-four-TypeI-SinglePanel-Restriction2-r17     BIT STRING (SIZE (256)),
+                            eight-two-TypeI-SinglePanel-Restriction2-r17     BIT STRING (SIZE (256)),
+                            sixteen-one-TypeI-SinglePanel-Restriction2-r17   BIT STRING (SIZE (64))
+                        }
+                    }
+                }
+            }                                                                                       OPTIONAL,  -- Need R
+            typeI-SinglePanel-ri-RestrictionSTRP-r17                    BIT STRING (SIZE (8))       OPTIONAL,  -- Need R
+            typeI-SinglePanel-ri-RestrictionSDM-r17                     BIT STRING (SIZE (4))       OPTIONAL   -- Need R
+        },
+        type2-r17                             SEQUENCE {
+            typeII-PortSelection-r17              SEQUENCE {
+                paramCombination-r17                   INTEGER (1..8),
+                valueOfN-r17                           ENUMERATED {n2, n4}                          OPTIONAL,  -- Need R
+                numberOfPMI-SubbandsPerCQI-Subband-r17 INTEGER(1..2)                                OPTIONAL,  -- Need R
+                typeII-PortSelectionRI-Restriction-r17 BIT STRING (SIZE (4))
+            }
+        }
+    }
+}
+
+CodebookConfig-v1730  ::=             SEQUENCE  {
+    codebookType-v1730                    CHOICE   {
+        type1-v1730                           SEQUENCE  {
+            codebookMode                          INTEGER (1..2)                                    OPTIONAL   -- Need R
         }
     }
 }

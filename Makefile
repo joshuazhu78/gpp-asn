@@ -6,7 +6,7 @@ export GO111MODULE=on
 GPP_ASN1_VERSION     := latests
 ONOS_PROTOC_VERSION  := v1.0.2
 OUTPUT_DIR            =./build/_output
-SPEC_TXT             ?=38331-gb0
+SPEC_TXT             ?=38331-h50
 
 build: # @HELP build the Go binaries and run all validations (default)
 build:
@@ -25,7 +25,7 @@ extract: build
 
 protos-gen: # @HELP generates the proto file from asn1 syntax
 protos-gen: extract
-	asn1c -B asn/CSI-ReportConfig.asn1 > protos/CSI-ReportConfig.proto
+	asn1c -B asn/nr-rrc-ies.asn1 > protos/nr-rrc-ies.proto
 
 protos-go: # @HELP compile the protobuf files (using protoc-go Docker)
 protos-go:

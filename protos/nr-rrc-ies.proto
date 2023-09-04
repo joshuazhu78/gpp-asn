@@ -1,17 +1,17 @@
 ////////////////////// nr-rrc-ies.proto //////////////////////
-// Protobuf generated from /CSI-ReportConfig.asn1 by asn1c-0.9.29
+// Protobuf generated from /nr-rrc-ies.asn1 by asn1c-0.9.29
 // NR-RRC-IEs { iso(1) identified-organization(3) dod(6) internet(1) private(4) enterprise(1) threeGPP(10415) version2(2) rrc(2) nr-RRC-IEs(100) }
 
 syntax = "proto3";
 
-package _csi_report_config.v2;
+package nr_rrc_ies.v2;
 option go_package = "./nr-rrc-ies;nrrrciesv2";
 
 import "validate/v1/validate.proto";
 import "asn1/v1/asn1.proto";
 import "google/protobuf/empty.proto";
 
-// enumerated from CSI-ReportConfig.asn1:32
+// enumerated from nr-rrc-ies.asn1:32
 enum ReportSlotConfigsemiPersistentOnPusch {
     REPORT_SLOT_CONFIGSEMI_PERSISTENT_ON_PUSCH_SL5 = 0;
     REPORT_SLOT_CONFIGSEMI_PERSISTENT_ON_PUSCH_SL10 = 1;
@@ -22,43 +22,43 @@ enum ReportSlotConfigsemiPersistentOnPusch {
     REPORT_SLOT_CONFIGSEMI_PERSISTENT_ON_PUSCH_SL320 = 6;
 };
 
-// enumerated from CSI-ReportConfig.asn1:45
+// enumerated from nr-rrc-ies.asn1:45
 enum PdschBundleSizeForCsicriRii1Cqi {
     PDSCH_BUNDLE_SIZE_FOR_CSICRI_RII1_CQI_N2 = 0;
     PDSCH_BUNDLE_SIZE_FOR_CSICRI_RII1_CQI_N4 = 1;
 };
 
-// enumerated from CSI-ReportConfig.asn1:53
+// enumerated from nr-rrc-ies.asn1:53
 enum CqiFormatIndicatorreportFreqConfiguration {
     CQI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_CQI = 0;
     CQI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_SUBBAND_CQI = 1;
 };
 
-// enumerated from CSI-ReportConfig.asn1:54
+// enumerated from nr-rrc-ies.asn1:54
 enum PmiFormatIndicatorreportFreqConfiguration {
     PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI = 0;
     PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_SUBBAND_PMI = 1;
 };
 
-// enumerated from CSI-ReportConfig.asn1:77
+// enumerated from nr-rrc-ies.asn1:77
 enum TimeRestrictionForChannelMeasurementsCsireportConfig {
     TIME_RESTRICTION_FOR_CHANNEL_MEASUREMENTS_CSIREPORT_CONFIG_CONFIGURED = 0;
     TIME_RESTRICTION_FOR_CHANNEL_MEASUREMENTS_CSIREPORT_CONFIG_NOT_CONFIGURED = 1;
 };
 
-// enumerated from CSI-ReportConfig.asn1:78
+// enumerated from nr-rrc-ies.asn1:78
 enum TimeRestrictionForInterferenceMeasurementsCsireportConfig {
     TIME_RESTRICTION_FOR_INTERFERENCE_MEASUREMENTS_CSIREPORT_CONFIG_CONFIGURED = 0;
     TIME_RESTRICTION_FOR_INTERFERENCE_MEASUREMENTS_CSIREPORT_CONFIG_NOT_CONFIGURED = 1;
 };
 
-// enumerated from CSI-ReportConfig.asn1:80
+// enumerated from nr-rrc-ies.asn1:80
 enum DummyCsireportConfig {
     DUMMY_CSIREPORT_CONFIG_N1 = 0;
     DUMMY_CSIREPORT_CONFIG_N2 = 1;
 };
 
-// enumerated from CSI-ReportConfig.asn1:84
+// enumerated from nr-rrc-ies.asn1:84
 enum NrofReportedRsdisabled {
     NROF_REPORTED_RSDISABLED_N1 = 0;
     NROF_REPORTED_RSDISABLED_N2 = 1;
@@ -66,28 +66,59 @@ enum NrofReportedRsdisabled {
     NROF_REPORTED_RSDISABLED_N4 = 3;
 };
 
-// enumerated from CSI-ReportConfig.asn1:87
+// enumerated from nr-rrc-ies.asn1:87
 enum CqiTableCsireportConfig {
     CQI_TABLE_CSIREPORT_CONFIG_TABLE1 = 0;
     CQI_TABLE_CSIREPORT_CONFIG_TABLE2 = 1;
     CQI_TABLE_CSIREPORT_CONFIG_TABLE3 = 2;
-    CQI_TABLE_CSIREPORT_CONFIG_SPARE1 = 3;
+    CQI_TABLE_CSIREPORT_CONFIG_TABLE4_R17 = 3;
 };
 
-// enumerated from CSI-ReportConfig.asn1:88
+// enumerated from nr-rrc-ies.asn1:88
 enum SubbandSizeCsireportConfig {
     SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE1 = 0;
     SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2 = 1;
 };
 
-// enumerated from CSI-ReportConfig.asn1:93
+// enumerated from nr-rrc-ies.asn1:93
 enum ReportSlotConfigv1530semiPersistentOnPuschv1530 {
     REPORT_SLOT_CONFIGV1530SEMI_PERSISTENT_ON_PUSCHV1530_SL4 = 0;
     REPORT_SLOT_CONFIGV1530SEMI_PERSISTENT_ON_PUSCHV1530_SL8 = 1;
     REPORT_SLOT_CONFIGV1530SEMI_PERSISTENT_ON_PUSCHV1530_SL16 = 2;
 };
 
-// enumerated from CSI-ReportConfig.asn1:245
+// enumerated from nr-rrc-ies.asn1:112
+enum CqiBitsPerSubbandr17CsireportConfig {
+    CQI_BITS_PER_SUBBANDR17_CSIREPORT_CONFIG_BITS4 = 0;
+};
+
+// enumerated from nr-rrc-ies.asn1:114
+enum NrofReportedGroupsr17groupBasedBeamReportingv1710 {
+    NROF_REPORTED_GROUPSR17GROUP_BASED_BEAM_REPORTINGV1710_N1 = 0;
+    NROF_REPORTED_GROUPSR17GROUP_BASED_BEAM_REPORTINGV1710_N2 = 1;
+    NROF_REPORTED_GROUPSR17GROUP_BASED_BEAM_REPORTINGV1710_N3 = 2;
+    NROF_REPORTED_GROUPSR17GROUP_BASED_BEAM_REPORTINGV1710_N4 = 3;
+};
+
+// enumerated from nr-rrc-ies.asn1:117
+enum SharedCmrr17CsireportConfig {
+    SHARED_CMRR17_CSIREPORT_CONFIG_ENABLE = 0;
+};
+
+// enumerated from nr-rrc-ies.asn1:118
+enum CsiReportModer17CsireportConfig {
+    CSI_REPORT_MODER17_CSIREPORT_CONFIG_MODE1 = 0;
+    CSI_REPORT_MODER17_CSIREPORT_CONFIG_MODE2 = 1;
+};
+
+// enumerated from nr-rrc-ies.asn1:119
+enum NumberOfSingleTrpcsimode1r17CsireportConfig {
+    NUMBER_OF_SINGLE_TRPCSIMODE1R17_CSIREPORT_CONFIG_N0 = 0;
+    NUMBER_OF_SINGLE_TRPCSIMODE1R17_CSIREPORT_CONFIG_N1 = 1;
+    NUMBER_OF_SINGLE_TRPCSIMODE1R17_CSIREPORT_CONFIG_N2 = 2;
+};
+
+// enumerated from nr-rrc-ies.asn1:276
 enum PortSelectionSamplingSizetypeIiportSelection {
     PORT_SELECTION_SAMPLING_SIZETYPE_IIPORT_SELECTION_N1 = 0;
     PORT_SELECTION_SAMPLING_SIZETYPE_IIPORT_SELECTION_N2 = 1;
@@ -95,20 +126,20 @@ enum PortSelectionSamplingSizetypeIiportSelection {
     PORT_SELECTION_SAMPLING_SIZETYPE_IIPORT_SELECTION_N4 = 3;
 };
 
-// enumerated from CSI-ReportConfig.asn1:249
+// enumerated from nr-rrc-ies.asn1:280
 enum PhaseAlphabetSizetype2 {
     PHASE_ALPHABET_SIZETYPE2_N4 = 0;
     PHASE_ALPHABET_SIZETYPE2_N8 = 1;
 };
 
-// enumerated from CSI-ReportConfig.asn1:251
+// enumerated from nr-rrc-ies.asn1:282
 enum NumberOfBeamstype2 {
     NUMBER_OF_BEAMSTYPE2_TWO = 0;
     NUMBER_OF_BEAMSTYPE2_THREE = 1;
     NUMBER_OF_BEAMSTYPE2_FOUR = 2;
 };
 
-// enumerated from CSI-ReportConfig.asn1:279
+// enumerated from nr-rrc-ies.asn1:310
 enum PortSelectionSamplingSizer16typeIiportSelectionr16 {
     PORT_SELECTION_SAMPLING_SIZER16TYPE_IIPORT_SELECTIONR16_N1 = 0;
     PORT_SELECTION_SAMPLING_SIZER16TYPE_IIPORT_SELECTIONR16_N2 = 1;
@@ -116,14 +147,20 @@ enum PortSelectionSamplingSizer16typeIiportSelectionr16 {
     PORT_SELECTION_SAMPLING_SIZER16TYPE_IIPORT_SELECTIONR16_N4 = 3;
 };
 
-// range of Integer from CSI-ReportConfig.asn1:10
+// enumerated from nr-rrc-ies.asn1:377
+enum ValueOfNr17typeIiportSelectionr17 {
+    VALUE_OF_NR17TYPE_IIPORT_SELECTIONR17_N2 = 0;
+    VALUE_OF_NR17TYPE_IIPORT_SELECTIONR17_N4 = 1;
+};
+
+// range of Integer from nr-rrc-ies.asn1:10
 // {CSI-ReportConfigId}
 message CsiReportConfigId {
     // @inject_tag: aper:"valueLB:0,valueUB:47,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 47}, json_name="value"];
 };
 
-// sequence from CSI-ReportConfig.asn1:24
+// sequence from nr-rrc-ies.asn1:24
 // {periodicreportConfigType}
 message PeriodicreportConfigType {
     CsiReportPeriodicityAndOffset report_slot_config = 1 [ json_name="reportSlotConfig"];
@@ -131,7 +168,7 @@ message PeriodicreportConfigType {
     repeated PucchCSiResource pucch_csi_resource_list = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 4}, json_name="pucch-CSI-ResourceList"];
 };
 
-// sequence from CSI-ReportConfig.asn1:28
+// sequence from nr-rrc-ies.asn1:28
 // {semiPersistentOnPUCCHreportConfigType}
 message SemiPersistentOnPucchreportConfigType {
     CsiReportPeriodicityAndOffset report_slot_config = 1 [ json_name="reportSlotConfig"];
@@ -139,7 +176,7 @@ message SemiPersistentOnPucchreportConfigType {
     repeated PucchCSiResource pucch_csi_resource_list = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 4}, json_name="pucch-CSI-ResourceList"];
 };
 
-// sequence from CSI-ReportConfig.asn1:32
+// sequence from nr-rrc-ies.asn1:32
 // {semiPersistentOnPUSCHreportConfigType}
 message SemiPersistentOnPuschreportConfigType {
     // @inject_tag: aper:"valueLB:0,valueUB:6,"
@@ -149,17 +186,17 @@ message SemiPersistentOnPuschreportConfigType {
     P0PUschAlphaSetId p0alpha = 3 [ json_name="p0alpha"];
 };
 
-// sequence from CSI-ReportConfig.asn1:38
+// sequence from nr-rrc-ies.asn1:38
 // {aperiodicreportConfigType}
 message AperiodicreportConfigType {
     // @inject_tag: aper:"valueLB:0,valueUB:32,sizeLB:1,sizeUB:16,"
     repeated int32 report_slot_offset_list = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 16}, json_name="reportSlotOffsetList"];
 };
 
-// choice from CSI-ReportConfig.asn1:26
+// choice from nr-rrc-ies.asn1:26
 // {reportConfigTypeCSI-ReportConfig}
 message ReportConfigTypeCsiReportConfig {
-    // choice from CSI-ReportConfig.asn1:26
+    // choice from nr-rrc-ies.asn1:26
     oneof report_config_type_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         PeriodicreportConfigType periodic = 1 [ json_name="periodic"];
@@ -172,17 +209,17 @@ message ReportConfigTypeCsiReportConfig {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:45
+// sequence from nr-rrc-ies.asn1:45
 // {cri-RI-i1-CQIreportQuantity}
 message CriRIi1CQireportQuantity {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:1,"
     optional PdschBundleSizeForCsicriRii1Cqi pdsch_bundle_size_for_csi = 1 [ json_name="pdsch-BundleSizeForCSI"];
 };
 
-// choice from CSI-ReportConfig.asn1:41
+// choice from nr-rrc-ies.asn1:41
 // {reportQuantityCSI-ReportConfig}
 message ReportQuantityCsiReportConfig {
-    // choice from CSI-ReportConfig.asn1:41
+    // choice from nr-rrc-ies.asn1:41
     oneof report_quantity_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         int32 none = 1 [ json_name="none"];
@@ -203,11 +240,11 @@ message ReportQuantityCsiReportConfig {
     }
 };
 
-// choice from CSI-ReportConfig.asn1:56
+// choice from nr-rrc-ies.asn1:56
 // @inject_tag: aper:"choiceExt"
 // {csi-ReportingBandreportFreqConfiguration}
 message CsiReportingBandreportFreqConfiguration {
-    // choice from CSI-ReportConfig.asn1:56
+    // choice from nr-rrc-ies.asn1:56
     oneof csi_reporting_bandreport_freq_configuration {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:3,sizeUB:3,"
         asn1.v1.BitString subbands3 = 1 [ json_name="subbands3"];
@@ -246,7 +283,7 @@ message CsiReportingBandreportFreqConfiguration {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:53
+// sequence from nr-rrc-ies.asn1:53
 // {reportFreqConfigurationCSI-ReportConfig}
 message ReportFreqConfigurationCsiReportConfig {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:1,"
@@ -257,17 +294,17 @@ message ReportFreqConfigurationCsiReportConfig {
     optional CsiReportingBandreportFreqConfiguration csi_reporting_band = 3 [ json_name="csi-ReportingBand"];
 };
 
-// sequence from CSI-ReportConfig.asn1:84
+// sequence from nr-rrc-ies.asn1:84
 // {disabledgroupBasedBeamReporting}
 message DisabledgroupBasedBeamReporting {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:3,"
     optional NrofReportedRsdisabled nrof_reported_rs = 1 [ json_name="nrofReportedRS"];
 };
 
-// choice from CSI-ReportConfig.asn1:82
+// choice from nr-rrc-ies.asn1:82
 // {groupBasedBeamReportingCSI-ReportConfig}
 message GroupBasedBeamReportingCsiReportConfig {
-    // choice from CSI-ReportConfig.asn1:82
+    // choice from nr-rrc-ies.asn1:82
     oneof group_based_beam_reporting_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         int32 enabled = 1 [ json_name="enabled"];
@@ -276,14 +313,14 @@ message GroupBasedBeamReportingCsiReportConfig {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:94
+// sequence from nr-rrc-ies.asn1:94
 // {semiPersistentOnPUSCH-v1530CSI-ReportConfig}
 message SemiPersistentOnPuschv1530CsiReportConfig {
     // @inject_tag: aper:"valueLB:0,valueUB:2,"
     ReportSlotConfigv1530semiPersistentOnPuschv1530 report_slot_config_v1530 = 1 [ json_name="reportSlotConfig-v1530"];
 };
 
-// sequence from CSI-ReportConfig.asn1:98
+// sequence from nr-rrc-ies.asn1:98
 // {semiPersistentOnPUSCH-v1610CSI-ReportConfig}
 message SemiPersistentOnPuschv1610CsiReportConfig {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:32,sizeLB:1,sizeUB:64,"
@@ -292,7 +329,7 @@ message SemiPersistentOnPuschv1610CsiReportConfig {
     repeated int32 report_slot_offset_list_dci_0_1_r16 = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-1-r16"];
 };
 
-// sequence from CSI-ReportConfig.asn1:102
+// sequence from nr-rrc-ies.asn1:102
 // {aperiodic-v1610CSI-ReportConfig}
 message Aperiodicv1610CsiReportConfig {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:32,sizeLB:1,sizeUB:64,"
@@ -301,10 +338,10 @@ message Aperiodicv1610CsiReportConfig {
     repeated int32 report_slot_offset_list_dci_0_1_r16 = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-1-r16"];
 };
 
-// choice from CSI-ReportConfig.asn1:106
+// choice from nr-rrc-ies.asn1:106
 // {reportQuantity-r16CSI-ReportConfig}
 message ReportQuantityr16CsiReportConfig {
-    // choice from CSI-ReportConfig.asn1:106
+    // choice from nr-rrc-ies.asn1:106
     oneof report_quantity_r16_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         int32 cri_sinr_r16 = 1 [ json_name="cri-SINR-r16"];
@@ -313,7 +350,52 @@ message ReportQuantityr16CsiReportConfig {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:17
+// sequence from nr-rrc-ies.asn1:115
+// {groupBasedBeamReporting-v1710CSI-ReportConfig}
+message GroupBasedBeamReportingv1710CsiReportConfig {
+    // @inject_tag: aper:"valueLB:0,valueUB:3,"
+    NrofReportedGroupsr17groupBasedBeamReportingv1710 nrof_reported_groups_r17 = 1 [ json_name="nrofReportedGroups-r17"];
+};
+
+// choice from nr-rrc-ies.asn1:121
+// {reportQuantity-r17CSI-ReportConfig}
+message ReportQuantityr17CsiReportConfig {
+    // choice from nr-rrc-ies.asn1:121
+    oneof report_quantity_r17_csi_report_config {
+        // @inject_tag: aper:"choiceIdx:1,"
+        int32 cri_rsrp_index_r17 = 1 [ json_name="cri-RSRP-Index-r17"];
+        // @inject_tag: aper:"choiceIdx:2,"
+        int32 ssb_index_rsrp_index_r17 = 2 [ json_name="ssb-Index-RSRP-Index-r17"];
+        // @inject_tag: aper:"choiceIdx:3,"
+        int32 cri_sinr_index_r17 = 3 [ json_name="cri-SINR-Index-r17"];
+        // @inject_tag: aper:"choiceIdx:4,"
+        int32 ssb_index_sinr_index_r17 = 4 [ json_name="ssb-Index-SINR-Index-r17"];
+    }
+};
+
+// sequence from nr-rrc-ies.asn1:129
+// {semiPersistentOnPUSCH-v1720CSI-ReportConfig}
+message SemiPersistentOnPuschv1720CsiReportConfig {
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:128,sizeLB:1,sizeUB:64,"
+    repeated int32 report_slot_offset_list_r17 = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetList-r17"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:128,sizeLB:1,sizeUB:64,"
+    repeated int32 report_slot_offset_list_dci_0_2_r17 = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-2-r17"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:128,sizeLB:1,sizeUB:64,"
+    repeated int32 report_slot_offset_list_dci_0_1_r17 = 3 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-1-r17"];
+};
+
+// sequence from nr-rrc-ies.asn1:134
+// {aperiodic-v1720CSI-ReportConfig}
+message Aperiodicv1720CsiReportConfig {
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:128,sizeLB:1,sizeUB:64,"
+    repeated int32 report_slot_offset_list_r17 = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetList-r17"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:128,sizeLB:1,sizeUB:64,"
+    repeated int32 report_slot_offset_list_dci_0_2_r17 = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-2-r17"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:128,sizeLB:1,sizeUB:64,"
+    repeated int32 report_slot_offset_list_dci_0_1_r17 = 3 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-1-r17"];
+};
+
+// sequence from nr-rrc-ies.asn1:17
 // @inject_tag: aper:"valueExt"
 // {CSI-ReportConfig}
 message CsiReportConfig {
@@ -354,12 +436,32 @@ message CsiReportConfig {
     optional ReportQuantityr16CsiReportConfig report_quantity_r16 = 20 [ json_name="reportQuantity-r16"];
     // @inject_tag: aper:"optional,fromValueExt,"
     optional CodebookConfigr16 codebook_config_r16 = 21 [ json_name="codebookConfig-r16"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:0,fromValueExt,"
+    optional CqiBitsPerSubbandr17CsireportConfig cqi_bits_per_subband_r17 = 22 [ json_name="cqi-BitsPerSubband-r17"];
+    // @inject_tag: aper:"optional,fromValueExt,"
+    optional GroupBasedBeamReportingv1710CsiReportConfig group_based_beam_reporting_v1710 = 23 [ json_name="groupBasedBeamReporting-v1710"];
+    // @inject_tag: aper:"optional,fromValueExt,"
+    optional CodebookConfigr17 codebook_config_r17 = 24 [ json_name="codebookConfig-r17"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:0,fromValueExt,"
+    optional SharedCmrr17CsireportConfig shared_cmr_r17 = 25 [ json_name="sharedCMR-r17"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:1,fromValueExt,"
+    optional CsiReportModer17CsireportConfig csi_report_mode_r17 = 26 [ json_name="csi-ReportMode-r17"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:2,fromValueExt,"
+    optional NumberOfSingleTrpcsimode1r17CsireportConfig number_of_single_trp_csi_mode1_r17 = 27 [ json_name="numberOfSingleTRP-CSI-Mode1-r17"];
+    // @inject_tag: aper:"optional,fromValueExt,"
+    optional ReportQuantityr17CsiReportConfig report_quantity_r17 = 28 [ json_name="reportQuantity-r17"];
+    // @inject_tag: aper:"optional,fromValueExt,"
+    optional SemiPersistentOnPuschv1720CsiReportConfig semi_persistent_on_pusch_v1720 = 29 [ json_name="semiPersistentOnPUSCH-v1720"];
+    // @inject_tag: aper:"optional,fromValueExt,"
+    optional Aperiodicv1720CsiReportConfig aperiodic_v1720 = 30 [ json_name="aperiodic-v1720"];
+    // @inject_tag: aper:"optional,fromValueExt,"
+    optional CodebookConfigv1730 codebook_config_v1730 = 31 [ json_name="codebookConfig-v1730"];
 };
 
-// sequence from CSI-ReportConfig.asn1:114
+// sequence from nr-rrc-ies.asn1:145
 // {CSI-ReportPeriodicityAndOffset}
 message CsiReportPeriodicityAndOffset {
-    // choice from CSI-ReportConfig.asn1:114
+    // choice from nr-rrc-ies.asn1:145
     oneof csi_report_periodicity_and_offset {
         // @inject_tag: aper:"choiceIdx:1,valueLB:0,valueUB:3,"
         int32 slots4 = 1 [ json_name="slots4"];
@@ -384,60 +486,60 @@ message CsiReportPeriodicityAndOffset {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:127
+// sequence from nr-rrc-ies.asn1:158
 // {PUCCH-CSI-Resource}
 message PucchCSiResource {
     BwpId uplink_bandwidth_part_id = 1 [ json_name="uplinkBandwidthPartId"];
     PucchResourceId pucch_resource = 2 [ json_name="pucch-Resource"];
 };
 
-// sequence from CSI-ReportConfig.asn1:133
+// sequence from nr-rrc-ies.asn1:164
 // {portIndex8PortIndexFor8Ranks}
 message PortIndex8PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
-    optional PortIndex8 rank1_8 = 1 [json_name="rank1-8"];
+    optional PortIndex8 rank1_8 = 1 [ json_name="rank1-8"];
     // @inject_tag: aper:"optional,sizeLB:2,sizeUB:2,"
-    repeated PortIndex8 rank2_8 = 2 [json_name="rank2-8"];
+    repeated PortIndex8 rank2_8 = 2 [(validate.v1.rules).repeated = {min_items: 2, max_items: 2}, json_name="rank2-8"];
     // @inject_tag: aper:"optional,sizeLB:3,sizeUB:3,"
-    repeated PortIndex8 rank3_8 = 3 [json_name="rank3-8"];
+    repeated PortIndex8 rank3_8 = 3 [(validate.v1.rules).repeated = {min_items: 3, max_items: 3}, json_name="rank3-8"];
     // @inject_tag: aper:"optional,sizeLB:4,sizeUB:4,"
-    repeated PortIndex8 rank4_8 = 4 [json_name="rank4-8"];
+    repeated PortIndex8 rank4_8 = 4 [(validate.v1.rules).repeated = {min_items: 4, max_items: 4}, json_name="rank4-8"];
     // @inject_tag: aper:"optional,sizeLB:5,sizeUB:5,"
-    repeated PortIndex8 rank5_8 = 5 [json_name="rank5-8"];
+    repeated PortIndex8 rank5_8 = 5 [(validate.v1.rules).repeated = {min_items: 5, max_items: 5}, json_name="rank5-8"];
     // @inject_tag: aper:"optional,sizeLB:6,sizeUB:6,"
-    repeated PortIndex8 rank6_8 = 6 [json_name="rank6-8"];
+    repeated PortIndex8 rank6_8 = 6 [(validate.v1.rules).repeated = {min_items: 6, max_items: 6}, json_name="rank6-8"];
     // @inject_tag: aper:"optional,sizeLB:7,sizeUB:7,"
-    repeated PortIndex8 rank7_8 = 7 [json_name="rank7-8"];
+    repeated PortIndex8 rank7_8 = 7 [(validate.v1.rules).repeated = {min_items: 7, max_items: 7}, json_name="rank7-8"];
     // @inject_tag: aper:"optional,sizeLB:8,sizeUB:8,"
-    repeated PortIndex8 rank8_8 = 8 [json_name="rank8-8"];
+    repeated PortIndex8 rank8_8 = 8 [(validate.v1.rules).repeated = {min_items: 8, max_items: 8}, json_name="rank8-8"];
 };
 
-// sequence from CSI-ReportConfig.asn1:143
+// sequence from nr-rrc-ies.asn1:174
 // {portIndex4PortIndexFor8Ranks}
 message PortIndex4PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
-    optional PortIndex4 rank1_4 = 1 [json_name="rank1-4"];
+    optional PortIndex4 rank1_4 = 1 [ json_name="rank1-4"];
     // @inject_tag: aper:"optional,sizeLB:2,sizeUB:2,"
-    repeated PortIndex4 rank2_4 = 2 [json_name="rank2-4"];
+    repeated PortIndex4 rank2_4 = 2 [(validate.v1.rules).repeated = {min_items: 2, max_items: 2}, json_name="rank2-4"];
     // @inject_tag: aper:"optional,sizeLB:3,sizeUB:3,"
-    repeated PortIndex4 rank3_4 = 3 [json_name="rank3-4"];
+    repeated PortIndex4 rank3_4 = 3 [(validate.v1.rules).repeated = {min_items: 3, max_items: 3}, json_name="rank3-4"];
     // @inject_tag: aper:"optional,sizeLB:4,sizeUB:4,"
-    repeated PortIndex4 rank4_4 = 4 [json_name="rank4-4"];
+    repeated PortIndex4 rank4_4 = 4 [(validate.v1.rules).repeated = {min_items: 4, max_items: 4}, json_name="rank4-4"];
 };
 
-// sequence from CSI-ReportConfig.asn1:149
+// sequence from nr-rrc-ies.asn1:180
 // {portIndex2PortIndexFor8Ranks}
 message PortIndex2PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
-    optional PortIndex2 rank1_2 = 1 [json_name="rank1-2"];
+    optional PortIndex2 rank1_2 = 1 [ json_name="rank1-2"];
     // @inject_tag: aper:"optional,sizeLB:2,sizeUB:2,"
-    repeated PortIndex2 rank2_2 = 2 [json_name="rank2-2"];
+    repeated PortIndex2 rank2_2 = 2 [(validate.v1.rules).repeated = {min_items: 2, max_items: 2}, json_name="rank2-2"];
 };
 
-// sequence from CSI-ReportConfig.asn1:141
+// sequence from nr-rrc-ies.asn1:172
 // {PortIndexFor8Ranks}
 message PortIndexFor8Ranks {
-    // choice from CSI-ReportConfig.asn1:141
+    // choice from nr-rrc-ies.asn1:172
     oneof port_index_for8_ranks {
         // @inject_tag: aper:"choiceIdx:1,"
         PortIndex8PortIndexFor8Ranks port_index8 = 1 [ json_name="portIndex8"];
@@ -450,59 +552,59 @@ message PortIndexFor8Ranks {
     }
 };
 
-// range of Integer from CSI-ReportConfig.asn1:155
+// range of Integer from nr-rrc-ies.asn1:186
 // {PortIndex8}
 message PortIndex8 {
     // @inject_tag: aper:"valueLB:0,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 7}, json_name="value"];
 };
 
-// range of Integer from CSI-ReportConfig.asn1:156
+// range of Integer from nr-rrc-ies.asn1:187
 // {PortIndex4}
 message PortIndex4 {
     // @inject_tag: aper:"valueLB:0,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 3}, json_name="value"];
 };
 
-// range of Integer from CSI-ReportConfig.asn1:157
+// range of Integer from nr-rrc-ies.asn1:188
 // {PortIndex2}
 message PortIndex2 {
     // @inject_tag: aper:"valueLB:0,valueUB:1,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 1}, json_name="value"];
 };
 
-// range of Integer from CSI-ReportConfig.asn1:163
+// range of Integer from nr-rrc-ies.asn1:194
 // {ServCellIndex}
 message ServCellIndex {
     // @inject_tag: aper:"valueLB:0,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 31}, json_name="value"];
 };
 
-// range of Integer from CSI-ReportConfig.asn1:169
+// range of Integer from nr-rrc-ies.asn1:200
 // {CSI-ResourceConfigId}
 message CsiResourceConfigId {
     // @inject_tag: aper:"valueLB:0,valueUB:111,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 111}, json_name="value"];
 };
 
-// range of Integer from CSI-ReportConfig.asn1:173
+// range of Integer from nr-rrc-ies.asn1:204
 // {P0-PUSCH-AlphaSetId}
 message P0PUschAlphaSetId {
     // @inject_tag: aper:"valueLB:0,valueUB:29,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 29}, json_name="value"];
 };
 
-// sequence from CSI-ReportConfig.asn1:185
+// sequence from nr-rrc-ies.asn1:216
 // {twonrOfAntennaPorts}
 message TwonrOfAntennaPorts {
     // @inject_tag: aper:"sizeLB:6,sizeUB:6,"
     asn1.v1.BitString two_tx_codebook_subset_restriction = 1 [ json_name="twoTX-CodebookSubsetRestriction"];
 };
 
-// choice from CSI-ReportConfig.asn1:188
+// choice from nr-rrc-ies.asn1:219
 // {n1-n2moreThanTwo}
 message N1n2moreThanTwo {
-    // choice from CSI-ReportConfig.asn1:188
+    // choice from nr-rrc-ies.asn1:219
     oneof n1_n2more_than_two {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:8,sizeUB:8,"
         asn1.v1.BitString two_one_type_i_single_panel_restriction = 1 [ json_name="two-one-TypeI-SinglePanel-Restriction"];
@@ -533,7 +635,7 @@ message N1n2moreThanTwo {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:201
+// sequence from nr-rrc-ies.asn1:232
 // {moreThanTwonrOfAntennaPorts}
 message MoreThanTwonrOfAntennaPorts {
     N1n2moreThanTwo n1_n2 = 1 [ json_name="n1-n2"];
@@ -541,10 +643,10 @@ message MoreThanTwonrOfAntennaPorts {
     optional asn1.v1.BitString type_i_single_panel_codebook_subset_restriction_i2 = 2 [ json_name="typeI-SinglePanel-codebookSubsetRestriction-i2"];
 };
 
-// choice from CSI-ReportConfig.asn1:185
+// choice from nr-rrc-ies.asn1:216
 // {nrOfAntennaPortstypeI-SinglePanel}
 message NrOfAntennaPortstypeISinglePanel {
-    // choice from CSI-ReportConfig.asn1:185
+    // choice from nr-rrc-ies.asn1:216
     oneof nr_of_antenna_portstype_i_single_panel {
         // @inject_tag: aper:"choiceIdx:1,"
         TwonrOfAntennaPorts two = 1 [ json_name="two"];
@@ -553,7 +655,7 @@ message NrOfAntennaPortstypeISinglePanel {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:204
+// sequence from nr-rrc-ies.asn1:235
 // {typeI-SinglePanelsubType}
 message TypeISinglePanelsubType {
     NrOfAntennaPortstypeISinglePanel nr_of_antenna_ports = 1 [ json_name="nrOfAntennaPorts"];
@@ -561,10 +663,10 @@ message TypeISinglePanelsubType {
     asn1.v1.BitString type_i_single_panel_ri_restriction = 2 [ json_name="typeI-SinglePanel-ri-Restriction"];
 };
 
-// choice from CSI-ReportConfig.asn1:209
+// choice from nr-rrc-ies.asn1:240
 // {ng-n1-n2typeI-MultiPanel}
 message Ngn1n2typeIMultiPanel {
-    // choice from CSI-ReportConfig.asn1:209
+    // choice from nr-rrc-ies.asn1:240
     oneof ng_n1_n2type_i_multi_panel {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:8,sizeUB:8,"
         asn1.v1.BitString two_two_one_type_i_multi_panel_restriction = 1 [ json_name="two-two-one-TypeI-MultiPanel-Restriction"];
@@ -585,7 +687,7 @@ message Ngn1n2typeIMultiPanel {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:217
+// sequence from nr-rrc-ies.asn1:248
 // {typeI-MultiPanelsubType}
 message TypeIMultiPanelsubType {
     Ngn1n2typeIMultiPanel ng_n1_n2 = 1 [ json_name="ng-n1-n2"];
@@ -593,10 +695,10 @@ message TypeIMultiPanelsubType {
     asn1.v1.BitString ri_restriction = 2 [ json_name="ri-Restriction"];
 };
 
-// choice from CSI-ReportConfig.asn1:206
+// choice from nr-rrc-ies.asn1:237
 // {subTypetype1}
 message SubTypetype1 {
-    // choice from CSI-ReportConfig.asn1:206
+    // choice from nr-rrc-ies.asn1:237
     oneof sub_typetype1 {
         // @inject_tag: aper:"choiceIdx:1,"
         TypeISinglePanelsubType type_i_single_panel = 1 [ json_name="typeI-SinglePanel"];
@@ -605,7 +707,7 @@ message SubTypetype1 {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:220
+// sequence from nr-rrc-ies.asn1:251
 // {type1codebookType}
 message Type1codebookType {
     SubTypetype1 sub_type = 1 [ json_name="subType"];
@@ -613,10 +715,10 @@ message Type1codebookType {
     int32 codebook_mode = 2 [ json_name="codebookMode"];
 };
 
-// choice from CSI-ReportConfig.asn1:228
+// choice from nr-rrc-ies.asn1:259
 // {n1-n2-codebookSubsetRestrictiontypeII}
 message N1n2codebookSubsetRestrictiontypeIi {
-    // choice from CSI-ReportConfig.asn1:228
+    // choice from nr-rrc-ies.asn1:259
     oneof n1_n2_codebook_subset_restrictiontype_ii {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"
         asn1.v1.BitString two_one = 1 [ json_name="two-one"];
@@ -647,7 +749,7 @@ message N1n2codebookSubsetRestrictiontypeIi {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:241
+// sequence from nr-rrc-ies.asn1:272
 // {typeIIsubType}
 message TypeIisubType {
     N1n2codebookSubsetRestrictiontypeIi n1_n2_codebook_subset_restriction = 1 [ json_name="n1-n2-codebookSubsetRestriction"];
@@ -655,7 +757,7 @@ message TypeIisubType {
     asn1.v1.BitString type_ii_ri_restriction = 2 [ json_name="typeII-RI-Restriction"];
 };
 
-// sequence from CSI-ReportConfig.asn1:245
+// sequence from nr-rrc-ies.asn1:276
 // {typeII-PortSelectionsubType}
 message TypeIiPortSelectionsubType {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:3,"
@@ -664,10 +766,10 @@ message TypeIiPortSelectionsubType {
     asn1.v1.BitString type_ii_port_selection_ri_restriction = 2 [ json_name="typeII-PortSelectionRI-Restriction"];
 };
 
-// choice from CSI-ReportConfig.asn1:243
+// choice from nr-rrc-ies.asn1:274
 // {subTypetype2}
 message SubTypetype2 {
-    // choice from CSI-ReportConfig.asn1:243
+    // choice from nr-rrc-ies.asn1:274
     oneof sub_typetype2 {
         // @inject_tag: aper:"choiceIdx:1,"
         TypeIisubType type_ii = 1 [ json_name="typeII"];
@@ -676,7 +778,7 @@ message SubTypetype2 {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:248
+// sequence from nr-rrc-ies.asn1:279
 // {type2codebookType}
 message Type2codebookType {
     SubTypetype2 sub_type = 1 [ json_name="subType"];
@@ -687,10 +789,10 @@ message Type2codebookType {
     NumberOfBeamstype2 number_of_beams = 4 [ json_name="numberOfBeams"];
 };
 
-// choice from CSI-ReportConfig.asn1:223
+// choice from nr-rrc-ies.asn1:254
 // {codebookTypeCodebookConfig}
 message CodebookTypeCodebookConfig {
-    // choice from CSI-ReportConfig.asn1:223
+    // choice from nr-rrc-ies.asn1:254
     oneof codebook_type_codebook_config {
         // @inject_tag: aper:"choiceIdx:1,"
         Type1codebookType type1 = 1 [ json_name="type1"];
@@ -699,16 +801,16 @@ message CodebookTypeCodebookConfig {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:254
+// sequence from nr-rrc-ies.asn1:285
 // {CodebookConfig}
 message CodebookConfig {
     CodebookTypeCodebookConfig codebook_type = 1 [ json_name="codebookType"];
 };
 
-// choice from CSI-ReportConfig.asn1:262
+// choice from nr-rrc-ies.asn1:293
 // {n1-n2-codebookSubsetRestriction-r16typeII-r16}
 message N1n2codebookSubsetRestrictionr16typeIir16 {
-    // choice from CSI-ReportConfig.asn1:262
+    // choice from nr-rrc-ies.asn1:293
     oneof n1_n2_codebook_subset_restriction_r16type_ii_r16 {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"
         asn1.v1.BitString two_one = 1 [ json_name="two-one"];
@@ -739,7 +841,7 @@ message N1n2codebookSubsetRestrictionr16typeIir16 {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:275
+// sequence from nr-rrc-ies.asn1:306
 // {typeII-r16subType}
 message TypeIir16subType {
     N1n2codebookSubsetRestrictionr16typeIir16 n1_n2_codebook_subset_restriction_r16 = 1 [ json_name="n1-n2-codebookSubsetRestriction-r16"];
@@ -747,7 +849,7 @@ message TypeIir16subType {
     asn1.v1.BitString type_ii_ri_restriction_r16 = 2 [ json_name="typeII-RI-Restriction-r16"];
 };
 
-// sequence from CSI-ReportConfig.asn1:279
+// sequence from nr-rrc-ies.asn1:310
 // {typeII-PortSelection-r16subType}
 message TypeIiPortSelectionr16subType {
     // @inject_tag: aper:"valueLB:0,valueUB:3,"
@@ -756,10 +858,10 @@ message TypeIiPortSelectionr16subType {
     asn1.v1.BitString type_ii_port_selection_ri_restriction_r16 = 2 [ json_name="typeII-PortSelectionRI-Restriction-r16"];
 };
 
-// choice from CSI-ReportConfig.asn1:277
+// choice from nr-rrc-ies.asn1:308
 // {subTypetype2-r16}
 message SubTypetype2r16 {
-    // choice from CSI-ReportConfig.asn1:277
+    // choice from nr-rrc-ies.asn1:308
     oneof sub_typetype2_r16 {
         // @inject_tag: aper:"choiceIdx:1,"
         TypeIir16subType type_ii_r16 = 1 [ json_name="typeII-r16"];
@@ -768,7 +870,7 @@ message SubTypetype2r16 {
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:282
+// sequence from nr-rrc-ies.asn1:313
 // {type2-r16codebookType-r16}
 message Type2r16codebookTyper16 {
     SubTypetype2r16 sub_type = 1 [ json_name="subType"];
@@ -778,1962 +880,2071 @@ message Type2r16codebookTyper16 {
     int32 param_combination_r16 = 3 [ json_name="paramCombination-r16"];
 };
 
-// choice from CSI-ReportConfig.asn1:286
+// choice from nr-rrc-ies.asn1:317
 // {codebookType-r16CodebookConfig-r16}
 message CodebookTyper16CodebookConfigr16 {
-    // choice from CSI-ReportConfig.asn1:286
+    // choice from nr-rrc-ies.asn1:317
     oneof codebook_type_r16_codebook_config_r16 {
         // @inject_tag: aper:"choiceIdx:1,"
         Type2r16codebookTyper16 type2_r16 = 1 [ json_name="type2-r16"];
     }
 };
 
-// sequence from CSI-ReportConfig.asn1:287
+// sequence from nr-rrc-ies.asn1:318
 // {CodebookConfig-r16}
 message CodebookConfigr16 {
     CodebookTyper16CodebookConfigr16 codebook_type_r16 = 1 [ json_name="codebookType-r16"];
 };
 
-// range of Integer from CSI-ReportConfig.asn1:293
+// choice from nr-rrc-ies.asn1:327
+// {nrOfAntennaPortstypeI-SinglePanel-Group1-r17}
+message NrOfAntennaPortstypeISinglePanelGroup1r17 {
+    // choice from nr-rrc-ies.asn1:327
+    oneof nr_of_antenna_portstype_i_single_panel_group1_r17 {
+        // @inject_tag: aper:"choiceIdx:1,"
+        TwonrOfAntennaPorts two = 1 [ json_name="two"];
+        // @inject_tag: aper:"choiceIdx:2,"
+        MoreThanTwonrOfAntennaPorts more_than_two = 2 [ json_name="moreThanTwo"];
+    }
+};
+
+// sequence from nr-rrc-ies.asn1:346
+// {typeI-SinglePanel-Group1-r17type1-r17}
+message TypeISinglePanelGroup1r17type1r17 {
+    NrOfAntennaPortstypeISinglePanelGroup1r17 nr_of_antenna_ports = 1 [ json_name="nrOfAntennaPorts"];
+};
+
+// choice from nr-rrc-ies.asn1:351
+// {nrOfAntennaPortstypeI-SinglePanel-Group2-r17}
+message NrOfAntennaPortstypeISinglePanelGroup2r17 {
+    // choice from nr-rrc-ies.asn1:351
+    oneof nr_of_antenna_portstype_i_single_panel_group2_r17 {
+        // @inject_tag: aper:"choiceIdx:1,"
+        TwonrOfAntennaPorts two = 1 [ json_name="two"];
+        // @inject_tag: aper:"choiceIdx:2,"
+        MoreThanTwonrOfAntennaPorts more_than_two = 2 [ json_name="moreThanTwo"];
+    }
+};
+
+// sequence from nr-rrc-ies.asn1:370
+// {typeI-SinglePanel-Group2-r17type1-r17}
+message TypeISinglePanelGroup2r17type1r17 {
+    NrOfAntennaPortstypeISinglePanelGroup2r17 nr_of_antenna_ports = 1 [ json_name="nrOfAntennaPorts"];
+};
+
+// sequence from nr-rrc-ies.asn1:346
+// {type1-r17codebookType-r17}
+message Type1r17codebookTyper17 {
+    // @inject_tag: aper:"optional,"
+    optional TypeISinglePanelGroup1r17type1r17 type_i_single_panel_group1_r17 = 1 [ json_name="typeI-SinglePanel-Group1-r17"];
+    // @inject_tag: aper:"optional,"
+    optional TypeISinglePanelGroup2r17type1r17 type_i_single_panel_group2_r17 = 2 [ json_name="typeI-SinglePanel-Group2-r17"];
+    // @inject_tag: aper:"optional,sizeLB:8,sizeUB:8,"
+    optional asn1.v1.BitString type_i_single_panel_ri_restriction_strp_r17 = 3 [ json_name="typeI-SinglePanel-ri-RestrictionSTRP-r17"];
+    // @inject_tag: aper:"optional,sizeLB:4,sizeUB:4,"
+    optional asn1.v1.BitString type_i_single_panel_ri_restriction_sdm_r17 = 4 [ json_name="typeI-SinglePanel-ri-RestrictionSDM-r17"];
+};
+
+// sequence from nr-rrc-ies.asn1:376
+// {typeII-PortSelection-r17type2-r17}
+message TypeIiPortSelectionr17type2r17 {
+    // @inject_tag: aper:"valueLB:1,valueUB:8,"
+    int32 param_combination_r17 = 1 [ json_name="paramCombination-r17"];
+    // @inject_tag: aper:"optional,valueLB:0,valueUB:1,"
+    optional ValueOfNr17typeIiportSelectionr17 value_of_n_r17 = 2 [ json_name="valueOfN-r17"];
+    // @inject_tag: aper:"optional,valueLB:1,valueUB:2,"
+    optional int32 number_of_pmi_subbands_per_cqi_subband_r17 = 3 [ json_name="numberOfPMI-SubbandsPerCQI-Subband-r17"];
+    // @inject_tag: aper:"sizeLB:4,sizeUB:4,"
+    asn1.v1.BitString type_ii_port_selection_ri_restriction_r17 = 4 [ json_name="typeII-PortSelectionRI-Restriction-r17"];
+};
+
+// sequence from nr-rrc-ies.asn1:381
+// {type2-r17codebookType-r17}
+message Type2r17codebookTyper17 {
+    TypeIiPortSelectionr17type2r17 type_ii_port_selection_r17 = 1 [ json_name="typeII-PortSelection-r17"];
+};
+
+// choice from nr-rrc-ies.asn1:373
+// {codebookType-r17CodebookConfig-r17}
+message CodebookTyper17CodebookConfigr17 {
+    // choice from nr-rrc-ies.asn1:373
+    oneof codebook_type_r17_codebook_config_r17 {
+        // @inject_tag: aper:"choiceIdx:1,"
+        Type1r17codebookTyper17 type1_r17 = 1 [ json_name="type1-r17"];
+        // @inject_tag: aper:"choiceIdx:2,"
+        Type2r17codebookTyper17 type2_r17 = 2 [ json_name="type2-r17"];
+    }
+};
+
+// sequence from nr-rrc-ies.asn1:383
+// {CodebookConfig-r17}
+message CodebookConfigr17 {
+    CodebookTyper17CodebookConfigr17 codebook_type_r17 = 1 [ json_name="codebookType-r17"];
+};
+
+// sequence from nr-rrc-ies.asn1:388
+// {type1-v1730codebookType-v1730}
+message Type1v1730codebookTypev1730 {
+    // @inject_tag: aper:"optional,valueLB:1,valueUB:2,"
+    optional int32 codebook_mode = 1 [ json_name="codebookMode"];
+};
+
+// choice from nr-rrc-ies.asn1:390
+// {codebookType-v1730CodebookConfig-v1730}
+message CodebookTypev1730CodebookConfigv1730 {
+    // choice from nr-rrc-ies.asn1:390
+    oneof codebook_type_v1730_codebook_config_v1730 {
+        // @inject_tag: aper:"choiceIdx:1,"
+        Type1v1730codebookTypev1730 type1_v1730 = 1 [ json_name="type1-v1730"];
+    }
+};
+
+// sequence from nr-rrc-ies.asn1:391
+// {CodebookConfig-v1730}
+message CodebookConfigv1730 {
+    CodebookTypev1730CodebookConfigv1730 codebook_type_v1730 = 1 [ json_name="codebookType-v1730"];
+};
+
+// range of Integer from nr-rrc-ies.asn1:397
 // {BWP-Id}
 message BwpId {
     // @inject_tag: aper:"valueLB:0,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 4}, json_name="value"];
 };
 
-// range of Integer from CSI-ReportConfig.asn1:297
+// range of Integer from nr-rrc-ies.asn1:401
 // {PUCCH-ResourceId}
 message PucchResourceId {
     // @inject_tag: aper:"valueLB:0,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 127}, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:302
+// constant Integer from nr-rrc-ies.asn1:406
 // {-}
 message MaxAiDCiPayloadSizer16 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:303
+// constant Integer from nr-rrc-ies.asn1:407
 // {-}
 message MaxAiDCiPayloadSize1r16 {
     // @inject_tag: aper:"valueLB:127,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32.const = 127, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:304
+// constant Integer from nr-rrc-ies.asn1:408
 // {-}
 message MaxBandComb {
     // @inject_tag: aper:"valueLB:65536,valueUB:65536,"
     int32 value = 1 [(validate.v1.rules).int32.const = 65536, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:305
+// constant Integer from nr-rrc-ies.asn1:409
 // {-}
 message MaxBandsUtraFDdr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:306
+// constant Integer from nr-rrc-ies.asn1:410
 // {-}
 message MaxBhRLcChannelIdr16 {
     // @inject_tag: aper:"valueLB:65536,valueUB:65536,"
     int32 value = 1 [(validate.v1.rules).int32.const = 65536, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:307
+// constant Integer from nr-rrc-ies.asn1:411
 // {-}
 message MaxBtIdReportr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:308
+// constant Integer from nr-rrc-ies.asn1:412
 // {-}
 message MaxBtNamer16 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:309
+// constant Integer from nr-rrc-ies.asn1:413
 // {-}
 message MaxCagCellr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:310
+// constant Integer from nr-rrc-ies.asn1:414
 // {-}
 message MaxTwoPucchGrpConfigListr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:312
+// constant Integer from nr-rrc-ies.asn1:416
 // {-}
 message MaxCbrConfigr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:314
+// constant Integer from nr-rrc-ies.asn1:418
 // {-}
 message MaxCbrConfig1r16 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:316
+// constant Integer from nr-rrc-ies.asn1:420
 // {-}
 message MaxCbrLevelr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:317
+// constant Integer from nr-rrc-ies.asn1:421
 // {-}
 message MaxCbrLevel1r16 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:318
+// constant Integer from nr-rrc-ies.asn1:422
 // {-}
 message MaxCellBlack {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:319
+// constant Integer from nr-rrc-ies.asn1:423
 // {-}
 message MaxCellGroupingsr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:320
+// constant Integer from nr-rrc-ies.asn1:424
 // {-}
 message MaxCellHistoryr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:321
+// constant Integer from nr-rrc-ies.asn1:425
 // {-}
 message MaxCellInter {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:322
+// constant Integer from nr-rrc-ies.asn1:426
 // {-}
 message MaxCellIntra {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:323
+// constant Integer from nr-rrc-ies.asn1:427
 // {-}
 message MaxCellMeasEutra {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:324
+// constant Integer from nr-rrc-ies.asn1:428
 // {-}
 message MaxCellMeasIdler16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:325
+// constant Integer from nr-rrc-ies.asn1:429
 // {-}
 message MaxCellMeasUtraFDdr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:326
+// constant Integer from nr-rrc-ies.asn1:430
 // {-}
 message MaxCarrierTypePairListr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:329
+// constant Integer from nr-rrc-ies.asn1:433
 // {-}
 message MaxCellWhite {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:330
+// constant Integer from nr-rrc-ies.asn1:434
 // {-}
 message MaxEarfcn {
     // @inject_tag: aper:"valueLB:262143,valueUB:262143,"
     int32 value = 1 [(validate.v1.rules).int32.const = 262143, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:331
+// constant Integer from nr-rrc-ies.asn1:435
 // {-}
 message MaxEutraCellBlack {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:333
+// constant Integer from nr-rrc-ies.asn1:437
 // {-}
 message MaxEutraNSPmax {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:334
+// constant Integer from nr-rrc-ies.asn1:438
 // {-}
 message MaxLogMeasReportr16 {
     // @inject_tag: aper:"valueLB:520,valueUB:520,"
     int32 value = 1 [(validate.v1.rules).int32.const = 520, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:335
+// constant Integer from nr-rrc-ies.asn1:439
 // {-}
 message MaxMultiBands {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:336
+// constant Integer from nr-rrc-ies.asn1:440
 // {-}
 message MaxNarfcn {
     // @inject_tag: aper:"valueLB:3279165,valueUB:3279165,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3279165, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:337
+// constant Integer from nr-rrc-ies.asn1:441
 // {-}
 message MaxNrNSPmax {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:338
+// constant Integer from nr-rrc-ies.asn1:442
 // {-}
 message MaxFreqIdler16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:339
+// constant Integer from nr-rrc-ies.asn1:443
 // {-}
 message MaxNrofServingCells {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:340
+// constant Integer from nr-rrc-ies.asn1:444
 // {-}
 message MaxNrofServingCells1 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:341
+// constant Integer from nr-rrc-ies.asn1:445
 // {-}
 message MaxNrofAggregatedCellsPerCellGroup {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:342
+// constant Integer from nr-rrc-ies.asn1:446
 // {-}
 message MaxNrofAggregatedCellsPerCellGroupMinus4r16 {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:343
+// constant Integer from nr-rrc-ies.asn1:447
 // {-}
 message MaxNrofDucellsr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:344
+// constant Integer from nr-rrc-ies.asn1:448
 // {-}
 message MaxNrofAvailabilityCombinationsPerSetr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:345
+// constant Integer from nr-rrc-ies.asn1:449
 // {-}
 message MaxNrofAvailabilityCombinationsPerSet1r16 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:346
+// constant Integer from nr-rrc-ies.asn1:450
 // {-}
 message MaxNrofScells {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:347
+// constant Integer from nr-rrc-ies.asn1:451
 // {-}
 message MaxNrofCellMeas {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:348
+// constant Integer from nr-rrc-ies.asn1:452
 // {-}
 message MaxNrofCgSLr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:349
+// constant Integer from nr-rrc-ies.asn1:453
 // {-}
 message MaxNrofCgSL1r16 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:350
+// constant Integer from nr-rrc-ies.asn1:454
 // {-}
 message MaxNrofSsBlocksToAverage {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:351
+// constant Integer from nr-rrc-ies.asn1:455
 // {-}
 message MaxNrofCondCellsr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:352
+// constant Integer from nr-rrc-ies.asn1:456
 // {-}
 message MaxNrofCsiRSResourcesToAverage {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:353
+// constant Integer from nr-rrc-ies.asn1:457
 // {-}
 message MaxNrofDlAllocations {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:354
+// constant Integer from nr-rrc-ies.asn1:458
 // {-}
 message MaxNrofSrConfigPerCellGroup {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:355
+// constant Integer from nr-rrc-ies.asn1:459
 // {-}
 message MaxLcgID {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:356
+// constant Integer from nr-rrc-ies.asn1:460
 // {-}
 message MaxLcID {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:357
+// constant Integer from nr-rrc-ies.asn1:461
 // {-}
 message MaxLcIDIabr16 {
     // @inject_tag: aper:"valueLB:65855,valueUB:65855,"
     int32 value = 1 [(validate.v1.rules).int32.const = 65855, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:358
+// constant Integer from nr-rrc-ies.asn1:462
 // {-}
 message MaxLteCRsPatternsr16 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:359
+// constant Integer from nr-rrc-ies.asn1:463
 // {-}
 message MaxNrofTags {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:360
+// constant Integer from nr-rrc-ies.asn1:464
 // {-}
 message MaxNrofTags1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:361
+// constant Integer from nr-rrc-ies.asn1:465
 // {-}
 message MaxNrofBwps {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:362
+// constant Integer from nr-rrc-ies.asn1:466
 // {-}
 message MaxNrofCombIdc {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:363
+// constant Integer from nr-rrc-ies.asn1:467
 // {-}
 message MaxNrofSymbols1 {
     // @inject_tag: aper:"valueLB:13,valueUB:13,"
     int32 value = 1 [(validate.v1.rules).int32.const = 13, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:364
+// constant Integer from nr-rrc-ies.asn1:468
 // {-}
 message MaxNrofSlots {
     // @inject_tag: aper:"valueLB:320,valueUB:320,"
     int32 value = 1 [(validate.v1.rules).int32.const = 320, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:365
+// constant Integer from nr-rrc-ies.asn1:469
 // {-}
 message MaxNrofSlots1 {
     // @inject_tag: aper:"valueLB:319,valueUB:319,"
     int32 value = 1 [(validate.v1.rules).int32.const = 319, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:366
+// constant Integer from nr-rrc-ies.asn1:470
 // {-}
 message MaxNrofPhysicalResourceBlocks {
     // @inject_tag: aper:"valueLB:275,valueUB:275,"
     int32 value = 1 [(validate.v1.rules).int32.const = 275, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:367
+// constant Integer from nr-rrc-ies.asn1:471
 // {-}
 message MaxNrofPhysicalResourceBlocks1 {
     // @inject_tag: aper:"valueLB:274,valueUB:274,"
     int32 value = 1 [(validate.v1.rules).int32.const = 274, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:368
+// constant Integer from nr-rrc-ies.asn1:472
 // {-}
 message MaxNrofPhysicalResourceBlocksPlus1 {
     // @inject_tag: aper:"valueLB:276,valueUB:276,"
     int32 value = 1 [(validate.v1.rules).int32.const = 276, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:369
+// constant Integer from nr-rrc-ies.asn1:473
 // {-}
 message MaxNrofControlResourceSets {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:370
+// constant Integer from nr-rrc-ies.asn1:474
 // {-}
 message MaxNrofControlResourceSets1 {
     // @inject_tag: aper:"valueLB:11,valueUB:11,"
     int32 value = 1 [(validate.v1.rules).int32.const = 11, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:371
+// constant Integer from nr-rrc-ies.asn1:475
 // {-}
 message MaxNrofControlResourceSets1r16 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:372
+// constant Integer from nr-rrc-ies.asn1:476
 // {-}
 message MaxNrofCoresetPoolsr16 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:373
+// constant Integer from nr-rrc-ies.asn1:477
 // {-}
 message MaxCoReSetDuration {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:374
+// constant Integer from nr-rrc-ies.asn1:478
 // {-}
 message MaxNrofSearchSpaces1 {
     // @inject_tag: aper:"valueLB:39,valueUB:39,"
     int32 value = 1 [(validate.v1.rules).int32.const = 39, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:375
+// constant Integer from nr-rrc-ies.asn1:479
 // {-}
 message MaxSfiDCiPayloadSize {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:376
+// constant Integer from nr-rrc-ies.asn1:480
 // {-}
 message MaxSfiDCiPayloadSize1 {
     // @inject_tag: aper:"valueLB:127,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32.const = 127, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:377
+// constant Integer from nr-rrc-ies.asn1:481
 // {-}
 message MaxIabIPAddressr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:378
+// constant Integer from nr-rrc-ies.asn1:482
 // {-}
 message MaxIntDCiPayloadSize {
     // @inject_tag: aper:"valueLB:126,valueUB:126,"
     int32 value = 1 [(validate.v1.rules).int32.const = 126, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:379
+// constant Integer from nr-rrc-ies.asn1:483
 // {-}
 message MaxIntDCiPayloadSize1 {
     // @inject_tag: aper:"valueLB:125,valueUB:125,"
     int32 value = 1 [(validate.v1.rules).int32.const = 125, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:380
+// constant Integer from nr-rrc-ies.asn1:484
 // {-}
 message MaxNrofRateMatchPatterns {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:381
+// constant Integer from nr-rrc-ies.asn1:485
 // {-}
 message MaxNrofRateMatchPatterns1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:382
+// constant Integer from nr-rrc-ies.asn1:486
 // {-}
 message MaxNrofRateMatchPatternsPerGroup {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:383
+// constant Integer from nr-rrc-ies.asn1:487
 // {-}
 message MaxNrofCsiReportConfigurations {
     // @inject_tag: aper:"valueLB:48,valueUB:48,"
     int32 value = 1 [(validate.v1.rules).int32.const = 48, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:384
+// constant Integer from nr-rrc-ies.asn1:488
 // {-}
 message MaxNrofCsiReportConfigurations1 {
     // @inject_tag: aper:"valueLB:47,valueUB:47,"
     int32 value = 1 [(validate.v1.rules).int32.const = 47, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:385
+// constant Integer from nr-rrc-ies.asn1:489
 // {-}
 message MaxNrofCsiResourceConfigurations {
     // @inject_tag: aper:"valueLB:112,valueUB:112,"
     int32 value = 1 [(validate.v1.rules).int32.const = 112, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:386
+// constant Integer from nr-rrc-ies.asn1:490
 // {-}
 message MaxNrofCsiResourceConfigurations1 {
     // @inject_tag: aper:"valueLB:111,valueUB:111,"
     int32 value = 1 [(validate.v1.rules).int32.const = 111, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:387
+// constant Integer from nr-rrc-ies.asn1:491
 // {-}
 message MaxNrofApCSiRSResourcesPerSet {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:388
+// constant Integer from nr-rrc-ies.asn1:492
 // {-}
 message MaxNrOfCsiAperiodicTriggers {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:389
+// constant Integer from nr-rrc-ies.asn1:493
 // {-}
 message MaxNrofReportConfigPerAperiodicTrigger {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:390
+// constant Integer from nr-rrc-ies.asn1:494
 // {-}
 message MaxNrofNzpCSiRSResources {
     // @inject_tag: aper:"valueLB:192,valueUB:192,"
     int32 value = 1 [(validate.v1.rules).int32.const = 192, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:391
+// constant Integer from nr-rrc-ies.asn1:495
 // {-}
 message MaxNrofNzpCSiRSResources1 {
     // @inject_tag: aper:"valueLB:191,valueUB:191,"
     int32 value = 1 [(validate.v1.rules).int32.const = 191, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:392
+// constant Integer from nr-rrc-ies.asn1:496
 // {-}
 message MaxNrofNzpCSiRSResourcesPerSet {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:393
+// constant Integer from nr-rrc-ies.asn1:497
 // {-}
 message MaxNrofNzpCSiRSResourceSets {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:394
+// constant Integer from nr-rrc-ies.asn1:498
 // {-}
 message MaxNrofNzpCSiRSResourceSets1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:395
+// constant Integer from nr-rrc-ies.asn1:499
 // {-}
 message MaxNrofNzpCSiRSResourceSetsPerConfig {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:396
+// constant Integer from nr-rrc-ies.asn1:500
 // {-}
 message MaxNrofNzpCSiRSResourcesPerConfig {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:397
+// constant Integer from nr-rrc-ies.asn1:501
 // {-}
 message MaxNrofZpCSiRSResources {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:398
+// constant Integer from nr-rrc-ies.asn1:502
 // {-}
 message MaxNrofZpCSiRSResources1 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:399
+// constant Integer from nr-rrc-ies.asn1:503
 // {-}
 message MaxNrofZpCSiRSResourceSets1 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:400
+// constant Integer from nr-rrc-ies.asn1:504
 // {-}
 message MaxNrofZpCSiRSResourcesPerSet {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:401
+// constant Integer from nr-rrc-ies.asn1:505
 // {-}
 message MaxNrofZpCSiRSResourceSets {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:402
+// constant Integer from nr-rrc-ies.asn1:506
 // {-}
 message MaxNrofCsiIMResources {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:403
+// constant Integer from nr-rrc-ies.asn1:507
 // {-}
 message MaxNrofCsiIMResources1 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:404
+// constant Integer from nr-rrc-ies.asn1:508
 // {-}
 message MaxNrofCsiIMResourcesPerSet {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:405
+// constant Integer from nr-rrc-ies.asn1:509
 // {-}
 message MaxNrofCsiIMResourceSets {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:406
+// constant Integer from nr-rrc-ies.asn1:510
 // {-}
 message MaxNrofCsiIMResourceSets1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:407
+// constant Integer from nr-rrc-ies.asn1:511
 // {-}
 message MaxNrofCsiIMResourceSetsPerConfig {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:408
+// constant Integer from nr-rrc-ies.asn1:512
 // {-}
 message MaxNrofCsiSSbResourcePerSet {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:409
+// constant Integer from nr-rrc-ies.asn1:513
 // {-}
 message MaxNrofCsiSSbResourceSets {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:410
+// constant Integer from nr-rrc-ies.asn1:514
 // {-}
 message MaxNrofCsiSSbResourceSets1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:411
+// constant Integer from nr-rrc-ies.asn1:515
 // {-}
 message MaxNrofCsiSSbResourceSetsPerConfig {
     // @inject_tag: aper:"valueLB:1,valueUB:1,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:412
+// constant Integer from nr-rrc-ies.asn1:516
 // {-}
 message MaxNrofFailureDetectionResources {
     // @inject_tag: aper:"valueLB:10,valueUB:10,"
     int32 value = 1 [(validate.v1.rules).int32.const = 10, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:413
+// constant Integer from nr-rrc-ies.asn1:517
 // {-}
 message MaxNrofFailureDetectionResources1 {
     // @inject_tag: aper:"valueLB:9,valueUB:9,"
     int32 value = 1 [(validate.v1.rules).int32.const = 9, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:414
+// constant Integer from nr-rrc-ies.asn1:518
 // {-}
 message MaxNrofFreqSlr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:415
+// constant Integer from nr-rrc-ies.asn1:519
 // {-}
 message MaxNrofSlBWpsr16 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:416
+// constant Integer from nr-rrc-ies.asn1:520
 // {-}
 message MaxFreqSlEUtrar16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:417
+// constant Integer from nr-rrc-ies.asn1:521
 // {-}
 message MaxNrofSlMeasIdr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:418
+// constant Integer from nr-rrc-ies.asn1:522
 // {-}
 message MaxNrofSlObjectIdr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:419
+// constant Integer from nr-rrc-ies.asn1:523
 // {-}
 message MaxNrofSlReportConfigIdr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:420
+// constant Integer from nr-rrc-ies.asn1:524
 // {-}
 message MaxNrofSlPoolToMeasureNrr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:422
+// constant Integer from nr-rrc-ies.asn1:526
 // {-}
 message MaxFreqSlNRr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:423
+// constant Integer from nr-rrc-ies.asn1:527
 // {-}
 message MaxNrofSlQFisr16 {
     // @inject_tag: aper:"valueLB:2048,valueUB:2048,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2048, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:424
+// constant Integer from nr-rrc-ies.asn1:528
 // {-}
 message MaxNrofSlQFisPerDestr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:425
+// constant Integer from nr-rrc-ies.asn1:529
 // {-}
 message MaxNrofObjectId {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:426
+// constant Integer from nr-rrc-ies.asn1:530
 // {-}
 message MaxNrofPageRec {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:427
+// constant Integer from nr-rrc-ies.asn1:531
 // {-}
 message MaxNrofPciRanges {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:428
+// constant Integer from nr-rrc-ies.asn1:532
 // {-}
 message MaxPlmn {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:429
+// constant Integer from nr-rrc-ies.asn1:533
 // {-}
 message MaxNrofCsiRSResourcesRrm {
     // @inject_tag: aper:"valueLB:96,valueUB:96,"
     int32 value = 1 [(validate.v1.rules).int32.const = 96, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:430
+// constant Integer from nr-rrc-ies.asn1:534
 // {-}
 message MaxNrofCsiRSResourcesRrm1 {
     // @inject_tag: aper:"valueLB:95,valueUB:95,"
     int32 value = 1 [(validate.v1.rules).int32.const = 95, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:431
+// constant Integer from nr-rrc-ies.asn1:535
 // {-}
 message MaxNrofMeasId {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:432
+// constant Integer from nr-rrc-ies.asn1:536
 // {-}
 message MaxNrofQuantityConfig {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:433
+// constant Integer from nr-rrc-ies.asn1:537
 // {-}
 message MaxNrofCsiRSCellsRrm {
     // @inject_tag: aper:"valueLB:96,valueUB:96,"
     int32 value = 1 [(validate.v1.rules).int32.const = 96, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:434
+// constant Integer from nr-rrc-ies.asn1:538
 // {-}
 message MaxNrofSlDestr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:435
+// constant Integer from nr-rrc-ies.asn1:539
 // {-}
 message MaxNrofSlDest1r16 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:436
+// constant Integer from nr-rrc-ies.asn1:540
 // {-}
 message MaxNrofSlrbr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:437
+// constant Integer from nr-rrc-ies.asn1:541
 // {-}
 message MaxSlLCidr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:438
+// constant Integer from nr-rrc-ies.asn1:542
 // {-}
 message MaxSlSyncConfigr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:439
+// constant Integer from nr-rrc-ies.asn1:543
 // {-}
 message MaxNrofRxpoolr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:440
+// constant Integer from nr-rrc-ies.asn1:544
 // {-}
 message MaxNrofTxpoolr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:441
+// constant Integer from nr-rrc-ies.asn1:545
 // {-}
 message MaxNrofPoolIdr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:442
+// constant Integer from nr-rrc-ies.asn1:546
 // {-}
 message MaxNrofSrsPathlossReferenceRsr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:443
+// constant Integer from nr-rrc-ies.asn1:547
 // {-}
 message MaxNrofSrsPathlossReferenceRs1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:444
+// constant Integer from nr-rrc-ies.asn1:548
 // {-}
 message MaxNrofSrsResourceSets {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:445
+// constant Integer from nr-rrc-ies.asn1:549
 // {-}
 message MaxNrofSrsResourceSets1 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:446
+// constant Integer from nr-rrc-ies.asn1:550
 // {-}
 message MaxNrofSrsPosResourceSetsr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:447
+// constant Integer from nr-rrc-ies.asn1:551
 // {-}
 message MaxNrofSrsPosResourceSets1r16 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:448
+// constant Integer from nr-rrc-ies.asn1:552
 // {-}
 message MaxNrofSrsResources {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:449
+// constant Integer from nr-rrc-ies.asn1:553
 // {-}
 message MaxNrofSrsResources1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:450
+// constant Integer from nr-rrc-ies.asn1:554
 // {-}
 message MaxNrofSrsPosResourcesr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:451
+// constant Integer from nr-rrc-ies.asn1:555
 // {-}
 message MaxNrofSrsPosResources1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:452
+// constant Integer from nr-rrc-ies.asn1:556
 // {-}
 message MaxNrofSrsResourcesPerSet {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:453
+// constant Integer from nr-rrc-ies.asn1:557
 // {-}
 message MaxNrofSrsTriggerStates1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:454
+// constant Integer from nr-rrc-ies.asn1:558
 // {-}
 message MaxNrofSrsTriggerStates2 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:455
+// constant Integer from nr-rrc-ies.asn1:559
 // {-}
 message MaxRatCapabilityContainers {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:456
+// constant Integer from nr-rrc-ies.asn1:560
 // {-}
 message MaxSimultaneousBands {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:457
+// constant Integer from nr-rrc-ies.asn1:561
 // {-}
 message MaxUltxSwitchingBandPairs {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:458
+// constant Integer from nr-rrc-ies.asn1:562
 // {-}
 message MaxNrofSlotFormatCombinationsPerSet {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:459
+// constant Integer from nr-rrc-ies.asn1:563
 // {-}
 message MaxNrofSlotFormatCombinationsPerSet1 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:460
+// constant Integer from nr-rrc-ies.asn1:564
 // {-}
 message MaxNrofTrafficPatternr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:461
+// constant Integer from nr-rrc-ies.asn1:565
 // {-}
 message MaxNrofPucchResources {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:462
+// constant Integer from nr-rrc-ies.asn1:566
 // {-}
 message MaxNrofPucchResources1 {
     // @inject_tag: aper:"valueLB:127,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32.const = 127, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:463
+// constant Integer from nr-rrc-ies.asn1:567
 // {-}
 message MaxNrofPucchResourceSets {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:464
+// constant Integer from nr-rrc-ies.asn1:568
 // {-}
 message MaxNrofPucchResourceSets1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:465
+// constant Integer from nr-rrc-ies.asn1:569
 // {-}
 message MaxNrofPucchResourcesPerSet {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:466
+// constant Integer from nr-rrc-ies.asn1:570
 // {-}
 message MaxNrofPucchP0PerSet {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:467
+// constant Integer from nr-rrc-ies.asn1:571
 // {-}
 message MaxNrofPucchPathlossReferenceRss {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:468
+// constant Integer from nr-rrc-ies.asn1:572
 // {-}
 message MaxNrofPucchPathlossReferenceRss1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:469
+// constant Integer from nr-rrc-ies.asn1:573
 // {-}
 message MaxNrofPucchPathlossReferenceRssr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:470
+// constant Integer from nr-rrc-ies.asn1:574
 // {-}
 message MaxNrofPucchPathlossReferenceRss1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:472
+// constant Integer from nr-rrc-ies.asn1:576
 // {-}
 message MaxNrofPucchPathlossReferenceRssDiffr16 {
     // @inject_tag: aper:"valueLB:60,valueUB:60,"
     int32 value = 1 [(validate.v1.rules).int32.const = 60, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:473
+// constant Integer from nr-rrc-ies.asn1:577
 // {-}
 message MaxNrofPucchResourceGroupsr16 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:474
+// constant Integer from nr-rrc-ies.asn1:578
 // {-}
 message MaxNrofPucchResourcesPerGroupr16 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:475
+// constant Integer from nr-rrc-ies.asn1:579
 // {-}
 message MaxNrofMultiplePuschsr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:476
+// constant Integer from nr-rrc-ies.asn1:580
 // {-}
 message MaxNrofP0PUschAlphaSets {
     // @inject_tag: aper:"valueLB:30,valueUB:30,"
     int32 value = 1 [(validate.v1.rules).int32.const = 30, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:477
+// constant Integer from nr-rrc-ies.asn1:581
 // {-}
 message MaxNrofP0PUschAlphaSets1 {
     // @inject_tag: aper:"valueLB:29,valueUB:29,"
     int32 value = 1 [(validate.v1.rules).int32.const = 29, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:478
+// constant Integer from nr-rrc-ies.asn1:582
 // {-}
 message MaxNrofPuschPathlossReferenceRss {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:479
+// constant Integer from nr-rrc-ies.asn1:583
 // {-}
 message MaxNrofPuschPathlossReferenceRss1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:480
+// constant Integer from nr-rrc-ies.asn1:584
 // {-}
 message MaxNrofPuschPathlossReferenceRssr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:481
+// constant Integer from nr-rrc-ies.asn1:585
 // {-}
 message MaxNrofPuschPathlossReferenceRss1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:483
+// constant Integer from nr-rrc-ies.asn1:587
 // {-}
 message MaxNrofPuschPathlossReferenceRssDiffr16 {
     // @inject_tag: aper:"valueLB:60,valueUB:60,"
     int32 value = 1 [(validate.v1.rules).int32.const = 60, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:485
+// constant Integer from nr-rrc-ies.asn1:589
 // {-}
 message MaxNrofNaicsEntries {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:486
+// constant Integer from nr-rrc-ies.asn1:590
 // {-}
 message MaxBands {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:487
+// constant Integer from nr-rrc-ies.asn1:591
 // {-}
 message MaxBandsMrdc {
     // @inject_tag: aper:"valueLB:1280,valueUB:1280,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1280, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:488
+// constant Integer from nr-rrc-ies.asn1:592
 // {-}
 message MaxBandsEutra {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:489
+// constant Integer from nr-rrc-ies.asn1:593
 // {-}
 message MaxCellReport {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:490
+// constant Integer from nr-rrc-ies.asn1:594
 // {-}
 message MaxDrb {
     // @inject_tag: aper:"valueLB:29,valueUB:29,"
     int32 value = 1 [(validate.v1.rules).int32.const = 29, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:491
+// constant Integer from nr-rrc-ies.asn1:595
 // {-}
 message MaxFreq {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:492
+// constant Integer from nr-rrc-ies.asn1:596
 // {-}
 message MaxFreqLayers {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:493
+// constant Integer from nr-rrc-ies.asn1:597
 // {-}
 message MaxFreqIdcr16 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:494
+// constant Integer from nr-rrc-ies.asn1:598
 // {-}
 message MaxCombIdcr16 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:495
+// constant Integer from nr-rrc-ies.asn1:599
 // {-}
 message MaxFreqIdcMRdc {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:496
+// constant Integer from nr-rrc-ies.asn1:600
 // {-}
 message MaxNrofCandidateBeams {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:497
+// constant Integer from nr-rrc-ies.asn1:601
 // {-}
 message MaxNrofCandidateBeamsr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:498
+// constant Integer from nr-rrc-ies.asn1:602
 // {-}
 message MaxNrofCandidateBeamsExtr16 {
     // @inject_tag: aper:"valueLB:48,valueUB:48,"
     int32 value = 1 [(validate.v1.rules).int32.const = 48, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:499
+// constant Integer from nr-rrc-ies.asn1:603
 // {-}
 message MaxNrofPcisPerSmtc {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:500
+// constant Integer from nr-rrc-ies.asn1:604
 // {-}
 message MaxNrofQfis {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:501
+// constant Integer from nr-rrc-ies.asn1:605
 // {-}
 message MaxNrofResourceAvailabilityPerCombinationr16 {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:502
+// constant Integer from nr-rrc-ies.asn1:606
 // {-}
 message MaxNrOfSemiPersistentPuschTriggers {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:503
+// constant Integer from nr-rrc-ies.asn1:607
 // {-}
 message MaxNrofSrResources {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:504
+// constant Integer from nr-rrc-ies.asn1:608
 // {-}
 message MaxNrofSlotFormatsPerCombination {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:505
+// constant Integer from nr-rrc-ies.asn1:609
 // {-}
 message MaxNrofSpatialRelationInfos {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:506
+// constant Integer from nr-rrc-ies.asn1:610
 // {-}
 message MaxNrofSpatialRelationInfosplus1 {
     // @inject_tag: aper:"valueLB:9,valueUB:9,"
     int32 value = 1 [(validate.v1.rules).int32.const = 9, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:507
+// constant Integer from nr-rrc-ies.asn1:611
 // {-}
 message MaxNrofSpatialRelationInfosr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:508
+// constant Integer from nr-rrc-ies.asn1:612
 // {-}
 message MaxNrofSpatialRelationInfosDiffr16 {
     // @inject_tag: aper:"valueLB:56,valueUB:56,"
     int32 value = 1 [(validate.v1.rules).int32.const = 56, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:509
+// constant Integer from nr-rrc-ies.asn1:613
 // {-}
 message MaxNrofIndexesToReport {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:510
+// constant Integer from nr-rrc-ies.asn1:614
 // {-}
 message MaxNrofIndexesToReport2 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:511
+// constant Integer from nr-rrc-ies.asn1:615
 // {-}
 message MaxNrofSsbsr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:512
+// constant Integer from nr-rrc-ies.asn1:616
 // {-}
 message MaxNrofSsbs1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:513
+// constant Integer from nr-rrc-ies.asn1:617
 // {-}
 message MaxNrofSNSsai {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:514
+// constant Integer from nr-rrc-ies.asn1:618
 // {-}
 message MaxNrofTciStatesPdcch {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:515
+// constant Integer from nr-rrc-ies.asn1:619
 // {-}
 message MaxNrofTciStates {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:516
+// constant Integer from nr-rrc-ies.asn1:620
 // {-}
 message MaxNrofTciStates1 {
     // @inject_tag: aper:"valueLB:127,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32.const = 127, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:517
+// constant Integer from nr-rrc-ies.asn1:621
 // {-}
 message MaxNrofUlAllocations {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:518
+// constant Integer from nr-rrc-ies.asn1:622
 // {-}
 message MaxQfi {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:519
+// constant Integer from nr-rrc-ies.asn1:623
 // {-}
 message MaxRaCSirsResources {
     // @inject_tag: aper:"valueLB:96,valueUB:96,"
     int32 value = 1 [(validate.v1.rules).int32.const = 96, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:520
+// constant Integer from nr-rrc-ies.asn1:624
 // {-}
 message MaxRaOccasionsPerCsirs {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:521
+// constant Integer from nr-rrc-ies.asn1:625
 // {-}
 message MaxRaOccasions1 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:522
+// constant Integer from nr-rrc-ies.asn1:626
 // {-}
 message MaxRaSSbResources {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:523
+// constant Integer from nr-rrc-ies.asn1:627
 // {-}
 message MaxScss {
     // @inject_tag: aper:"valueLB:5,valueUB:5,"
     int32 value = 1 [(validate.v1.rules).int32.const = 5, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:524
+// constant Integer from nr-rrc-ies.asn1:628
 // {-}
 message MaxSecondaryCellGroups {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:525
+// constant Integer from nr-rrc-ies.asn1:629
 // {-}
 message MaxNrofServingCellsEutra {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:526
+// constant Integer from nr-rrc-ies.asn1:630
 // {-}
 message MaxMbsfnAllocations {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:527
+// constant Integer from nr-rrc-ies.asn1:631
 // {-}
 message MaxNrofMultiBands {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:528
+// constant Integer from nr-rrc-ies.asn1:632
 // {-}
 message MaxCellSftd {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:529
+// constant Integer from nr-rrc-ies.asn1:633
 // {-}
 message MaxReportConfigId {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:530
+// constant Integer from nr-rrc-ies.asn1:634
 // {-}
 message MaxNrofCodebooks {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:531
+// constant Integer from nr-rrc-ies.asn1:635
 // {-}
 message MaxNrofCsiRSResourcesExtr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:532
+// constant Integer from nr-rrc-ies.asn1:636
 // {-}
 message MaxNrofCsiRSResources {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:533
+// constant Integer from nr-rrc-ies.asn1:637
 // {-}
 message MaxNrofCsiRSResourcesAltr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:534
+// constant Integer from nr-rrc-ies.asn1:638
 // {-}
 message MaxNrofCsiRSResourcesAlt1r16 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:535
+// constant Integer from nr-rrc-ies.asn1:639
 // {-}
 message MaxNrofSriPUschMappings {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:536
+// constant Integer from nr-rrc-ies.asn1:640
 // {-}
 message MaxNrofSriPUschMappings1 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:537
+// constant Integer from nr-rrc-ies.asn1:641
 // {-}
 message MaxSib {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:538
+// constant Integer from nr-rrc-ies.asn1:642
 // {-}
 message MaxSiMessage {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:539
+// constant Integer from nr-rrc-ies.asn1:643
 // {-}
 message MaxPoperPf {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:540
+// constant Integer from nr-rrc-ies.asn1:644
 // {-}
 message MaxAccessCat1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:541
+// constant Integer from nr-rrc-ies.asn1:645
 // {-}
 message MaxBarringInfoSet {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:542
+// constant Integer from nr-rrc-ies.asn1:646
 // {-}
 message MaxCellEutra {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:543
+// constant Integer from nr-rrc-ies.asn1:647
 // {-}
 message MaxEutraCarrier {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:544
+// constant Integer from nr-rrc-ies.asn1:648
 // {-}
 message MaxPlmnidentities {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:545
+// constant Integer from nr-rrc-ies.asn1:649
 // {-}
 message MaxDownlinkFeatureSets {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:546
+// constant Integer from nr-rrc-ies.asn1:650
 // {-}
 message MaxUplinkFeatureSets {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:547
+// constant Integer from nr-rrc-ies.asn1:651
 // {-}
 message MaxEutraDLFeatureSets {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:548
+// constant Integer from nr-rrc-ies.asn1:652
 // {-}
 message MaxEutraULFeatureSets {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:549
+// constant Integer from nr-rrc-ies.asn1:653
 // {-}
 message MaxFeatureSetsPerBand {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:550
+// constant Integer from nr-rrc-ies.asn1:654
 // {-}
 message MaxPerCcFeatureSets {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:551
+// constant Integer from nr-rrc-ies.asn1:655
 // {-}
 message MaxFeatureSetCombinations {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:552
+// constant Integer from nr-rrc-ies.asn1:656
 // {-}
 message MaxInterRatRStdFreq {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:553
+// constant Integer from nr-rrc-ies.asn1:657
 // {-}
 message MaxHrnnLenr16 {
     // @inject_tag: aper:"valueLB:48,valueUB:48,"
     int32 value = 1 [(validate.v1.rules).int32.const = 48, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:554
+// constant Integer from nr-rrc-ies.asn1:658
 // {-}
 message MaxNpnr16 {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:555
+// constant Integer from nr-rrc-ies.asn1:659
 // {-}
 message MaxNrOfMinSchedulingOffsetValuesr16 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:556
+// constant Integer from nr-rrc-ies.asn1:660
 // {-}
 message MaxK0SchedulingOffsetr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:557
+// constant Integer from nr-rrc-ies.asn1:661
 // {-}
 message MaxK2SchedulingOffsetr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:558
+// constant Integer from nr-rrc-ies.asn1:662
 // {-}
 message MaxDci26Sizer16 {
     // @inject_tag: aper:"valueLB:140,valueUB:140,"
     int32 value = 1 [(validate.v1.rules).int32.const = 140, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:559
+// constant Integer from nr-rrc-ies.asn1:663
 // {-}
 message MaxDci26Size1r16 {
     // @inject_tag: aper:"valueLB:139,valueUB:139,"
     int32 value = 1 [(validate.v1.rules).int32.const = 139, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:560
+// constant Integer from nr-rrc-ies.asn1:664
 // {-}
 message MaxNrofUlAllocationsr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:561
+// constant Integer from nr-rrc-ies.asn1:665
 // {-}
 message MaxNrofP0PUschSetr16 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:562
+// constant Integer from nr-rrc-ies.asn1:666
 // {-}
 message MaxOnDemandSibr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:563
+// constant Integer from nr-rrc-ies.asn1:667
 // {-}
 message MaxOnDemandPosSibr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:564
+// constant Integer from nr-rrc-ies.asn1:668
 // {-}
 message MaxCiDCiPayloadSizer16 {
     // @inject_tag: aper:"valueLB:126,valueUB:126,"
     int32 value = 1 [(validate.v1.rules).int32.const = 126, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:565
+// constant Integer from nr-rrc-ies.asn1:669
 // {-}
 message MaxCiDCiPayloadSize1r16 {
     // @inject_tag: aper:"valueLB:125,valueUB:125,"
     int32 value = 1 [(validate.v1.rules).int32.const = 125, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:566
+// constant Integer from nr-rrc-ies.asn1:670
 // {-}
 message MaxWlanIdReportr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:567
+// constant Integer from nr-rrc-ies.asn1:671
 // {-}
 message MaxWlanNamer16 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:568
+// constant Integer from nr-rrc-ies.asn1:672
 // {-}
 message MaxRareportr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:569
+// constant Integer from nr-rrc-ies.asn1:673
 // {-}
 message MaxTxConfigr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:570
+// constant Integer from nr-rrc-ies.asn1:674
 // {-}
 message MaxTxConfig1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:571
+// constant Integer from nr-rrc-ies.asn1:675
 // {-}
 message MaxPsschTxConfigr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:572
+// constant Integer from nr-rrc-ies.asn1:676
 // {-}
 message MaxNrofCliRSsiResourcesr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:573
+// constant Integer from nr-rrc-ies.asn1:677
 // {-}
 message MaxNrofCliRSsiResources1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:574
+// constant Integer from nr-rrc-ies.asn1:678
 // {-}
 message MaxNrofCliSRsResourcesr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:575
+// constant Integer from nr-rrc-ies.asn1:679
 // {-}
 message MaxCliReportr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:576
+// constant Integer from nr-rrc-ies.asn1:680
 // {-}
 message MaxNrofConfiguredGrantConfigr16 {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:577
+// constant Integer from nr-rrc-ies.asn1:681
 // {-}
 message MaxNrofConfiguredGrantConfig1r16 {
     // @inject_tag: aper:"valueLB:11,valueUB:11,"
     int32 value = 1 [(validate.v1.rules).int32.const = 11, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:578
+// constant Integer from nr-rrc-ies.asn1:682
 // {-}
 message MaxNrofCgType2DeactivationState {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:579
+// constant Integer from nr-rrc-ies.asn1:683
 // {-}
 message MaxNrofConfiguredGrantConfigMac1r16 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:580
+// constant Integer from nr-rrc-ies.asn1:684
 // {-}
 message MaxNrofSpsConfigr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:581
+// constant Integer from nr-rrc-ies.asn1:685
 // {-}
 message MaxNrofSpsConfig1r16 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:582
+// constant Integer from nr-rrc-ies.asn1:686
 // {-}
 message MaxNrofSpsDeactivationState {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:583
+// constant Integer from nr-rrc-ies.asn1:687
 // {-}
 message MaxNrofDormancyGroups {
     // @inject_tag: aper:"valueLB:5,valueUB:5,"
     int32 value = 1 [(validate.v1.rules).int32.const = 5, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:584
+// constant Integer from nr-rrc-ies.asn1:688
 // {-}
 message MaxNrofPucchResourceGroups1r16 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:585
+// constant Integer from nr-rrc-ies.asn1:689
 // {-}
 message MaxNrofServingCellsTcir16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:586
+// constant Integer from nr-rrc-ies.asn1:690
 // {-}
 message MaxNrofTxDcTwoCarrierr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from CSI-ReportConfig.asn1:587
+// constant Integer from nr-rrc-ies.asn1:691
 // {-}
 message MaxNrofPdcchBlindDetectionMixed1r16 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
