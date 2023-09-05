@@ -5,204 +5,11 @@ DEFINITIONS AUTOMATIC TAGS ::=
 
 BEGIN
 
--- TAG-CSI-REPORTCONFIGID-START
+-- TAG-BWP-ID-START
 
-CSI-ReportConfigId ::=              INTEGER (0..maxNrofCSI-ReportConfigurations-1)
+BWP-Id ::=                          INTEGER (0..maxNrofBWPs)
 
--- TAG-CSI-REPORTCONFIGID-STOP
-
--- TAG-CSI-REPORTCONFIG-START
-
-CSI-ReportConfig ::=                SEQUENCE {
-    reportConfigId                          CSI-ReportConfigId,
-    carrier                                 ServCellIndex                   OPTIONAL,   -- Need S
-    resourcesForChannelMeasurement          CSI-ResourceConfigId,
-    csi-IM-ResourcesForInterference         CSI-ResourceConfigId            OPTIONAL,   -- Need R
-    nzp-CSI-RS-ResourcesForInterference     CSI-ResourceConfigId            OPTIONAL,   -- Need R
-    reportConfigType                        CHOICE {
-        periodic                                SEQUENCE {
-            reportSlotConfig                        CSI-ReportPeriodicityAndOffset,
-            pucch-CSI-ResourceList                  SEQUENCE (SIZE (1..maxNrofBWPs)) OF PUCCH-CSI-Resource
-        },
-        semiPersistentOnPUCCH                   SEQUENCE {
-            reportSlotConfig                        CSI-ReportPeriodicityAndOffset,
-            pucch-CSI-ResourceList                  SEQUENCE (SIZE (1..maxNrofBWPs)) OF PUCCH-CSI-Resource
-        },
-        semiPersistentOnPUSCH                   SEQUENCE {
-            reportSlotConfig                        ENUMERATED {sl5, sl10, sl20, sl40, sl80, sl160, sl320},
-            reportSlotOffsetList                SEQUENCE (SIZE (1.. maxNrofUL-Allocations)) OF INTEGER(0..32),
-            p0alpha                                 P0-PUSCH-AlphaSetId
-        },
-        aperiodic                               SEQUENCE {
-            reportSlotOffsetList                SEQUENCE (SIZE (1..maxNrofUL-Allocations)) OF INTEGER(0..32)
-        }
-    },
-    reportQuantity                          CHOICE {
-        none                                    NULL,
-        cri-RI-PMI-CQI                          NULL,
-        cri-RI-i1                               NULL,
-        cri-RI-i1-CQI                           SEQUENCE {
-            pdsch-BundleSizeForCSI                  ENUMERATED {n2, n4}                                         OPTIONAL    -- Need S
-        },
-        cri-RI-CQI                              NULL,
-        cri-RSRP                                NULL,
-        ssb-Index-RSRP                          NULL,
-        cri-RI-LI-PMI-CQI                       NULL
-    },
-    reportFreqConfiguration                 SEQUENCE {
-        cqi-FormatIndicator                     ENUMERATED { widebandCQI, subbandCQI }                          OPTIONAL,   -- Need R
-        pmi-FormatIndicator                     ENUMERATED { widebandPMI, subbandPMI }                          OPTIONAL,   -- Need R
-        csi-ReportingBand                       CHOICE {
-            subbands3                               BIT STRING(SIZE(3)),
-            subbands4                               BIT STRING(SIZE(4)),
-            subbands5                               BIT STRING(SIZE(5)),
-            subbands6                               BIT STRING(SIZE(6)),
-            subbands7                               BIT STRING(SIZE(7)),
-            subbands8                               BIT STRING(SIZE(8)),
-            subbands9                               BIT STRING(SIZE(9)),
-            subbands10                              BIT STRING(SIZE(10)),
-            subbands11                              BIT STRING(SIZE(11)),
-            subbands12                              BIT STRING(SIZE(12)),
-            subbands13                              BIT STRING(SIZE(13)),
-            subbands14                              BIT STRING(SIZE(14)),
-            subbands15                              BIT STRING(SIZE(15)),
-            subbands16                              BIT STRING(SIZE(16)),
-            subbands17                              BIT STRING(SIZE(17)),
-            subbands18                              BIT STRING(SIZE(18)),
-            ...,
-            subbands19-v1530                        BIT STRING(SIZE(19))
-        }   OPTIONAL    -- Need S
-
-    }                                                                                                           OPTIONAL,   -- Need R
-    timeRestrictionForChannelMeasurements           ENUMERATED {configured, notConfigured},
-    timeRestrictionForInterferenceMeasurements      ENUMERATED {configured, notConfigured},
-    codebookConfig                                  CodebookConfig                                              OPTIONAL,   -- Need R
-    dummy                                           ENUMERATED {n1, n2}                                         OPTIONAL,   -- Need R
-    groupBasedBeamReporting                     CHOICE {
-        enabled                                     NULL,
-        disabled                                    SEQUENCE {
-            nrofReportedRS                          ENUMERATED {n1, n2, n3, n4}                                 OPTIONAL    -- Need S
-        }
-    },
-    cqi-Table                   ENUMERATED {table1, table2, table3, table4-r17}                                     OPTIONAL,   -- Need R
-    subbandSize                 ENUMERATED {value1, value2},
-    non-PMI-PortIndication      SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-ResourcesPerConfig)) OF PortIndexFor8Ranks OPTIONAL,   -- Need R
-    ...,
-    [[
-    semiPersistentOnPUSCH-v1530         SEQUENCE {
-        reportSlotConfig-v1530              ENUMERATED {sl4, sl8, sl16}
-    }                                                                                                           OPTIONAL    -- Need R
-    ]],
-    [[
-    semiPersistentOnPUSCH-v1610         SEQUENCE {
-        reportSlotOffsetListDCI-0-2-r16     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..32)   OPTIONAL,    -- Need R
-        reportSlotOffsetListDCI-0-1-r16     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..32)   OPTIONAL     -- Need R
-    }                                                                                                           OPTIONAL,    -- Need R
-    aperiodic-v1610                     SEQUENCE {
-        reportSlotOffsetListDCI-0-2-r16     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..32)   OPTIONAL,    -- Need R
-        reportSlotOffsetListDCI-0-1-r16     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..32)   OPTIONAL     -- Need R
-    }                                                                                                           OPTIONAL,    -- Need R
-    reportQuantity-r16                  CHOICE {
-       cri-SINR-r16                         NULL,
-       ssb-Index-SINR-r16                   NULL
-    }                                                                                                           OPTIONAL,   -- Need R
-    codebookConfig-r16                          CodebookConfig-r16                                              OPTIONAL    -- Need R
-    ]],
-    [[
-    cqi-BitsPerSubband-r17              ENUMERATED {bits4}                                                      OPTIONAL,   -- Need R
-    groupBasedBeamReporting-v1710       SEQUENCE {
-        nrofReportedGroups-r17              ENUMERATED {n1, n2, n3, n4}
-    }                                                                                                           OPTIONAL,   -- Need R
-    codebookConfig-r17                  CodebookConfig-r17                                                      OPTIONAL,   -- Need R
-    sharedCMR-r17                       ENUMERATED {enable}                                                     OPTIONAL,   -- Need R
-    csi-ReportMode-r17                  ENUMERATED {mode1, mode2}                                               OPTIONAL,   -- Need R
-    numberOfSingleTRP-CSI-Mode1-r17     ENUMERATED {n0, n1, n2}                                                 OPTIONAL,   -- Need R
-    reportQuantity-r17                  CHOICE {
-        cri-RSRP-Index-r17                  NULL,
-        ssb-Index-RSRP-Index-r17            NULL,
-        cri-SINR-Index-r17                  NULL,
-        ssb-Index-SINR-Index-r17            NULL
-    }                                                                                                           OPTIONAL    -- Need R
-    ]],
-    [[
-    semiPersistentOnPUSCH-v1720         SEQUENCE {
-        reportSlotOffsetList-r17            SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
-        reportSlotOffsetListDCI-0-2-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
-        reportSlotOffsetListDCI-0-1-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL    -- Need R
-    }                                                                                                           OPTIONAL,   -- Need R
-    aperiodic-v1720                     SEQUENCE {
-        reportSlotOffsetList-r17            SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
-        reportSlotOffsetListDCI-0-2-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
-        reportSlotOffsetListDCI-0-1-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL    -- Need R
-    }                                                                                                           OPTIONAL    -- Need R
-    ]],
-    [[
-    codebookConfig-v1730                CodebookConfig-v1730                                                    OPTIONAL    -- Need R
-    ]]
-}
-
-CSI-ReportPeriodicityAndOffset ::=  CHOICE {
-    slots4                              INTEGER(0..3),
-    slots5                              INTEGER(0..4),
-    slots8                              INTEGER(0..7),
-    slots10                             INTEGER(0..9),
-    slots16                             INTEGER(0..15),
-    slots20                             INTEGER(0..19),
-    slots40                             INTEGER(0..39),
-    slots80                             INTEGER(0..79),
-    slots160                            INTEGER(0..159),
-    slots320                            INTEGER(0..319)
-}
-
-PUCCH-CSI-Resource ::=              SEQUENCE {
-    uplinkBandwidthPartId               BWP-Id,
-    pucch-Resource                      PUCCH-ResourceId
-}
-
-PortIndexFor8Ranks ::=              CHOICE {
-    portIndex8                          SEQUENCE{
-        rank1-8                             PortIndex8                                                      OPTIONAL,   -- Need R
-        rank2-8                             SEQUENCE(SIZE(2)) OF PortIndex8                                 OPTIONAL,   -- Need R
-        rank3-8                             SEQUENCE(SIZE(3)) OF PortIndex8                                 OPTIONAL,   -- Need R
-        rank4-8                             SEQUENCE(SIZE(4)) OF PortIndex8                                 OPTIONAL,   -- Need R
-        rank5-8                             SEQUENCE(SIZE(5)) OF PortIndex8                                 OPTIONAL,   -- Need R
-        rank6-8                             SEQUENCE(SIZE(6)) OF PortIndex8                                 OPTIONAL,   -- Need R
-        rank7-8                             SEQUENCE(SIZE(7)) OF PortIndex8                                 OPTIONAL,   -- Need R
-        rank8-8                             SEQUENCE(SIZE(8)) OF PortIndex8                                 OPTIONAL    -- Need R
-    },
-    portIndex4                          SEQUENCE{
-        rank1-4                             PortIndex4                                                      OPTIONAL,   -- Need R
-        rank2-4                             SEQUENCE(SIZE(2)) OF PortIndex4                                 OPTIONAL,   -- Need R
-        rank3-4                             SEQUENCE(SIZE(3)) OF PortIndex4                                 OPTIONAL,   -- Need R
-        rank4-4                             SEQUENCE(SIZE(4)) OF PortIndex4                                 OPTIONAL    -- Need R
-    },
-    portIndex2                          SEQUENCE{
-        rank1-2                             PortIndex2                                                      OPTIONAL,   -- Need R
-        rank2-2                             SEQUENCE(SIZE(2)) OF PortIndex2                                 OPTIONAL    -- Need R
-    },
-    portIndex1                          NULL
-}
-
-PortIndex8::=                       INTEGER (0..7)
-PortIndex4::=                       INTEGER (0..3)
-PortIndex2::=                       INTEGER (0..1)
-
--- TAG-CSI-REPORTCONFIG-STOP
-
--- TAG-SERVCELLINDEX-START
-
-ServCellIndex ::=                   INTEGER (0..maxNrofServingCells-1)
-
--- TAG-SERVCELLINDEX-STOP
-
--- TAG-CSI-RESOURCECONFIGID-START
-
-CSI-ResourceConfigId ::=            INTEGER (0..maxNrofCSI-ResourceConfigurations-1)
-
--- TAG-CSI-RESOURCECONFIGID-STOP
-
-P0-PUSCH-AlphaSetId ::=             INTEGER (0..maxNrofP0-PUSCH-AlphaSets-1)
-
+-- TAG-BWP-ID-STOP
 -- TAG-CODEBOOKCONFIG-START
 
 CodebookConfig ::=                                  SEQUENCE {
@@ -391,18 +198,303 @@ CodebookConfig-v1730  ::=             SEQUENCE  {
 }
 
 -- TAG-CODEBOOKCONFIG-STOP
+-- TAG-CONTROLRESOURCESET-START
 
--- TAG-BWP-ID-START
+ControlResourceSet ::=              SEQUENCE {
+    controlResourceSetId                ControlResourceSetId,
+    frequencyDomainResources            BIT STRING (SIZE (45)),
+    duration                            INTEGER (1..maxCoReSetDuration),
+    cce-REG-MappingType                 CHOICE {
+        interleaved                         SEQUENCE {
+            reg-BundleSize                      ENUMERATED {n2, n3, n6},
+            interleaverSize                     ENUMERATED {n2, n3, n6},
+            shiftIndex                          INTEGER(0..maxNrofPhysicalResourceBlocks-1)       OPTIONAL -- Need S
+        },
+        nonInterleaved                      NULL
+    },
+    precoderGranularity                 ENUMERATED {sameAsREG-bundle, allContiguousRBs},
+    tci-StatesPDCCH-ToAddList           SEQUENCE(SIZE (1..maxNrofTCI-StatesPDCCH)) OF TCI-StateId OPTIONAL, -- Cond NotSIB-initialBWP
+    tci-StatesPDCCH-ToReleaseList       SEQUENCE(SIZE (1..maxNrofTCI-StatesPDCCH)) OF TCI-StateId OPTIONAL, -- Cond NotSIB-initialBWP
+    tci-PresentInDCI                        ENUMERATED {enabled}                                  OPTIONAL, -- Need S
+    pdcch-DMRS-ScramblingID                 INTEGER (0..65535)                                    OPTIONAL, -- Need S
+    ...,
+    [[
+    rb-Offset-r16                       INTEGER (0..5)                                            OPTIONAL, -- Need S
+    tci-PresentDCI-1-2-r16              INTEGER (1..3)                                            OPTIONAL, -- Need S
+    coresetPoolIndex-r16                INTEGER (0..1)                                            OPTIONAL, -- Need S
+    controlResourceSetId-v1610          ControlResourceSetId-v1610                                OPTIONAL  -- Need S
+    ]],
+    [[
+    followUnifiedTCI-State-r17           ENUMERATED {enabled}                                      OPTIONAL  -- Need R
+    ]]
+}
 
-BWP-Id ::=                          INTEGER (0..maxNrofBWPs)
+-- TAG-CONTROLRESOURCESET-STOP
+-- TAG-CONTROLRESOURCESETID-START
 
--- TAG-BWP-ID-STOP
+ControlResourceSetId ::=                INTEGER (0..maxNrofControlResourceSets-1)
+
+ControlResourceSetId-r16 ::=            INTEGER (0..maxNrofControlResourceSets-1-r16)
+
+ControlResourceSetId-v1610 ::=          INTEGER (maxNrofControlResourceSets..maxNrofControlResourceSets-1-r16)
+
+-- TAG-CONTROLRESOURCESETID-STOP
+-- TAG-CSI-REPORTCONFIG-START
+
+CSI-ReportConfig ::=                SEQUENCE {
+    reportConfigId                          CSI-ReportConfigId,
+    carrier                                 ServCellIndex                   OPTIONAL,   -- Need S
+    resourcesForChannelMeasurement          CSI-ResourceConfigId,
+    csi-IM-ResourcesForInterference         CSI-ResourceConfigId            OPTIONAL,   -- Need R
+    nzp-CSI-RS-ResourcesForInterference     CSI-ResourceConfigId            OPTIONAL,   -- Need R
+    reportConfigType                        CHOICE {
+        periodic                                SEQUENCE {
+            reportSlotConfig                        CSI-ReportPeriodicityAndOffset,
+            pucch-CSI-ResourceList                  SEQUENCE (SIZE (1..maxNrofBWPs)) OF PUCCH-CSI-Resource
+        },
+        semiPersistentOnPUCCH                   SEQUENCE {
+            reportSlotConfig                        CSI-ReportPeriodicityAndOffset,
+            pucch-CSI-ResourceList                  SEQUENCE (SIZE (1..maxNrofBWPs)) OF PUCCH-CSI-Resource
+        },
+        semiPersistentOnPUSCH                   SEQUENCE {
+            reportSlotConfig                        ENUMERATED {sl5, sl10, sl20, sl40, sl80, sl160, sl320},
+            reportSlotOffsetList                SEQUENCE (SIZE (1.. maxNrofUL-Allocations)) OF INTEGER(0..32),
+            p0alpha                                 P0-PUSCH-AlphaSetId
+        },
+        aperiodic                               SEQUENCE {
+            reportSlotOffsetList                SEQUENCE (SIZE (1..maxNrofUL-Allocations)) OF INTEGER(0..32)
+        }
+    },
+    reportQuantity                          CHOICE {
+        none                                    NULL,
+        cri-RI-PMI-CQI                          NULL,
+        cri-RI-i1                               NULL,
+        cri-RI-i1-CQI                           SEQUENCE {
+            pdsch-BundleSizeForCSI                  ENUMERATED {n2, n4}                                         OPTIONAL    -- Need S
+        },
+        cri-RI-CQI                              NULL,
+        cri-RSRP                                NULL,
+        ssb-Index-RSRP                          NULL,
+        cri-RI-LI-PMI-CQI                       NULL
+    },
+    reportFreqConfiguration                 SEQUENCE {
+        cqi-FormatIndicator                     ENUMERATED { widebandCQI, subbandCQI }                          OPTIONAL,   -- Need R
+        pmi-FormatIndicator                     ENUMERATED { widebandPMI, subbandPMI }                          OPTIONAL,   -- Need R
+        csi-ReportingBand                       CHOICE {
+            subbands3                               BIT STRING(SIZE(3)),
+            subbands4                               BIT STRING(SIZE(4)),
+            subbands5                               BIT STRING(SIZE(5)),
+            subbands6                               BIT STRING(SIZE(6)),
+            subbands7                               BIT STRING(SIZE(7)),
+            subbands8                               BIT STRING(SIZE(8)),
+            subbands9                               BIT STRING(SIZE(9)),
+            subbands10                              BIT STRING(SIZE(10)),
+            subbands11                              BIT STRING(SIZE(11)),
+            subbands12                              BIT STRING(SIZE(12)),
+            subbands13                              BIT STRING(SIZE(13)),
+            subbands14                              BIT STRING(SIZE(14)),
+            subbands15                              BIT STRING(SIZE(15)),
+            subbands16                              BIT STRING(SIZE(16)),
+            subbands17                              BIT STRING(SIZE(17)),
+            subbands18                              BIT STRING(SIZE(18)),
+            ...,
+            subbands19-v1530                        BIT STRING(SIZE(19))
+        }   OPTIONAL    -- Need S
+
+    }                                                                                                           OPTIONAL,   -- Need R
+    timeRestrictionForChannelMeasurements           ENUMERATED {configured, notConfigured},
+    timeRestrictionForInterferenceMeasurements      ENUMERATED {configured, notConfigured},
+    codebookConfig                                  CodebookConfig                                              OPTIONAL,   -- Need R
+    dummy                                           ENUMERATED {n1, n2}                                         OPTIONAL,   -- Need R
+    groupBasedBeamReporting                     CHOICE {
+        enabled                                     NULL,
+        disabled                                    SEQUENCE {
+            nrofReportedRS                          ENUMERATED {n1, n2, n3, n4}                                 OPTIONAL    -- Need S
+        }
+    },
+    cqi-Table                   ENUMERATED {table1, table2, table3, table4-r17}                                     OPTIONAL,   -- Need R
+    subbandSize                 ENUMERATED {value1, value2},
+    non-PMI-PortIndication      SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-ResourcesPerConfig)) OF PortIndexFor8Ranks OPTIONAL,   -- Need R
+    ...,
+    [[
+    semiPersistentOnPUSCH-v1530         SEQUENCE {
+        reportSlotConfig-v1530              ENUMERATED {sl4, sl8, sl16}
+    }                                                                                                           OPTIONAL    -- Need R
+    ]],
+    [[
+    semiPersistentOnPUSCH-v1610         SEQUENCE {
+        reportSlotOffsetListDCI-0-2-r16     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..32)   OPTIONAL,    -- Need R
+        reportSlotOffsetListDCI-0-1-r16     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..32)   OPTIONAL     -- Need R
+    }                                                                                                           OPTIONAL,    -- Need R
+    aperiodic-v1610                     SEQUENCE {
+        reportSlotOffsetListDCI-0-2-r16     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..32)   OPTIONAL,    -- Need R
+        reportSlotOffsetListDCI-0-1-r16     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..32)   OPTIONAL     -- Need R
+    }                                                                                                           OPTIONAL,    -- Need R
+    reportQuantity-r16                  CHOICE {
+       cri-SINR-r16                         NULL,
+       ssb-Index-SINR-r16                   NULL
+    }                                                                                                           OPTIONAL,   -- Need R
+    codebookConfig-r16                          CodebookConfig-r16                                              OPTIONAL    -- Need R
+    ]],
+    [[
+    cqi-BitsPerSubband-r17              ENUMERATED {bits4}                                                      OPTIONAL,   -- Need R
+    groupBasedBeamReporting-v1710       SEQUENCE {
+        nrofReportedGroups-r17              ENUMERATED {n1, n2, n3, n4}
+    }                                                                                                           OPTIONAL,   -- Need R
+    codebookConfig-r17                  CodebookConfig-r17                                                      OPTIONAL,   -- Need R
+    sharedCMR-r17                       ENUMERATED {enable}                                                     OPTIONAL,   -- Need R
+    csi-ReportMode-r17                  ENUMERATED {mode1, mode2}                                               OPTIONAL,   -- Need R
+    numberOfSingleTRP-CSI-Mode1-r17     ENUMERATED {n0, n1, n2}                                                 OPTIONAL,   -- Need R
+    reportQuantity-r17                  CHOICE {
+        cri-RSRP-Index-r17                  NULL,
+        ssb-Index-RSRP-Index-r17            NULL,
+        cri-SINR-Index-r17                  NULL,
+        ssb-Index-SINR-Index-r17            NULL
+    }                                                                                                           OPTIONAL    -- Need R
+    ]],
+    [[
+    semiPersistentOnPUSCH-v1720         SEQUENCE {
+        reportSlotOffsetList-r17            SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
+        reportSlotOffsetListDCI-0-2-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
+        reportSlotOffsetListDCI-0-1-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL    -- Need R
+    }                                                                                                           OPTIONAL,   -- Need R
+    aperiodic-v1720                     SEQUENCE {
+        reportSlotOffsetList-r17            SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
+        reportSlotOffsetListDCI-0-2-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL,   -- Need R
+        reportSlotOffsetListDCI-0-1-r17     SEQUENCE (SIZE (1.. maxNrofUL-Allocations-r16)) OF INTEGER(0..128)  OPTIONAL    -- Need R
+    }                                                                                                           OPTIONAL    -- Need R
+    ]],
+    [[
+    codebookConfig-v1730                CodebookConfig-v1730                                                    OPTIONAL    -- Need R
+    ]]
+}
+
+CSI-ReportPeriodicityAndOffset ::=  CHOICE {
+    slots4                              INTEGER(0..3),
+    slots5                              INTEGER(0..4),
+    slots8                              INTEGER(0..7),
+    slots10                             INTEGER(0..9),
+    slots16                             INTEGER(0..15),
+    slots20                             INTEGER(0..19),
+    slots40                             INTEGER(0..39),
+    slots80                             INTEGER(0..79),
+    slots160                            INTEGER(0..159),
+    slots320                            INTEGER(0..319)
+}
+
+PUCCH-CSI-Resource ::=              SEQUENCE {
+    uplinkBandwidthPartId               BWP-Id,
+    pucch-Resource                      PUCCH-ResourceId
+}
+
+PortIndexFor8Ranks ::=              CHOICE {
+    portIndex8                          SEQUENCE{
+        rank1-8                             PortIndex8                                                      OPTIONAL,   -- Need R
+        rank2-8                             SEQUENCE(SIZE(2)) OF PortIndex8                                 OPTIONAL,   -- Need R
+        rank3-8                             SEQUENCE(SIZE(3)) OF PortIndex8                                 OPTIONAL,   -- Need R
+        rank4-8                             SEQUENCE(SIZE(4)) OF PortIndex8                                 OPTIONAL,   -- Need R
+        rank5-8                             SEQUENCE(SIZE(5)) OF PortIndex8                                 OPTIONAL,   -- Need R
+        rank6-8                             SEQUENCE(SIZE(6)) OF PortIndex8                                 OPTIONAL,   -- Need R
+        rank7-8                             SEQUENCE(SIZE(7)) OF PortIndex8                                 OPTIONAL,   -- Need R
+        rank8-8                             SEQUENCE(SIZE(8)) OF PortIndex8                                 OPTIONAL    -- Need R
+    },
+    portIndex4                          SEQUENCE{
+        rank1-4                             PortIndex4                                                      OPTIONAL,   -- Need R
+        rank2-4                             SEQUENCE(SIZE(2)) OF PortIndex4                                 OPTIONAL,   -- Need R
+        rank3-4                             SEQUENCE(SIZE(3)) OF PortIndex4                                 OPTIONAL,   -- Need R
+        rank4-4                             SEQUENCE(SIZE(4)) OF PortIndex4                                 OPTIONAL    -- Need R
+    },
+    portIndex2                          SEQUENCE{
+        rank1-2                             PortIndex2                                                      OPTIONAL,   -- Need R
+        rank2-2                             SEQUENCE(SIZE(2)) OF PortIndex2                                 OPTIONAL    -- Need R
+    },
+    portIndex1                          NULL
+}
+
+PortIndex8::=                       INTEGER (0..7)
+PortIndex4::=                       INTEGER (0..3)
+PortIndex2::=                       INTEGER (0..1)
+
+-- TAG-CSI-REPORTCONFIG-STOP
+-- TAG-CSI-REPORTCONFIGID-START
+
+CSI-ReportConfigId ::=              INTEGER (0..maxNrofCSI-ReportConfigurations-1)
+
+-- TAG-CSI-REPORTCONFIGID-STOP
+-- TAG-CSI-RESOURCECONFIGID-START
+
+CSI-ResourceConfigId ::=            INTEGER (0..maxNrofCSI-ResourceConfigurations-1)
+
+-- TAG-CSI-RESOURCECONFIGID-STOP
+-- TAG-NZP-CSI-RS-RESOURCEID-START
+
+NZP-CSI-RS-ResourceId ::=           INTEGER (0..maxNrofNZP-CSI-RS-Resources-1)
+
+-- TAG-NZP-CSI-RS-RESOURCEID-STOP
+-- TAG-PATHLOSSREFERENCERS-ID-START
+
+PathlossReferenceRS-Id-r17 ::= INTEGER (0..maxNrofPathlossReferenceRSs-1-r17)
+
+-- TAG-PATHLOSSREFERENCERS-ID-STOP
+-- TAG-PDSCH-CONFIG-START
+
+PDSCH-Config ::=                        SEQUENCE {
+    tci-StatesToAddModList                  SEQUENCE (SIZE(1..maxNrofTCI-States)) OF TCI-State                  OPTIONAL,   -- Need N
+    tci-StatesToReleaseList                 SEQUENCE (SIZE(1..maxNrofTCI-States)) OF TCI-StateId                OPTIONAL,   -- Need N
+    ...
+}
+-- TAG-PDSCH-CONFIG-STOP
 
 PUCCH-ResourceId ::=                    INTEGER (0..maxNrofPUCCH-Resources-1)
+P0-PUSCH-AlphaSetId ::=             INTEGER (0..maxNrofP0-PUSCH-AlphaSets-1)
 
+-- TAG-SERVCELLINDEX-START
 
+ServCellIndex ::=                   INTEGER (0..maxNrofServingCells-1)
+
+-- TAG-SERVCELLINDEX-STOP
+-- TAG-SSB-INDEX-START
+
+SSB-Index ::=                       INTEGER (0..maxNrofSSBs-1)
+
+-- TAG-SSB-INDEX-STOP
+AdditionalPCIIndex-r17  ::=  INTEGER(1..maxNrofAdditionalPCI-r17)
+-- TAG-TCI-STATE-START
+
+TCI-State ::=                       SEQUENCE {
+    tci-StateId                         TCI-StateId,
+    qcl-Type1                           QCL-Info,
+    qcl-Type2                           QCL-Info                                                    OPTIONAL,   -- Need R
+    ...,
+    [[
+    additionalPCI-r17                   AdditionalPCIIndex-r17                                      OPTIONAL,   -- Need R
+    pathlossReferenceRS-Id-r17          PathlossReferenceRS-Id-r17                                  OPTIONAL,   -- Cond JointTCI1
+    ul-powerControl-r17                 Uplink-powerControlId-r17                                   OPTIONAL    -- Cond JointTCI
+    ]]
+
+}
+
+QCL-Info ::=                        SEQUENCE {
+    cell                                ServCellIndex                                               OPTIONAL,   -- Need R
+    bwp-Id                              BWP-Id                                                      OPTIONAL, -- Cond CSI-RS-Indicated
+    referenceSignal                     CHOICE {
+        csi-rs                              NZP-CSI-RS-ResourceId,
+        ssb                                 SSB-Index
+    },
+    qcl-Type                            ENUMERATED {typeA, typeB, typeC, typeD},
+    ...
+}
+
+-- TAG-TCI-STATE-STOP
+-- TAG-TCI-STATEID-START
+
+TCI-StateId ::=                     INTEGER (0..maxNrofTCI-States-1)
+
+-- TAG-TCI-STATEID-STOP
+Uplink-powerControlId-r17 ::= INTEGER(1.. maxUL-TCI-r17)
 -- TAG-MULTIPLICITY-AND-TYPE-CONSTRAINT-DEFINITIONS-START
 
+maxAdditionalRACH-r17                   INTEGER ::= 256     -- Maximum number of additional RACH configurations.
 maxAI-DCI-PayloadSize-r16               INTEGER ::= 128      --Maximum size of the DCI payload scrambled with ai-RNTI
 maxAI-DCI-PayloadSize-1-r16             INTEGER ::= 127      --Maximum size of the DCI payload scrambled with ai-RNTI minus 1
 maxBandComb                             INTEGER ::= 65536   -- Maximum number of DL band combinations
@@ -413,28 +505,34 @@ maxBT-Name-r16                          INTEGER ::= 4       -- Maximum number of
 maxCAG-Cell-r16                         INTEGER ::= 16      -- Maximum number of NR CAG cell ranges in SIB3, SIB4
 maxTwoPUCCH-Grp-ConfigList-r16          INTEGER ::= 32      -- Maximum number of supported configuration(s) of {primary PUCCH group
                                                             -- config, secondary PUCCH group config}
+maxTwoPUCCH-Grp-ConfigList-r17          INTEGER ::= 16      -- Maximum number of supported configuration(s) of {primary PUCCH group
+                                                            -- config, secondary PUCCH group config} for PUCCH cell switching
 maxCBR-Config-r16                       INTEGER ::= 8       -- Maximum number of CBR range configurations for sidelink communication
                                                             -- congestion control
 maxCBR-Config-1-r16                     INTEGER ::= 7       -- Maximum number of CBR range configurations for sidelink communication
                                                             -- congestion control minus 1
 maxCBR-Level-r16                        INTEGER ::= 16      -- Maximum number of CBR levels
 maxCBR-Level-1-r16                      INTEGER ::= 15      -- Maximum number of CBR levels minus 1
-maxCellBlack                            INTEGER ::= 16      -- Maximum number of NR blacklisted cell ranges in SIB3, SIB4
+maxCellExcluded                         INTEGER ::= 16      -- Maximum number of NR exclude-listed cell ranges in SIB3, SIB4
 maxCellGroupings-r16                    INTEGER ::= 32      -- Maximum number of cell groupings for NR-DC
-maxCellHistory-r16                      INTEGER ::= 16      -- Maximum number of visited cells reported
+maxCellHistory-r16                      INTEGER ::= 16      -- Maximum number of visited PCells reported
+maxPSCellHistory-r17                    INTEGER ::= 16      -- Maximum number of visited PSCells across all reported PCells
 maxCellInter                            INTEGER ::= 16      -- Maximum number of inter-Freq cells listed in SIB4
 maxCellIntra                            INTEGER ::= 16      -- Maximum number of intra-Freq cells listed in SIB3
 maxCellMeasEUTRA                        INTEGER ::= 32      -- Maximum number of cells in E-UTRAN
 maxCellMeasIdle-r16                     INTEGER ::= 8       -- Maximum number of cells per carrier for idle/inactive measurements
 maxCellMeasUTRA-FDD-r16                 INTEGER ::= 32      -- Maximum number of cells in FDD UTRAN
-maxCarrierTypePairList-r16              INTEGER ::= 16      -- Maximum number of supported carrier type pair of {carrier type on which
+maxCellNTN-r17                          INTEGER ::= 4       -- Maximum number of NTN neighbour cells for which assistance information is
+                                                            -- provided
+maxCarrierTypePairList-r16              INTEGER ::= 16      -- Maximum number of supported carrier type pair of (carrier type on which
                                                             -- CSI measurement is performed, carrier type on which CSI reporting is
-                                                            -- performed} for CSI reporting cross PUCCH group
-maxCellWhite                            INTEGER ::= 16      -- Maximum number of NR whitelisted cell ranges in SIB3, SIB4
+                                                            -- performed) for CSI reporting cross PUCCH group
+maxCellAllowed                          INTEGER ::= 16      -- Maximum number of NR allow-listed cell ranges in SIB3, SIB4
 maxEARFCN                               INTEGER ::= 262143  -- Maximum value of E-UTRA carrier frequency
-maxEUTRA-CellBlack                      INTEGER ::= 16      -- Maximum number of E-UTRA blacklisted physical cell identity ranges
+maxEUTRA-CellExcluded                   INTEGER ::= 16      -- Maximum number of E-UTRA exclude-listed physical cell identity ranges
                                                             -- in SIB5
 maxEUTRA-NS-Pmax                        INTEGER ::= 8       -- Maximum number of NS and P-Max values per band
+maxFeatureCombPreamblesPerRACHResource-r17 INTEGER ::= 256  -- Maximum number of feature combination preambles.
 maxLogMeasReport-r16                    INTEGER ::= 520     -- Maximum number of entries for logged measurements
 maxMultiBands                           INTEGER ::= 8       -- Maximum number of additional frequency bands that a cell belongs to
 maxNARFCN                               INTEGER ::= 3279165 -- Maximum value of NR carrier frequency
@@ -443,20 +541,37 @@ maxFreqIdle-r16                         INTEGER ::= 8       -- Maximum number of
 maxNrofServingCells                     INTEGER ::= 32      -- Max number of serving cells (SpCells + SCells)
 maxNrofServingCells-1                   INTEGER ::= 31      -- Max number of serving cells (SpCells + SCells) minus 1
 maxNrofAggregatedCellsPerCellGroup      INTEGER ::= 16
-maxNrofAggregatedCellsPerCellGroupMinus4-r16   INTEGER ::= 12
+maxNrofAggregatedCellsPerCellGroupMinus4-r16 INTEGER ::= 12
 maxNrofDUCells-r16                      INTEGER ::= 512     -- Max number of cells configured on the collocated IAB-DU
+maxNrofAppLayerMeas-r17                 INTEGER ::= 16      -- Max number of simultaneous application layer measurements
+maxNrofAppLayerMeas-1-r17               INTEGER ::= 15      -- Max number of simultaneous application layer measurements minus 1
 maxNrofAvailabilityCombinationsPerSet-r16   INTEGER ::= 512 -- Max number of AvailabilityCombinationId used in the DCI format 2_5
 maxNrofAvailabilityCombinationsPerSet-1-r16 INTEGER ::= 511 -- Max number of AvailabilityCombinationId used in the DCI format 2_5 minus 1
+maxNrofIABResourceConfig-r17            INTEGER ::= 65536   -- Max number of IAB-ResourceConfigID used in MAC CE
+maxNrofIABResourceConfig-1-r17          INTEGER ::= 65535   -- Max number of IAB-ResourceConfigID used in MAC CE minus 1
+maxNrofSCellActRS-r17                   INTEGER ::= 255     -- Max number of RS configurations per SCell for SCell activation
 maxNrofSCells                           INTEGER ::= 31      -- Max number of secondary serving cells per cell group
 maxNrofCellMeas                         INTEGER ::= 32      -- Maximum number of entries in each of the cell lists in a measurement object
+maxNrofCRS-IM-InterfCell-r17            INTEGER ::= 8       -- Maximum number of LTE interference cells for CRS-IM per UE
+maxNrofRelayMeas-r17                    INTEGER ::= 32      -- Maximum number of L2 U2N Relay UEs to measure for each measurement object
+                                                            -- on sidelink frequency
 maxNrofCG-SL-r16                        INTEGER ::= 8       -- Max number of sidelink configured grant
 maxNrofCG-SL-1-r16                      INTEGER ::= 7       -- Max number of sidelink configured grant minus 1
+maxSL-GC-BC-DRX-QoS-r17                 INTEGER ::= 16      -- Max number of sidelink DRX configurations for NR
+                                                            -- sidelink groupcast/broadcast communication
+maxNrofSL-RxInfoSet-r17                 INTEGER ::= 4       -- Max number of sidelink DRX configuration sets in sidelink DRX assistant
+                                                            -- information
 maxNrofSS-BlocksToAverage               INTEGER ::= 16      -- Max number for the (max) number of SS blocks to average to determine cell measurement
 maxNrofCondCells-r16                    INTEGER ::= 8       -- Max number of conditional candidate SpCells
+maxNrofCondCells-1-r17                  INTEGER ::= 7       -- Max number of conditional candidate SpCells minus 1
 maxNrofCSI-RS-ResourcesToAverage        INTEGER ::= 16      -- Max number for the (max) number of CSI-RS to average to determine cell measurement
 maxNrofDL-Allocations                   INTEGER ::= 16      -- Maximum number of PDSCH time domain resource allocations
+maxNrofDL-AllocationsExt-r17            INTEGER ::= 64      -- Maximum number of PDSCH time domain resource allocations for multi-PDSCH
+                                                            -- scheduling
+maxNrofPDU-Sessions-r17                 INTEGER ::= 256     -- Maximum number of PDU Sessions
 maxNrofSR-ConfigPerCellGroup            INTEGER ::= 8       -- Maximum number of SR configurations per cell group
 maxLCG-ID                               INTEGER ::= 7       -- Maximum value of LCG ID
+maxLCG-ID-IAB-r17                       INTEGER ::= 255     -- Maximum value of LCG ID for IAB-MT
 maxLC-ID                                INTEGER ::= 32      -- Maximum value of Logical Channel ID
 maxLC-ID-Iab-r16                        INTEGER ::= 65855   -- Maximum value of BH Logical Channel ID extension
 maxLTE-CRS-Patterns-r16                 INTEGER ::= 3       -- Maximum number of additional LTE CRS rate matching patterns
@@ -476,6 +591,8 @@ maxNrofControlResourceSets-1-r16        INTEGER ::= 15      -- Max number of CoR
 maxNrofCoresetPools-r16                 INTEGER ::= 2       -- Maximum number of CORESET pools
 maxCoReSetDuration                      INTEGER ::= 3       -- Max number of OFDM symbols in a control resource set
 maxNrofSearchSpaces-1                   INTEGER ::= 39      -- Max number of Search Spaces minus 1
+maxNrofSearchSpacesLinks-1-r17          INTEGER ::= 39      -- Max number of Search Space links minus 1
+maxNrofBFDResourcePerSet-r17            INTEGER ::= 64      -- Max number of reference signal in one BFD set
 maxSFI-DCI-PayloadSize                  INTEGER ::= 128     -- Max number payload of a DCI scrambled with SFI-RNTI
 maxSFI-DCI-PayloadSize-1                INTEGER ::= 127     -- Max number payload of a DCI scrambled with SFI-RNTI minus 1
 maxIAB-IP-Address-r16                   INTEGER ::= 32      -- Max number of assigned IP addresses
@@ -513,8 +630,11 @@ maxNrofCSI-SSB-ResourcePerSet           INTEGER ::= 64      -- Maximum number of
 maxNrofCSI-SSB-ResourceSets             INTEGER ::= 64      -- Maximum number of CSI SSB resource sets per cell
 maxNrofCSI-SSB-ResourceSets-1           INTEGER ::= 63      -- Maximum number of CSI SSB resource sets per cell minus 1
 maxNrofCSI-SSB-ResourceSetsPerConfig    INTEGER ::= 1       -- Maximum number of CSI SSB resource sets per resource configuration
+maxNrofCSI-SSB-ResourceSetsPerConfigExt INTEGER ::= 2       -- Maximum number of CSI SSB resource sets per resource configuration
+                                                            -- extended
 maxNrofFailureDetectionResources        INTEGER ::= 10      -- Maximum number of failure detection resources
 maxNrofFailureDetectionResources-1      INTEGER ::= 9       -- Maximum number of failure detection resources minus 1
+maxNrofFailureDetectionResources-1-r17  INTEGER ::= 63      -- Maximum number of the enhanced failure detection resources minus 1
 maxNrofFreqSL-r16                       INTEGER ::= 8       -- Maximum number of carrier frequency for NR sidelink communication
 maxNrofSL-BWPs-r16                      INTEGER ::= 4       -- Maximum number of BWP for NR sidelink communication
 maxFreqSL-EUTRA-r16                     INTEGER ::= 8       -- Maximum number of EUTRA anchor carrier frequency for NR sidelink communication
@@ -530,21 +650,27 @@ maxNrofObjectId                         INTEGER ::= 64      -- Maximum number of
 maxNrofPageRec                          INTEGER ::= 32      -- Maximum number of page records
 maxNrofPCI-Ranges                       INTEGER ::= 8       -- Maximum number of PCI ranges
 maxPLMN                                 INTEGER ::= 12      -- Maximum number of PLMNs broadcast and reported by UE at establishment
+maxTAC-r17                              INTEGER ::= 12      -- Maximum number of Tracking Area Codes to which a cell belongs to
 maxNrofCSI-RS-ResourcesRRM              INTEGER ::= 96      -- Maximum number of CSI-RS resources per cell for an RRM measurement object
-maxNrofCSI-RS-ResourcesRRM-1            INTEGER ::= 95      -- Maximum number of CSI-RS resources per cell for an RRM measurement object minus 1
+maxNrofCSI-RS-ResourcesRRM-1            INTEGER ::= 95      -- Maximum number of CSI-RS resources per cell for an RRM measurement object
+                                                            -- minus 1.
 maxNrofMeasId                           INTEGER ::= 64      -- Maximum number of configured measurements
 maxNrofQuantityConfig                   INTEGER ::= 2       -- Maximum number of quantity configurations
 maxNrofCSI-RS-CellsRRM                  INTEGER ::= 96      -- Maximum number of cells with CSI-RS resources for an RRM measurement object
-maxNrofSL-Dest-r16                      INTEGER ::= 32      -- Maximum number of destination for NR sidelink communication
-maxNrofSL-Dest-1-r16                    INTEGER ::= 31      -- Highest index of destination for NR sidelink communication
+maxNrofSL-Dest-r16                      INTEGER ::= 32      -- Maximum number of destination for NR sidelink communication and discovery
+maxNrofSL-Dest-1-r16                    INTEGER ::= 31      -- Highest index of destination for NR sidelink communication and discovery
 maxNrofSLRB-r16                         INTEGER ::= 512     -- Maximum number of radio bearer for NR sidelink communication per UE
 maxSL-LCID-r16                          INTEGER ::= 512     -- Maximum number of RLC bearer for NR sidelink communication per UE
 maxSL-SyncConfig-r16                    INTEGER ::= 16      -- Maximum number of sidelink Sync configurations
-maxNrofRXPool-r16                       INTEGER ::= 16      -- Maximum number of Rx resource pool for NR sidelink communication
-maxNrofTXPool-r16                       INTEGER ::= 8       -- Maximum number of Tx resource pool for NR sidelink communication
-maxNrofPoolID-r16                       INTEGER ::= 16      -- Maximum index of resource pool for NR sidelink communication
+maxNrofRXPool-r16                       INTEGER ::= 16      -- Maximum number of Rx resource pool for NR sidelink communication and
+                                                            -- discovery
+maxNrofTXPool-r16                       INTEGER ::= 8       -- Maximum number of Tx resource pool for NR sidelink communication and
+                                                            -- discovery
+maxNrofPoolID-r16                       INTEGER ::= 16      -- Maximum index of resource pool for NR sidelink communication and
+                                                            -- discovery
 maxNrofSRS-PathlossReferenceRS-r16      INTEGER ::= 64      -- Maximum number of RSs used as pathloss reference for SRS power control.
-maxNrofSRS-PathlossReferenceRS-1-r16    INTEGER ::= 63      -- Maximum number of RSs used as pathloss reference for SRS power control minus 1.
+maxNrofSRS-PathlossReferenceRS-1-r16    INTEGER ::= 63      -- Maximum number of RSs used as pathloss reference for SRS power control
+                                                            -- minus 1.
 maxNrofSRS-ResourceSets                 INTEGER ::= 16      -- Maximum number of SRS resource sets in a BWP.
 maxNrofSRS-ResourceSets-1               INTEGER ::= 15      -- Maximum number of SRS resource sets in a BWP minus 1.
 maxNrofSRS-PosResourceSets-r16          INTEGER ::= 16      -- Maximum number of SRS Positioning resource sets in a BWP.
@@ -558,7 +684,8 @@ maxNrofSRS-TriggerStates-1              INTEGER ::= 3       -- Maximum number of
 maxNrofSRS-TriggerStates-2              INTEGER ::= 2       -- Maximum number of SRS trigger states minus 2.
 maxRAT-CapabilityContainers             INTEGER ::= 8       -- Maximum number of interworking RAT containers (incl NR and MRDC)
 maxSimultaneousBands                    INTEGER ::= 32      -- Maximum number of simultaneously aggregated bands
-maxULTxSwitchingBandPairs               INTEGER ::= 32      -- Maximum number of band pairs supporting dynamic UL Tx switching in a band combination
+maxULTxSwitchingBandPairs               INTEGER ::= 32      -- Maximum number of band pairs supporting dynamic UL Tx switching in a band
+                                                            -- combination.
 maxNrofSlotFormatCombinationsPerSet     INTEGER ::= 512     -- Maximum number of Slot Format Combinations in a SF-Set.
 maxNrofSlotFormatCombinationsPerSet-1   INTEGER ::= 511     -- Maximum number of Slot Format Combinations in a SF-Set minus 1.
 maxNrofTrafficPattern-r16               INTEGER ::= 8       -- Maximum number of Traffic Pattern for NR sidelink communication.
@@ -569,23 +696,34 @@ maxNrofPUCCH-ResourceSets-1             INTEGER ::= 3       -- Maximum number of
 maxNrofPUCCH-ResourcesPerSet            INTEGER ::= 32      -- Maximum number of PUCCH Resources per PUCCH-ResourceSet
 maxNrofPUCCH-P0-PerSet                  INTEGER ::= 8       -- Maximum number of P0-pucch present in a p0-pucch set
 maxNrofPUCCH-PathlossReferenceRSs       INTEGER ::= 4       -- Maximum number of RSs used as pathloss reference for PUCCH power control.
-maxNrofPUCCH-PathlossReferenceRSs-1     INTEGER ::= 3       -- Maximum number of RSs used as pathloss reference for PUCCH power control minus 1.
-maxNrofPUCCH-PathlossReferenceRSs-r16   INTEGER ::= 64      -- Maximum number of RSs used as pathloss reference for PUCCH power control extended.
+maxNrofPUCCH-PathlossReferenceRSs-1     INTEGER ::= 3       -- Maximum number of RSs used as pathloss reference for PUCCH power control
+                                                            -- minus 1.
+maxNrofPUCCH-PathlossReferenceRSs-r16   INTEGER ::= 64      -- Maximum number of RSs used as pathloss reference for PUCCH power control
+                                                            -- extended.
 maxNrofPUCCH-PathlossReferenceRSs-1-r16 INTEGER ::= 63      -- Maximum number of RSs used as pathloss reference for PUCCH power control
                                                             -- minus 1 extended.
+maxNrofPUCCH-PathlossReferenceRSs-1-r17 INTEGER ::= 7       -- Maximum number of RSs used as pathloss reference for PUCCH power control
+                                                            -- minus 1.
 maxNrofPUCCH-PathlossReferenceRSsDiff-r16 INTEGER ::= 60    -- Difference between the extended maximum and the non-extended maximum
 maxNrofPUCCH-ResourceGroups-r16         INTEGER ::= 4       -- Maximum number of PUCCH resources groups.
 maxNrofPUCCH-ResourcesPerGroup-r16      INTEGER ::= 128     -- Maximum number of PUCCH resources in a PUCCH group.
+maxNrofPowerControlSetInfos-r17         INTEGER ::= 8       -- Maximum number of PUCCH power control set infos
 maxNrofMultiplePUSCHs-r16               INTEGER ::= 8       -- Maximum number of multiple PUSCHs in PUSCH TDRA list
 maxNrofP0-PUSCH-AlphaSets               INTEGER ::= 30      -- Maximum number of P0-pusch-alpha-sets (see TS 38.213 [13], clause 7.1)
 maxNrofP0-PUSCH-AlphaSets-1             INTEGER ::= 29      -- Maximum number of P0-pusch-alpha-sets minus 1 (see TS 38.213 [13], clause 7.1)
 maxNrofPUSCH-PathlossReferenceRSs       INTEGER ::= 4       -- Maximum number of RSs used as pathloss reference for PUSCH power control.
-maxNrofPUSCH-PathlossReferenceRSs-1     INTEGER ::= 3       -- Maximum number of RSs used as pathloss reference for PUSCH power control minus 1.
-maxNrofPUSCH-PathlossReferenceRSs-r16   INTEGER ::= 64      -- Maximum number of RSs used as pathloss reference for PUSCH power control extended
+maxNrofPUSCH-PathlossReferenceRSs-1     INTEGER ::= 3       -- Maximum number of RSs used as pathloss reference for PUSCH power control
+                                                            -- minus 1.
+maxNrofPUSCH-PathlossReferenceRSs-r16   INTEGER ::= 64      -- Maximum number of RSs used as pathloss reference for PUSCH power control
+                                                            -- extended
 maxNrofPUSCH-PathlossReferenceRSs-1-r16 INTEGER ::= 63      -- Maximum number of RSs used as pathloss reference for PUSCH power control
                                                             -- extended minus 1
 maxNrofPUSCH-PathlossReferenceRSsDiff-r16  INTEGER ::= 60   -- Difference between maxNrofPUSCH-PathlossReferenceRSs-r16 and
                                                             -- maxNrofPUSCH-PathlossReferenceRSs
+maxNrofPathlossReferenceRSs-r17         INTEGER ::= 64      -- Maximum number of RSs used as pathloss reference for PUSCH, PUCCH, SRS
+                                                            -- power control for unified TCI state operation
+maxNrofPathlossReferenceRSs-1-r17       INTEGER ::= 63      -- Maximum number of RSs used as pathloss reference for PUSCH, PUCCH, SRS
+                                                            -- power control for unified TCI state operation minus 1
 maxNrofNAICS-Entries                    INTEGER ::= 8       -- Maximum number of supported NAICS capability set
 maxBands                                INTEGER ::= 1024    -- Maximum number of supported bands in UE capability.
 maxBandsMRDC                            INTEGER ::= 1280
@@ -594,6 +732,7 @@ maxCellReport                           INTEGER ::= 8
 maxDRB                                  INTEGER ::= 29      -- Maximum number of DRBs (that can be added in DRB-ToAddModList).
 maxFreq                                 INTEGER ::= 8       -- Max number of frequencies.
 maxFreqLayers                           INTEGER ::= 4       -- Max number of frequency layers.
+maxFreqPlus1                            INTEGER ::= 9       -- Max number of frequencies for Slicing.
 maxFreqIDC-r16                          INTEGER ::= 128     -- Max number of frequencies for IDC indication.
 maxCombIDC-r16                          INTEGER ::= 128     -- Max number of reported UL CA for IDC indication.
 maxFreqIDC-MRDC                         INTEGER ::= 32      -- Maximum number of candidate NR frequencies for MR-DC IDC indication
@@ -618,6 +757,10 @@ maxNrofS-NSSAI                          INTEGER ::= 8       -- Maximum number of
 maxNrofTCI-StatesPDCCH                  INTEGER ::= 64
 maxNrofTCI-States                       INTEGER ::= 128     -- Maximum number of TCI states.
 maxNrofTCI-States-1                     INTEGER ::= 127     -- Maximum number of TCI states minus 1.
+maxUL-TCI-r17                           INTEGER ::= 64      -- Maximum number of TCI states.
+maxUL-TCI-1-r17                         INTEGER ::= 63      -- Maximum number of TCI states minus 1.
+maxNrofAdditionalPCI-r17                INTEGER ::= 7       -- Maximum number of additional PCI
+maxMPE-Resources-r17                    INTEGER ::= 64      -- Maximum number of pooled MPE resources
 maxNrofUL-Allocations                   INTEGER ::= 16      -- Maximum number of PUSCH time domain resource allocations.
 maxQFI                                  INTEGER ::= 63
 maxRA-CSIRS-Resources                   INTEGER ::= 96
@@ -633,6 +776,7 @@ maxCellSFTD                             INTEGER ::= 3       -- Maximum number of
 maxReportConfigId                       INTEGER ::= 64
 maxNrofCodebooks                        INTEGER ::= 16      -- Maximum number of codebooks supported by the UE
 maxNrofCSI-RS-ResourcesExt-r16          INTEGER ::= 16      -- Maximum number of codebook resources supported by the UE for eType2/Codebook combo
+maxNrofCSI-RS-ResourcesExt-r17          INTEGER ::= 8       -- Maximum number of codebook resources for fetype2R1 and fetype2R2
 maxNrofCSI-RS-Resources                 INTEGER ::= 7       -- Maximum number of codebook resources supported by the UE
 maxNrofCSI-RS-ResourcesAlt-r16          INTEGER ::= 512     -- Maximum number of alternative codebook resources supported by the UE
 maxNrofCSI-RS-ResourcesAlt-1-r16        INTEGER ::= 511     -- Maximum number of alternative codebook resources supported by the UE minus 1
@@ -640,7 +784,9 @@ maxNrofSRI-PUSCH-Mappings               INTEGER ::= 16
 maxNrofSRI-PUSCH-Mappings-1             INTEGER ::= 15
 maxSIB                                  INTEGER::= 32       -- Maximum number of SIBs
 maxSI-Message                           INTEGER::= 32       -- Maximum number of SI messages
+maxSIB-MessagePlus1-r17                 INTEGER::= 33       -- Maximum number of SIB messages plus 1
 maxPO-perPF                             INTEGER ::= 4       -- Maximum number of paging occasion per paging frame
+maxPEI-perPF-r17                        INTEGER ::= 4       -- Maximum number of PEI occasion per paging frame
 maxAccessCat-1                          INTEGER ::= 63      -- Maximum number of Access Categories minus 1
 maxBarringInfoSet                       INTEGER ::= 8       -- Maximum number of access control parameter sets
 maxCellEUTRA                            INTEGER ::= 8       -- Maximum number of E-UTRA cells in SIB list
@@ -654,12 +800,16 @@ maxFeatureSetsPerBand                   INTEGER ::= 128     -- (for NR) The numb
 maxPerCC-FeatureSets                    INTEGER ::= 1024    -- (for NR) Total number of CC-specific FeatureSets (size of the pool)
 maxFeatureSetCombinations               INTEGER ::= 1024    -- (for MR-DC/NR)Total number of Feature set combinations (size of the pool)
 maxInterRAT-RSTD-Freq                   INTEGER ::= 3
+maxGIN-r17                              INTEGER ::= 24      -- Maximum number of broadcast GINs
 maxHRNN-Len-r16                         INTEGER ::= 48      -- Maximum length of HRNNs
 maxNPN-r16                              INTEGER ::= 12      -- Maximum number of NPNs broadcast and reported by UE at establishment
 maxNrOfMinSchedulingOffsetValues-r16    INTEGER ::= 2       -- Maximum number of min. scheduling offset (K0/K2) configurations
 maxK0-SchedulingOffset-r16              INTEGER ::= 16      -- Maximum number of slots configured as min. scheduling offset (K0)
 maxK2-SchedulingOffset-r16              INTEGER ::= 16      -- Maximum number of slots configured as min. scheduling offset (K2)
+maxK0-SchedulingOffset-r17              INTEGER ::= 64      -- Maximum number of slots configured as min. scheduling offset (K0)
+maxK2-SchedulingOffset-r17              INTEGER ::= 64      -- Maximum number of slots configured as min. scheduling offset (K2)
 maxDCI-2-6-Size-r16                     INTEGER ::= 140     -- Maximum size of DCI format 2-6
+maxDCI-2-7-Size-r17                     INTEGER ::= 43      -- Maximum size of DCI format 2-7
 maxDCI-2-6-Size-1-r16                   INTEGER ::= 139     -- Maximum DCI format 2-6 size minus 1
 maxNrofUL-Allocations-r16               INTEGER ::= 64      -- Maximum number of PUSCH time domain resource allocations
 maxNrofP0-PUSCH-Set-r16                 INTEGER ::= 2       -- Maximum number of P0 PUSCH set(s)
@@ -667,6 +817,7 @@ maxOnDemandSIB-r16                      INTEGER ::= 8       -- Maximum number of
 maxOnDemandPosSIB-r16                   INTEGER ::= 32      -- Maximum number of posSIB(s) that can be requested on-demand
 maxCI-DCI-PayloadSize-r16               INTEGER ::= 126     -- Maximum number of the DCI size for CI
 maxCI-DCI-PayloadSize-1-r16             INTEGER ::= 125     -- Maximum number of the DCI size for CI minus 1
+maxUu-RelayRLC-ChannelID-r17            INTEGER ::= 32      -- Maximum value of Uu Relay RLC channel ID
 maxWLAN-Id-Report-r16                   INTEGER ::= 32      -- Maximum number of WLAN IDs to report
 maxWLAN-Name-r16                        INTEGER ::= 4       -- Maximum number of WLAN name
 maxRAReport-r16                         INTEGER ::= 8       -- Maximum number of RA procedures information to be included in the RA report
@@ -677,6 +828,7 @@ maxNrofCLI-RSSI-Resources-r16           INTEGER ::= 64      -- Maximum number of
 maxNrofCLI-RSSI-Resources-1-r16         INTEGER ::= 63      -- Maximum number of CLI-RSSI resources for UE minus 1
 maxNrofCLI-SRS-Resources-r16            INTEGER ::= 32      -- Maximum number of SRS resources for CLI measurement for UE
 maxCLI-Report-r16                       INTEGER ::= 8
+maxNrofCC-Group-r17                     INTEGER ::= 16      -- Maximum number of CC groups for DC location report
 maxNrofConfiguredGrantConfig-r16        INTEGER ::= 12      -- Maximum number of configured grant configurations per BWP
 maxNrofConfiguredGrantConfig-1-r16      INTEGER ::= 11      -- Maximum number of configured grant configurations per BWP minus 1
 maxNrofCG-Type2DeactivationState        INTEGER ::= 16      -- Maximum number of deactivation state for type 2 configured grants per BWP
@@ -684,12 +836,60 @@ maxNrofConfiguredGrantConfigMAC-1-r16   INTEGER ::= 31      -- Maximum number of
 maxNrofSPS-Config-r16                   INTEGER ::= 8       -- Maximum number of SPS configurations per BWP
 maxNrofSPS-Config-1-r16                 INTEGER ::= 7       -- Maximum number of SPS configurations per BWP minus 1
 maxNrofSPS-DeactivationState            INTEGER ::= 16      -- Maximum number of deactivation state for SPS per BWP
-maxNrofDormancyGroups                   INTEGER ::= 5       --
-maxNrofPUCCH-ResourceGroups-1-r16       INTEGER ::= 3       --
+maxNrofPPW-Config-r17                   INTEGER ::= 4       -- Maximum number of Preconfigured PRS processing windows per DL BWP
+maxNrofPPW-ID-1-r17                     INTEGER ::= 15      -- Maximum number of Preconfigured PRS processing windows minus 1
+maxNrOfTxTEGReport-r17                  INTEGER ::= 256     -- Maximum number of UE Tx Timing Error Group Report
+maxNrOfTxTEG-ID-1-r17                   INTEGER ::= 7       -- Maximum number of UE Tx Timing Error Group ID minus 1
+maxNrofPagingSubgroups-r17              INTEGER ::= 8       -- Maximum number of paging subgroups per paging occasion
+maxNrofPUCCH-ResourceGroups-1-r16       INTEGER ::= 3
+maxNrofReqComDC-Location-r17            INTEGER ::= 128     -- Maximum number of requested carriers/BWPs combinations for DC location
+                                                            -- report
 maxNrofServingCellsTCI-r16              INTEGER ::= 32      -- Maximum number of serving cells in simultaneousTCI-UpdateList
 maxNrofTxDC-TwoCarrier-r16              INTEGER ::= 64      -- Maximum number of UL Tx DC locations reported by the UE for 2CC uplink CA
+maxNrofRB-SetGroups-r17                 INTEGER ::= 8       -- Maximum number of RB set groups
+maxNrofRB-Sets-r17                      INTEGER ::= 8       -- Maximum number of RB sets
+maxNrofEnhType3HARQ-ACK-r17             INTEGER ::= 8       -- Maximum number of enhanced type 3 HARQ-ACK codebook
+maxNrofEnhType3HARQ-ACK-1-r17           INTEGER ::= 7       -- Maximum number of enhanced type 3 HARQ-ACK codebook minus 1
+maxNrofPRS-ResourcesPerSet-r17          INTEGER ::= 64      -- Maximum number of PRS resources for one set
+maxNrofPRS-ResourcesPerSet-1-r17        INTEGER ::= 63      -- Maximum number of PRS resources for one set minus 1
+maxNrofPRS-ResourceOffsetValue-1-r17    INTEGER ::= 511
+maxNrofGapId-r17                        INTEGER ::= 8       -- Maximum number of measurement gap ID is FFS
+maxNrofPreConfigPosGapId-r17            INTEGER ::= 16      -- Maximum number of preconfigured positioning measurement gap
+maxNrOfGapPri-r17                       INTEGER ::= 16      -- Maximum number of gap priority level
+maxCEFReport-r17                        INTEGER ::= 4       -- Maximum number of CEF reports by the UE
+maxNrofMultiplePDSCHs-r17               INTEGER ::= 8       -- Maximum number of PDSCHs in PDSCH TDRA list
+maxSliceInfo-r17                        INTEGER ::= 8       -- Maximum number of NSAGs
+maxCellSlice-r17                        INTEGER ::= 16      -- Maximum number of cells supporting the NSAG
+maxNrofTRS-ResourceSets-r17             INTEGER ::= 64      -- Maximum number of TRS resource sets
+maxNrofSearchSpaceGroups-1-r17          INTEGER ::= 2       -- Maximum number of search space groups minus 1
+maxNrofRemoteUE-r17                     INTEGER ::= 32      -- Maximum number of connected L2 U2N Remote UEs
+maxDCI-4-2-Size-r17                     INTEGER ::= 140     -- Maximum size of DCI format 4-2
+maxFreqMBS-r17                          INTEGER ::= 16      -- Maximum number of MBS frequencies reported in MBSInterestIndication
+maxNrofDRX-ConfigPTM-r17                INTEGER ::= 64      -- Max number of DRX configuration for PTM provided in MBS broadcast in a
+                                                            -- cell
+maxNrofDRX-ConfigPTM-1-r17              INTEGER ::= 63      -- Max number of DRX configuration for PTM provided in MBS broadcast in a
+                                                            -- cell minus 1
+maxNrofMBS-ServiceListPerUE-r17         INTEGER ::= 16      -- Maximum number of services which the UE can include in the  MBS interest
+                                                            -- indication
+maxNrofMBS-Session-r17                  INTEGER ::= 1024    -- Maximum number of MBS sessions provided in MBS broadcast in a cell
+maxNrofMTCH-SSB-MappingWindow-r17       INTEGER ::= 16      -- Maximum number of MTCH to SSB beam mapping pattern
+maxNrofMTCH-SSB-MappingWindow-1-r17     INTEGER ::= 15      -- Maximum number of MTCH to SSB beam mapping pattern minus 1
+maxNrofMRB-Broadcast-r17                INTEGER ::= 4       -- Maximum number of broadcast MRBs configured for one MBS broadcast service
+maxNrofPageGroup-r17                    INTEGER ::= 32      -- Maximum number of paging groups in a paging message
+maxNrofPDSCH-ConfigPTM-r17              INTEGER ::= 16      -- Maximum number of PDSCH configuration groups for PTM
+maxNrofPDSCH-ConfigPTM-1-r17            INTEGER ::= 15      -- Maximum number of PDSCH configuration groups for PTM minus 1
+maxG-RNTI-r17                           INTEGER ::= 16      -- Maximum number of G-RNTI that can be configured for a UE.
+maxG-RNTI-1-r17                         INTEGER ::= 15      -- Maximum number of G-RNTI that can be configured for a UE minus 1.
+maxG-CS-RNTI-r17                        INTEGER ::= 8       -- Maximum number of G-CS-RNTI that can be configured for a UE.
+maxG-CS-RNTI-1-r17                      INTEGER ::= 7       -- Maximum number of G-CS-RNTI that can be configured for a UE minus 1.
+maxMRB-r17                              INTEGER ::= 32      -- Maximum number of multicast MRBs (that can be added in MRB-ToAddModLIst)
+maxFSAI-MBS-r17                         INTEGER ::= 64      -- Maximum number of MBS frequency selection area identities
+maxNeighCellMBS-r17                     INTEGER ::= 8       -- Maximum number of MBS broadcast neighbour cells
 maxNrofPdcch-BlindDetectionMixed-1-r16  INTEGER ::= 7       -- Maximum number of combinations of mixed Rel-16 and Rel-15 PDCCH
                                                             -- monitoring capabilities minus 1
+maxNrofPdcch-BlindDetection-r17         INTEGER ::= 16      -- Maximum number of combinations of PDCCH blind detection monitoring
+                                                            -- capabilities
+
 -- TAG-MULTIPLICITY-AND-TYPE-CONSTRAINT-DEFINITIONS-STOP
 
 END
