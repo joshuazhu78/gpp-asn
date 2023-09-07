@@ -5,7 +5,7 @@
 syntax = "proto3";
 
 package nr_rrc_ies.v2;
-option go_package = "./nr-rrc-ies;nrrrciesv2";
+option go_package = "./nr-rrc-ies;nrrrcies";
 
 import "validate/v1/validate.proto";
 import "asn1/v1/asn1.proto";

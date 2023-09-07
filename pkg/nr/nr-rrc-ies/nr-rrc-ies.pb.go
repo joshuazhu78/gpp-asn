@@ -2453,67 +2453,67 @@ type isN1N2CodebookSubsetRestrictiontypeIi_N1N2CodebookSubsetRestrictiontypeIi i
 
 type N1N2CodebookSubsetRestrictiontypeIi_TwoOne struct {
 	// @inject_tag: aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"
-	TwoOne *asn1.BitString `protobuf:"bytes,1,opt,name=two_one,json=two-one,proto3,oneof" aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`
+	TwoOne *asn1.BitString `protobuf:"bytes,1,opt,name=two_one,json=two-one,proto3,oneof" json:"two-one,omitempty" aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_TwoTwo struct {
 	// @inject_tag: aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"
-	TwoTwo *asn1.BitString `protobuf:"bytes,2,opt,name=two_two,json=two-two,proto3,oneof" aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`
+	TwoTwo *asn1.BitString `protobuf:"bytes,2,opt,name=two_two,json=two-two,proto3,oneof" json:"two-two,omitempty" aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_FourOne struct {
 	// @inject_tag: aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"
-	FourOne *asn1.BitString `protobuf:"bytes,3,opt,name=four_one,json=four-one,proto3,oneof" aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`
+	FourOne *asn1.BitString `protobuf:"bytes,3,opt,name=four_one,json=four-one,proto3,oneof" json:"four-one,omitempty" aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_ThreeTwo struct {
 	// @inject_tag: aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"
-	ThreeTwo *asn1.BitString `protobuf:"bytes,4,opt,name=three_two,json=three-two,proto3,oneof" aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`
+	ThreeTwo *asn1.BitString `protobuf:"bytes,4,opt,name=three_two,json=three-two,proto3,oneof" json:"three-two,omitempty" aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_SixOne struct {
 	// @inject_tag: aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"
-	SixOne *asn1.BitString `protobuf:"bytes,5,opt,name=six_one,json=six-one,proto3,oneof" aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`
+	SixOne *asn1.BitString `protobuf:"bytes,5,opt,name=six_one,json=six-one,proto3,oneof" json:"six-one,omitempty" aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_FourTwo struct {
 	// @inject_tag: aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"
-	FourTwo *asn1.BitString `protobuf:"bytes,6,opt,name=four_two,json=four-two,proto3,oneof" aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`
+	FourTwo *asn1.BitString `protobuf:"bytes,6,opt,name=four_two,json=four-two,proto3,oneof" json:"four-two,omitempty" aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_EightOne struct {
 	// @inject_tag: aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"
-	EightOne *asn1.BitString `protobuf:"bytes,7,opt,name=eight_one,json=eight-one,proto3,oneof" aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`
+	EightOne *asn1.BitString `protobuf:"bytes,7,opt,name=eight_one,json=eight-one,proto3,oneof" json:"eight-one,omitempty" aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_FourThree struct {
 	// @inject_tag: aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"
-	FourThree *asn1.BitString `protobuf:"bytes,8,opt,name=four_three,json=four-three,proto3,oneof" aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`
+	FourThree *asn1.BitString `protobuf:"bytes,8,opt,name=four_three,json=four-three,proto3,oneof" json:"four-three,omitempty" aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_SixTwo struct {
 	// @inject_tag: aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"
-	SixTwo *asn1.BitString `protobuf:"bytes,9,opt,name=six_two,json=six-two,proto3,oneof" aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`
+	SixTwo *asn1.BitString `protobuf:"bytes,9,opt,name=six_two,json=six-two,proto3,oneof" json:"six-two,omitempty" aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_TwelveOne struct {
 	// @inject_tag: aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"
-	TwelveOne *asn1.BitString `protobuf:"bytes,10,opt,name=twelve_one,json=twelve-one,proto3,oneof" aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`
+	TwelveOne *asn1.BitString `protobuf:"bytes,10,opt,name=twelve_one,json=twelve-one,proto3,oneof" json:"twelve-one,omitempty" aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_FourFour struct {
 	// @inject_tag: aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"
-	FourFour *asn1.BitString `protobuf:"bytes,11,opt,name=four_four,json=four-four,proto3,oneof" aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`
+	FourFour *asn1.BitString `protobuf:"bytes,11,opt,name=four_four,json=four-four,proto3,oneof" json:"four-four,omitempty" aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_EightTwo struct {
 	// @inject_tag: aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"
-	EightTwo *asn1.BitString `protobuf:"bytes,12,opt,name=eight_two,json=eight-two,proto3,oneof" aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`
+	EightTwo *asn1.BitString `protobuf:"bytes,12,opt,name=eight_two,json=eight-two,proto3,oneof" json:"eight-two,omitempty" aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`
 }
 
 type N1N2CodebookSubsetRestrictiontypeIi_SixteenOne struct {
 	// @inject_tag: aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"
-	SixteenOne *asn1.BitString `protobuf:"bytes,13,opt,name=sixteen_one,json=sixteen-one,proto3,oneof" aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`
+	SixteenOne *asn1.BitString `protobuf:"bytes,13,opt,name=sixteen_one,json=sixteen-one,proto3,oneof" json:"sixteen-one,omitempty" aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`
 }
 
 func (*N1N2CodebookSubsetRestrictiontypeIi_TwoOne) isN1N2CodebookSubsetRestrictiontypeIi_N1N2CodebookSubsetRestrictiontypeIi() {
@@ -3130,67 +3130,67 @@ type isN1N2CodebookSubsetRestrictionr16TypeIir16_N1N2CodebookSubsetRestrictionR1
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_TwoOne struct {
 	// @inject_tag: aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"
-	TwoOne *asn1.BitString `protobuf:"bytes,1,opt,name=two_one,json=two-one,proto3,oneof" aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`
+	TwoOne *asn1.BitString `protobuf:"bytes,1,opt,name=two_one,json=two-one,proto3,oneof" json:"two-one,omitempty" aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_TwoTwo struct {
 	// @inject_tag: aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"
-	TwoTwo *asn1.BitString `protobuf:"bytes,2,opt,name=two_two,json=two-two,proto3,oneof" aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`
+	TwoTwo *asn1.BitString `protobuf:"bytes,2,opt,name=two_two,json=two-two,proto3,oneof" json:"two-two,omitempty" aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_FourOne struct {
 	// @inject_tag: aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"
-	FourOne *asn1.BitString `protobuf:"bytes,3,opt,name=four_one,json=four-one,proto3,oneof" aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`
+	FourOne *asn1.BitString `protobuf:"bytes,3,opt,name=four_one,json=four-one,proto3,oneof" json:"four-one,omitempty" aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_ThreeTwo struct {
 	// @inject_tag: aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"
-	ThreeTwo *asn1.BitString `protobuf:"bytes,4,opt,name=three_two,json=three-two,proto3,oneof" aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`
+	ThreeTwo *asn1.BitString `protobuf:"bytes,4,opt,name=three_two,json=three-two,proto3,oneof" json:"three-two,omitempty" aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_SixOne struct {
 	// @inject_tag: aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"
-	SixOne *asn1.BitString `protobuf:"bytes,5,opt,name=six_one,json=six-one,proto3,oneof" aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`
+	SixOne *asn1.BitString `protobuf:"bytes,5,opt,name=six_one,json=six-one,proto3,oneof" json:"six-one,omitempty" aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_FourTwo struct {
 	// @inject_tag: aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"
-	FourTwo *asn1.BitString `protobuf:"bytes,6,opt,name=four_two,json=four-two,proto3,oneof" aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`
+	FourTwo *asn1.BitString `protobuf:"bytes,6,opt,name=four_two,json=four-two,proto3,oneof" json:"four-two,omitempty" aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_EightOne struct {
 	// @inject_tag: aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"
-	EightOne *asn1.BitString `protobuf:"bytes,7,opt,name=eight_one,json=eight-one,proto3,oneof" aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`
+	EightOne *asn1.BitString `protobuf:"bytes,7,opt,name=eight_one,json=eight-one,proto3,oneof" json:"eight-one,omitempty" aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_FourThree struct {
 	// @inject_tag: aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"
-	FourThree *asn1.BitString `protobuf:"bytes,8,opt,name=four_three,json=four-three,proto3,oneof" aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`
+	FourThree *asn1.BitString `protobuf:"bytes,8,opt,name=four_three,json=four-three,proto3,oneof" json:"four-three,omitempty" aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_SixTwo struct {
 	// @inject_tag: aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"
-	SixTwo *asn1.BitString `protobuf:"bytes,9,opt,name=six_two,json=six-two,proto3,oneof" aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`
+	SixTwo *asn1.BitString `protobuf:"bytes,9,opt,name=six_two,json=six-two,proto3,oneof" json:"six-two,omitempty" aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_TwelveOne struct {
 	// @inject_tag: aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"
-	TwelveOne *asn1.BitString `protobuf:"bytes,10,opt,name=twelve_one,json=twelve-one,proto3,oneof" aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`
+	TwelveOne *asn1.BitString `protobuf:"bytes,10,opt,name=twelve_one,json=twelve-one,proto3,oneof" json:"twelve-one,omitempty" aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_FourFour struct {
 	// @inject_tag: aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"
-	FourFour *asn1.BitString `protobuf:"bytes,11,opt,name=four_four,json=four-four,proto3,oneof" aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`
+	FourFour *asn1.BitString `protobuf:"bytes,11,opt,name=four_four,json=four-four,proto3,oneof" json:"four-four,omitempty" aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_EightTwo struct {
 	// @inject_tag: aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"
-	EightTwo *asn1.BitString `protobuf:"bytes,12,opt,name=eight_two,json=eight-two,proto3,oneof" aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`
+	EightTwo *asn1.BitString `protobuf:"bytes,12,opt,name=eight_two,json=eight-two,proto3,oneof" json:"eight-two,omitempty" aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`
 }
 
 type N1N2CodebookSubsetRestrictionr16TypeIir16_SixteenOne struct {
 	// @inject_tag: aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"
-	SixteenOne *asn1.BitString `protobuf:"bytes,13,opt,name=sixteen_one,json=sixteen-one,proto3,oneof" aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`
+	SixteenOne *asn1.BitString `protobuf:"bytes,13,opt,name=sixteen_one,json=sixteen-one,proto3,oneof" json:"sixteen-one,omitempty" aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`
 }
 
 func (*N1N2CodebookSubsetRestrictionr16TypeIir16_TwoOne) isN1N2CodebookSubsetRestrictionr16TypeIir16_N1N2CodebookSubsetRestrictionR16TypeIiR16() {
@@ -29679,10 +29679,9 @@ var file_nr_rrc_ies_proto_rawDesc = []byte{
 	0x5f, 0x42, 0x10, 0x01, 0x12, 0x1b, 0x0a, 0x17, 0x51, 0x43, 0x4c, 0x5f, 0x54, 0x59, 0x50, 0x45,
 	0x5f, 0x51, 0x43, 0x4c, 0x49, 0x4e, 0x46, 0x4f, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x43, 0x10,
 	0x02, 0x12, 0x1b, 0x0a, 0x17, 0x51, 0x43, 0x4c, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x51, 0x43,
-	0x4c, 0x49, 0x4e, 0x46, 0x4f, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x44, 0x10, 0x03, 0x42, 0x19,
-	0x5a, 0x17, 0x2e, 0x2f, 0x6e, 0x72, 0x2d, 0x72, 0x72, 0x63, 0x2d, 0x69, 0x65, 0x73, 0x3b, 0x6e,
-	0x72, 0x72, 0x72, 0x63, 0x69, 0x65, 0x73, 0x76, 0x32, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x4c, 0x49, 0x4e, 0x46, 0x4f, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x44, 0x10, 0x03, 0x42, 0x17,
+	0x5a, 0x15, 0x2e, 0x2f, 0x6e, 0x72, 0x2d, 0x72, 0x72, 0x63, 0x2d, 0x69, 0x65, 0x73, 0x3b, 0x6e,
+	0x72, 0x72, 0x72, 0x63, 0x69, 0x65, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
