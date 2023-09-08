@@ -453,6 +453,19 @@ P0-PUSCH-AlphaSetId ::=             INTEGER (0..maxNrofP0-PUSCH-AlphaSets-1)
 ServCellIndex ::=                   INTEGER (0..maxNrofServingCells-1)
 
 -- TAG-SERVCELLINDEX-STOP
+-- TAG-SERVINGCELLCONFIGCOMMONSIB-START
+
+ServingCellConfigCommonSIB ::=      SEQUENCE {
+    ssb-PositionsInBurst                SEQUENCE {
+        inOneGroup                          BIT STRING (SIZE (8)),
+        groupPresence                       BIT STRING (SIZE (8))                                   OPTIONAL  -- Cond FR2-Only
+    },
+    ssb-PeriodicityServingCell          ENUMERATED {ms5, ms10, ms20, ms40, ms80, ms160},
+    ss-PBCH-BlockPower                  INTEGER (-60..50),
+    ...
+}
+
+-- TAG-SERVINGCELLCONFIGCOMMONSIB-STOP
 -- TAG-SSB-INDEX-START
 
 SSB-Index ::=                       INTEGER (0..maxNrofSSBs-1)
