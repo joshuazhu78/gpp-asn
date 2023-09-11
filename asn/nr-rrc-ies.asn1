@@ -5,6 +5,15 @@ DEFINITIONS AUTOMATIC TAGS ::=
 
 BEGIN
 
+-- TAG-BWP-START
+
+BWP ::=                             SEQUENCE {
+    locationAndBandwidth                INTEGER (0..37949),
+    subcarrierSpacing                   SubcarrierSpacing,
+    cyclicPrefix                        ENUMERATED { extended }                                                 OPTIONAL    -- Need R
+}
+
+-- TAG-BWP-STOP
 -- TAG-BWP-ID-START
 
 BWP-Id ::=                          INTEGER (0..maxNrofBWPs)
@@ -472,6 +481,11 @@ SSB-Index ::=                       INTEGER (0..maxNrofSSBs-1)
 
 -- TAG-SSB-INDEX-STOP
 AdditionalPCIIndex-r17  ::=  INTEGER(1..maxNrofAdditionalPCI-r17)
+-- TAG-SUBCARRIERSPACING-START
+
+SubcarrierSpacing ::=               ENUMERATED {kHz15, kHz30, kHz60, kHz120, kHz240, kHz480-v1700, kHz960-v1700, spare1}
+
+-- TAG-SUBCARRIERSPACING-STOP
 -- TAG-TCI-STATE-START
 
 TCI-State ::=                       SEQUENCE {
