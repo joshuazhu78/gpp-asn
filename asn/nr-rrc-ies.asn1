@@ -457,6 +457,11 @@ PDSCH-Config ::=                        SEQUENCE {
 PUCCH-ResourceId ::=                    INTEGER (0..maxNrofPUCCH-Resources-1)
 P0-PUSCH-AlphaSetId ::=             INTEGER (0..maxNrofP0-PUSCH-AlphaSets-1)
 
+-- TAG-RSRP-RANGE-START
+
+RSRP-Range ::=                      INTEGER(0..127)
+
+-- TAG-RSRP-RANGE-STOP
 -- TAG-SERVCELLINDEX-START
 
 ServCellIndex ::=                   INTEGER (0..maxNrofServingCells-1)
