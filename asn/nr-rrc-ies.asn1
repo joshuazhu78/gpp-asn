@@ -5,6 +5,11 @@ DEFINITIONS AUTOMATIC TAGS ::=
 
 BEGIN
 
+-- TAG-ARFCN-VALUENR-START
+
+ARFCN-ValueNR ::=               INTEGER (0..maxNARFCN)
+
+-- TAG-ARFCN-VALUENR-STOP
 -- TAG-BWP-START
 
 BWP ::=                             SEQUENCE {
@@ -435,6 +440,27 @@ CSI-ReportConfigId ::=              INTEGER (0..maxNrofCSI-ReportConfigurations-
 CSI-ResourceConfigId ::=            INTEGER (0..maxNrofCSI-ResourceConfigurations-1)
 
 -- TAG-CSI-RESOURCECONFIGID-STOP
+-- TAG-FREQBANDINDICATORNR-START
+
+FreqBandIndicatorNR ::=             INTEGER (1..1024)
+
+-- TAG-FREQBANDINDICATORNR-STOP
+-- TAG-FREQUENCYINFODL-START
+
+FrequencyInfoDL ::=                 SEQUENCE {
+    absoluteFrequencySSB                ARFCN-ValueNR                                                   OPTIONAL,   -- Cond SpCellAdd
+    frequencyBandList                   MultiFrequencyBandListNR,
+    absoluteFrequencyPointA             ARFCN-ValueNR,
+    scs-SpecificCarrierList             SEQUENCE (SIZE (1..maxSCSs)) OF SCS-SpecificCarrier,
+    ...
+}
+
+-- TAG-FREQUENCYINFODL-STOP
+-- TAG-MULTIFREQUENCYBANDLISTNR-START
+
+MultiFrequencyBandListNR ::=        SEQUENCE (SIZE (1..maxNrofMultiBands)) OF FreqBandIndicatorNR
+
+-- TAG-MULTIFREQUENCYBANDLISTNR-STOP
 -- TAG-NZP-CSI-RS-RESOURCEID-START
 
 NZP-CSI-RS-ResourceId ::=           INTEGER (0..maxNrofNZP-CSI-RS-Resources-1)
@@ -462,6 +488,19 @@ P0-PUSCH-AlphaSetId ::=             INTEGER (0..maxNrofP0-PUSCH-AlphaSets-1)
 RSRP-Range ::=                      INTEGER(0..127)
 
 -- TAG-RSRP-RANGE-STOP
+-- TAG-SCS-SPECIFICCARRIER-START
+
+SCS-SpecificCarrier ::=             SEQUENCE {
+    offsetToCarrier                     INTEGER (0..2199),
+    subcarrierSpacing                   SubcarrierSpacing,
+    carrierBandwidth                    INTEGER (1..maxNrofPhysicalResourceBlocks),
+    ...,
+    [[
+    txDirectCurrentLocation         INTEGER (0..4095)                                       OPTIONAL            -- Need S
+    ]]
+}
+
+-- TAG-SCS-SPECIFICCARRIER-STOP
 -- TAG-SERVCELLINDEX-START
 
 ServCellIndex ::=                   INTEGER (0..maxNrofServingCells-1)
