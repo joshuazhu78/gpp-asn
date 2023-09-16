@@ -5,6 +5,20 @@ DEFINITIONS AUTOMATIC TAGS ::=
 
 BEGIN
 
+-- TAG-MIB-START
+
+MIB ::=                             SEQUENCE {
+    systemFrameNumber                   BIT STRING (SIZE (6)),
+    subCarrierSpacingCommon             ENUMERATED {scs15or60, scs30or120},
+    ssb-SubcarrierOffset                INTEGER (0..15),
+    dmrs-TypeA-Position                 ENUMERATED {pos2, pos3},
+    pdcch-ConfigSIB1                    PDCCH-ConfigSIB1,
+    cellBarred                          ENUMERATED {barred, notBarred},
+    intraFreqReselection                ENUMERATED {allowed, notAllowed},
+    spare                               BIT STRING (SIZE (1))
+}
+
+-- TAG-MIB-STOP
 -- TAG-ARFCN-VALUENR-START
 
 ARFCN-ValueNR ::=               INTEGER (0..maxNARFCN)
@@ -253,6 +267,11 @@ ControlResourceSetId-r16 ::=            INTEGER (0..maxNrofControlResourceSets-1
 ControlResourceSetId-v1610 ::=          INTEGER (maxNrofControlResourceSets..maxNrofControlResourceSets-1-r16)
 
 -- TAG-CONTROLRESOURCESETID-STOP
+-- TAG-CONTROLRESOURCESETZERO-START
+
+ControlResourceSetZero ::=                  INTEGER (0..15)
+
+-- TAG-CONTROLRESOURCESETZERO-STOP
 -- TAG-CSI-REPORTCONFIG-START
 
 CSI-ReportConfig ::=                SEQUENCE {
@@ -471,6 +490,14 @@ NZP-CSI-RS-ResourceId ::=           INTEGER (0..maxNrofNZP-CSI-RS-Resources-1)
 PathlossReferenceRS-Id-r17 ::= INTEGER (0..maxNrofPathlossReferenceRSs-1-r17)
 
 -- TAG-PATHLOSSREFERENCERS-ID-STOP
+-- TAG-PDCCH-CONFIGSIB1-START
+
+PDCCH-ConfigSIB1 ::=                SEQUENCE {
+    controlResourceSetZero              ControlResourceSetZero,
+    searchSpaceZero                     SearchSpaceZero
+}
+
+-- TAG-PDCCH-CONFIGSIB1-STOP
 -- TAG-PDSCH-CONFIG-START
 
 PDSCH-Config ::=                        SEQUENCE {
@@ -501,6 +528,11 @@ SCS-SpecificCarrier ::=             SEQUENCE {
 }
 
 -- TAG-SCS-SPECIFICCARRIER-STOP
+-- TAG-SEARCHSPACEZERO-START
+
+SearchSpaceZero ::=                 INTEGER (0..15)
+
+-- TAG-SEARCHSPACEZERO-STOP
 -- TAG-SERVCELLINDEX-START
 
 ServCellIndex ::=                   INTEGER (0..maxNrofServingCells-1)
