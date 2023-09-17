@@ -25,9 +25,9 @@ extract: build
 
 protos-gen: # @HELP generates the proto file from asn1 syntax
 protos-gen: extract
-	asn1c -B asn/nr-rrc-ies.asn1 > protos/nr-rrc-ies.proto
-	@sed -i 's/asn\/nr_rrc_ies.v2/nr_rrc_ies.v2/g' protos/nr-rrc-ies.proto
-	@sed -i 's/nr_rrc_ies.v2\/nr-rrc-ies;nrrrciesv2/.\/nr-rrc-ies;nrrrcies/g' protos/nr-rrc-ies.proto
+	asn1c -B asn/nr-rrc-definitions.asn1 > protos/nr-rrc-definitions.proto
+	@sed -i 's/asn\/nr_rrc_definitions.v1/nr_rrc_definitions.v1/g' protos/nr-rrc-definitions.proto
+	@sed -i 's/nr_rrc_definitions.v1\/nr-rrc-definitions;nrrrcdefinitions/.\/nr-rrc-definitions;nrrrcdefinitions/g' protos/nr-rrc-definitions.proto
 
 protos-go: # @HELP compile the protobuf files (using protoc-go Docker)
 protos-go:
@@ -37,19 +37,19 @@ protos-go:
 		-w /go/src/github.com/joshuazhu78/gpp-asn \
 		--entrypoint /go/src/github.com/joshuazhu78/gpp-asn/build/bin/compile-protos.sh \
 		onosproject/protoc-go:${ONOS_PROTOC_VERSION}
-	@sed -i 's/aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`/json:"two-one,omitempty" aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`/json:"two-two,omitempty" aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`/json:"four-one,omitempty" aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`/json:"three-two,omitempty" aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`/json:"six-one,omitempty" aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`/json:"four-two,omitempty" aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`/json:"eight-one,omitempty" aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`/json:"four-three,omitempty" aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`/json:"six-two,omitempty" aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`/json:"twelve-one,omitempty" aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`/json:"four-four,omitempty" aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`/json:"eight-two,omitempty" aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
-	@sed -i 's/aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`/json:"sixteen-one,omitempty" aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`/g' pkg/nr/nr-rrc-ies/nr-rrc-ies.pb.go
+	@sed -i 's/aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`/json:"two-one,omitempty" aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`/json:"two-two,omitempty" aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`/json:"four-one,omitempty" aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`/json:"three-two,omitempty" aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`/json:"six-one,omitempty" aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`/json:"four-two,omitempty" aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`/json:"eight-one,omitempty" aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`/json:"four-three,omitempty" aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`/json:"six-two,omitempty" aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`/json:"twelve-one,omitempty" aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`/json:"four-four,omitempty" aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`/json:"eight-two,omitempty" aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
+	@sed -i 's/aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`/json:"sixteen-one,omitempty" aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
 
 protos: protos-gen protos-go
 
