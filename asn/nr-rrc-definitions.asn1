@@ -526,11 +526,43 @@ FrequencyInfoDL ::=                 SEQUENCE {
 -- TAG-MEASCONFIG-START
 
 MeasConfig ::=                      SEQUENCE {
+    measObjectToRemoveList              MeasObjectToRemoveList                                              OPTIONAL,   -- Need N
     measObjectToAddModList              MeasObjectToAddModList                                              OPTIONAL,   -- Need N
+    reportConfigToRemoveList            ReportConfigToRemoveList                                            OPTIONAL,   -- Need N
     reportConfigToAddModList            ReportConfigToAddModList                                            OPTIONAL,   -- Need N
+    measIdToRemoveList                  MeasIdToRemoveList                                                  OPTIONAL,   -- Need N
+    measIdToAddModList                  MeasIdToAddModList                                                  OPTIONAL,   -- Need N
+    s-MeasureConfig                     CHOICE {
+        ssb-RSRP                            RSRP-Range,
+        csi-RSRP                            RSRP-Range
+    }                                                                                                       OPTIONAL,   -- Need M
+    quantityConfig                      QuantityConfig                                                      OPTIONAL,   -- Need M
     ...
 }
+
+MeasObjectToRemoveList ::=              SEQUENCE (SIZE (1..maxNrofObjectId)) OF MeasObjectId
+
+MeasIdToRemoveList ::=                  SEQUENCE (SIZE (1..maxNrofMeasId)) OF MeasId
+
+ReportConfigToRemoveList ::=            SEQUENCE (SIZE (1..maxReportConfigId)) OF ReportConfigId
+
 -- TAG-MEASCONFIG-STOP
+-- TAG-MEASID-START
+
+MeasId ::=                          INTEGER (1..maxNrofMeasId)
+
+-- TAG-MEASID-STOP
+-- TAG-MEASIDTOADDMODLIST-START
+
+MeasIdToAddModList ::=              SEQUENCE (SIZE (1..maxNrofMeasId)) OF MeasIdToAddMod
+
+MeasIdToAddMod ::=                  SEQUENCE {
+    measId                              MeasId,
+    measObjectId                        MeasObjectId,
+    reportConfigId                      ReportConfigId
+}
+
+-- TAG-MEASIDTOADDMODLIST-STOP
 -- TAG-MEASOBJECTID-START
 
 MeasObjectId ::=                    INTEGER (1..maxNrofObjectId)
@@ -1173,5 +1205,24 @@ maxNrofPdcch-BlindDetection-r17         INTEGER ::= 16      -- Maximum number of
                                                             -- capabilities
 
 -- TAG-MULTIPLICITY-AND-TYPE-CONSTRAINT-DEFINITIONS-STOP
+
+-- TAG-VARMEASCONFIG-START
+
+VarMeasConfig ::=                   SEQUENCE {
+    -- Measurement identities
+    measIdList                          MeasIdToAddModList                  OPTIONAL,
+    -- Measurement objects
+    measObjectList                      MeasObjectToAddModList              OPTIONAL,
+    -- Reporting configurations
+    reportConfigList                    ReportConfigToAddModList            OPTIONAL,
+    -- Other parameters
+    quantityConfig                      QuantityConfig                      OPTIONAL,
+    s-MeasureConfig                         CHOICE {
+        ssb-RSRP                                RSRP-Range,
+        csi-RSRP                                RSRP-Range
+    }                                                                       OPTIONAL
+}
+
+-- TAG-VARMEASCONFIG-STOP
 
 END

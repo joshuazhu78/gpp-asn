@@ -7,9 +7,3 @@ protoc -I=$proto_imports:${GOPATH}/src/github.com/onosproject/onos-lib-go/api:${
   --go_out=./pkg/nr/ \
   nr-rrc-definitions.proto
 protoc-go-inject-tag -input=./pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-
-protoc -I=$proto_imports:${GOPATH}/src/github.com/onosproject/onos-lib-go/api:${GOPATH}/src/github.com/joshuazhu78/gpp-asn/protos \
-  --proto_path=pkg/nr \
-  --go_out=./pkg/nr/ \
-  nr-ue-variables.proto
-protoc-go-inject-tag -input=./pkg/nr/nr-ue-variables/nr-ue-variables.pb.go

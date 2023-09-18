@@ -28,9 +28,6 @@ protos-gen: extract
 	asn1c -B asn/nr-rrc-definitions.asn1 > protos/nr-rrc-definitions.proto
 	@sed -i 's/asn\/nr_rrc_definitions.v1/nr_rrc_definitions.v1/g' protos/nr-rrc-definitions.proto
 	@sed -i 's/nr_rrc_definitions.v1\/nr-rrc-definitions;nrrrcdefinitions/.\/nr-rrc-definitions;nrrrcdefinitions/g' protos/nr-rrc-definitions.proto
-	asn1c -B asn/nr-ue-variables.asn1 > protos/nr-ue-variables.proto
-	@sed -i 's/asn\/nr_ue_variables.v1/nr_ue_variables.v1/g' protos/nr-ue-variables.proto
-	@sed -i 's/nr_ue_variables.v1\/nr-ue-variables;nruevariables/.\/nr-ue-variables;nruevariables/g' protos/nr-ue-variables.proto
 
 protos-go: # @HELP compile the protobuf files (using protoc-go Docker)
 protos-go:
