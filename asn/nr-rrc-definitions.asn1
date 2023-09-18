@@ -4,6 +4,33 @@ NR-RRC-Definitions DEFINITIONS AUTOMATIC TAGS ::=
 
 BEGIN
 
+-- TAG-NR-RRC-DEFINITIONS-STOP
+-- TAG-BCCH-BCH-MESSAGE-START
+
+BCCH-BCH-Message ::=            SEQUENCE {
+    message                         BCCH-BCH-MessageType
+}
+
+BCCH-BCH-MessageType ::=        CHOICE {
+    mib                             MIB,
+    messageClassExtension           SEQUENCE {}
+}
+
+-- TAG-BCCH-BCH-MESSAGE-STOP
+-- TAG-DL-DCCH-MESSAGE-START
+
+DL-DCCH-Message ::=                  SEQUENCE {
+    message                             DL-DCCH-MessageType
+}
+
+DL-DCCH-MessageType ::=             CHOICE {
+    c1                                  CHOICE {
+        rrcReconfiguration                  RRCReconfiguration,
+        ...
+    },
+    messageClassExtension   SEQUENCE {}
+}
+-- TAG-DL-DCCH-MESSAGE-STOP
 -- TAG-MIB-START
 
 MIB ::=                             SEQUENCE {
@@ -18,6 +45,23 @@ MIB ::=                             SEQUENCE {
 }
 
 -- TAG-MIB-STOP
+-- TAG-RRCRECONFIGURATION-START
+
+RRCReconfiguration ::=                  SEQUENCE {
+    rrc-TransactionIdentifier               RRC-TransactionIdentifier,
+    criticalExtensions                      CHOICE {
+        rrcReconfiguration                      RRCReconfiguration-IEs,
+        criticalExtensionsFuture                SEQUENCE {}
+    }
+}
+
+RRCReconfiguration-IEs ::=              SEQUENCE {
+    measConfig                              MeasConfig                                                             OPTIONAL, -- Need M
+    lateNonCriticalExtension                OCTET STRING                                                           OPTIONAL,
+	...
+}
+
+-- TAG-RRCRECONFIGURATION-STOP
 -- TAG-ARFCN-VALUENR-START
 
 ARFCN-ValueNR ::=               INTEGER (0..maxNARFCN)
@@ -458,6 +502,11 @@ CSI-ReportConfigId ::=              INTEGER (0..maxNrofCSI-ReportConfigurations-
 CSI-ResourceConfigId ::=            INTEGER (0..maxNrofCSI-ResourceConfigurations-1)
 
 -- TAG-CSI-RESOURCECONFIGID-STOP
+-- TAG-FILTERCOEFFICIENT-START
+
+FilterCoefficient ::=       ENUMERATED { fc0, fc1, fc2, fc3, fc4, fc5, fc6, fc7, fc8, fc9, fc11, fc13, fc15, fc17, fc19, spare1, ...}
+
+-- TAG-FILTERCOEFFICIENT-STOP
 -- TAG-FREQBANDINDICATORNR-START
 
 FreqBandIndicatorNR ::=             INTEGER (1..1024)
@@ -474,6 +523,54 @@ FrequencyInfoDL ::=                 SEQUENCE {
 }
 
 -- TAG-FREQUENCYINFODL-STOP
+-- TAG-MEASCONFIG-START
+
+MeasConfig ::=                      SEQUENCE {
+    measObjectToAddModList              MeasObjectToAddModList                                              OPTIONAL,   -- Need N
+    reportConfigToAddModList            ReportConfigToAddModList                                            OPTIONAL,   -- Need N
+    ...
+}
+-- TAG-MEASCONFIG-STOP
+-- TAG-MEASOBJECTID-START
+
+MeasObjectId ::=                    INTEGER (1..maxNrofObjectId)
+
+-- TAG-MEASOBJECTID-STOP
+-- TAG-MEASOBJECTNR-START
+
+MeasObjectNR ::=                    SEQUENCE {
+    ssbFrequency                        ARFCN-ValueNR                                                   OPTIONAL,   -- Cond SSBorAssociatedSSB
+    ssbSubcarrierSpacing                SubcarrierSpacing                                               OPTIONAL,   -- Cond SSBorAssociatedSSB
+
+    referenceSignalConfig               ReferenceSignalConfig,
+    quantityConfigIndex                 INTEGER (1..maxNrofQuantityConfig),
+	...
+}
+
+ReferenceSignalConfig::=            SEQUENCE {
+    ssb-ConfigMobility                  SSB-ConfigMobility                                              OPTIONAL,   -- Need M
+	...
+}
+
+SSB-ConfigMobility::=               SEQUENCE {
+    ssb-ToMeasure                       CHOICE {
+        release         NULL,
+        setup           SSB-ToMeasure
+	}
+}
+-- TAG-MEASOBJECTNR-STOP
+-- TAG-MEASOBJECTTOADDMODLIST-START
+
+MeasObjectToAddModList ::=                  SEQUENCE (SIZE (1..maxNrofObjectId)) OF MeasObjectToAddMod
+
+MeasObjectToAddMod ::=                      SEQUENCE {
+    measObjectId                                MeasObjectId,
+    measObject                                  CHOICE {
+        measObjectNR                                MeasObjectNR,
+        ...
+    }
+}
+-- TAG-MEASOBJECTTOADDMODLIST-STOP
 -- TAG-MULTIFREQUENCYBANDLISTNR-START
 
 MultiFrequencyBandListNR ::=        SEQUENCE (SIZE (1..maxNrofMultiBands)) OF FreqBandIndicatorNR
@@ -509,6 +606,75 @@ PDSCH-Config ::=                        SEQUENCE {
 PUCCH-ResourceId ::=                    INTEGER (0..maxNrofPUCCH-Resources-1)
 P0-PUSCH-AlphaSetId ::=             INTEGER (0..maxNrofP0-PUSCH-AlphaSets-1)
 
+-- TAG-QUANTITYCONFIG-START
+
+QuantityConfig ::=                  SEQUENCE {
+    quantityConfigNR-List               SEQUENCE (SIZE (1..maxNrofQuantityConfig)) OF QuantityConfigNR          OPTIONAL,   -- Need M
+	...
+}
+QuantityConfigNR::=                 SEQUENCE {
+    quantityConfigCell                  QuantityConfigRS,
+    quantityConfigRS-Index              QuantityConfigRS                                                        OPTIONAL    -- Need M
+}
+QuantityConfigRS ::=                SEQUENCE {
+    ssb-FilterConfig                    FilterConfig,
+    csi-RS-FilterConfig                 FilterConfig
+}
+FilterConfig ::=                    SEQUENCE {
+    filterCoefficientRSRP               FilterCoefficient                                       DEFAULT fc4,
+    filterCoefficientRSRQ               FilterCoefficient                                       DEFAULT fc4,
+    filterCoefficientRS-SINR            FilterCoefficient                                       DEFAULT fc4
+}
+-- TAG-QUANTITYCONFIG-STOP
+-- TAG-REPORTCONFIGID-START
+
+ReportConfigId ::=                          INTEGER (1..maxReportConfigId)
+
+-- TAG-REPORTCONFIGID-STOP
+-- TAG-REPORTCONFIGNR-START
+ReportConfigNR ::=                          SEQUENCE {
+    reportType                                  CHOICE {
+        periodical                                  PeriodicalReportConfig,
+        ...
+    }
+}
+PeriodicalReportConfig ::=                  SEQUENCE {
+    rsType                                      NR-RS-Type,
+    reportInterval                              ReportInterval,
+    reportQuantityCell                          MeasReportQuantity,
+    maxReportCells                              INTEGER (1..maxCellReport),
+    reportQuantityRS-Indexes                    MeasReportQuantity                                             OPTIONAL,   -- Need R
+    maxNrofRS-IndexesToReport                   INTEGER (1..maxNrofIndexesToReport)                            OPTIONAL,   -- Need R
+    ...
+}
+
+NR-RS-Type ::=                              ENUMERATED {ssb, csi-rs}
+
+MeasReportQuantity ::=                      SEQUENCE {
+    rsrp                                        BOOLEAN,
+    rsrq                                        BOOLEAN,
+    sinr                                        BOOLEAN
+}
+
+-- TAG-REPORTCONFIGNR-STOP
+-- TAG-REPORTCONFIGTOADDMODLIST-START
+
+ReportConfigToAddModList ::=        SEQUENCE (SIZE (1..maxReportConfigId)) OF ReportConfigToAddMod
+
+ReportConfigToAddMod ::=            SEQUENCE {
+    reportConfigId                      ReportConfigId,
+    reportConfig                        CHOICE {
+        reportConfigNR                      ReportConfigNR,
+        ...
+    }
+}
+-- TAG-REPORTCONFIGTOADDMODLIST-STOP
+-- TAG-REPORTINTERVAL-START
+
+ReportInterval ::=                  ENUMERATED {ms120, ms240, ms480, ms640, ms1024, ms2048, ms5120, ms10240, ms20480, ms40960,
+                                                    min1,min6, min12, min30 }
+
+-- TAG-REPORTINTERVAL-STOP
 -- TAG-RSRP-RANGE-START
 
 RSRP-Range ::=                      INTEGER(0..127)
@@ -556,6 +722,15 @@ SSB-Index ::=                       INTEGER (0..maxNrofSSBs-1)
 
 -- TAG-SSB-INDEX-STOP
 AdditionalPCIIndex-r17  ::=  INTEGER(1..maxNrofAdditionalPCI-r17)
+-- TAG-SSB-TOMEASURE-START
+
+SSB-ToMeasure ::=                   CHOICE {
+    shortBitmap                         BIT STRING (SIZE (4)),
+    mediumBitmap                        BIT STRING (SIZE (8)),
+    longBitmap                          BIT STRING (SIZE (64))
+}
+
+-- TAG-SSB-TOMEASURE-STOP
 -- TAG-SUBCARRIERSPACING-START
 
 SubcarrierSpacing ::=               ENUMERATED {kHz15, kHz30, kHz60, kHz120, kHz240, kHz480-v1700, kHz960-v1700, spare1}
@@ -594,6 +769,11 @@ TCI-StateId ::=                     INTEGER (0..maxNrofTCI-States-1)
 
 -- TAG-TCI-STATEID-STOP
 Uplink-powerControlId-r17 ::= INTEGER(1.. maxUL-TCI-r17)
+-- TAG-RRC-TRANSACTIONIDENTIFIER-START
+
+RRC-TransactionIdentifier ::=       INTEGER (0..3)
+
+-- TAG-RRC-TRANSACTIONIDENTIFIER-STOP
 -- TAG-MULTIPLICITY-AND-TYPE-CONSTRAINT-DEFINITIONS-START
 
 maxAdditionalRACH-r17                   INTEGER ::= 256     -- Maximum number of additional RACH configurations.

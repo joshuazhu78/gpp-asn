@@ -28,15 +28,20 @@ protos-gen: extract
 	asn1c -B asn/nr-rrc-definitions.asn1 > protos/nr-rrc-definitions.proto
 	@sed -i 's/asn\/nr_rrc_definitions.v1/nr_rrc_definitions.v1/g' protos/nr-rrc-definitions.proto
 	@sed -i 's/nr_rrc_definitions.v1\/nr-rrc-definitions;nrrrcdefinitions/.\/nr-rrc-definitions;nrrrcdefinitions/g' protos/nr-rrc-definitions.proto
+	asn1c -B asn/nr-ue-variables.asn1 > protos/nr-ue-variables.proto
+	@sed -i 's/asn\/nr_ue_variables.v1/nr_ue_variables.v1/g' protos/nr-ue-variables.proto
+	@sed -i 's/nr_ue_variables.v1\/nr-ue-variables;nruevariables/.\/nr-ue-variables;nruevariables/g' protos/nr-ue-variables.proto
 
 protos-go: # @HELP compile the protobuf files (using protoc-go Docker)
 protos-go:
+	@sudo rm -rf pkg/nr/*
 	docker run -it \
 		-v `pwd`:/go/src/github.com/joshuazhu78/gpp-asn \
 		-v `pwd`/../onosproject/onos-lib-go:/go/src/github.com/onosproject/onos-lib-go \
 		-w /go/src/github.com/joshuazhu78/gpp-asn \
 		--entrypoint /go/src/github.com/joshuazhu78/gpp-asn/build/bin/compile-protos.sh \
 		onosproject/protoc-go:${ONOS_PROTOC_VERSION}
+	@sudo chown -R $(USER):$(USER) pkg/nr
 	@sed -i 's/aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`/json:"two-one,omitempty" aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
 	@sed -i 's/aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`/json:"two-two,omitempty" aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
 	@sed -i 's/aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`/json:"four-one,omitempty" aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
