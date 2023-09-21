@@ -11,36 +11,36 @@ import "validate/v1/validate.proto";
 import "asn1/v1/asn1.proto";
 import "google/protobuf/empty.proto";
 
-// enumerated from nr-rrc-definitions.asn1:38
+// enumerated from nr-rrc-definitions.asn1:71
 enum SubCarrierSpacingCommonMib {
     SUB_CARRIER_SPACING_COMMON_MIB_SCS15OR60 = 0;
     SUB_CARRIER_SPACING_COMMON_MIB_SCS30OR120 = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:40
+// enumerated from nr-rrc-definitions.asn1:73
 enum DmrsTypeApositionMib {
     DMRS_TYPE_APOSITION_MIB_POS2 = 0;
     DMRS_TYPE_APOSITION_MIB_POS3 = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:42
+// enumerated from nr-rrc-definitions.asn1:75
 enum CellBarredMib {
     CELL_BARRED_MIB_BARRED = 0;
     CELL_BARRED_MIB_NOT_BARRED = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:43
+// enumerated from nr-rrc-definitions.asn1:76
 enum IntraFreqReselectionMib {
     INTRA_FREQ_RESELECTION_MIB_ALLOWED = 0;
     INTRA_FREQ_RESELECTION_MIB_NOT_ALLOWED = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:75
+// enumerated from nr-rrc-definitions.asn1:108
 enum CyclicPrefixBwp {
     CYCLIC_PREFIX_BWP_EXTENDED = 0;
 };
 
-// enumerated from nr-rrc-definitions.asn1:154
+// enumerated from nr-rrc-definitions.asn1:187
 enum PortSelectionSamplingSizetypeIiportSelection {
     PORT_SELECTION_SAMPLING_SIZETYPE_IIPORT_SELECTION_N1 = 0;
     PORT_SELECTION_SAMPLING_SIZETYPE_IIPORT_SELECTION_N2 = 1;
@@ -48,20 +48,20 @@ enum PortSelectionSamplingSizetypeIiportSelection {
     PORT_SELECTION_SAMPLING_SIZETYPE_IIPORT_SELECTION_N4 = 3;
 };
 
-// enumerated from nr-rrc-definitions.asn1:158
+// enumerated from nr-rrc-definitions.asn1:191
 enum PhaseAlphabetSizetype2 {
     PHASE_ALPHABET_SIZETYPE2_N4 = 0;
     PHASE_ALPHABET_SIZETYPE2_N8 = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:160
+// enumerated from nr-rrc-definitions.asn1:193
 enum NumberOfBeamstype2 {
     NUMBER_OF_BEAMSTYPE2_TWO = 0;
     NUMBER_OF_BEAMSTYPE2_THREE = 1;
     NUMBER_OF_BEAMSTYPE2_FOUR = 2;
 };
 
-// enumerated from nr-rrc-definitions.asn1:188
+// enumerated from nr-rrc-definitions.asn1:221
 enum PortSelectionSamplingSizer16typeIiportSelectionr16 {
     PORT_SELECTION_SAMPLING_SIZER16TYPE_IIPORT_SELECTIONR16_N1 = 0;
     PORT_SELECTION_SAMPLING_SIZER16TYPE_IIPORT_SELECTIONR16_N2 = 1;
@@ -69,43 +69,43 @@ enum PortSelectionSamplingSizer16typeIiportSelectionr16 {
     PORT_SELECTION_SAMPLING_SIZER16TYPE_IIPORT_SELECTIONR16_N4 = 3;
 };
 
-// enumerated from nr-rrc-definitions.asn1:255
+// enumerated from nr-rrc-definitions.asn1:288
 enum ValueOfNr17typeIiportSelectionr17 {
     VALUE_OF_NR17TYPE_IIPORT_SELECTIONR17_N2 = 0;
     VALUE_OF_NR17TYPE_IIPORT_SELECTIONR17_N4 = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:280
+// enumerated from nr-rrc-definitions.asn1:313
 enum RegBundleSizeinterleaved {
     REG_BUNDLE_SIZEINTERLEAVED_N2 = 0;
     REG_BUNDLE_SIZEINTERLEAVED_N3 = 1;
     REG_BUNDLE_SIZEINTERLEAVED_N6 = 2;
 };
 
-// enumerated from nr-rrc-definitions.asn1:281
+// enumerated from nr-rrc-definitions.asn1:314
 enum InterleaverSizeinterleaved {
     INTERLEAVER_SIZEINTERLEAVED_N2 = 0;
     INTERLEAVER_SIZEINTERLEAVED_N3 = 1;
     INTERLEAVER_SIZEINTERLEAVED_N6 = 2;
 };
 
-// enumerated from nr-rrc-definitions.asn1:286
+// enumerated from nr-rrc-definitions.asn1:319
 enum PrecoderGranularityControlResourceSet {
     PRECODER_GRANULARITY_CONTROL_RESOURCE_SET_SAME_AS_REG_BUNDLE = 0;
     PRECODER_GRANULARITY_CONTROL_RESOURCE_SET_ALL_CONTIGUOUS_RBS = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:289
+// enumerated from nr-rrc-definitions.asn1:322
 enum TciPresentInDcicontrolResourceSet {
     TCI_PRESENT_IN_DCICONTROL_RESOURCE_SET_ENABLED = 0;
 };
 
-// enumerated from nr-rrc-definitions.asn1:299
+// enumerated from nr-rrc-definitions.asn1:332
 enum FollowUnifiedTcistater17ControlResourceSet {
     FOLLOW_UNIFIED_TCISTATER17_CONTROL_RESOURCE_SET_ENABLED = 0;
 };
 
-// enumerated from nr-rrc-definitions.asn1:336
+// enumerated from nr-rrc-definitions.asn1:369
 enum ReportSlotConfigsemiPersistentOnPusch {
     REPORT_SLOT_CONFIGSEMI_PERSISTENT_ON_PUSCH_SL5 = 0;
     REPORT_SLOT_CONFIGSEMI_PERSISTENT_ON_PUSCH_SL10 = 1;
@@ -116,43 +116,43 @@ enum ReportSlotConfigsemiPersistentOnPusch {
     REPORT_SLOT_CONFIGSEMI_PERSISTENT_ON_PUSCH_SL320 = 6;
 };
 
-// enumerated from nr-rrc-definitions.asn1:349
+// enumerated from nr-rrc-definitions.asn1:382
 enum PdschBundleSizeForCsicriRii1Cqi {
     PDSCH_BUNDLE_SIZE_FOR_CSICRI_RII1_CQI_N2 = 0;
     PDSCH_BUNDLE_SIZE_FOR_CSICRI_RII1_CQI_N4 = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:357
+// enumerated from nr-rrc-definitions.asn1:390
 enum CqiFormatIndicatorreportFreqConfiguration {
     CQI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_CQI = 0;
     CQI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_SUBBAND_CQI = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:358
+// enumerated from nr-rrc-definitions.asn1:391
 enum PmiFormatIndicatorreportFreqConfiguration {
     PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI = 0;
     PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_SUBBAND_PMI = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:381
+// enumerated from nr-rrc-definitions.asn1:414
 enum TimeRestrictionForChannelMeasurementsCsireportConfig {
     TIME_RESTRICTION_FOR_CHANNEL_MEASUREMENTS_CSIREPORT_CONFIG_CONFIGURED = 0;
     TIME_RESTRICTION_FOR_CHANNEL_MEASUREMENTS_CSIREPORT_CONFIG_NOT_CONFIGURED = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:382
+// enumerated from nr-rrc-definitions.asn1:415
 enum TimeRestrictionForInterferenceMeasurementsCsireportConfig {
     TIME_RESTRICTION_FOR_INTERFERENCE_MEASUREMENTS_CSIREPORT_CONFIG_CONFIGURED = 0;
     TIME_RESTRICTION_FOR_INTERFERENCE_MEASUREMENTS_CSIREPORT_CONFIG_NOT_CONFIGURED = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:384
+// enumerated from nr-rrc-definitions.asn1:417
 enum DummyCsireportConfig {
     DUMMY_CSIREPORT_CONFIG_N1 = 0;
     DUMMY_CSIREPORT_CONFIG_N2 = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:388
+// enumerated from nr-rrc-definitions.asn1:421
 enum NrofReportedRsdisabled {
     NROF_REPORTED_RSDISABLED_N1 = 0;
     NROF_REPORTED_RSDISABLED_N2 = 1;
@@ -160,7 +160,7 @@ enum NrofReportedRsdisabled {
     NROF_REPORTED_RSDISABLED_N4 = 3;
 };
 
-// enumerated from nr-rrc-definitions.asn1:391
+// enumerated from nr-rrc-definitions.asn1:424
 enum CqiTableCsireportConfig {
     CQI_TABLE_CSIREPORT_CONFIG_TABLE1 = 0;
     CQI_TABLE_CSIREPORT_CONFIG_TABLE2 = 1;
@@ -168,25 +168,25 @@ enum CqiTableCsireportConfig {
     CQI_TABLE_CSIREPORT_CONFIG_TABLE4_R17 = 3;
 };
 
-// enumerated from nr-rrc-definitions.asn1:392
+// enumerated from nr-rrc-definitions.asn1:425
 enum SubbandSizeCsireportConfig {
     SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE1 = 0;
     SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2 = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:397
+// enumerated from nr-rrc-definitions.asn1:430
 enum ReportSlotConfigv1530semiPersistentOnPuschv1530 {
     REPORT_SLOT_CONFIGV1530SEMI_PERSISTENT_ON_PUSCHV1530_SL4 = 0;
     REPORT_SLOT_CONFIGV1530SEMI_PERSISTENT_ON_PUSCHV1530_SL8 = 1;
     REPORT_SLOT_CONFIGV1530SEMI_PERSISTENT_ON_PUSCHV1530_SL16 = 2;
 };
 
-// enumerated from nr-rrc-definitions.asn1:416
+// enumerated from nr-rrc-definitions.asn1:449
 enum CqiBitsPerSubbandr17CsireportConfig {
     CQI_BITS_PER_SUBBANDR17_CSIREPORT_CONFIG_BITS4 = 0;
 };
 
-// enumerated from nr-rrc-definitions.asn1:418
+// enumerated from nr-rrc-definitions.asn1:451
 enum NrofReportedGroupsr17groupBasedBeamReportingv1710 {
     NROF_REPORTED_GROUPSR17GROUP_BASED_BEAM_REPORTINGV1710_N1 = 0;
     NROF_REPORTED_GROUPSR17GROUP_BASED_BEAM_REPORTINGV1710_N2 = 1;
@@ -194,25 +194,25 @@ enum NrofReportedGroupsr17groupBasedBeamReportingv1710 {
     NROF_REPORTED_GROUPSR17GROUP_BASED_BEAM_REPORTINGV1710_N4 = 3;
 };
 
-// enumerated from nr-rrc-definitions.asn1:421
+// enumerated from nr-rrc-definitions.asn1:454
 enum SharedCmrr17CsireportConfig {
     SHARED_CMRR17_CSIREPORT_CONFIG_ENABLE = 0;
 };
 
-// enumerated from nr-rrc-definitions.asn1:422
+// enumerated from nr-rrc-definitions.asn1:455
 enum CsiReportModer17CsireportConfig {
     CSI_REPORT_MODER17_CSIREPORT_CONFIG_MODE1 = 0;
     CSI_REPORT_MODER17_CSIREPORT_CONFIG_MODE2 = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:423
+// enumerated from nr-rrc-definitions.asn1:456
 enum NumberOfSingleTrpcsimode1r17CsireportConfig {
     NUMBER_OF_SINGLE_TRPCSIMODE1R17_CSIREPORT_CONFIG_N0 = 0;
     NUMBER_OF_SINGLE_TRPCSIMODE1R17_CSIREPORT_CONFIG_N1 = 1;
     NUMBER_OF_SINGLE_TRPCSIMODE1R17_CSIREPORT_CONFIG_N2 = 2;
 };
 
-// enumerated from nr-rrc-definitions.asn1:507
+// enumerated from nr-rrc-definitions.asn1:545
 enum FilterCoefficient {
     FILTER_COEFFICIENT_FC0 = 0;
     FILTER_COEFFICIENT_FC1 = 1;
@@ -232,13 +232,13 @@ enum FilterCoefficient {
     FILTER_COEFFICIENT_SPARE1 = 15;
 };
 
-// enumerated from nr-rrc-definitions.asn1:683
+// enumerated from nr-rrc-definitions.asn1:778
 enum NrRSType {
     NR_RS_TYPE_SSB = 0;
     NR_RS_TYPE_CSI_RS = 1;
 };
 
-// enumerated from nr-rrc-definitions.asn1:706
+// enumerated from nr-rrc-definitions.asn1:801
 enum ReportInterval {
     REPORT_INTERVAL_MS120 = 0;
     REPORT_INTERVAL_MS240 = 1;
@@ -256,7 +256,7 @@ enum ReportInterval {
     REPORT_INTERVAL_MIN30 = 13;
 };
 
-// enumerated from nr-rrc-definitions.asn1:745
+// enumerated from nr-rrc-definitions.asn1:845
 enum SsbPeriodicityServingCellServingCellConfigCommonSib {
     SSB_PERIODICITY_SERVING_CELL_SERVING_CELL_CONFIG_COMMON_SIB_MS5 = 0;
     SSB_PERIODICITY_SERVING_CELL_SERVING_CELL_CONFIG_COMMON_SIB_MS10 = 1;
@@ -266,7 +266,7 @@ enum SsbPeriodicityServingCellServingCellConfigCommonSib {
     SSB_PERIODICITY_SERVING_CELL_SERVING_CELL_CONFIG_COMMON_SIB_MS160 = 5;
 };
 
-// enumerated from nr-rrc-definitions.asn1:768
+// enumerated from nr-rrc-definitions.asn1:873
 enum SubcarrierSpacing {
     SUBCARRIER_SPACING_K_HZ15 = 0;
     SUBCARRIER_SPACING_K_HZ30 = 1;
@@ -278,7 +278,7 @@ enum SubcarrierSpacing {
     SUBCARRIER_SPACING_SPARE1 = 7;
 };
 
-// enumerated from nr-rrc-definitions.asn1:793
+// enumerated from nr-rrc-definitions.asn1:898
 enum QclTypeQclinfo {
     QCL_TYPE_QCLINFO_TYPE_A = 0;
     QCL_TYPE_QCLINFO_TYPE_B = 1;
@@ -343,7 +343,73 @@ message DlDCchMessageType {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:37
+// sequence from nr-rrc-definitions.asn1:39
+// {UL-DCCH-Message}
+message UlDCchMessage {
+    UlDCchMessageType message = 1 [ json_name="message"];
+};
+
+// choice from nr-rrc-definitions.asn1:43
+// @inject_tag: aper:"choiceExt"
+// {c1UL-DCCH-MessageType}
+message C1UlDCchMessageType {
+    // choice from nr-rrc-definitions.asn1:43
+    oneof c1_ul_dcch_message_type {
+        // @inject_tag: aper:"choiceIdx:1,"
+        MeasurementReport measurement_report = 1 [ json_name="measurementReport"];
+    }
+};
+
+// sequence from nr-rrc-definitions.asn1:46
+// {UL-DCCH-MessageType}
+message UlDCchMessageType {
+    // choice from nr-rrc-definitions.asn1:46
+    oneof ul_dcch_message_type {
+        // @inject_tag: aper:"choiceIdx:1,choiceExt,"
+        C1UlDCchMessageType c1 = 1 [ json_name="c1"];
+    }
+};
+
+// sequence from nr-rrc-definitions.asn1:55
+// {criticalExtensionsFuturecriticalExtensions}
+message CriticalExtensionsFuturecriticalExtensions {
+};
+
+// choice from nr-rrc-definitions.asn1:54
+// {criticalExtensionsMeasurementReport}
+message CriticalExtensionsMeasurementReport {
+    // choice from nr-rrc-definitions.asn1:54
+    oneof critical_extensions_measurement_report {
+        // @inject_tag: aper:"choiceIdx:1,"
+        MeasurementReportIEs measurement_report = 1 [ json_name="measurementReport"];
+        // @inject_tag: aper:"choiceIdx:2,"
+        CriticalExtensionsFuturecriticalExtensions critical_extensions_future = 2 [ json_name="criticalExtensionsFuture"];
+    }
+};
+
+// sequence from nr-rrc-definitions.asn1:57
+// {MeasurementReport}
+message MeasurementReport {
+    CriticalExtensionsMeasurementReport critical_extensions = 1 [ json_name="criticalExtensions"];
+};
+
+// sequence from nr-rrc-definitions.asn1:63
+// {nonCriticalExtensionMeasurementReport-IEs}
+message NonCriticalExtensionMeasurementReportIEs {
+};
+
+// sequence from nr-rrc-definitions.asn1:60
+// {MeasurementReport-IEs}
+message MeasurementReportIEs {
+    // @inject_tag: aper:"valueExt,"
+    MeasResults meas_results = 1 [ json_name="measResults"];
+    // @inject_tag: aper:"optional,"
+    optional bytes late_non_critical_extension = 2 [ json_name="lateNonCriticalExtension"];
+    // @inject_tag: aper:"optional,"
+    optional NonCriticalExtensionMeasurementReportIEs non_critical_extension = 3 [ json_name="nonCriticalExtension"];
+};
+
+// sequence from nr-rrc-definitions.asn1:70
 // {MIB}
 message Mib {
     // @inject_tag: aper:"sizeLB:6,sizeUB:6,"
@@ -363,15 +429,10 @@ message Mib {
     asn1.v1.BitString spare = 8 [ json_name="spare"];
 };
 
-// sequence from nr-rrc-definitions.asn1:54
-// {criticalExtensionsFuturecriticalExtensions}
-message CriticalExtensionsFuturecriticalExtensions {
-};
-
-// choice from nr-rrc-definitions.asn1:53
+// choice from nr-rrc-definitions.asn1:86
 // {criticalExtensionsRRCReconfiguration}
 message CriticalExtensionsRrcreconfiguration {
-    // choice from nr-rrc-definitions.asn1:53
+    // choice from nr-rrc-definitions.asn1:86
     oneof critical_extensions_rrcreconfiguration {
         // @inject_tag: aper:"choiceIdx:1,valueExt,"
         RrcreconfigurationIEs rrc_reconfiguration = 1 [ json_name="rrcReconfiguration"];
@@ -380,14 +441,14 @@ message CriticalExtensionsRrcreconfiguration {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:51
+// sequence from nr-rrc-definitions.asn1:84
 // {RRCReconfiguration}
 message Rrcreconfiguration {
     RrcTransactionIdentifier rrc_transaction_identifier = 1 [ json_name="rrc-TransactionIdentifier"];
     CriticalExtensionsRrcreconfiguration critical_extensions = 2 [ json_name="criticalExtensions"];
 };
 
-// sequence from nr-rrc-definitions.asn1:59
+// sequence from nr-rrc-definitions.asn1:92
 // @inject_tag: aper:"valueExt"
 // {RRCReconfiguration-IEs}
 message RrcreconfigurationIEs {
@@ -397,14 +458,14 @@ message RrcreconfigurationIEs {
     optional bytes late_non_critical_extension = 2 [ json_name="lateNonCriticalExtension"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:67
+// range of Integer from nr-rrc-definitions.asn1:100
 // {ARFCN-ValueNR}
 message ArfcnValueNr {
     // @inject_tag: aper:"valueLB:0,valueUB:3279165,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 3279165}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:73
+// sequence from nr-rrc-definitions.asn1:106
 // {BWP}
 message Bwp {
     // @inject_tag: aper:"valueLB:0,valueUB:37949,"
@@ -415,24 +476,24 @@ message Bwp {
     optional CyclicPrefixBwp cyclic_prefix = 3 [ json_name="cyclicPrefix"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:81
+// range of Integer from nr-rrc-definitions.asn1:114
 // {BWP-Id}
 message BwpId {
     // @inject_tag: aper:"valueLB:0,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 4}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:94
+// sequence from nr-rrc-definitions.asn1:127
 // {twonrOfAntennaPorts}
 message TwonrOfAntennaPorts {
     // @inject_tag: aper:"sizeLB:6,sizeUB:6,"
     asn1.v1.BitString two_tx_codebook_subset_restriction = 1 [ json_name="twoTX-CodebookSubsetRestriction"];
 };
 
-// choice from nr-rrc-definitions.asn1:97
+// choice from nr-rrc-definitions.asn1:130
 // {n1-n2moreThanTwo}
 message N1n2moreThanTwo {
-    // choice from nr-rrc-definitions.asn1:97
+    // choice from nr-rrc-definitions.asn1:130
     oneof n1_n2more_than_two {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:8,sizeUB:8,"
         asn1.v1.BitString two_one_type_i_single_panel_restriction = 1 [ json_name="two-one-TypeI-SinglePanel-Restriction"];
@@ -463,7 +524,7 @@ message N1n2moreThanTwo {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:110
+// sequence from nr-rrc-definitions.asn1:143
 // {moreThanTwonrOfAntennaPorts}
 message MoreThanTwonrOfAntennaPorts {
     N1n2moreThanTwo n1_n2 = 1 [ json_name="n1-n2"];
@@ -471,10 +532,10 @@ message MoreThanTwonrOfAntennaPorts {
     optional asn1.v1.BitString type_i_single_panel_codebook_subset_restriction_i2 = 2 [ json_name="typeI-SinglePanel-codebookSubsetRestriction-i2"];
 };
 
-// choice from nr-rrc-definitions.asn1:94
+// choice from nr-rrc-definitions.asn1:127
 // {nrOfAntennaPortstypeI-SinglePanel}
 message NrOfAntennaPortstypeISinglePanel {
-    // choice from nr-rrc-definitions.asn1:94
+    // choice from nr-rrc-definitions.asn1:127
     oneof nr_of_antenna_portstype_i_single_panel {
         // @inject_tag: aper:"choiceIdx:1,"
         TwonrOfAntennaPorts two = 1 [ json_name="two"];
@@ -483,7 +544,7 @@ message NrOfAntennaPortstypeISinglePanel {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:113
+// sequence from nr-rrc-definitions.asn1:146
 // {typeI-SinglePanelsubType}
 message TypeISinglePanelsubType {
     NrOfAntennaPortstypeISinglePanel nr_of_antenna_ports = 1 [ json_name="nrOfAntennaPorts"];
@@ -491,10 +552,10 @@ message TypeISinglePanelsubType {
     asn1.v1.BitString type_i_single_panel_ri_restriction = 2 [ json_name="typeI-SinglePanel-ri-Restriction"];
 };
 
-// choice from nr-rrc-definitions.asn1:118
+// choice from nr-rrc-definitions.asn1:151
 // {ng-n1-n2typeI-MultiPanel}
 message Ngn1n2typeIMultiPanel {
-    // choice from nr-rrc-definitions.asn1:118
+    // choice from nr-rrc-definitions.asn1:151
     oneof ng_n1_n2type_i_multi_panel {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:8,sizeUB:8,"
         asn1.v1.BitString two_two_one_type_i_multi_panel_restriction = 1 [ json_name="two-two-one-TypeI-MultiPanel-Restriction"];
@@ -515,7 +576,7 @@ message Ngn1n2typeIMultiPanel {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:126
+// sequence from nr-rrc-definitions.asn1:159
 // {typeI-MultiPanelsubType}
 message TypeIMultiPanelsubType {
     Ngn1n2typeIMultiPanel ng_n1_n2 = 1 [ json_name="ng-n1-n2"];
@@ -523,10 +584,10 @@ message TypeIMultiPanelsubType {
     asn1.v1.BitString ri_restriction = 2 [ json_name="ri-Restriction"];
 };
 
-// choice from nr-rrc-definitions.asn1:115
+// choice from nr-rrc-definitions.asn1:148
 // {subTypetype1}
 message SubTypetype1 {
-    // choice from nr-rrc-definitions.asn1:115
+    // choice from nr-rrc-definitions.asn1:148
     oneof sub_typetype1 {
         // @inject_tag: aper:"choiceIdx:1,"
         TypeISinglePanelsubType type_i_single_panel = 1 [ json_name="typeI-SinglePanel"];
@@ -535,7 +596,7 @@ message SubTypetype1 {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:129
+// sequence from nr-rrc-definitions.asn1:162
 // {type1codebookType}
 message Type1codebookType {
     SubTypetype1 sub_type = 1 [ json_name="subType"];
@@ -543,10 +604,10 @@ message Type1codebookType {
     int32 codebook_mode = 2 [ json_name="codebookMode"];
 };
 
-// choice from nr-rrc-definitions.asn1:137
+// choice from nr-rrc-definitions.asn1:170
 // {n1-n2-codebookSubsetRestrictiontypeII}
 message N1n2codebookSubsetRestrictiontypeIi {
-    // choice from nr-rrc-definitions.asn1:137
+    // choice from nr-rrc-definitions.asn1:170
     oneof n1_n2_codebook_subset_restrictiontype_ii {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"
         asn1.v1.BitString two_one = 1 [ json_name="two-one"];
@@ -577,7 +638,7 @@ message N1n2codebookSubsetRestrictiontypeIi {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:150
+// sequence from nr-rrc-definitions.asn1:183
 // {typeIIsubType}
 message TypeIisubType {
     N1n2codebookSubsetRestrictiontypeIi n1_n2_codebook_subset_restriction = 1 [ json_name="n1-n2-codebookSubsetRestriction"];
@@ -585,7 +646,7 @@ message TypeIisubType {
     asn1.v1.BitString type_ii_ri_restriction = 2 [ json_name="typeII-RI-Restriction"];
 };
 
-// sequence from nr-rrc-definitions.asn1:154
+// sequence from nr-rrc-definitions.asn1:187
 // {typeII-PortSelectionsubType}
 message TypeIiPortSelectionsubType {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:3,"
@@ -594,10 +655,10 @@ message TypeIiPortSelectionsubType {
     asn1.v1.BitString type_ii_port_selection_ri_restriction = 2 [ json_name="typeII-PortSelectionRI-Restriction"];
 };
 
-// choice from nr-rrc-definitions.asn1:152
+// choice from nr-rrc-definitions.asn1:185
 // {subTypetype2}
 message SubTypetype2 {
-    // choice from nr-rrc-definitions.asn1:152
+    // choice from nr-rrc-definitions.asn1:185
     oneof sub_typetype2 {
         // @inject_tag: aper:"choiceIdx:1,"
         TypeIisubType type_ii = 1 [ json_name="typeII"];
@@ -606,7 +667,7 @@ message SubTypetype2 {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:157
+// sequence from nr-rrc-definitions.asn1:190
 // {type2codebookType}
 message Type2codebookType {
     SubTypetype2 sub_type = 1 [ json_name="subType"];
@@ -617,10 +678,10 @@ message Type2codebookType {
     NumberOfBeamstype2 number_of_beams = 4 [ json_name="numberOfBeams"];
 };
 
-// choice from nr-rrc-definitions.asn1:132
+// choice from nr-rrc-definitions.asn1:165
 // {codebookTypeCodebookConfig}
 message CodebookTypeCodebookConfig {
-    // choice from nr-rrc-definitions.asn1:132
+    // choice from nr-rrc-definitions.asn1:165
     oneof codebook_type_codebook_config {
         // @inject_tag: aper:"choiceIdx:1,"
         Type1codebookType type1 = 1 [ json_name="type1"];
@@ -629,16 +690,16 @@ message CodebookTypeCodebookConfig {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:163
+// sequence from nr-rrc-definitions.asn1:196
 // {CodebookConfig}
 message CodebookConfig {
     CodebookTypeCodebookConfig codebook_type = 1 [ json_name="codebookType"];
 };
 
-// choice from nr-rrc-definitions.asn1:171
+// choice from nr-rrc-definitions.asn1:204
 // {n1-n2-codebookSubsetRestriction-r16typeII-r16}
 message N1n2codebookSubsetRestrictionr16typeIir16 {
-    // choice from nr-rrc-definitions.asn1:171
+    // choice from nr-rrc-definitions.asn1:204
     oneof n1_n2_codebook_subset_restriction_r16type_ii_r16 {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"
         asn1.v1.BitString two_one = 1 [ json_name="two-one"];
@@ -669,7 +730,7 @@ message N1n2codebookSubsetRestrictionr16typeIir16 {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:184
+// sequence from nr-rrc-definitions.asn1:217
 // {typeII-r16subType}
 message TypeIir16subType {
     N1n2codebookSubsetRestrictionr16typeIir16 n1_n2_codebook_subset_restriction_r16 = 1 [ json_name="n1-n2-codebookSubsetRestriction-r16"];
@@ -677,7 +738,7 @@ message TypeIir16subType {
     asn1.v1.BitString type_ii_ri_restriction_r16 = 2 [ json_name="typeII-RI-Restriction-r16"];
 };
 
-// sequence from nr-rrc-definitions.asn1:188
+// sequence from nr-rrc-definitions.asn1:221
 // {typeII-PortSelection-r16subType}
 message TypeIiPortSelectionr16subType {
     // @inject_tag: aper:"valueLB:0,valueUB:3,"
@@ -686,10 +747,10 @@ message TypeIiPortSelectionr16subType {
     asn1.v1.BitString type_ii_port_selection_ri_restriction_r16 = 2 [ json_name="typeII-PortSelectionRI-Restriction-r16"];
 };
 
-// choice from nr-rrc-definitions.asn1:186
+// choice from nr-rrc-definitions.asn1:219
 // {subTypetype2-r16}
 message SubTypetype2r16 {
-    // choice from nr-rrc-definitions.asn1:186
+    // choice from nr-rrc-definitions.asn1:219
     oneof sub_typetype2_r16 {
         // @inject_tag: aper:"choiceIdx:1,"
         TypeIir16subType type_ii_r16 = 1 [ json_name="typeII-r16"];
@@ -698,7 +759,7 @@ message SubTypetype2r16 {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:191
+// sequence from nr-rrc-definitions.asn1:224
 // {type2-r16codebookType-r16}
 message Type2r16codebookTyper16 {
     SubTypetype2r16 sub_type = 1 [ json_name="subType"];
@@ -708,26 +769,26 @@ message Type2r16codebookTyper16 {
     int32 param_combination_r16 = 3 [ json_name="paramCombination-r16"];
 };
 
-// choice from nr-rrc-definitions.asn1:195
+// choice from nr-rrc-definitions.asn1:228
 // {codebookType-r16CodebookConfig-r16}
 message CodebookTyper16CodebookConfigr16 {
-    // choice from nr-rrc-definitions.asn1:195
+    // choice from nr-rrc-definitions.asn1:228
     oneof codebook_type_r16_codebook_config_r16 {
         // @inject_tag: aper:"choiceIdx:1,"
         Type2r16codebookTyper16 type2_r16 = 1 [ json_name="type2-r16"];
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:196
+// sequence from nr-rrc-definitions.asn1:229
 // {CodebookConfig-r16}
 message CodebookConfigr16 {
     CodebookTyper16CodebookConfigr16 codebook_type_r16 = 1 [ json_name="codebookType-r16"];
 };
 
-// choice from nr-rrc-definitions.asn1:205
+// choice from nr-rrc-definitions.asn1:238
 // {nrOfAntennaPortstypeI-SinglePanel-Group1-r17}
 message NrOfAntennaPortstypeISinglePanelGroup1r17 {
-    // choice from nr-rrc-definitions.asn1:205
+    // choice from nr-rrc-definitions.asn1:238
     oneof nr_of_antenna_portstype_i_single_panel_group1_r17 {
         // @inject_tag: aper:"choiceIdx:1,"
         TwonrOfAntennaPorts two = 1 [ json_name="two"];
@@ -736,16 +797,16 @@ message NrOfAntennaPortstypeISinglePanelGroup1r17 {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:224
+// sequence from nr-rrc-definitions.asn1:257
 // {typeI-SinglePanel-Group1-r17type1-r17}
 message TypeISinglePanelGroup1r17type1r17 {
     NrOfAntennaPortstypeISinglePanelGroup1r17 nr_of_antenna_ports = 1 [ json_name="nrOfAntennaPorts"];
 };
 
-// choice from nr-rrc-definitions.asn1:229
+// choice from nr-rrc-definitions.asn1:262
 // {nrOfAntennaPortstypeI-SinglePanel-Group2-r17}
 message NrOfAntennaPortstypeISinglePanelGroup2r17 {
-    // choice from nr-rrc-definitions.asn1:229
+    // choice from nr-rrc-definitions.asn1:262
     oneof nr_of_antenna_portstype_i_single_panel_group2_r17 {
         // @inject_tag: aper:"choiceIdx:1,"
         TwonrOfAntennaPorts two = 1 [ json_name="two"];
@@ -754,13 +815,13 @@ message NrOfAntennaPortstypeISinglePanelGroup2r17 {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:248
+// sequence from nr-rrc-definitions.asn1:281
 // {typeI-SinglePanel-Group2-r17type1-r17}
 message TypeISinglePanelGroup2r17type1r17 {
     NrOfAntennaPortstypeISinglePanelGroup2r17 nr_of_antenna_ports = 1 [ json_name="nrOfAntennaPorts"];
 };
 
-// sequence from nr-rrc-definitions.asn1:224
+// sequence from nr-rrc-definitions.asn1:257
 // {type1-r17codebookType-r17}
 message Type1r17codebookTyper17 {
     // @inject_tag: aper:"optional,"
@@ -773,7 +834,7 @@ message Type1r17codebookTyper17 {
     optional asn1.v1.BitString type_i_single_panel_ri_restriction_sdm_r17 = 4 [ json_name="typeI-SinglePanel-ri-RestrictionSDM-r17"];
 };
 
-// sequence from nr-rrc-definitions.asn1:254
+// sequence from nr-rrc-definitions.asn1:287
 // {typeII-PortSelection-r17type2-r17}
 message TypeIiPortSelectionr17type2r17 {
     // @inject_tag: aper:"valueLB:1,valueUB:8,"
@@ -786,16 +847,16 @@ message TypeIiPortSelectionr17type2r17 {
     asn1.v1.BitString type_ii_port_selection_ri_restriction_r17 = 4 [ json_name="typeII-PortSelectionRI-Restriction-r17"];
 };
 
-// sequence from nr-rrc-definitions.asn1:259
+// sequence from nr-rrc-definitions.asn1:292
 // {type2-r17codebookType-r17}
 message Type2r17codebookTyper17 {
     TypeIiPortSelectionr17type2r17 type_ii_port_selection_r17 = 1 [ json_name="typeII-PortSelection-r17"];
 };
 
-// choice from nr-rrc-definitions.asn1:251
+// choice from nr-rrc-definitions.asn1:284
 // {codebookType-r17CodebookConfig-r17}
 message CodebookTyper17CodebookConfigr17 {
-    // choice from nr-rrc-definitions.asn1:251
+    // choice from nr-rrc-definitions.asn1:284
     oneof codebook_type_r17_codebook_config_r17 {
         // @inject_tag: aper:"choiceIdx:1,"
         Type1r17codebookTyper17 type1_r17 = 1 [ json_name="type1-r17"];
@@ -804,36 +865,36 @@ message CodebookTyper17CodebookConfigr17 {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:261
+// sequence from nr-rrc-definitions.asn1:294
 // {CodebookConfig-r17}
 message CodebookConfigr17 {
     CodebookTyper17CodebookConfigr17 codebook_type_r17 = 1 [ json_name="codebookType-r17"];
 };
 
-// sequence from nr-rrc-definitions.asn1:266
+// sequence from nr-rrc-definitions.asn1:299
 // {type1-v1730codebookType-v1730}
 message Type1v1730codebookTypev1730 {
     // @inject_tag: aper:"optional,valueLB:1,valueUB:2,"
     optional int32 codebook_mode = 1 [ json_name="codebookMode"];
 };
 
-// choice from nr-rrc-definitions.asn1:268
+// choice from nr-rrc-definitions.asn1:301
 // {codebookType-v1730CodebookConfig-v1730}
 message CodebookTypev1730CodebookConfigv1730 {
-    // choice from nr-rrc-definitions.asn1:268
+    // choice from nr-rrc-definitions.asn1:301
     oneof codebook_type_v1730_codebook_config_v1730 {
         // @inject_tag: aper:"choiceIdx:1,"
         Type1v1730codebookTypev1730 type1_v1730 = 1 [ json_name="type1-v1730"];
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:269
+// sequence from nr-rrc-definitions.asn1:302
 // {CodebookConfig-v1730}
 message CodebookConfigv1730 {
     CodebookTypev1730CodebookConfigv1730 codebook_type_v1730 = 1 [ json_name="codebookType-v1730"];
 };
 
-// sequence from nr-rrc-definitions.asn1:280
+// sequence from nr-rrc-definitions.asn1:313
 // {interleavedcce-REG-MappingType}
 message InterleavedcceREgMappingType {
     // @inject_tag: aper:"valueLB:0,valueUB:2,"
@@ -844,10 +905,10 @@ message InterleavedcceREgMappingType {
     optional int32 shift_index = 3 [ json_name="shiftIndex"];
 };
 
-// choice from nr-rrc-definitions.asn1:283
+// choice from nr-rrc-definitions.asn1:316
 // {cce-REG-MappingTypeControlResourceSet}
 message CceREgMappingTypeControlResourceSet {
-    // choice from nr-rrc-definitions.asn1:283
+    // choice from nr-rrc-definitions.asn1:316
     oneof cce_reg_mapping_type_control_resource_set {
         // @inject_tag: aper:"choiceIdx:1,"
         InterleavedcceREgMappingType interleaved = 1 [ json_name="interleaved"];
@@ -856,7 +917,7 @@ message CceREgMappingTypeControlResourceSet {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:275
+// sequence from nr-rrc-definitions.asn1:308
 // @inject_tag: aper:"valueExt"
 // {ControlResourceSet}
 message ControlResourceSet {
@@ -888,35 +949,35 @@ message ControlResourceSet {
     optional FollowUnifiedTcistater17ControlResourceSet follow_unified_tci_state_r17 = 14 [ json_name="followUnifiedTCI-State-r17"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:306
+// range of Integer from nr-rrc-definitions.asn1:339
 // {ControlResourceSetId}
 message ControlResourceSetId {
     // @inject_tag: aper:"valueLB:0,valueUB:11,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 11}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:308
+// range of Integer from nr-rrc-definitions.asn1:341
 // {ControlResourceSetId-r16}
 message ControlResourceSetIdr16 {
     // @inject_tag: aper:"valueLB:0,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 15}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:310
+// range of Integer from nr-rrc-definitions.asn1:343
 // {ControlResourceSetId-v1610}
 message ControlResourceSetIdv1610 {
     // @inject_tag: aper:"valueLB:12,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 12, lte: 15}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:315
+// range of Integer from nr-rrc-definitions.asn1:348
 // {ControlResourceSetZero}
 message ControlResourceSetZero {
     // @inject_tag: aper:"valueLB:0,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 15}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:328
+// sequence from nr-rrc-definitions.asn1:361
 // {periodicreportConfigType}
 message PeriodicreportConfigType {
     CsiReportPeriodicityAndOffset report_slot_config = 1 [ json_name="reportSlotConfig"];
@@ -924,7 +985,7 @@ message PeriodicreportConfigType {
     repeated PucchCSiResource pucch_csi_resource_list = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 4}, json_name="pucch-CSI-ResourceList"];
 };
 
-// sequence from nr-rrc-definitions.asn1:332
+// sequence from nr-rrc-definitions.asn1:365
 // {semiPersistentOnPUCCHreportConfigType}
 message SemiPersistentOnPucchreportConfigType {
     CsiReportPeriodicityAndOffset report_slot_config = 1 [ json_name="reportSlotConfig"];
@@ -932,7 +993,7 @@ message SemiPersistentOnPucchreportConfigType {
     repeated PucchCSiResource pucch_csi_resource_list = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 4}, json_name="pucch-CSI-ResourceList"];
 };
 
-// sequence from nr-rrc-definitions.asn1:336
+// sequence from nr-rrc-definitions.asn1:369
 // {semiPersistentOnPUSCHreportConfigType}
 message SemiPersistentOnPuschreportConfigType {
     // @inject_tag: aper:"valueLB:0,valueUB:6,"
@@ -942,17 +1003,17 @@ message SemiPersistentOnPuschreportConfigType {
     P0PUschAlphaSetId p0alpha = 3 [ json_name="p0alpha"];
 };
 
-// sequence from nr-rrc-definitions.asn1:342
+// sequence from nr-rrc-definitions.asn1:375
 // {aperiodicreportConfigType}
 message AperiodicreportConfigType {
     // @inject_tag: aper:"valueLB:0,valueUB:32,sizeLB:1,sizeUB:16,"
     repeated int32 report_slot_offset_list = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 16}, json_name="reportSlotOffsetList"];
 };
 
-// choice from nr-rrc-definitions.asn1:330
+// choice from nr-rrc-definitions.asn1:363
 // {reportConfigTypeCSI-ReportConfig}
 message ReportConfigTypeCsiReportConfig {
-    // choice from nr-rrc-definitions.asn1:330
+    // choice from nr-rrc-definitions.asn1:363
     oneof report_config_type_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         PeriodicreportConfigType periodic = 1 [ json_name="periodic"];
@@ -965,17 +1026,17 @@ message ReportConfigTypeCsiReportConfig {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:349
+// sequence from nr-rrc-definitions.asn1:382
 // {cri-RI-i1-CQIreportQuantity}
 message CriRIi1CQireportQuantity {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:1,"
     optional PdschBundleSizeForCsicriRii1Cqi pdsch_bundle_size_for_csi = 1 [ json_name="pdsch-BundleSizeForCSI"];
 };
 
-// choice from nr-rrc-definitions.asn1:345
+// choice from nr-rrc-definitions.asn1:378
 // {reportQuantityCSI-ReportConfig}
 message ReportQuantityCsiReportConfig {
-    // choice from nr-rrc-definitions.asn1:345
+    // choice from nr-rrc-definitions.asn1:378
     oneof report_quantity_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         int32 none = 1 [ json_name="none"];
@@ -996,11 +1057,11 @@ message ReportQuantityCsiReportConfig {
     }
 };
 
-// choice from nr-rrc-definitions.asn1:360
+// choice from nr-rrc-definitions.asn1:393
 // @inject_tag: aper:"choiceExt"
 // {csi-ReportingBandreportFreqConfiguration}
 message CsiReportingBandreportFreqConfiguration {
-    // choice from nr-rrc-definitions.asn1:360
+    // choice from nr-rrc-definitions.asn1:393
     oneof csi_reporting_bandreport_freq_configuration {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:3,sizeUB:3,"
         asn1.v1.BitString subbands3 = 1 [ json_name="subbands3"];
@@ -1039,7 +1100,7 @@ message CsiReportingBandreportFreqConfiguration {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:357
+// sequence from nr-rrc-definitions.asn1:390
 // {reportFreqConfigurationCSI-ReportConfig}
 message ReportFreqConfigurationCsiReportConfig {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:1,"
@@ -1050,17 +1111,17 @@ message ReportFreqConfigurationCsiReportConfig {
     optional CsiReportingBandreportFreqConfiguration csi_reporting_band = 3 [ json_name="csi-ReportingBand"];
 };
 
-// sequence from nr-rrc-definitions.asn1:388
+// sequence from nr-rrc-definitions.asn1:421
 // {disabledgroupBasedBeamReporting}
 message DisabledgroupBasedBeamReporting {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:3,"
     optional NrofReportedRsdisabled nrof_reported_rs = 1 [ json_name="nrofReportedRS"];
 };
 
-// choice from nr-rrc-definitions.asn1:386
+// choice from nr-rrc-definitions.asn1:419
 // {groupBasedBeamReportingCSI-ReportConfig}
 message GroupBasedBeamReportingCsiReportConfig {
-    // choice from nr-rrc-definitions.asn1:386
+    // choice from nr-rrc-definitions.asn1:419
     oneof group_based_beam_reporting_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         int32 enabled = 1 [ json_name="enabled"];
@@ -1069,14 +1130,14 @@ message GroupBasedBeamReportingCsiReportConfig {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:398
+// sequence from nr-rrc-definitions.asn1:431
 // {semiPersistentOnPUSCH-v1530CSI-ReportConfig}
 message SemiPersistentOnPuschv1530CsiReportConfig {
     // @inject_tag: aper:"valueLB:0,valueUB:2,"
     ReportSlotConfigv1530semiPersistentOnPuschv1530 report_slot_config_v1530 = 1 [ json_name="reportSlotConfig-v1530"];
 };
 
-// sequence from nr-rrc-definitions.asn1:402
+// sequence from nr-rrc-definitions.asn1:435
 // {semiPersistentOnPUSCH-v1610CSI-ReportConfig}
 message SemiPersistentOnPuschv1610CsiReportConfig {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:32,sizeLB:1,sizeUB:64,"
@@ -1085,7 +1146,7 @@ message SemiPersistentOnPuschv1610CsiReportConfig {
     repeated int32 report_slot_offset_list_dci_0_1_r16 = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-1-r16"];
 };
 
-// sequence from nr-rrc-definitions.asn1:406
+// sequence from nr-rrc-definitions.asn1:439
 // {aperiodic-v1610CSI-ReportConfig}
 message Aperiodicv1610CsiReportConfig {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:32,sizeLB:1,sizeUB:64,"
@@ -1094,10 +1155,10 @@ message Aperiodicv1610CsiReportConfig {
     repeated int32 report_slot_offset_list_dci_0_1_r16 = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-1-r16"];
 };
 
-// choice from nr-rrc-definitions.asn1:410
+// choice from nr-rrc-definitions.asn1:443
 // {reportQuantity-r16CSI-ReportConfig}
 message ReportQuantityr16CsiReportConfig {
-    // choice from nr-rrc-definitions.asn1:410
+    // choice from nr-rrc-definitions.asn1:443
     oneof report_quantity_r16_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         int32 cri_sinr_r16 = 1 [ json_name="cri-SINR-r16"];
@@ -1106,17 +1167,17 @@ message ReportQuantityr16CsiReportConfig {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:419
+// sequence from nr-rrc-definitions.asn1:452
 // {groupBasedBeamReporting-v1710CSI-ReportConfig}
 message GroupBasedBeamReportingv1710CsiReportConfig {
     // @inject_tag: aper:"valueLB:0,valueUB:3,"
     NrofReportedGroupsr17groupBasedBeamReportingv1710 nrof_reported_groups_r17 = 1 [ json_name="nrofReportedGroups-r17"];
 };
 
-// choice from nr-rrc-definitions.asn1:425
+// choice from nr-rrc-definitions.asn1:458
 // {reportQuantity-r17CSI-ReportConfig}
 message ReportQuantityr17CsiReportConfig {
-    // choice from nr-rrc-definitions.asn1:425
+    // choice from nr-rrc-definitions.asn1:458
     oneof report_quantity_r17_csi_report_config {
         // @inject_tag: aper:"choiceIdx:1,"
         int32 cri_rsrp_index_r17 = 1 [ json_name="cri-RSRP-Index-r17"];
@@ -1129,7 +1190,7 @@ message ReportQuantityr17CsiReportConfig {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:433
+// sequence from nr-rrc-definitions.asn1:466
 // {semiPersistentOnPUSCH-v1720CSI-ReportConfig}
 message SemiPersistentOnPuschv1720CsiReportConfig {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:128,sizeLB:1,sizeUB:64,"
@@ -1140,7 +1201,7 @@ message SemiPersistentOnPuschv1720CsiReportConfig {
     repeated int32 report_slot_offset_list_dci_0_1_r17 = 3 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-1-r17"];
 };
 
-// sequence from nr-rrc-definitions.asn1:438
+// sequence from nr-rrc-definitions.asn1:471
 // {aperiodic-v1720CSI-ReportConfig}
 message Aperiodicv1720CsiReportConfig {
     // @inject_tag: aper:"optional,valueLB:0,valueUB:128,sizeLB:1,sizeUB:64,"
@@ -1151,7 +1212,7 @@ message Aperiodicv1720CsiReportConfig {
     repeated int32 report_slot_offset_list_dci_0_1_r17 = 3 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="reportSlotOffsetListDCI-0-1-r17"];
 };
 
-// sequence from nr-rrc-definitions.asn1:321
+// sequence from nr-rrc-definitions.asn1:354
 // @inject_tag: aper:"valueExt"
 // {CSI-ReportConfig}
 message CsiReportConfig {
@@ -1214,10 +1275,10 @@ message CsiReportConfig {
     optional CodebookConfigv1730 codebook_config_v1730 = 31 [ json_name="codebookConfig-v1730"];
 };
 
-// sequence from nr-rrc-definitions.asn1:449
+// sequence from nr-rrc-definitions.asn1:482
 // {CSI-ReportPeriodicityAndOffset}
 message CsiReportPeriodicityAndOffset {
-    // choice from nr-rrc-definitions.asn1:449
+    // choice from nr-rrc-definitions.asn1:482
     oneof csi_report_periodicity_and_offset {
         // @inject_tag: aper:"choiceIdx:1,valueLB:0,valueUB:3,"
         int32 slots4 = 1 [ json_name="slots4"];
@@ -1242,14 +1303,14 @@ message CsiReportPeriodicityAndOffset {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:462
+// sequence from nr-rrc-definitions.asn1:495
 // {PUCCH-CSI-Resource}
 message PucchCSiResource {
     BwpId uplink_bandwidth_part_id = 1 [ json_name="uplinkBandwidthPartId"];
     PucchResourceId pucch_resource = 2 [ json_name="pucch-Resource"];
 };
 
-// sequence from nr-rrc-definitions.asn1:468
+// sequence from nr-rrc-definitions.asn1:501
 // {portIndex8PortIndexFor8Ranks}
 message PortIndex8PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
@@ -1270,7 +1331,7 @@ message PortIndex8PortIndexFor8Ranks {
     repeated PortIndex8 rank8_8 = 8 [(validate.v1.rules).repeated = {min_items: 8, max_items: 8}, json_name="rank8-8"];
 };
 
-// sequence from nr-rrc-definitions.asn1:478
+// sequence from nr-rrc-definitions.asn1:511
 // {portIndex4PortIndexFor8Ranks}
 message PortIndex4PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
@@ -1283,7 +1344,7 @@ message PortIndex4PortIndexFor8Ranks {
     repeated PortIndex4 rank4_4 = 4 [(validate.v1.rules).repeated = {min_items: 4, max_items: 4}, json_name="rank4-4"];
 };
 
-// sequence from nr-rrc-definitions.asn1:484
+// sequence from nr-rrc-definitions.asn1:517
 // {portIndex2PortIndexFor8Ranks}
 message PortIndex2PortIndexFor8Ranks {
     // @inject_tag: aper:"optional,"
@@ -1292,10 +1353,10 @@ message PortIndex2PortIndexFor8Ranks {
     repeated PortIndex2 rank2_2 = 2 [(validate.v1.rules).repeated = {min_items: 2, max_items: 2}, json_name="rank2-2"];
 };
 
-// sequence from nr-rrc-definitions.asn1:476
+// sequence from nr-rrc-definitions.asn1:509
 // {PortIndexFor8Ranks}
 message PortIndexFor8Ranks {
-    // choice from nr-rrc-definitions.asn1:476
+    // choice from nr-rrc-definitions.asn1:509
     oneof port_index_for8_ranks {
         // @inject_tag: aper:"choiceIdx:1,"
         PortIndex8PortIndexFor8Ranks port_index8 = 1 [ json_name="portIndex8"];
@@ -1308,49 +1369,56 @@ message PortIndexFor8Ranks {
     }
 };
 
-// range of Integer from nr-rrc-definitions.asn1:490
+// range of Integer from nr-rrc-definitions.asn1:523
 // {PortIndex8}
 message PortIndex8 {
     // @inject_tag: aper:"valueLB:0,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 7}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:491
+// range of Integer from nr-rrc-definitions.asn1:524
 // {PortIndex4}
 message PortIndex4 {
     // @inject_tag: aper:"valueLB:0,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 3}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:492
+// range of Integer from nr-rrc-definitions.asn1:525
 // {PortIndex2}
 message PortIndex2 {
     // @inject_tag: aper:"valueLB:0,valueUB:1,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 1}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:497
+// range of Integer from nr-rrc-definitions.asn1:530
 // {CSI-ReportConfigId}
 message CsiReportConfigId {
     // @inject_tag: aper:"valueLB:0,valueUB:47,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 47}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:502
+// range of Integer from nr-rrc-definitions.asn1:535
 // {CSI-ResourceConfigId}
 message CsiResourceConfigId {
     // @inject_tag: aper:"valueLB:0,valueUB:111,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 111}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:512
+// range of Integer from nr-rrc-definitions.asn1:540
+// {CSI-RS-Index}
+message CsiRSIndex {
+    // @inject_tag: aper:"valueLB:0,valueUB:95,"
+    int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 95}, json_name="value"];
+};
+
+// range of Integer from nr-rrc-definitions.asn1:550
 // {FreqBandIndicatorNR}
 message FreqBandIndicatorNr {
     // @inject_tag: aper:"valueLB:1,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 1, lte: 1024}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:518
+// sequence from nr-rrc-definitions.asn1:556
 // @inject_tag: aper:"valueExt"
 // {FrequencyInfoDL}
 message FrequencyInfoDl {
@@ -1362,10 +1430,10 @@ message FrequencyInfoDl {
     repeated ScsSpecificCarrier scs_specific_carrier_list = 4 [(validate.v1.rules).repeated = {min_items: 1, max_items: 5}, json_name="scs-SpecificCarrierList"];
 };
 
-// choice from nr-rrc-definitions.asn1:536
+// choice from nr-rrc-definitions.asn1:574
 // {s-MeasureConfigMeasConfig}
 message SMeasureConfigMeasConfig {
-    // choice from nr-rrc-definitions.asn1:536
+    // choice from nr-rrc-definitions.asn1:574
     oneof s_measure_config_meas_config {
         // @inject_tag: aper:"choiceIdx:1,"
         RsrpRange ssb_rsrp = 1 [ json_name="ssb-RSRP"];
@@ -1374,7 +1442,7 @@ message SMeasureConfigMeasConfig {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:529
+// sequence from nr-rrc-definitions.asn1:567
 // @inject_tag: aper:"valueExt"
 // {MeasConfig}
 message MeasConfig {
@@ -1396,42 +1464,42 @@ message MeasConfig {
     optional QuantityConfig quantity_config = 8 [ json_name="quantityConfig"];
 };
 
-// sequence from nr-rrc-definitions.asn1:545
+// sequence from nr-rrc-definitions.asn1:583
 // {MeasObjectToRemoveList}
 message MeasObjectToRemoveList {
     // @inject_tag: aper:"sizeLB:1,sizeUB:64,"
     repeated MeasObjectId value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:547
+// sequence from nr-rrc-definitions.asn1:585
 // {MeasIdToRemoveList}
 message MeasIdToRemoveList {
     // @inject_tag: aper:"sizeLB:1,sizeUB:64,"
     repeated MeasId value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:552
+// sequence from nr-rrc-definitions.asn1:590
 // {ReportConfigToRemoveList}
 message ReportConfigToRemoveList {
     // @inject_tag: aper:"sizeLB:1,sizeUB:64,"
     repeated ReportConfigId value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:552
+// range of Integer from nr-rrc-definitions.asn1:590
 // {MeasId}
 message MeasId {
     // @inject_tag: aper:"valueLB:1,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 1, lte: 64}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:559
+// sequence from nr-rrc-definitions.asn1:597
 // {MeasIdToAddModList}
 message MeasIdToAddModList {
     // @inject_tag: aper:"sizeLB:1,sizeUB:64,"
     repeated MeasIdToAddMod value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:560
+// sequence from nr-rrc-definitions.asn1:598
 // {MeasIdToAddMod}
 message MeasIdToAddMod {
     MeasId meas_id = 1 [ json_name="measId"];
@@ -1439,14 +1507,14 @@ message MeasIdToAddMod {
     ReportConfigId report_config_id = 3 [ json_name="reportConfigId"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:568
+// range of Integer from nr-rrc-definitions.asn1:606
 // {MeasObjectId}
 message MeasObjectId {
     // @inject_tag: aper:"valueLB:1,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 1, lte: 64}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:574
+// sequence from nr-rrc-definitions.asn1:612
 // @inject_tag: aper:"valueExt"
 // {MeasObjectNR}
 message MeasObjectNr {
@@ -1460,7 +1528,7 @@ message MeasObjectNr {
     int32 quantity_config_index = 4 [ json_name="quantityConfigIndex"];
 };
 
-// sequence from nr-rrc-definitions.asn1:583
+// sequence from nr-rrc-definitions.asn1:621
 // @inject_tag: aper:"valueExt"
 // {ReferenceSignalConfig}
 message ReferenceSignalConfig {
@@ -1468,10 +1536,10 @@ message ReferenceSignalConfig {
     optional SsbConfigMobility ssb_config_mobility = 1 [ json_name="ssb-ConfigMobility"];
 };
 
-// choice from nr-rrc-definitions.asn1:589
+// choice from nr-rrc-definitions.asn1:627
 // {ssb-ToMeasureSSB-ConfigMobility}
 message SsbToMeasureSsbConfigMobility {
-    // choice from nr-rrc-definitions.asn1:589
+    // choice from nr-rrc-definitions.asn1:627
     oneof ssb_to_measure_ssb_config_mobility {
         // @inject_tag: aper:"choiceIdx:1,"
         int32 release = 1 [ json_name="release"];
@@ -1480,31 +1548,31 @@ message SsbToMeasureSsbConfigMobility {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:592
+// sequence from nr-rrc-definitions.asn1:630
 // {SSB-ConfigMobility}
 message SsbConfigMobility {
     SsbToMeasureSsbConfigMobility ssb_to_measure = 1 [ json_name="ssb-ToMeasure"];
 };
 
-// sequence from nr-rrc-definitions.asn1:598
+// sequence from nr-rrc-definitions.asn1:636
 // {MeasObjectToAddModList}
 message MeasObjectToAddModList {
     // @inject_tag: aper:"sizeLB:1,sizeUB:64,"
     repeated MeasObjectToAddMod value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="value"];
 };
 
-// choice from nr-rrc-definitions.asn1:601
+// choice from nr-rrc-definitions.asn1:639
 // @inject_tag: aper:"choiceExt"
 // {measObjectMeasObjectToAddMod}
 message MeasObjectMeasObjectToAddMod {
-    // choice from nr-rrc-definitions.asn1:601
+    // choice from nr-rrc-definitions.asn1:639
     oneof meas_object_meas_object_to_add_mod {
         // @inject_tag: aper:"choiceIdx:1,valueExt,"
         MeasObjectNr meas_object_nr = 1 [ json_name="measObjectNR"];
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:599
+// sequence from nr-rrc-definitions.asn1:637
 // {MeasObjectToAddMod}
 message MeasObjectToAddMod {
     MeasObjectId meas_object_id = 1 [ json_name="measObjectId"];
@@ -1512,35 +1580,135 @@ message MeasObjectToAddMod {
     MeasObjectMeasObjectToAddMod meas_object = 2 [ json_name="measObject"];
 };
 
-// sequence from nr-rrc-definitions.asn1:613
+// sequence from nr-rrc-definitions.asn1:647
+// @inject_tag: aper:"valueExt"
+// {MeasResults}
+message MeasResults {
+    MeasId meas_id = 1 [ json_name="measId"];
+    MeasResultServMolist meas_result_serving_molist = 2 [ json_name="measResultServingMOList"];
+};
+
+// sequence from nr-rrc-definitions.asn1:654
+// {MeasResultServMOList}
+message MeasResultServMolist {
+    // @inject_tag: aper:"valueExt,sizeLB:1,sizeUB:32,"
+    repeated MeasResultServMo value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 32}, json_name="value"];
+};
+
+// sequence from nr-rrc-definitions.asn1:655
+// @inject_tag: aper:"valueExt"
+// {MeasResultServMO}
+message MeasResultServMo {
+    ServCellIndex serv_cell_id = 1 [ json_name="servCellId"];
+    // @inject_tag: aper:"valueExt,"
+    MeasResultNr meas_result_serving_cell = 2 [ json_name="measResultServingCell"];
+};
+
+// sequence from nr-rrc-definitions.asn1:664
+// {cellResultsmeasResult}
+message CellResultsmeasResult {
+    // @inject_tag: aper:"optional,"
+    optional MeasQuantityResults results_ssb_cell = 1 [ json_name="resultsSSB-Cell"];
+    // @inject_tag: aper:"optional,"
+    optional MeasQuantityResults results_csi_rs_cell = 2 [ json_name="resultsCSI-RS-Cell"];
+};
+
+// sequence from nr-rrc-definitions.asn1:668
+// {rsIndexResultsmeasResult}
+message RsIndexResultsmeasResult {
+    // @inject_tag: aper:"optional,"
+    optional ResultsPerSsbIndexList results_ssb_indexes = 1 [ json_name="resultsSSB-Indexes"];
+    // @inject_tag: aper:"optional,"
+    optional ResultsPerCsiRSIndexList results_csi_rs_indexes = 2 [ json_name="resultsCSI-RS-Indexes"];
+};
+
+// sequence from nr-rrc-definitions.asn1:666
+// {measResultMeasResultNR}
+message MeasResultMeasResultNr {
+    CellResultsmeasResult cell_results = 1 [ json_name="cellResults"];
+    // @inject_tag: aper:"optional,"
+    optional RsIndexResultsmeasResult rs_index_results = 2 [ json_name="rsIndexResults"];
+};
+
+// sequence from nr-rrc-definitions.asn1:661
+// @inject_tag: aper:"valueExt"
+// {MeasResultNR}
+message MeasResultNr {
+    // @inject_tag: aper:"optional,"
+    optional PhysCellId phys_cell_id = 1 [ json_name="physCellId"];
+    MeasResultMeasResultNr meas_result = 2 [ json_name="measResult"];
+};
+
+// sequence from nr-rrc-definitions.asn1:676
+// {MeasQuantityResults}
+message MeasQuantityResults {
+    // @inject_tag: aper:"optional,"
+    optional RsrpRange rsrp = 1 [ json_name="rsrp"];
+    // @inject_tag: aper:"optional,"
+    optional RsrqRange rsrq = 2 [ json_name="rsrq"];
+    // @inject_tag: aper:"optional,"
+    optional SinrRange sinr = 3 [ json_name="sinr"];
+};
+
+// sequence from nr-rrc-definitions.asn1:683
+// {ResultsPerSSB-IndexList}
+message ResultsPerSsbIndexList {
+    // @inject_tag: aper:"sizeLB:1,sizeUB:64,"
+    repeated ResultsPerSsbIndex value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="value"];
+};
+
+// sequence from nr-rrc-definitions.asn1:684
+// {ResultsPerSSB-Index}
+message ResultsPerSsbIndex {
+    SsbIndex ssb_index = 1 [ json_name="ssb-Index"];
+    // @inject_tag: aper:"optional,"
+    optional MeasQuantityResults ssb_results = 2 [ json_name="ssb-Results"];
+};
+
+// sequence from nr-rrc-definitions.asn1:690
+// {ResultsPerCSI-RS-IndexList}
+message ResultsPerCsiRSIndexList {
+    // @inject_tag: aper:"sizeLB:1,sizeUB:64,"
+    repeated ResultsPerCsiRSIndex value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="value"];
+};
+
+// sequence from nr-rrc-definitions.asn1:691
+// {ResultsPerCSI-RS-Index}
+message ResultsPerCsiRSIndex {
+    CsiRSIndex csi_rs_index = 1 [ json_name="csi-RS-Index"];
+    // @inject_tag: aper:"optional,"
+    optional MeasQuantityResults csi_rs_results = 2 [ json_name="csi-RS-Results"];
+};
+
+// sequence from nr-rrc-definitions.asn1:703
 // {MultiFrequencyBandListNR}
 message MultiFrequencyBandListNr {
     // @inject_tag: aper:"sizeLB:1,sizeUB:8,"
     repeated FreqBandIndicatorNr value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 8}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:613
+// range of Integer from nr-rrc-definitions.asn1:703
 // {NZP-CSI-RS-ResourceId}
 message NzpCSiRSResourceId {
     // @inject_tag: aper:"valueLB:0,valueUB:191,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 191}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:618
+// range of Integer from nr-rrc-definitions.asn1:708
 // {PathlossReferenceRS-Id-r17}
 message PathlossReferenceRsIdr17 {
     // @inject_tag: aper:"valueLB:0,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 63}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:624
+// sequence from nr-rrc-definitions.asn1:714
 // {PDCCH-ConfigSIB1}
 message PdcchConfigSib1 {
     ControlResourceSetZero control_resource_set_zero = 1 [ json_name="controlResourceSetZero"];
     SearchSpaceZero search_space_zero = 2 [ json_name="searchSpaceZero"];
 };
 
-// sequence from nr-rrc-definitions.asn1:632
+// sequence from nr-rrc-definitions.asn1:722
 // @inject_tag: aper:"valueExt"
 // {PDSCH-Config}
 message PdschConfig {
@@ -1550,21 +1718,28 @@ message PdschConfig {
     repeated TciStateId tci_states_to_release_list = 2 [(validate.v1.rules).repeated = {min_items: 1, max_items: 128}, json_name="tci-StatesToReleaseList"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:638
+// range of Integer from nr-rrc-definitions.asn1:729
+// {PhysCellId}
+message PhysCellId {
+    // @inject_tag: aper:"valueLB:0,valueUB:1007,"
+    int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 1007}, json_name="value"];
+};
+
+// range of Integer from nr-rrc-definitions.asn1:733
 // {PUCCH-ResourceId}
 message PucchResourceId {
     // @inject_tag: aper:"valueLB:0,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 127}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:639
+// range of Integer from nr-rrc-definitions.asn1:734
 // {P0-PUSCH-AlphaSetId}
 message P0PUschAlphaSetId {
     // @inject_tag: aper:"valueLB:0,valueUB:29,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 29}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:644
+// sequence from nr-rrc-definitions.asn1:739
 // @inject_tag: aper:"valueExt"
 // {QuantityConfig}
 message QuantityConfig {
@@ -1572,7 +1747,7 @@ message QuantityConfig {
     repeated QuantityConfigNr quantity_config_nr_list = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 2}, json_name="quantityConfigNR-List"];
 };
 
-// sequence from nr-rrc-definitions.asn1:648
+// sequence from nr-rrc-definitions.asn1:743
 // {QuantityConfigNR}
 message QuantityConfigNr {
     QuantityConfigRs quantity_config_cell = 1 [ json_name="quantityConfigCell"];
@@ -1580,14 +1755,14 @@ message QuantityConfigNr {
     optional QuantityConfigRs quantity_config_rs_index = 2 [ json_name="quantityConfigRS-Index"];
 };
 
-// sequence from nr-rrc-definitions.asn1:652
+// sequence from nr-rrc-definitions.asn1:747
 // {QuantityConfigRS}
 message QuantityConfigRs {
     FilterConfig ssb_filter_config = 1 [ json_name="ssb-FilterConfig"];
     FilterConfig csi_rs_filter_config = 2 [ json_name="csi-RS-FilterConfig"];
 };
 
-// sequence from nr-rrc-definitions.asn1:656
+// sequence from nr-rrc-definitions.asn1:751
 // {FilterConfig}
 message FilterConfig {
     // @inject_tag: aper:"valueExt,valueLB:0,valueUB:15,"
@@ -1598,32 +1773,32 @@ message FilterConfig {
     FilterCoefficient filter_coefficient_rs_sinr = 3 [ json_name="filterCoefficientRS-SINR"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:663
+// range of Integer from nr-rrc-definitions.asn1:758
 // {ReportConfigId}
 message ReportConfigId {
     // @inject_tag: aper:"valueLB:1,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 1, lte: 64}, json_name="value"];
 };
 
-// choice from nr-rrc-definitions.asn1:669
+// choice from nr-rrc-definitions.asn1:764
 // @inject_tag: aper:"choiceExt"
 // {reportTypeReportConfigNR}
 message ReportTypeReportConfigNr {
-    // choice from nr-rrc-definitions.asn1:669
+    // choice from nr-rrc-definitions.asn1:764
     oneof report_type_report_config_nr {
         // @inject_tag: aper:"choiceIdx:1,valueExt,"
         PeriodicalReportConfig periodical = 1 [ json_name="periodical"];
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:672
+// sequence from nr-rrc-definitions.asn1:767
 // {ReportConfigNR}
 message ReportConfigNr {
     // @inject_tag: aper:"choiceExt,"
     ReportTypeReportConfigNr report_type = 1 [ json_name="reportType"];
 };
 
-// sequence from nr-rrc-definitions.asn1:674
+// sequence from nr-rrc-definitions.asn1:769
 // @inject_tag: aper:"valueExt"
 // {PeriodicalReportConfig}
 message PeriodicalReportConfig {
@@ -1640,7 +1815,7 @@ message PeriodicalReportConfig {
     optional int32 max_nrof_rs_indexes_to_report = 6 [ json_name="maxNrofRS-IndexesToReport"];
 };
 
-// sequence from nr-rrc-definitions.asn1:686
+// sequence from nr-rrc-definitions.asn1:781
 // {MeasReportQuantity}
 message MeasReportQuantity {
     bool rsrp = 1 [ json_name="rsrp"];
@@ -1648,25 +1823,25 @@ message MeasReportQuantity {
     bool sinr = 3 [ json_name="sinr"];
 };
 
-// sequence from nr-rrc-definitions.asn1:696
+// sequence from nr-rrc-definitions.asn1:791
 // {ReportConfigToAddModList}
 message ReportConfigToAddModList {
     // @inject_tag: aper:"sizeLB:1,sizeUB:64,"
     repeated ReportConfigToAddMod value = 1 [(validate.v1.rules).repeated = {min_items: 1, max_items: 64}, json_name="value"];
 };
 
-// choice from nr-rrc-definitions.asn1:699
+// choice from nr-rrc-definitions.asn1:794
 // @inject_tag: aper:"choiceExt"
 // {reportConfigReportConfigToAddMod}
 message ReportConfigReportConfigToAddMod {
-    // choice from nr-rrc-definitions.asn1:699
+    // choice from nr-rrc-definitions.asn1:794
     oneof report_config_report_config_to_add_mod {
         // @inject_tag: aper:"choiceIdx:1,"
         ReportConfigNr report_config_nr = 1 [ json_name="reportConfigNR"];
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:697
+// sequence from nr-rrc-definitions.asn1:792
 // {ReportConfigToAddMod}
 message ReportConfigToAddMod {
     ReportConfigId report_config_id = 1 [ json_name="reportConfigId"];
@@ -1674,14 +1849,21 @@ message ReportConfigToAddMod {
     ReportConfigReportConfigToAddMod report_config = 2 [ json_name="reportConfig"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:712
+// range of Integer from nr-rrc-definitions.asn1:807
 // {RSRP-Range}
 message RsrpRange {
     // @inject_tag: aper:"valueLB:0,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 127}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:718
+// range of Integer from nr-rrc-definitions.asn1:812
+// {RSRQ-Range}
+message RsrqRange {
+    // @inject_tag: aper:"valueLB:0,valueUB:127,"
+    int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 127}, json_name="value"];
+};
+
+// sequence from nr-rrc-definitions.asn1:818
 // @inject_tag: aper:"valueExt"
 // {SCS-SpecificCarrier}
 message ScsSpecificCarrier {
@@ -1695,21 +1877,21 @@ message ScsSpecificCarrier {
     optional int32 tx_direct_current_location = 4 [ json_name="txDirectCurrentLocation"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:730
+// range of Integer from nr-rrc-definitions.asn1:830
 // {SearchSpaceZero}
 message SearchSpaceZero {
     // @inject_tag: aper:"valueLB:0,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 15}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:735
+// range of Integer from nr-rrc-definitions.asn1:835
 // {ServCellIndex}
 message ServCellIndex {
     // @inject_tag: aper:"valueLB:0,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 31}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:742
+// sequence from nr-rrc-definitions.asn1:842
 // {ssb-PositionsInBurstServingCellConfigCommonSIB}
 message SsbPositionsInBurstServingCellConfigCommonSib {
     // @inject_tag: aper:"sizeLB:8,sizeUB:8,"
@@ -1718,7 +1900,7 @@ message SsbPositionsInBurstServingCellConfigCommonSib {
     optional asn1.v1.BitString group_presence = 2 [ json_name="groupPresence"];
 };
 
-// sequence from nr-rrc-definitions.asn1:744
+// sequence from nr-rrc-definitions.asn1:844
 // @inject_tag: aper:"valueExt"
 // {ServingCellConfigCommonSIB}
 message ServingCellConfigCommonSib {
@@ -1729,24 +1911,31 @@ message ServingCellConfigCommonSib {
     int32 ss_pbch_block_power = 3 [ json_name="ss-PBCH-BlockPower"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:753
+// range of Integer from nr-rrc-definitions.asn1:853
+// {SINR-Range}
+message SinrRange {
+    // @inject_tag: aper:"valueLB:0,valueUB:127,"
+    int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 127}, json_name="value"];
+};
+
+// range of Integer from nr-rrc-definitions.asn1:858
 // {SSB-Index}
 message SsbIndex {
     // @inject_tag: aper:"valueLB:0,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 63}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:756
+// range of Integer from nr-rrc-definitions.asn1:861
 // {AdditionalPCIIndex-r17}
 message AdditionalPciindexr17 {
     // @inject_tag: aper:"valueLB:1,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 1, lte: 7}, json_name="value"];
 };
 
-// sequence from nr-rrc-definitions.asn1:760
+// sequence from nr-rrc-definitions.asn1:865
 // {SSB-ToMeasure}
 message SsbToMeasure {
-    // choice from nr-rrc-definitions.asn1:760
+    // choice from nr-rrc-definitions.asn1:865
     oneof ssb_to_measure {
         // @inject_tag: aper:"choiceIdx:1,sizeLB:4,sizeUB:4,"
         asn1.v1.BitString short_bitmap = 1 [ json_name="shortBitmap"];
@@ -1757,7 +1946,7 @@ message SsbToMeasure {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:774
+// sequence from nr-rrc-definitions.asn1:879
 // @inject_tag: aper:"valueExt"
 // {TCI-State}
 message TciState {
@@ -1774,10 +1963,10 @@ message TciState {
     optional UplinkpowerControlIdr17 ul_power_control_r17 = 6 [ json_name="ul-powerControl-r17"];
 };
 
-// choice from nr-rrc-definitions.asn1:790
+// choice from nr-rrc-definitions.asn1:895
 // {referenceSignalQCL-Info}
 message ReferenceSignalQclInfo {
-    // choice from nr-rrc-definitions.asn1:790
+    // choice from nr-rrc-definitions.asn1:895
     oneof reference_signal_qcl_info {
         // @inject_tag: aper:"choiceIdx:1,"
         NzpCSiRSResourceId csi_rs = 1 [ json_name="csi-rs"];
@@ -1786,7 +1975,7 @@ message ReferenceSignalQclInfo {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:787
+// sequence from nr-rrc-definitions.asn1:892
 // @inject_tag: aper:"valueExt"
 // {QCL-Info}
 message QclInfo {
@@ -1799,2544 +1988,2544 @@ message QclInfo {
     QclTypeQclinfo qcl_type = 4 [ json_name="qcl-Type"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:800
+// range of Integer from nr-rrc-definitions.asn1:905
 // {TCI-StateId}
 message TciStateId {
     // @inject_tag: aper:"valueLB:0,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 127}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:803
+// range of Integer from nr-rrc-definitions.asn1:908
 // {Uplink-powerControlId-r17}
 message UplinkpowerControlIdr17 {
     // @inject_tag: aper:"valueLB:1,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 1, lte: 64}, json_name="value"];
 };
 
-// range of Integer from nr-rrc-definitions.asn1:806
+// range of Integer from nr-rrc-definitions.asn1:911
 // {RRC-TransactionIdentifier}
 message RrcTransactionIdentifier {
     // @inject_tag: aper:"valueLB:0,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 3}, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:811
+// constant Integer from nr-rrc-definitions.asn1:916
 // {-}
 message MaxAdditionalRachr17 {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:812
+// constant Integer from nr-rrc-definitions.asn1:917
 // {-}
 message MaxAiDCiPayloadSizer16 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:813
+// constant Integer from nr-rrc-definitions.asn1:918
 // {-}
 message MaxAiDCiPayloadSize1r16 {
     // @inject_tag: aper:"valueLB:127,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32.const = 127, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:814
+// constant Integer from nr-rrc-definitions.asn1:919
 // {-}
 message MaxBandComb {
     // @inject_tag: aper:"valueLB:65536,valueUB:65536,"
     int32 value = 1 [(validate.v1.rules).int32.const = 65536, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:815
+// constant Integer from nr-rrc-definitions.asn1:920
 // {-}
 message MaxBandsUtraFDdr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:816
+// constant Integer from nr-rrc-definitions.asn1:921
 // {-}
 message MaxBhRLcChannelIdr16 {
     // @inject_tag: aper:"valueLB:65536,valueUB:65536,"
     int32 value = 1 [(validate.v1.rules).int32.const = 65536, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:817
+// constant Integer from nr-rrc-definitions.asn1:922
 // {-}
 message MaxBtIdReportr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:818
+// constant Integer from nr-rrc-definitions.asn1:923
 // {-}
 message MaxBtNamer16 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:819
+// constant Integer from nr-rrc-definitions.asn1:924
 // {-}
 message MaxCagCellr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:820
+// constant Integer from nr-rrc-definitions.asn1:925
 // {-}
 message MaxTwoPucchGrpConfigListr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:822
+// constant Integer from nr-rrc-definitions.asn1:927
 // {-}
 message MaxTwoPucchGrpConfigListr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:824
+// constant Integer from nr-rrc-definitions.asn1:929
 // {-}
 message MaxCbrConfigr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:826
+// constant Integer from nr-rrc-definitions.asn1:931
 // {-}
 message MaxCbrConfig1r16 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:828
+// constant Integer from nr-rrc-definitions.asn1:933
 // {-}
 message MaxCbrLevelr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:829
+// constant Integer from nr-rrc-definitions.asn1:934
 // {-}
 message MaxCbrLevel1r16 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:830
+// constant Integer from nr-rrc-definitions.asn1:935
 // {-}
 message MaxCellExcluded {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:831
+// constant Integer from nr-rrc-definitions.asn1:936
 // {-}
 message MaxCellGroupingsr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:832
+// constant Integer from nr-rrc-definitions.asn1:937
 // {-}
 message MaxCellHistoryr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:833
+// constant Integer from nr-rrc-definitions.asn1:938
 // {-}
 message MaxPscellHistoryr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:834
+// constant Integer from nr-rrc-definitions.asn1:939
 // {-}
 message MaxCellInter {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:835
+// constant Integer from nr-rrc-definitions.asn1:940
 // {-}
 message MaxCellIntra {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:836
+// constant Integer from nr-rrc-definitions.asn1:941
 // {-}
 message MaxCellMeasEutra {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:837
+// constant Integer from nr-rrc-definitions.asn1:942
 // {-}
 message MaxCellMeasIdler16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:838
+// constant Integer from nr-rrc-definitions.asn1:943
 // {-}
 message MaxCellMeasUtraFDdr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:839
+// constant Integer from nr-rrc-definitions.asn1:944
 // {-}
 message MaxCellNtnr17 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:841
+// constant Integer from nr-rrc-definitions.asn1:946
 // {-}
 message MaxCarrierTypePairListr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:844
+// constant Integer from nr-rrc-definitions.asn1:949
 // {-}
 message MaxCellAllowed {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:845
+// constant Integer from nr-rrc-definitions.asn1:950
 // {-}
 message MaxEarfcn {
     // @inject_tag: aper:"valueLB:262143,valueUB:262143,"
     int32 value = 1 [(validate.v1.rules).int32.const = 262143, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:846
+// constant Integer from nr-rrc-definitions.asn1:951
 // {-}
 message MaxEutraCellExcluded {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:848
+// constant Integer from nr-rrc-definitions.asn1:953
 // {-}
 message MaxEutraNSPmax {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:849
+// constant Integer from nr-rrc-definitions.asn1:954
 // {-}
 message MaxFeatureCombPreamblesPerRachresourcer17 {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:850
+// constant Integer from nr-rrc-definitions.asn1:955
 // {-}
 message MaxLogMeasReportr16 {
     // @inject_tag: aper:"valueLB:520,valueUB:520,"
     int32 value = 1 [(validate.v1.rules).int32.const = 520, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:851
+// constant Integer from nr-rrc-definitions.asn1:956
 // {-}
 message MaxMultiBands {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:852
+// constant Integer from nr-rrc-definitions.asn1:957
 // {-}
 message MaxNarfcn {
     // @inject_tag: aper:"valueLB:3279165,valueUB:3279165,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3279165, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:853
+// constant Integer from nr-rrc-definitions.asn1:958
 // {-}
 message MaxNrNSPmax {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:854
+// constant Integer from nr-rrc-definitions.asn1:959
 // {-}
 message MaxFreqIdler16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:855
+// constant Integer from nr-rrc-definitions.asn1:960
 // {-}
 message MaxNrofServingCells {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:856
+// constant Integer from nr-rrc-definitions.asn1:961
 // {-}
 message MaxNrofServingCells1 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:857
+// constant Integer from nr-rrc-definitions.asn1:962
 // {-}
 message MaxNrofAggregatedCellsPerCellGroup {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:858
+// constant Integer from nr-rrc-definitions.asn1:963
 // {-}
 message MaxNrofAggregatedCellsPerCellGroupMinus4r16 {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:859
+// constant Integer from nr-rrc-definitions.asn1:964
 // {-}
 message MaxNrofDucellsr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:860
+// constant Integer from nr-rrc-definitions.asn1:965
 // {-}
 message MaxNrofAppLayerMeasr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:861
+// constant Integer from nr-rrc-definitions.asn1:966
 // {-}
 message MaxNrofAppLayerMeas1r17 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:862
+// constant Integer from nr-rrc-definitions.asn1:967
 // {-}
 message MaxNrofAvailabilityCombinationsPerSetr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:863
+// constant Integer from nr-rrc-definitions.asn1:968
 // {-}
 message MaxNrofAvailabilityCombinationsPerSet1r16 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:864
+// constant Integer from nr-rrc-definitions.asn1:969
 // {-}
 message MaxNrofIabresourceConfigr17 {
     // @inject_tag: aper:"valueLB:65536,valueUB:65536,"
     int32 value = 1 [(validate.v1.rules).int32.const = 65536, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:865
+// constant Integer from nr-rrc-definitions.asn1:970
 // {-}
 message MaxNrofIabresourceConfig1r17 {
     // @inject_tag: aper:"valueLB:65535,valueUB:65535,"
     int32 value = 1 [(validate.v1.rules).int32.const = 65535, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:866
+// constant Integer from nr-rrc-definitions.asn1:971
 // {-}
 message MaxNrofScellActRsr17 {
     // @inject_tag: aper:"valueLB:255,valueUB:255,"
     int32 value = 1 [(validate.v1.rules).int32.const = 255, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:867
+// constant Integer from nr-rrc-definitions.asn1:972
 // {-}
 message MaxNrofScells {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:868
+// constant Integer from nr-rrc-definitions.asn1:973
 // {-}
 message MaxNrofCellMeas {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:869
+// constant Integer from nr-rrc-definitions.asn1:974
 // {-}
 message MaxNrofCrsIMInterfCellr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:870
+// constant Integer from nr-rrc-definitions.asn1:975
 // {-}
 message MaxNrofRelayMeasr17 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:872
+// constant Integer from nr-rrc-definitions.asn1:977
 // {-}
 message MaxNrofCgSLr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:873
+// constant Integer from nr-rrc-definitions.asn1:978
 // {-}
 message MaxNrofCgSL1r16 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:874
+// constant Integer from nr-rrc-definitions.asn1:979
 // {-}
 message MaxSlGCBCDRxQoSr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:876
+// constant Integer from nr-rrc-definitions.asn1:981
 // {-}
 message MaxNrofSlRxInfoSetr17 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:878
+// constant Integer from nr-rrc-definitions.asn1:983
 // {-}
 message MaxNrofSsBlocksToAverage {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:879
+// constant Integer from nr-rrc-definitions.asn1:984
 // {-}
 message MaxNrofCondCellsr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:880
+// constant Integer from nr-rrc-definitions.asn1:985
 // {-}
 message MaxNrofCondCells1r17 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:881
+// constant Integer from nr-rrc-definitions.asn1:986
 // {-}
 message MaxNrofCsiRSResourcesToAverage {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:882
+// constant Integer from nr-rrc-definitions.asn1:987
 // {-}
 message MaxNrofDlAllocations {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:883
+// constant Integer from nr-rrc-definitions.asn1:988
 // {-}
 message MaxNrofDlAllocationsExtr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:885
+// constant Integer from nr-rrc-definitions.asn1:990
 // {-}
 message MaxNrofPduSessionsr17 {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:886
+// constant Integer from nr-rrc-definitions.asn1:991
 // {-}
 message MaxNrofSrConfigPerCellGroup {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:887
+// constant Integer from nr-rrc-definitions.asn1:992
 // {-}
 message MaxLcgID {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:888
+// constant Integer from nr-rrc-definitions.asn1:993
 // {-}
 message MaxLcgIDIAbr17 {
     // @inject_tag: aper:"valueLB:255,valueUB:255,"
     int32 value = 1 [(validate.v1.rules).int32.const = 255, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:889
+// constant Integer from nr-rrc-definitions.asn1:994
 // {-}
 message MaxLcID {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:890
+// constant Integer from nr-rrc-definitions.asn1:995
 // {-}
 message MaxLcIDIabr16 {
     // @inject_tag: aper:"valueLB:65855,valueUB:65855,"
     int32 value = 1 [(validate.v1.rules).int32.const = 65855, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:891
+// constant Integer from nr-rrc-definitions.asn1:996
 // {-}
 message MaxLteCRsPatternsr16 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:892
+// constant Integer from nr-rrc-definitions.asn1:997
 // {-}
 message MaxNrofTags {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:893
+// constant Integer from nr-rrc-definitions.asn1:998
 // {-}
 message MaxNrofTags1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:894
+// constant Integer from nr-rrc-definitions.asn1:999
 // {-}
 message MaxNrofBwps {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:895
+// constant Integer from nr-rrc-definitions.asn1:1000
 // {-}
 message MaxNrofCombIdc {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:896
+// constant Integer from nr-rrc-definitions.asn1:1001
 // {-}
 message MaxNrofSymbols1 {
     // @inject_tag: aper:"valueLB:13,valueUB:13,"
     int32 value = 1 [(validate.v1.rules).int32.const = 13, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:897
+// constant Integer from nr-rrc-definitions.asn1:1002
 // {-}
 message MaxNrofSlots {
     // @inject_tag: aper:"valueLB:320,valueUB:320,"
     int32 value = 1 [(validate.v1.rules).int32.const = 320, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:898
+// constant Integer from nr-rrc-definitions.asn1:1003
 // {-}
 message MaxNrofSlots1 {
     // @inject_tag: aper:"valueLB:319,valueUB:319,"
     int32 value = 1 [(validate.v1.rules).int32.const = 319, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:899
+// constant Integer from nr-rrc-definitions.asn1:1004
 // {-}
 message MaxNrofPhysicalResourceBlocks {
     // @inject_tag: aper:"valueLB:275,valueUB:275,"
     int32 value = 1 [(validate.v1.rules).int32.const = 275, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:900
+// constant Integer from nr-rrc-definitions.asn1:1005
 // {-}
 message MaxNrofPhysicalResourceBlocks1 {
     // @inject_tag: aper:"valueLB:274,valueUB:274,"
     int32 value = 1 [(validate.v1.rules).int32.const = 274, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:901
+// constant Integer from nr-rrc-definitions.asn1:1006
 // {-}
 message MaxNrofPhysicalResourceBlocksPlus1 {
     // @inject_tag: aper:"valueLB:276,valueUB:276,"
     int32 value = 1 [(validate.v1.rules).int32.const = 276, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:902
+// constant Integer from nr-rrc-definitions.asn1:1007
 // {-}
 message MaxNrofControlResourceSets {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:903
+// constant Integer from nr-rrc-definitions.asn1:1008
 // {-}
 message MaxNrofControlResourceSets1 {
     // @inject_tag: aper:"valueLB:11,valueUB:11,"
     int32 value = 1 [(validate.v1.rules).int32.const = 11, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:904
+// constant Integer from nr-rrc-definitions.asn1:1009
 // {-}
 message MaxNrofControlResourceSets1r16 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:905
+// constant Integer from nr-rrc-definitions.asn1:1010
 // {-}
 message MaxNrofCoresetPoolsr16 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:906
+// constant Integer from nr-rrc-definitions.asn1:1011
 // {-}
 message MaxCoReSetDuration {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:907
+// constant Integer from nr-rrc-definitions.asn1:1012
 // {-}
 message MaxNrofSearchSpaces1 {
     // @inject_tag: aper:"valueLB:39,valueUB:39,"
     int32 value = 1 [(validate.v1.rules).int32.const = 39, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:908
+// constant Integer from nr-rrc-definitions.asn1:1013
 // {-}
 message MaxNrofSearchSpacesLinks1r17 {
     // @inject_tag: aper:"valueLB:39,valueUB:39,"
     int32 value = 1 [(validate.v1.rules).int32.const = 39, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:909
+// constant Integer from nr-rrc-definitions.asn1:1014
 // {-}
 message MaxNrofBfdresourcePerSetr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:910
+// constant Integer from nr-rrc-definitions.asn1:1015
 // {-}
 message MaxSfiDCiPayloadSize {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:911
+// constant Integer from nr-rrc-definitions.asn1:1016
 // {-}
 message MaxSfiDCiPayloadSize1 {
     // @inject_tag: aper:"valueLB:127,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32.const = 127, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:912
+// constant Integer from nr-rrc-definitions.asn1:1017
 // {-}
 message MaxIabIPAddressr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:913
+// constant Integer from nr-rrc-definitions.asn1:1018
 // {-}
 message MaxIntDCiPayloadSize {
     // @inject_tag: aper:"valueLB:126,valueUB:126,"
     int32 value = 1 [(validate.v1.rules).int32.const = 126, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:914
+// constant Integer from nr-rrc-definitions.asn1:1019
 // {-}
 message MaxIntDCiPayloadSize1 {
     // @inject_tag: aper:"valueLB:125,valueUB:125,"
     int32 value = 1 [(validate.v1.rules).int32.const = 125, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:915
+// constant Integer from nr-rrc-definitions.asn1:1020
 // {-}
 message MaxNrofRateMatchPatterns {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:916
+// constant Integer from nr-rrc-definitions.asn1:1021
 // {-}
 message MaxNrofRateMatchPatterns1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:917
+// constant Integer from nr-rrc-definitions.asn1:1022
 // {-}
 message MaxNrofRateMatchPatternsPerGroup {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:918
+// constant Integer from nr-rrc-definitions.asn1:1023
 // {-}
 message MaxNrofCsiReportConfigurations {
     // @inject_tag: aper:"valueLB:48,valueUB:48,"
     int32 value = 1 [(validate.v1.rules).int32.const = 48, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:919
+// constant Integer from nr-rrc-definitions.asn1:1024
 // {-}
 message MaxNrofCsiReportConfigurations1 {
     // @inject_tag: aper:"valueLB:47,valueUB:47,"
     int32 value = 1 [(validate.v1.rules).int32.const = 47, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:920
+// constant Integer from nr-rrc-definitions.asn1:1025
 // {-}
 message MaxNrofCsiResourceConfigurations {
     // @inject_tag: aper:"valueLB:112,valueUB:112,"
     int32 value = 1 [(validate.v1.rules).int32.const = 112, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:921
+// constant Integer from nr-rrc-definitions.asn1:1026
 // {-}
 message MaxNrofCsiResourceConfigurations1 {
     // @inject_tag: aper:"valueLB:111,valueUB:111,"
     int32 value = 1 [(validate.v1.rules).int32.const = 111, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:922
+// constant Integer from nr-rrc-definitions.asn1:1027
 // {-}
 message MaxNrofApCSiRSResourcesPerSet {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:923
+// constant Integer from nr-rrc-definitions.asn1:1028
 // {-}
 message MaxNrOfCsiAperiodicTriggers {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:924
+// constant Integer from nr-rrc-definitions.asn1:1029
 // {-}
 message MaxNrofReportConfigPerAperiodicTrigger {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:925
+// constant Integer from nr-rrc-definitions.asn1:1030
 // {-}
 message MaxNrofNzpCSiRSResources {
     // @inject_tag: aper:"valueLB:192,valueUB:192,"
     int32 value = 1 [(validate.v1.rules).int32.const = 192, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:926
+// constant Integer from nr-rrc-definitions.asn1:1031
 // {-}
 message MaxNrofNzpCSiRSResources1 {
     // @inject_tag: aper:"valueLB:191,valueUB:191,"
     int32 value = 1 [(validate.v1.rules).int32.const = 191, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:927
+// constant Integer from nr-rrc-definitions.asn1:1032
 // {-}
 message MaxNrofNzpCSiRSResourcesPerSet {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:928
+// constant Integer from nr-rrc-definitions.asn1:1033
 // {-}
 message MaxNrofNzpCSiRSResourceSets {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:929
+// constant Integer from nr-rrc-definitions.asn1:1034
 // {-}
 message MaxNrofNzpCSiRSResourceSets1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:930
+// constant Integer from nr-rrc-definitions.asn1:1035
 // {-}
 message MaxNrofNzpCSiRSResourceSetsPerConfig {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:931
+// constant Integer from nr-rrc-definitions.asn1:1036
 // {-}
 message MaxNrofNzpCSiRSResourcesPerConfig {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:932
+// constant Integer from nr-rrc-definitions.asn1:1037
 // {-}
 message MaxNrofZpCSiRSResources {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:933
+// constant Integer from nr-rrc-definitions.asn1:1038
 // {-}
 message MaxNrofZpCSiRSResources1 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:934
+// constant Integer from nr-rrc-definitions.asn1:1039
 // {-}
 message MaxNrofZpCSiRSResourceSets1 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:935
+// constant Integer from nr-rrc-definitions.asn1:1040
 // {-}
 message MaxNrofZpCSiRSResourcesPerSet {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:936
+// constant Integer from nr-rrc-definitions.asn1:1041
 // {-}
 message MaxNrofZpCSiRSResourceSets {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:937
+// constant Integer from nr-rrc-definitions.asn1:1042
 // {-}
 message MaxNrofCsiIMResources {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:938
+// constant Integer from nr-rrc-definitions.asn1:1043
 // {-}
 message MaxNrofCsiIMResources1 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:939
+// constant Integer from nr-rrc-definitions.asn1:1044
 // {-}
 message MaxNrofCsiIMResourcesPerSet {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:940
+// constant Integer from nr-rrc-definitions.asn1:1045
 // {-}
 message MaxNrofCsiIMResourceSets {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:941
+// constant Integer from nr-rrc-definitions.asn1:1046
 // {-}
 message MaxNrofCsiIMResourceSets1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:942
+// constant Integer from nr-rrc-definitions.asn1:1047
 // {-}
 message MaxNrofCsiIMResourceSetsPerConfig {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:943
+// constant Integer from nr-rrc-definitions.asn1:1048
 // {-}
 message MaxNrofCsiSSbResourcePerSet {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:944
+// constant Integer from nr-rrc-definitions.asn1:1049
 // {-}
 message MaxNrofCsiSSbResourceSets {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:945
+// constant Integer from nr-rrc-definitions.asn1:1050
 // {-}
 message MaxNrofCsiSSbResourceSets1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:946
+// constant Integer from nr-rrc-definitions.asn1:1051
 // {-}
 message MaxNrofCsiSSbResourceSetsPerConfig {
     // @inject_tag: aper:"valueLB:1,valueUB:1,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:947
+// constant Integer from nr-rrc-definitions.asn1:1052
 // {-}
 message MaxNrofCsiSSbResourceSetsPerConfigExt {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:949
+// constant Integer from nr-rrc-definitions.asn1:1054
 // {-}
 message MaxNrofFailureDetectionResources {
     // @inject_tag: aper:"valueLB:10,valueUB:10,"
     int32 value = 1 [(validate.v1.rules).int32.const = 10, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:950
+// constant Integer from nr-rrc-definitions.asn1:1055
 // {-}
 message MaxNrofFailureDetectionResources1 {
     // @inject_tag: aper:"valueLB:9,valueUB:9,"
     int32 value = 1 [(validate.v1.rules).int32.const = 9, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:951
+// constant Integer from nr-rrc-definitions.asn1:1056
 // {-}
 message MaxNrofFailureDetectionResources1r17 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:952
+// constant Integer from nr-rrc-definitions.asn1:1057
 // {-}
 message MaxNrofFreqSlr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:953
+// constant Integer from nr-rrc-definitions.asn1:1058
 // {-}
 message MaxNrofSlBWpsr16 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:954
+// constant Integer from nr-rrc-definitions.asn1:1059
 // {-}
 message MaxFreqSlEUtrar16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:955
+// constant Integer from nr-rrc-definitions.asn1:1060
 // {-}
 message MaxNrofSlMeasIdr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:956
+// constant Integer from nr-rrc-definitions.asn1:1061
 // {-}
 message MaxNrofSlObjectIdr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:957
+// constant Integer from nr-rrc-definitions.asn1:1062
 // {-}
 message MaxNrofSlReportConfigIdr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:958
+// constant Integer from nr-rrc-definitions.asn1:1063
 // {-}
 message MaxNrofSlPoolToMeasureNrr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:960
+// constant Integer from nr-rrc-definitions.asn1:1065
 // {-}
 message MaxFreqSlNRr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:961
+// constant Integer from nr-rrc-definitions.asn1:1066
 // {-}
 message MaxNrofSlQFisr16 {
     // @inject_tag: aper:"valueLB:2048,valueUB:2048,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2048, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:962
+// constant Integer from nr-rrc-definitions.asn1:1067
 // {-}
 message MaxNrofSlQFisPerDestr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:963
+// constant Integer from nr-rrc-definitions.asn1:1068
 // {-}
 message MaxNrofObjectId {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:964
+// constant Integer from nr-rrc-definitions.asn1:1069
 // {-}
 message MaxNrofPageRec {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:965
+// constant Integer from nr-rrc-definitions.asn1:1070
 // {-}
 message MaxNrofPciRanges {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:966
+// constant Integer from nr-rrc-definitions.asn1:1071
 // {-}
 message MaxPlmn {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:967
+// constant Integer from nr-rrc-definitions.asn1:1072
 // {-}
 message MaxTacr17 {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:968
+// constant Integer from nr-rrc-definitions.asn1:1073
 // {-}
 message MaxNrofCsiRSResourcesRrm {
     // @inject_tag: aper:"valueLB:96,valueUB:96,"
     int32 value = 1 [(validate.v1.rules).int32.const = 96, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:969
+// constant Integer from nr-rrc-definitions.asn1:1074
 // {-}
 message MaxNrofCsiRSResourcesRrm1 {
     // @inject_tag: aper:"valueLB:95,valueUB:95,"
     int32 value = 1 [(validate.v1.rules).int32.const = 95, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:971
+// constant Integer from nr-rrc-definitions.asn1:1076
 // {-}
 message MaxNrofMeasId {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:972
+// constant Integer from nr-rrc-definitions.asn1:1077
 // {-}
 message MaxNrofQuantityConfig {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:973
+// constant Integer from nr-rrc-definitions.asn1:1078
 // {-}
 message MaxNrofCsiRSCellsRrm {
     // @inject_tag: aper:"valueLB:96,valueUB:96,"
     int32 value = 1 [(validate.v1.rules).int32.const = 96, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:974
+// constant Integer from nr-rrc-definitions.asn1:1079
 // {-}
 message MaxNrofSlDestr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:975
+// constant Integer from nr-rrc-definitions.asn1:1080
 // {-}
 message MaxNrofSlDest1r16 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:976
+// constant Integer from nr-rrc-definitions.asn1:1081
 // {-}
 message MaxNrofSlrbr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:977
+// constant Integer from nr-rrc-definitions.asn1:1082
 // {-}
 message MaxSlLCidr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:978
+// constant Integer from nr-rrc-definitions.asn1:1083
 // {-}
 message MaxSlSyncConfigr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:979
+// constant Integer from nr-rrc-definitions.asn1:1084
 // {-}
 message MaxNrofRxpoolr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:981
+// constant Integer from nr-rrc-definitions.asn1:1086
 // {-}
 message MaxNrofTxpoolr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:983
+// constant Integer from nr-rrc-definitions.asn1:1088
 // {-}
 message MaxNrofPoolIdr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:985
+// constant Integer from nr-rrc-definitions.asn1:1090
 // {-}
 message MaxNrofSrsPathlossReferenceRsr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:986
+// constant Integer from nr-rrc-definitions.asn1:1091
 // {-}
 message MaxNrofSrsPathlossReferenceRs1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:988
+// constant Integer from nr-rrc-definitions.asn1:1093
 // {-}
 message MaxNrofSrsResourceSets {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:989
+// constant Integer from nr-rrc-definitions.asn1:1094
 // {-}
 message MaxNrofSrsResourceSets1 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:990
+// constant Integer from nr-rrc-definitions.asn1:1095
 // {-}
 message MaxNrofSrsPosResourceSetsr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:991
+// constant Integer from nr-rrc-definitions.asn1:1096
 // {-}
 message MaxNrofSrsPosResourceSets1r16 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:992
+// constant Integer from nr-rrc-definitions.asn1:1097
 // {-}
 message MaxNrofSrsResources {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:993
+// constant Integer from nr-rrc-definitions.asn1:1098
 // {-}
 message MaxNrofSrsResources1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:994
+// constant Integer from nr-rrc-definitions.asn1:1099
 // {-}
 message MaxNrofSrsPosResourcesr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:995
+// constant Integer from nr-rrc-definitions.asn1:1100
 // {-}
 message MaxNrofSrsPosResources1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:996
+// constant Integer from nr-rrc-definitions.asn1:1101
 // {-}
 message MaxNrofSrsResourcesPerSet {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:997
+// constant Integer from nr-rrc-definitions.asn1:1102
 // {-}
 message MaxNrofSrsTriggerStates1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:998
+// constant Integer from nr-rrc-definitions.asn1:1103
 // {-}
 message MaxNrofSrsTriggerStates2 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:999
+// constant Integer from nr-rrc-definitions.asn1:1104
 // {-}
 message MaxRatCapabilityContainers {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1000
+// constant Integer from nr-rrc-definitions.asn1:1105
 // {-}
 message MaxSimultaneousBands {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1001
+// constant Integer from nr-rrc-definitions.asn1:1106
 // {-}
 message MaxUltxSwitchingBandPairs {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1003
+// constant Integer from nr-rrc-definitions.asn1:1108
 // {-}
 message MaxNrofSlotFormatCombinationsPerSet {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1004
+// constant Integer from nr-rrc-definitions.asn1:1109
 // {-}
 message MaxNrofSlotFormatCombinationsPerSet1 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1005
+// constant Integer from nr-rrc-definitions.asn1:1110
 // {-}
 message MaxNrofTrafficPatternr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1006
+// constant Integer from nr-rrc-definitions.asn1:1111
 // {-}
 message MaxNrofPucchResources {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1007
+// constant Integer from nr-rrc-definitions.asn1:1112
 // {-}
 message MaxNrofPucchResources1 {
     // @inject_tag: aper:"valueLB:127,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32.const = 127, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1008
+// constant Integer from nr-rrc-definitions.asn1:1113
 // {-}
 message MaxNrofPucchResourceSets {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1009
+// constant Integer from nr-rrc-definitions.asn1:1114
 // {-}
 message MaxNrofPucchResourceSets1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1010
+// constant Integer from nr-rrc-definitions.asn1:1115
 // {-}
 message MaxNrofPucchResourcesPerSet {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1011
+// constant Integer from nr-rrc-definitions.asn1:1116
 // {-}
 message MaxNrofPucchP0PerSet {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1012
+// constant Integer from nr-rrc-definitions.asn1:1117
 // {-}
 message MaxNrofPucchPathlossReferenceRss {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1013
+// constant Integer from nr-rrc-definitions.asn1:1118
 // {-}
 message MaxNrofPucchPathlossReferenceRss1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1015
+// constant Integer from nr-rrc-definitions.asn1:1120
 // {-}
 message MaxNrofPucchPathlossReferenceRssr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1017
+// constant Integer from nr-rrc-definitions.asn1:1122
 // {-}
 message MaxNrofPucchPathlossReferenceRss1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1019
+// constant Integer from nr-rrc-definitions.asn1:1124
 // {-}
 message MaxNrofPucchPathlossReferenceRss1r17 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1021
+// constant Integer from nr-rrc-definitions.asn1:1126
 // {-}
 message MaxNrofPucchPathlossReferenceRssDiffr16 {
     // @inject_tag: aper:"valueLB:60,valueUB:60,"
     int32 value = 1 [(validate.v1.rules).int32.const = 60, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1022
+// constant Integer from nr-rrc-definitions.asn1:1127
 // {-}
 message MaxNrofPucchResourceGroupsr16 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1023
+// constant Integer from nr-rrc-definitions.asn1:1128
 // {-}
 message MaxNrofPucchResourcesPerGroupr16 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1024
+// constant Integer from nr-rrc-definitions.asn1:1129
 // {-}
 message MaxNrofPowerControlSetInfosr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1025
+// constant Integer from nr-rrc-definitions.asn1:1130
 // {-}
 message MaxNrofMultiplePuschsr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1026
+// constant Integer from nr-rrc-definitions.asn1:1131
 // {-}
 message MaxNrofP0PUschAlphaSets {
     // @inject_tag: aper:"valueLB:30,valueUB:30,"
     int32 value = 1 [(validate.v1.rules).int32.const = 30, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1027
+// constant Integer from nr-rrc-definitions.asn1:1132
 // {-}
 message MaxNrofP0PUschAlphaSets1 {
     // @inject_tag: aper:"valueLB:29,valueUB:29,"
     int32 value = 1 [(validate.v1.rules).int32.const = 29, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1028
+// constant Integer from nr-rrc-definitions.asn1:1133
 // {-}
 message MaxNrofPuschPathlossReferenceRss {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1029
+// constant Integer from nr-rrc-definitions.asn1:1134
 // {-}
 message MaxNrofPuschPathlossReferenceRss1 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1031
+// constant Integer from nr-rrc-definitions.asn1:1136
 // {-}
 message MaxNrofPuschPathlossReferenceRssr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1033
+// constant Integer from nr-rrc-definitions.asn1:1138
 // {-}
 message MaxNrofPuschPathlossReferenceRss1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1035
+// constant Integer from nr-rrc-definitions.asn1:1140
 // {-}
 message MaxNrofPuschPathlossReferenceRssDiffr16 {
     // @inject_tag: aper:"valueLB:60,valueUB:60,"
     int32 value = 1 [(validate.v1.rules).int32.const = 60, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1037
+// constant Integer from nr-rrc-definitions.asn1:1142
 // {-}
 message MaxNrofPathlossReferenceRssr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1039
+// constant Integer from nr-rrc-definitions.asn1:1144
 // {-}
 message MaxNrofPathlossReferenceRss1r17 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1041
+// constant Integer from nr-rrc-definitions.asn1:1146
 // {-}
 message MaxNrofNaicsEntries {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1042
+// constant Integer from nr-rrc-definitions.asn1:1147
 // {-}
 message MaxBands {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1043
+// constant Integer from nr-rrc-definitions.asn1:1148
 // {-}
 message MaxBandsMrdc {
     // @inject_tag: aper:"valueLB:1280,valueUB:1280,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1280, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1044
+// constant Integer from nr-rrc-definitions.asn1:1149
 // {-}
 message MaxBandsEutra {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1045
+// constant Integer from nr-rrc-definitions.asn1:1150
 // {-}
 message MaxCellReport {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1046
+// constant Integer from nr-rrc-definitions.asn1:1151
 // {-}
 message MaxDrb {
     // @inject_tag: aper:"valueLB:29,valueUB:29,"
     int32 value = 1 [(validate.v1.rules).int32.const = 29, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1047
+// constant Integer from nr-rrc-definitions.asn1:1152
 // {-}
 message MaxFreq {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1048
+// constant Integer from nr-rrc-definitions.asn1:1153
 // {-}
 message MaxFreqLayers {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1049
+// constant Integer from nr-rrc-definitions.asn1:1154
 // {-}
 message MaxFreqPlus1 {
     // @inject_tag: aper:"valueLB:9,valueUB:9,"
     int32 value = 1 [(validate.v1.rules).int32.const = 9, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1050
+// constant Integer from nr-rrc-definitions.asn1:1155
 // {-}
 message MaxFreqIdcr16 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1051
+// constant Integer from nr-rrc-definitions.asn1:1156
 // {-}
 message MaxCombIdcr16 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1052
+// constant Integer from nr-rrc-definitions.asn1:1157
 // {-}
 message MaxFreqIdcMRdc {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1053
+// constant Integer from nr-rrc-definitions.asn1:1158
 // {-}
 message MaxNrofCandidateBeams {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1054
+// constant Integer from nr-rrc-definitions.asn1:1159
 // {-}
 message MaxNrofCandidateBeamsr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1055
+// constant Integer from nr-rrc-definitions.asn1:1160
 // {-}
 message MaxNrofCandidateBeamsExtr16 {
     // @inject_tag: aper:"valueLB:48,valueUB:48,"
     int32 value = 1 [(validate.v1.rules).int32.const = 48, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1056
+// constant Integer from nr-rrc-definitions.asn1:1161
 // {-}
 message MaxNrofPcisPerSmtc {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1057
+// constant Integer from nr-rrc-definitions.asn1:1162
 // {-}
 message MaxNrofQfis {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1058
+// constant Integer from nr-rrc-definitions.asn1:1163
 // {-}
 message MaxNrofResourceAvailabilityPerCombinationr16 {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1059
+// constant Integer from nr-rrc-definitions.asn1:1164
 // {-}
 message MaxNrOfSemiPersistentPuschTriggers {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1060
+// constant Integer from nr-rrc-definitions.asn1:1165
 // {-}
 message MaxNrofSrResources {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1061
+// constant Integer from nr-rrc-definitions.asn1:1166
 // {-}
 message MaxNrofSlotFormatsPerCombination {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1062
+// constant Integer from nr-rrc-definitions.asn1:1167
 // {-}
 message MaxNrofSpatialRelationInfos {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1063
+// constant Integer from nr-rrc-definitions.asn1:1168
 // {-}
 message MaxNrofSpatialRelationInfosplus1 {
     // @inject_tag: aper:"valueLB:9,valueUB:9,"
     int32 value = 1 [(validate.v1.rules).int32.const = 9, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1064
+// constant Integer from nr-rrc-definitions.asn1:1169
 // {-}
 message MaxNrofSpatialRelationInfosr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1065
+// constant Integer from nr-rrc-definitions.asn1:1170
 // {-}
 message MaxNrofSpatialRelationInfosDiffr16 {
     // @inject_tag: aper:"valueLB:56,valueUB:56,"
     int32 value = 1 [(validate.v1.rules).int32.const = 56, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1066
+// constant Integer from nr-rrc-definitions.asn1:1171
 // {-}
 message MaxNrofIndexesToReport {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1067
+// constant Integer from nr-rrc-definitions.asn1:1172
 // {-}
 message MaxNrofIndexesToReport2 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1068
+// constant Integer from nr-rrc-definitions.asn1:1173
 // {-}
 message MaxNrofSsbsr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1069
+// constant Integer from nr-rrc-definitions.asn1:1174
 // {-}
 message MaxNrofSsbs1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1070
+// constant Integer from nr-rrc-definitions.asn1:1175
 // {-}
 message MaxNrofSNSsai {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1071
+// constant Integer from nr-rrc-definitions.asn1:1176
 // {-}
 message MaxNrofTciStatesPdcch {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1072
+// constant Integer from nr-rrc-definitions.asn1:1177
 // {-}
 message MaxNrofTciStates {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1073
+// constant Integer from nr-rrc-definitions.asn1:1178
 // {-}
 message MaxNrofTciStates1 {
     // @inject_tag: aper:"valueLB:127,valueUB:127,"
     int32 value = 1 [(validate.v1.rules).int32.const = 127, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1074
+// constant Integer from nr-rrc-definitions.asn1:1179
 // {-}
 message MaxUlTCir17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1075
+// constant Integer from nr-rrc-definitions.asn1:1180
 // {-}
 message MaxUlTCi1r17 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1076
+// constant Integer from nr-rrc-definitions.asn1:1181
 // {-}
 message MaxNrofAdditionalPcir17 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1077
+// constant Integer from nr-rrc-definitions.asn1:1182
 // {-}
 message MaxMpeResourcesr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1078
+// constant Integer from nr-rrc-definitions.asn1:1183
 // {-}
 message MaxNrofUlAllocations {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1079
+// constant Integer from nr-rrc-definitions.asn1:1184
 // {-}
 message MaxQfi {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1080
+// constant Integer from nr-rrc-definitions.asn1:1185
 // {-}
 message MaxRaCSirsResources {
     // @inject_tag: aper:"valueLB:96,valueUB:96,"
     int32 value = 1 [(validate.v1.rules).int32.const = 96, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1081
+// constant Integer from nr-rrc-definitions.asn1:1186
 // {-}
 message MaxRaOccasionsPerCsirs {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1082
+// constant Integer from nr-rrc-definitions.asn1:1187
 // {-}
 message MaxRaOccasions1 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1083
+// constant Integer from nr-rrc-definitions.asn1:1188
 // {-}
 message MaxRaSSbResources {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1084
+// constant Integer from nr-rrc-definitions.asn1:1189
 // {-}
 message MaxScss {
     // @inject_tag: aper:"valueLB:5,valueUB:5,"
     int32 value = 1 [(validate.v1.rules).int32.const = 5, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1085
+// constant Integer from nr-rrc-definitions.asn1:1190
 // {-}
 message MaxSecondaryCellGroups {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1086
+// constant Integer from nr-rrc-definitions.asn1:1191
 // {-}
 message MaxNrofServingCellsEutra {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1087
+// constant Integer from nr-rrc-definitions.asn1:1192
 // {-}
 message MaxMbsfnAllocations {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1088
+// constant Integer from nr-rrc-definitions.asn1:1193
 // {-}
 message MaxNrofMultiBands {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1089
+// constant Integer from nr-rrc-definitions.asn1:1194
 // {-}
 message MaxCellSftd {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1090
+// constant Integer from nr-rrc-definitions.asn1:1195
 // {-}
 message MaxReportConfigId {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1091
+// constant Integer from nr-rrc-definitions.asn1:1196
 // {-}
 message MaxNrofCodebooks {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1092
+// constant Integer from nr-rrc-definitions.asn1:1197
 // {-}
 message MaxNrofCsiRSResourcesExtr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1093
+// constant Integer from nr-rrc-definitions.asn1:1198
 // {-}
 message MaxNrofCsiRSResourcesExtr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1094
+// constant Integer from nr-rrc-definitions.asn1:1199
 // {-}
 message MaxNrofCsiRSResources {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1095
+// constant Integer from nr-rrc-definitions.asn1:1200
 // {-}
 message MaxNrofCsiRSResourcesAltr16 {
     // @inject_tag: aper:"valueLB:512,valueUB:512,"
     int32 value = 1 [(validate.v1.rules).int32.const = 512, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1096
+// constant Integer from nr-rrc-definitions.asn1:1201
 // {-}
 message MaxNrofCsiRSResourcesAlt1r16 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1097
+// constant Integer from nr-rrc-definitions.asn1:1202
 // {-}
 message MaxNrofSriPUschMappings {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1098
+// constant Integer from nr-rrc-definitions.asn1:1203
 // {-}
 message MaxNrofSriPUschMappings1 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1099
+// constant Integer from nr-rrc-definitions.asn1:1204
 // {-}
 message MaxSib {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1100
+// constant Integer from nr-rrc-definitions.asn1:1205
 // {-}
 message MaxSiMessage {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1101
+// constant Integer from nr-rrc-definitions.asn1:1206
 // {-}
 message MaxSibMessagePlus1r17 {
     // @inject_tag: aper:"valueLB:33,valueUB:33,"
     int32 value = 1 [(validate.v1.rules).int32.const = 33, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1102
+// constant Integer from nr-rrc-definitions.asn1:1207
 // {-}
 message MaxPoperPf {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1103
+// constant Integer from nr-rrc-definitions.asn1:1208
 // {-}
 message MaxPeiperPfr17 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1104
+// constant Integer from nr-rrc-definitions.asn1:1209
 // {-}
 message MaxAccessCat1 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1105
+// constant Integer from nr-rrc-definitions.asn1:1210
 // {-}
 message MaxBarringInfoSet {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1106
+// constant Integer from nr-rrc-definitions.asn1:1211
 // {-}
 message MaxCellEutra {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1107
+// constant Integer from nr-rrc-definitions.asn1:1212
 // {-}
 message MaxEutraCarrier {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1108
+// constant Integer from nr-rrc-definitions.asn1:1213
 // {-}
 message MaxPlmnidentities {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1109
+// constant Integer from nr-rrc-definitions.asn1:1214
 // {-}
 message MaxDownlinkFeatureSets {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1110
+// constant Integer from nr-rrc-definitions.asn1:1215
 // {-}
 message MaxUplinkFeatureSets {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1111
+// constant Integer from nr-rrc-definitions.asn1:1216
 // {-}
 message MaxEutraDLFeatureSets {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1112
+// constant Integer from nr-rrc-definitions.asn1:1217
 // {-}
 message MaxEutraULFeatureSets {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1113
+// constant Integer from nr-rrc-definitions.asn1:1218
 // {-}
 message MaxFeatureSetsPerBand {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1114
+// constant Integer from nr-rrc-definitions.asn1:1219
 // {-}
 message MaxPerCcFeatureSets {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1115
+// constant Integer from nr-rrc-definitions.asn1:1220
 // {-}
 message MaxFeatureSetCombinations {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1116
+// constant Integer from nr-rrc-definitions.asn1:1221
 // {-}
 message MaxInterRatRStdFreq {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1117
+// constant Integer from nr-rrc-definitions.asn1:1222
 // {-}
 message MaxGinr17 {
     // @inject_tag: aper:"valueLB:24,valueUB:24,"
     int32 value = 1 [(validate.v1.rules).int32.const = 24, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1118
+// constant Integer from nr-rrc-definitions.asn1:1223
 // {-}
 message MaxHrnnLenr16 {
     // @inject_tag: aper:"valueLB:48,valueUB:48,"
     int32 value = 1 [(validate.v1.rules).int32.const = 48, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1119
+// constant Integer from nr-rrc-definitions.asn1:1224
 // {-}
 message MaxNpnr16 {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1120
+// constant Integer from nr-rrc-definitions.asn1:1225
 // {-}
 message MaxNrOfMinSchedulingOffsetValuesr16 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1121
+// constant Integer from nr-rrc-definitions.asn1:1226
 // {-}
 message MaxK0SchedulingOffsetr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1122
+// constant Integer from nr-rrc-definitions.asn1:1227
 // {-}
 message MaxK2SchedulingOffsetr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1123
+// constant Integer from nr-rrc-definitions.asn1:1228
 // {-}
 message MaxK0SchedulingOffsetr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1124
+// constant Integer from nr-rrc-definitions.asn1:1229
 // {-}
 message MaxK2SchedulingOffsetr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1125
+// constant Integer from nr-rrc-definitions.asn1:1230
 // {-}
 message MaxDci26Sizer16 {
     // @inject_tag: aper:"valueLB:140,valueUB:140,"
     int32 value = 1 [(validate.v1.rules).int32.const = 140, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1126
+// constant Integer from nr-rrc-definitions.asn1:1231
 // {-}
 message MaxDci27Sizer17 {
     // @inject_tag: aper:"valueLB:43,valueUB:43,"
     int32 value = 1 [(validate.v1.rules).int32.const = 43, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1127
+// constant Integer from nr-rrc-definitions.asn1:1232
 // {-}
 message MaxDci26Size1r16 {
     // @inject_tag: aper:"valueLB:139,valueUB:139,"
     int32 value = 1 [(validate.v1.rules).int32.const = 139, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1128
+// constant Integer from nr-rrc-definitions.asn1:1233
 // {-}
 message MaxNrofUlAllocationsr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1129
+// constant Integer from nr-rrc-definitions.asn1:1234
 // {-}
 message MaxNrofP0PUschSetr16 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1130
+// constant Integer from nr-rrc-definitions.asn1:1235
 // {-}
 message MaxOnDemandSibr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1131
+// constant Integer from nr-rrc-definitions.asn1:1236
 // {-}
 message MaxOnDemandPosSibr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1132
+// constant Integer from nr-rrc-definitions.asn1:1237
 // {-}
 message MaxCiDCiPayloadSizer16 {
     // @inject_tag: aper:"valueLB:126,valueUB:126,"
     int32 value = 1 [(validate.v1.rules).int32.const = 126, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1133
+// constant Integer from nr-rrc-definitions.asn1:1238
 // {-}
 message MaxCiDCiPayloadSize1r16 {
     // @inject_tag: aper:"valueLB:125,valueUB:125,"
     int32 value = 1 [(validate.v1.rules).int32.const = 125, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1134
+// constant Integer from nr-rrc-definitions.asn1:1239
 // {-}
 message MaxUuRelayRlcChannelIdr17 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1135
+// constant Integer from nr-rrc-definitions.asn1:1240
 // {-}
 message MaxWlanIdReportr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1136
+// constant Integer from nr-rrc-definitions.asn1:1241
 // {-}
 message MaxWlanNamer16 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1137
+// constant Integer from nr-rrc-definitions.asn1:1242
 // {-}
 message MaxRareportr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1138
+// constant Integer from nr-rrc-definitions.asn1:1243
 // {-}
 message MaxTxConfigr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1139
+// constant Integer from nr-rrc-definitions.asn1:1244
 // {-}
 message MaxTxConfig1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1140
+// constant Integer from nr-rrc-definitions.asn1:1245
 // {-}
 message MaxPsschTxConfigr16 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1141
+// constant Integer from nr-rrc-definitions.asn1:1246
 // {-}
 message MaxNrofCliRSsiResourcesr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1142
+// constant Integer from nr-rrc-definitions.asn1:1247
 // {-}
 message MaxNrofCliRSsiResources1r16 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1143
+// constant Integer from nr-rrc-definitions.asn1:1248
 // {-}
 message MaxNrofCliSRsResourcesr16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1144
+// constant Integer from nr-rrc-definitions.asn1:1249
 // {-}
 message MaxCliReportr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1145
+// constant Integer from nr-rrc-definitions.asn1:1250
 // {-}
 message MaxNrofCcGroupr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1146
+// constant Integer from nr-rrc-definitions.asn1:1251
 // {-}
 message MaxNrofConfiguredGrantConfigr16 {
     // @inject_tag: aper:"valueLB:12,valueUB:12,"
     int32 value = 1 [(validate.v1.rules).int32.const = 12, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1147
+// constant Integer from nr-rrc-definitions.asn1:1252
 // {-}
 message MaxNrofConfiguredGrantConfig1r16 {
     // @inject_tag: aper:"valueLB:11,valueUB:11,"
     int32 value = 1 [(validate.v1.rules).int32.const = 11, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1148
+// constant Integer from nr-rrc-definitions.asn1:1253
 // {-}
 message MaxNrofCgType2DeactivationState {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1149
+// constant Integer from nr-rrc-definitions.asn1:1254
 // {-}
 message MaxNrofConfiguredGrantConfigMac1r16 {
     // @inject_tag: aper:"valueLB:31,valueUB:31,"
     int32 value = 1 [(validate.v1.rules).int32.const = 31, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1150
+// constant Integer from nr-rrc-definitions.asn1:1255
 // {-}
 message MaxNrofSpsConfigr16 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1151
+// constant Integer from nr-rrc-definitions.asn1:1256
 // {-}
 message MaxNrofSpsConfig1r16 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1152
+// constant Integer from nr-rrc-definitions.asn1:1257
 // {-}
 message MaxNrofSpsDeactivationState {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1153
+// constant Integer from nr-rrc-definitions.asn1:1258
 // {-}
 message MaxNrofPpwConfigr17 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1154
+// constant Integer from nr-rrc-definitions.asn1:1259
 // {-}
 message MaxNrofPpwID1r17 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1155
+// constant Integer from nr-rrc-definitions.asn1:1260
 // {-}
 message MaxNrOfTxTegreportr17 {
     // @inject_tag: aper:"valueLB:256,valueUB:256,"
     int32 value = 1 [(validate.v1.rules).int32.const = 256, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1156
+// constant Integer from nr-rrc-definitions.asn1:1261
 // {-}
 message MaxNrOfTxTegID1r17 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1157
+// constant Integer from nr-rrc-definitions.asn1:1262
 // {-}
 message MaxNrofPagingSubgroupsr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1158
+// constant Integer from nr-rrc-definitions.asn1:1263
 // {-}
 message MaxNrofPucchResourceGroups1r16 {
     // @inject_tag: aper:"valueLB:3,valueUB:3,"
     int32 value = 1 [(validate.v1.rules).int32.const = 3, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1159
+// constant Integer from nr-rrc-definitions.asn1:1264
 // {-}
 message MaxNrofReqComDcLocationr17 {
     // @inject_tag: aper:"valueLB:128,valueUB:128,"
     int32 value = 1 [(validate.v1.rules).int32.const = 128, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1161
+// constant Integer from nr-rrc-definitions.asn1:1266
 // {-}
 message MaxNrofServingCellsTcir16 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1162
+// constant Integer from nr-rrc-definitions.asn1:1267
 // {-}
 message MaxNrofTxDcTwoCarrierr16 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1163
+// constant Integer from nr-rrc-definitions.asn1:1268
 // {-}
 message MaxNrofRbSetGroupsr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1164
+// constant Integer from nr-rrc-definitions.asn1:1269
 // {-}
 message MaxNrofRbSetsr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1165
+// constant Integer from nr-rrc-definitions.asn1:1270
 // {-}
 message MaxNrofEnhType3HarqACkr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1166
+// constant Integer from nr-rrc-definitions.asn1:1271
 // {-}
 message MaxNrofEnhType3HarqACk1r17 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1167
+// constant Integer from nr-rrc-definitions.asn1:1272
 // {-}
 message MaxNrofPrsResourcesPerSetr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1168
+// constant Integer from nr-rrc-definitions.asn1:1273
 // {-}
 message MaxNrofPrsResourcesPerSet1r17 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1169
+// constant Integer from nr-rrc-definitions.asn1:1274
 // {-}
 message MaxNrofPrsResourceOffsetValue1r17 {
     // @inject_tag: aper:"valueLB:511,valueUB:511,"
     int32 value = 1 [(validate.v1.rules).int32.const = 511, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1170
+// constant Integer from nr-rrc-definitions.asn1:1275
 // {-}
 message MaxNrofGapIdr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1171
+// constant Integer from nr-rrc-definitions.asn1:1276
 // {-}
 message MaxNrofPreConfigPosGapIdr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1172
+// constant Integer from nr-rrc-definitions.asn1:1277
 // {-}
 message MaxNrOfGapPrir17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1173
+// constant Integer from nr-rrc-definitions.asn1:1278
 // {-}
 message MaxCefreportr17 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1174
+// constant Integer from nr-rrc-definitions.asn1:1279
 // {-}
 message MaxNrofMultiplePdschsr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1175
+// constant Integer from nr-rrc-definitions.asn1:1280
 // {-}
 message MaxSliceInfor17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1176
+// constant Integer from nr-rrc-definitions.asn1:1281
 // {-}
 message MaxCellSlicer17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1177
+// constant Integer from nr-rrc-definitions.asn1:1282
 // {-}
 message MaxNrofTrsResourceSetsr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1178
+// constant Integer from nr-rrc-definitions.asn1:1283
 // {-}
 message MaxNrofSearchSpaceGroups1r17 {
     // @inject_tag: aper:"valueLB:2,valueUB:2,"
     int32 value = 1 [(validate.v1.rules).int32.const = 2, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1179
+// constant Integer from nr-rrc-definitions.asn1:1284
 // {-}
 message MaxNrofRemoteUer17 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1180
+// constant Integer from nr-rrc-definitions.asn1:1285
 // {-}
 message MaxDci42Sizer17 {
     // @inject_tag: aper:"valueLB:140,valueUB:140,"
     int32 value = 1 [(validate.v1.rules).int32.const = 140, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1181
+// constant Integer from nr-rrc-definitions.asn1:1286
 // {-}
 message MaxFreqMbsr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1182
+// constant Integer from nr-rrc-definitions.asn1:1287
 // {-}
 message MaxNrofDrxConfigPtmr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1184
+// constant Integer from nr-rrc-definitions.asn1:1289
 // {-}
 message MaxNrofDrxConfigPtm1r17 {
     // @inject_tag: aper:"valueLB:63,valueUB:63,"
     int32 value = 1 [(validate.v1.rules).int32.const = 63, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1186
+// constant Integer from nr-rrc-definitions.asn1:1291
 // {-}
 message MaxNrofMbsServiceListPerUer17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1188
+// constant Integer from nr-rrc-definitions.asn1:1293
 // {-}
 message MaxNrofMbsSessionr17 {
     // @inject_tag: aper:"valueLB:1024,valueUB:1024,"
     int32 value = 1 [(validate.v1.rules).int32.const = 1024, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1189
+// constant Integer from nr-rrc-definitions.asn1:1294
 // {-}
 message MaxNrofMtchSSbMappingWindowr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1190
+// constant Integer from nr-rrc-definitions.asn1:1295
 // {-}
 message MaxNrofMtchSSbMappingWindow1r17 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1191
+// constant Integer from nr-rrc-definitions.asn1:1296
 // {-}
 message MaxNrofMrbBroadcastr17 {
     // @inject_tag: aper:"valueLB:4,valueUB:4,"
     int32 value = 1 [(validate.v1.rules).int32.const = 4, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1192
+// constant Integer from nr-rrc-definitions.asn1:1297
 // {-}
 message MaxNrofPageGroupr17 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1193
+// constant Integer from nr-rrc-definitions.asn1:1298
 // {-}
 message MaxNrofPdschConfigPtmr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1194
+// constant Integer from nr-rrc-definitions.asn1:1299
 // {-}
 message MaxNrofPdschConfigPtm1r17 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1195
+// constant Integer from nr-rrc-definitions.asn1:1300
 // {-}
 message MaxGRNtir17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1196
+// constant Integer from nr-rrc-definitions.asn1:1301
 // {-}
 message MaxGRNti1r17 {
     // @inject_tag: aper:"valueLB:15,valueUB:15,"
     int32 value = 1 [(validate.v1.rules).int32.const = 15, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1197
+// constant Integer from nr-rrc-definitions.asn1:1302
 // {-}
 message MaxGCSRNtir17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1198
+// constant Integer from nr-rrc-definitions.asn1:1303
 // {-}
 message MaxGCSRNti1r17 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1199
+// constant Integer from nr-rrc-definitions.asn1:1304
 // {-}
 message MaxMrbr17 {
     // @inject_tag: aper:"valueLB:32,valueUB:32,"
     int32 value = 1 [(validate.v1.rules).int32.const = 32, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1200
+// constant Integer from nr-rrc-definitions.asn1:1305
 // {-}
 message MaxFsaiMBsr17 {
     // @inject_tag: aper:"valueLB:64,valueUB:64,"
     int32 value = 1 [(validate.v1.rules).int32.const = 64, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1201
+// constant Integer from nr-rrc-definitions.asn1:1306
 // {-}
 message MaxNeighCellMbsr17 {
     // @inject_tag: aper:"valueLB:8,valueUB:8,"
     int32 value = 1 [(validate.v1.rules).int32.const = 8, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1202
+// constant Integer from nr-rrc-definitions.asn1:1307
 // {-}
 message MaxNrofPdcchBlindDetectionMixed1r16 {
     // @inject_tag: aper:"valueLB:7,valueUB:7,"
     int32 value = 1 [(validate.v1.rules).int32.const = 7, json_name="value"];
 };
 
-// constant Integer from nr-rrc-definitions.asn1:1204
+// constant Integer from nr-rrc-definitions.asn1:1309
 // {-}
 message MaxNrofPdcchBlindDetectionr17 {
     // @inject_tag: aper:"valueLB:16,valueUB:16,"
     int32 value = 1 [(validate.v1.rules).int32.const = 16, json_name="value"];
 };
 
-// choice from nr-rrc-definitions.asn1:1221
+// choice from nr-rrc-definitions.asn1:1326
 // {s-MeasureConfigVarMeasConfig}
 message SMeasureConfigVarMeasConfig {
-    // choice from nr-rrc-definitions.asn1:1221
+    // choice from nr-rrc-definitions.asn1:1326
     oneof s_measure_config_var_meas_config {
         // @inject_tag: aper:"choiceIdx:1,"
         RsrpRange ssb_rsrp = 1 [ json_name="ssb-RSRP"];
@@ -4345,7 +4534,7 @@ message SMeasureConfigVarMeasConfig {
     }
 };
 
-// sequence from nr-rrc-definitions.asn1:1213
+// sequence from nr-rrc-definitions.asn1:1318
 // {VarMeasConfig}
 message VarMeasConfig {
     // @inject_tag: aper:"optional,"

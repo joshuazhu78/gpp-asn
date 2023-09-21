@@ -31,6 +31,39 @@ DL-DCCH-MessageType ::=             CHOICE {
     messageClassExtension   SEQUENCE {}
 }
 -- TAG-DL-DCCH-MESSAGE-STOP
+
+-- TAG-UL-DCCH-MESSAGE-START
+
+UL-DCCH-Message ::=             SEQUENCE {
+    message                         UL-DCCH-MessageType
+}
+
+UL-DCCH-MessageType ::=         CHOICE {
+    c1                              CHOICE {
+        measurementReport               MeasurementReport,
+        ...
+    }
+}
+
+-- TAG-UL-DCCH-MESSAGE-STOP
+
+-- TAG-MEASUREMENTREPORT-START
+
+MeasurementReport ::=               SEQUENCE {
+    criticalExtensions                  CHOICE {
+        measurementReport                   MeasurementReport-IEs,
+        criticalExtensionsFuture            SEQUENCE {}
+    }
+}
+
+MeasurementReport-IEs ::=           SEQUENCE {
+    measResults                         MeasResults,
+
+    lateNonCriticalExtension                OCTET STRING                                                            OPTIONAL,
+    nonCriticalExtension                    SEQUENCE{}                                                              OPTIONAL
+}
+
+-- TAG-MEASUREMENTREPORT-STOP
 -- TAG-MIB-START
 
 MIB ::=                             SEQUENCE {
@@ -502,6 +535,11 @@ CSI-ReportConfigId ::=              INTEGER (0..maxNrofCSI-ReportConfigurations-
 CSI-ResourceConfigId ::=            INTEGER (0..maxNrofCSI-ResourceConfigurations-1)
 
 -- TAG-CSI-RESOURCECONFIGID-STOP
+-- TAG-CSI-RS-RESOURCECONFIGMOBILITY-START
+
+CSI-RS-Index ::=                    INTEGER (0..maxNrofCSI-RS-ResourcesRRM-1)
+
+-- TAG-CSI-RS-RESOURCECONFIGMOBILITY-STOP
 -- TAG-FILTERCOEFFICIENT-START
 
 FilterCoefficient ::=       ENUMERATED { fc0, fc1, fc2, fc3, fc4, fc5, fc6, fc7, fc8, fc9, fc11, fc13, fc15, fc17, fc19, spare1, ...}
@@ -603,6 +641,58 @@ MeasObjectToAddMod ::=                      SEQUENCE {
     }
 }
 -- TAG-MEASOBJECTTOADDMODLIST-STOP
+-- TAG-MEASRESULTS-START
+
+MeasResults ::=                         SEQUENCE {
+    measId                                  MeasId,
+    measResultServingMOList                 MeasResultServMOList,
+    ...
+}
+
+MeasResultServMOList ::=                SEQUENCE (SIZE (1..maxNrofServingCells)) OF MeasResultServMO
+
+MeasResultServMO ::=                    SEQUENCE {
+    servCellId                              ServCellIndex,
+    measResultServingCell                   MeasResultNR,
+    ...
+}
+
+MeasResultNR ::=                        SEQUENCE {
+    physCellId                              PhysCellId                                                                  OPTIONAL,
+    measResult                              SEQUENCE {
+        cellResults                             SEQUENCE{
+            resultsSSB-Cell                         MeasQuantityResults                                                 OPTIONAL,
+            resultsCSI-RS-Cell                      MeasQuantityResults                                                 OPTIONAL
+        },
+        rsIndexResults                          SEQUENCE{
+            resultsSSB-Indexes                      ResultsPerSSB-IndexList                                             OPTIONAL,
+            resultsCSI-RS-Indexes                   ResultsPerCSI-RS-IndexList                                          OPTIONAL
+        }                                                                                                               OPTIONAL
+    },
+    ...
+}
+
+MeasQuantityResults ::=                 SEQUENCE {
+    rsrp                                    RSRP-Range                                                                  OPTIONAL,
+    rsrq                                    RSRQ-Range                                                                  OPTIONAL,
+    sinr                                    SINR-Range                                                                  OPTIONAL
+}
+
+ResultsPerSSB-IndexList::=              SEQUENCE (SIZE (1..maxNrofIndexesToReport2)) OF ResultsPerSSB-Index
+
+ResultsPerSSB-Index ::=                 SEQUENCE {
+    ssb-Index                               SSB-Index,
+    ssb-Results                             MeasQuantityResults                                                         OPTIONAL
+}
+
+ResultsPerCSI-RS-IndexList::=           SEQUENCE (SIZE (1..maxNrofIndexesToReport2)) OF ResultsPerCSI-RS-Index
+
+ResultsPerCSI-RS-Index ::=              SEQUENCE {
+    csi-RS-Index                            CSI-RS-Index,
+    csi-RS-Results                          MeasQuantityResults                                                         OPTIONAL
+}
+
+-- TAG-MEASRESULTS-START
 -- TAG-MULTIFREQUENCYBANDLISTNR-START
 
 MultiFrequencyBandListNR ::=        SEQUENCE (SIZE (1..maxNrofMultiBands)) OF FreqBandIndicatorNR
@@ -634,6 +724,11 @@ PDSCH-Config ::=                        SEQUENCE {
     ...
 }
 -- TAG-PDSCH-CONFIG-STOP
+-- TAG-PHYSCELLID-START
+
+PhysCellId ::=                      INTEGER (0..1007)
+
+-- TAG-PHYSCELLID-STOP
 
 PUCCH-ResourceId ::=                    INTEGER (0..maxNrofPUCCH-Resources-1)
 P0-PUSCH-AlphaSetId ::=             INTEGER (0..maxNrofP0-PUSCH-AlphaSets-1)
@@ -712,6 +807,11 @@ ReportInterval ::=                  ENUMERATED {ms120, ms240, ms480, ms640, ms10
 RSRP-Range ::=                      INTEGER(0..127)
 
 -- TAG-RSRP-RANGE-STOP
+-- TAG-RSRQ-RANGE-START
+
+RSRQ-Range ::=                      INTEGER(0..127)
+
+-- TAG-RSRQ-RANGE-STOP
 -- TAG-SCS-SPECIFICCARRIER-START
 
 SCS-SpecificCarrier ::=             SEQUENCE {
@@ -748,6 +848,11 @@ ServingCellConfigCommonSIB ::=      SEQUENCE {
 }
 
 -- TAG-SERVINGCELLCONFIGCOMMONSIB-STOP
+-- TAG-SINR-RANGE-START
+
+SINR-Range ::=                      INTEGER(0..127)
+
+-- TAG-SINR-RANGE-STOP
 -- TAG-SSB-INDEX-START
 
 SSB-Index ::=                       INTEGER (0..maxNrofSSBs-1)
