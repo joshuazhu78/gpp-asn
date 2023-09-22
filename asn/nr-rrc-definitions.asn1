@@ -17,6 +17,38 @@ BCCH-BCH-MessageType ::=        CHOICE {
 }
 
 -- TAG-BCCH-BCH-MESSAGE-STOP
+-- TAG-BCCH-DL-SCH-MESSAGE-START
+
+BCCH-DL-SCH-Message ::=         SEQUENCE {
+    message                         BCCH-DL-SCH-MessageType
+}
+
+BCCH-DL-SCH-MessageType ::=     CHOICE {
+    c1                              CHOICE {
+        systemInformation               SystemInformation,
+        systemInformationBlockType1     SIB1
+    },
+    messageClassExtension           SEQUENCE {}
+}
+
+-- TAG-BCCH-DL-SCH-MESSAGE-STOP
+-- TAG-DL-CCCH-MESSAGE-START
+
+DL-CCCH-Message ::=             SEQUENCE {
+    message                         DL-CCCH-MessageType
+}
+
+DL-CCCH-MessageType ::=         CHOICE {
+    c1                              CHOICE {
+        rrcReject                       RRCReject,
+        rrcSetup                        RRCSetup,
+        spare2                          NULL,
+        spare1                          NULL
+    },
+    messageClassExtension           SEQUENCE {}
+}
+
+-- TAG-DL-CCCH-MESSAGE-STOP
 -- TAG-DL-DCCH-MESSAGE-START
 
 DL-DCCH-Message ::=                  SEQUENCE {
@@ -26,12 +58,70 @@ DL-DCCH-Message ::=                  SEQUENCE {
 DL-DCCH-MessageType ::=             CHOICE {
     c1                                  CHOICE {
         rrcReconfiguration                  RRCReconfiguration,
-        ...
+        rrcResume                           RRCResume,
+        rrcRelease                          RRCRelease,
+        rrcReestablishment                  RRCReestablishment,
+        securityModeCommand                 SecurityModeCommand,
+        dlInformationTransfer               DLInformationTransfer,
+        ueCapabilityEnquiry                 UECapabilityEnquiry,
+        counterCheck                        CounterCheck,
+        mobilityFromNRCommand               MobilityFromNRCommand,
+        dlDedicatedMessageSegment-r16       DLDedicatedMessageSegment-r16,
+        ueInformationRequest-r16            UEInformationRequest-r16,
+        dlInformationTransferMRDC-r16       DLInformationTransferMRDC-r16,
+        loggedMeasurementConfiguration-r16  LoggedMeasurementConfiguration-r16,
+                spare3 NULL, spare2 NULL, spare1 NULL
     },
     messageClassExtension   SEQUENCE {}
 }
 -- TAG-DL-DCCH-MESSAGE-STOP
+-- TAG-MCCH-MESSAGE-START
 
+
+
+-- TAG-MCCH-MESSAGE-STOP
+-- TAG-PCCH-PCH-MESSAGE-START
+
+
+
+-- TAG-PCCH-PCH-MESSAGE-STOP
+-- TAG-UL-CCCH-MESSAGE-START
+
+
+UL-CCCH-Message ::=             SEQUENCE {
+    message                         UL-CCCH-MessageType
+}
+
+UL-CCCH-MessageType ::=         CHOICE {
+    c1                              CHOICE {
+        rrcSetupRequest                 RRCSetupRequest,
+        rrcResumeRequest                RRCResumeRequest,
+        rrcReestablishmentRequest       RRCReestablishmentRequest,
+        rrcSystemInfoRequest            RRCSystemInfoRequest
+    },
+    messageClassExtension           SEQUENCE {}
+}
+
+-- TAG-UL-CCCH-MESSAGE-STOP
+-- TAG-UL-CCCH1-MESSAGE-START
+
+
+UL-CCCH1-Message ::=            SEQUENCE {
+    message                         UL-CCCH1-MessageType
+}
+
+UL-CCCH1-MessageType ::=        CHOICE {
+    c1                              CHOICE {
+        rrcResumeRequest1               RRCResumeRequest1,
+        spare3 NULL,
+        spare2 NULL,
+        spare1 NULL
+
+    },
+    messageClassExtension SEQUENCE {}
+}
+
+-- TAG-UL-CCCH1-MESSAGE-STOP
 -- TAG-UL-DCCH-MESSAGE-START
 
 UL-DCCH-Message ::=             SEQUENCE {
@@ -41,12 +131,114 @@ UL-DCCH-Message ::=             SEQUENCE {
 UL-DCCH-MessageType ::=         CHOICE {
     c1                              CHOICE {
         measurementReport               MeasurementReport,
-        ...
+        rrcReconfigurationComplete      RRCReconfigurationComplete,
+        rrcSetupComplete                RRCSetupComplete,
+        rrcReestablishmentComplete      RRCReestablishmentComplete,
+        rrcResumeComplete               RRCResumeComplete,
+        securityModeComplete            SecurityModeComplete,
+        securityModeFailure             SecurityModeFailure,
+        ulInformationTransfer           ULInformationTransfer,
+        locationMeasurementIndication   LocationMeasurementIndication,
+        ueCapabilityInformation         UECapabilityInformation,
+        counterCheckResponse            CounterCheckResponse,
+        ueAssistanceInformation         UEAssistanceInformation,
+        failureInformation              FailureInformation,
+        ulInformationTransferMRDC       ULInformationTransferMRDC,
+        scgFailureInformation           SCGFailureInformation,
+        scgFailureInformationEUTRA      SCGFailureInformationEUTRA
+    },
+    messageClassExtension           CHOICE {
+        c2                              CHOICE {
+            ulDedicatedMessageSegment-r16    ULDedicatedMessageSegment-r16,
+            dedicatedSIBRequest-r16         DedicatedSIBRequest-r16,
+            mcgFailureInformation-r16       MCGFailureInformation-r16,
+            ueInformationResponse-r16       UEInformationResponse-r16,
+            sidelinkUEInformationNR-r16     SidelinkUEInformationNR-r16,
+            ulInformationTransferIRAT-r16   ULInformationTransferIRAT-r16,
+            iabOtherInformation-r16         IABOtherInformation-r16,
+            mbsInterestIndication-r17       MBSInterestIndication-r17,
+            uePositioningAssistanceInfo-r17 UEPositioningAssistanceInfo-r17,
+            measurementReportAppLayer-r17   MeasurementReportAppLayer-r17,
+                                            spare6 NULL, spare5 NULL, spare4 NULL, spare3 NULL, spare2 NULL, spare1 NULL
+        },
+        messageClassExtensionFuture-r16    SEQUENCE {}
     }
 }
 
 -- TAG-UL-DCCH-MESSAGE-STOP
+-- TAG-COUNTERCHECK-START
 
+
+CounterCheck ::=                SEQUENCE {
+}
+
+-- TAG-COUNTERCHECK-STOP
+-- TAG-COUNTERCHECKRESPONSE-START
+
+CounterCheckResponse ::=        SEQUENCE {
+}
+
+-- TAG-COUNTERCHECKRESPONSE-STOP
+-- TAG-DEDICATEDSIBREQUEST-START
+
+DedicatedSIBRequest-r16 ::=      SEQUENCE {
+}
+
+-- TAG-DEDICATEDSIBREQUEST-STOP
+-- TAG-DLDEDICATEDMESSAGESEGMENT-START
+
+
+DLDedicatedMessageSegment-r16 ::=       SEQUENCE {
+}
+
+-- TAG-DLDEDICATEDMESSAGESEGMENT-STOP
+-- TAG-DLINFORMATIONTRANSFER-START
+
+DLInformationTransfer ::=           SEQUENCE {
+}
+
+-- TAG-DLINFORMATIONTRANSFER-STOP
+-- TAG-DLINFORMATIONTRANSFERMRDC-START
+
+DLInformationTransferMRDC-r16 ::=       SEQUENCE {
+}
+
+-- TAG-DLINFORMATIONTRANSFERMRDC-STOP
+-- TAG-FAILUREINFORMATION-START
+
+FailureInformation ::=         SEQUENCE {
+}
+
+-- TAG-FAILUREINFORMATION-STOP
+-- TAG-IABOTHERINFORMATION-START
+
+IABOtherInformation-r16 ::=     SEQUENCE {
+}
+
+-- TAG-IABOTHERINFORMATION-STOP
+-- TAG-LOCATIONMEASUREMENTINDICATION-START
+
+LocationMeasurementIndication ::=           SEQUENCE {
+}
+
+-- TAG-LOCATIONMEASUREMENTINDICATION-STOP
+-- TAG-LOGGEDMEASUREMENTCONFIGURATION-START
+
+LoggedMeasurementConfiguration-r16 ::=  SEQUENCE {
+}
+-- TAG-LOGGEDMEASUREMENTCONFIGURATION-STOP
+-- TAG-MBSINTERESTINDICATION-START
+
+MBSInterestIndication-r17 ::= SEQUENCE {
+}
+
+-- TAG-MBSINTERESTINDICATION-STOP
+-- TAG-MCGFAILUREINFORMATION-START
+
+MCGFailureInformation-r16 ::=    SEQUENCE {
+}
+
+-- TAG-MCGFAILUREINFORMATION-STOP
 -- TAG-MEASUREMENTREPORT-START
 
 MeasurementReport ::=               SEQUENCE {
@@ -64,6 +256,10 @@ MeasurementReport-IEs ::=           SEQUENCE {
 }
 
 -- TAG-MEASUREMENTREPORT-STOP
+-- TAG-MEASUREMENTREPORTAPPLAYER-START
+MeasurementReportAppLayer-r17 ::=     SEQUENCE {
+}
+-- TAG-MEASUREMENTREPORTAPPLAYER-STOP
 -- TAG-MIB-START
 
 MIB ::=                             SEQUENCE {
@@ -78,6 +274,30 @@ MIB ::=                             SEQUENCE {
 }
 
 -- TAG-MIB-STOP
+-- TAG-MOBILITYFROMNRCOMMAND-START
+
+MobilityFromNRCommand ::=           SEQUENCE {
+}
+
+-- TAG-MOBILITYFROMNRCOMMAND-STOP
+-- TAG-RRCREESTABLISHMENT-START
+
+RRCReestablishment ::=              SEQUENCE {
+}
+
+-- TAG-RRCREESTABLISHMENT-STOP
+-- TAG-RRCREESTABLISHMENTCOMPLETE-START
+
+RRCReestablishmentComplete ::=              SEQUENCE {
+}
+
+-- TAG-RRCREESTABLISHMENTCOMPLETE-STOP
+-- TAG-RRCREESTABLISHMENTREQUEST-START
+
+
+RRCReestablishmentRequest ::=       SEQUENCE {
+}
+-- TAG-RRCREESTABLISHMENTREQUEST-STOP
 -- TAG-RRCRECONFIGURATION-START
 
 RRCReconfiguration ::=                  SEQUENCE {
@@ -89,12 +309,208 @@ RRCReconfiguration ::=                  SEQUENCE {
 }
 
 RRCReconfiguration-IEs ::=              SEQUENCE {
+    secondaryCellGroup                      OCTET STRING                                                           OPTIONAL, -- Cond SCG
     measConfig                              MeasConfig                                                             OPTIONAL, -- Need M
     lateNonCriticalExtension                OCTET STRING                                                           OPTIONAL,
-	...
+    nonCriticalExtension                    RRCReconfiguration-v1530-IEs                                           OPTIONAL
+}
+
+RRCReconfiguration-v1530-IEs ::=            SEQUENCE {
+    masterCellGroup                         OCTET STRING                                                           OPTIONAL, -- Need M
+    fullConfig                              ENUMERATED {true}                                                      OPTIONAL, -- Cond FullConfig
+    dedicatedNAS-MessageList                SEQUENCE (SIZE(1..maxDRB)) OF DedicatedNAS-Message                     OPTIONAL, -- Cond nonHO
+    masterKeyUpdate                         MasterKeyUpdate                                                        OPTIONAL, -- Cond MasterKeyChange
+    dedicatedSIB1-Delivery                  OCTET STRING                                                           OPTIONAL, -- Need N
+    dedicatedSystemInformationDelivery      OCTET STRING                                                           OPTIONAL, -- Need N
+    otherConfig                             OtherConfig                                                            OPTIONAL, -- Need M
+    nonCriticalExtension                    RRCReconfiguration-v1540-IEs                                           OPTIONAL
+}
+
+RRCReconfiguration-v1540-IEs ::=        SEQUENCE {
+
+}
+
+MasterKeyUpdate ::=                 SEQUENCE {
+    keySetChangeIndicator           BOOLEAN,
+    nextHopChainingCount            NextHopChainingCount,
+    nas-Container                   OCTET STRING                                                     OPTIONAL,    -- Cond securityNASC
+    ...
 }
 
 -- TAG-RRCRECONFIGURATION-STOP
+-- TAG-RRCRECONFIGURATIONCOMPLETE-START
+
+RRCReconfigurationComplete ::=              SEQUENCE {
+
+}
+
+-- TAG-RRCRECONFIGURATIONCOMPLETE-STOP
+-- TAG-RRCREJECT-START
+
+RRCReject ::=                       SEQUENCE {
+}
+
+-- TAG-RRCREJECT-STOP
+-- TAG-RRCRELEASE-START
+
+RRCRelease ::=                      SEQUENCE {
+}
+
+-- TAG-RRCRELEASE-STOP
+-- TAG-RRCRESUME-START
+
+RRCResume ::=                       SEQUENCE {
+}
+
+-- TAG-RRCRESUME-STOP
+-- TAG-RRCRESUMECOMPLETE-START
+
+RRCResumeComplete ::=                   SEQUENCE {
+}
+
+-- TAG-RRCRESUMECOMPLETE-STOP
+-- TAG-RRCRESUMEREQUEST-START
+
+RRCResumeRequest ::=            SEQUENCE {
+}
+-- TAG-RRCRESUMEREQUEST-STOP
+-- TAG-RRCRESUMEREQUEST1-START
+
+RRCResumeRequest1 ::=         SEQUENCE {
+}
+
+-- TAG-RRCRESUMEREQUEST1-STOP
+-- TAG-RRCSETUP-START
+
+RRCSetup ::=                        SEQUENCE {
+}
+
+-- TAG-RRCSETUP-STOP
+-- TAG-RRCSETUPCOMPLETE-START
+
+RRCSetupComplete ::=                SEQUENCE {
+}
+
+-- TAG-RRCSETUPCOMPLETE-STOP
+-- TAG-RRCSETUPREQUEST-START
+
+RRCSetupRequest ::=                 SEQUENCE {
+}
+-- TAG-RRCSETUPREQUEST-STOP
+-- TAG-RRCSYSTEMINFOREQUEST-START
+
+RRCSystemInfoRequest ::=            SEQUENCE {
+}
+
+-- TAG-RRCSYSTEMINFOREQUEST-STOP
+-- TAG-SCGFAILUREINFORMATION-START
+
+SCGFailureInformation ::=                   SEQUENCE {
+}
+
+-- TAG-SCGFAILUREINFORMATION-STOP
+-- TAG-SCGFAILUREINFORMATIONEUTRA-START
+
+SCGFailureInformationEUTRA ::=                SEQUENCE {
+}
+
+-- TAG-SCGFAILUREINFORMATIONEUTRA-STOP
+-- TAG-SECURITYMODECOMMAND-START
+
+SecurityModeCommand ::=             SEQUENCE {
+}
+
+-- TAG-SECURITYMODECOMMAND-STOP
+-- TAG-SECURITYMODECOMPLETE-START
+
+SecurityModeComplete ::=            SEQUENCE {
+}
+
+-- TAG-SECURITYMODECOMPLETE-STOP
+-- TAG-SECURITYMODEFAILURE-START
+
+SecurityModeFailure ::=             SEQUENCE {
+}
+
+-- TAG-SECURITYMODEFAILURE-STOP
+-- TAG-SIB1-START
+
+SIB1 ::=        SEQUENCE {
+}
+
+-- TAG-SIB1-STOP
+-- TAG-SIDELINKUEINFORMATIONNR-START
+
+SidelinkUEInformationNR-r16::=         SEQUENCE {
+}
+
+-- TAG-SIDELINKUEINFORMATIONNR-STOP
+-- TAG-SYSTEMINFORMATION-START
+
+SystemInformation ::=               SEQUENCE {
+}
+
+-- TAG-SYSTEMINFORMATION-STOP
+-- TAG-UEASSISTANCEINFORMATION-START
+
+UEAssistanceInformation ::=         SEQUENCE {
+}
+
+-- TAG-UEASSISTANCEINFORMATION-STOP
+-- TAG-UECAPABILITYENQUIRY-START
+
+UECapabilityEnquiry ::=             SEQUENCE {
+}
+
+-- TAG-UECAPABILITYENQUIRY-STOP
+-- TAG-UECAPABILITYINFORMATION-START
+
+UECapabilityInformation ::=         SEQUENCE {
+}
+
+-- TAG-UECAPABILITYINFORMATION-STOP
+-- TAG-UEINFORMATIONREQUEST-START
+
+UEInformationRequest-r16 ::=     SEQUENCE {
+}
+
+-- TAG-UEINFORMATIONREQUEST-STOP
+-- TAG-UEINFORMATIONRESPONSE-START
+
+UEInformationResponse-r16 ::=        SEQUENCE {
+}
+
+-- TAG-UEINFORMATIONRESPONSE-STOP
+-- TAG-UEPOSITIONINGASSISTANCEINFO-START
+
+UEPositioningAssistanceInfo-r17 ::= SEQUENCE {
+}
+
+-- TAG-UEPOSITIONINGASSISTANCEINFO-STOP
+-- TAG-ULDEDICATEDMESSAGESEGMENT-START
+
+ULDedicatedMessageSegment-r16 ::=       SEQUENCE {
+}
+
+-- TAG-ULDEDICATEDMESSAGESEGMENT-STOP
+-- TAG-ULINFORMATIONTRANSFER-START
+
+ULInformationTransfer ::=           SEQUENCE {
+}
+
+-- TAG-ULINFORMATIONTRANSFER-STOP
+-- TAG-ULINFORMATIONTRANSFERIRAT-START
+
+ULInformationTransferIRAT-r16 ::=              SEQUENCE {
+}
+
+-- TAG-ULINFORMATIONTRANSFERIRAT-STOP
+-- TAG-ULINFORMATIONTRANSFERMRDC-START
+
+ULInformationTransferMRDC ::=               SEQUENCE {
+}
+
+-- TAG-ULINFORMATIONTRANSFERMRDC-STOP
 -- TAG-ARFCN-VALUENR-START
 
 ARFCN-ValueNR ::=               INTEGER (0..maxNARFCN)
@@ -109,11 +525,61 @@ BWP ::=                             SEQUENCE {
 }
 
 -- TAG-BWP-STOP
+-- TAG-BWP-DOWNLINK-START
+
+BWP-Downlink ::=                    SEQUENCE {
+    bwp-Id                              BWP-Id,
+    bwp-Common                          BWP-DownlinkCommon                                         OPTIONAL,   -- Cond SetupOtherBWP
+    bwp-Dedicated                       BWP-DownlinkDedicated                                      OPTIONAL,   -- Cond SetupOtherBWP
+    ...
+}
+
+-- TAG-BWP-DOWNLINK-STOP
+-- TAG-BWP-DOWNLINKCOMMON-START
+
+BWP-DownlinkCommon ::=              SEQUENCE {
+    genericParameters                   BWP,
+    pdcch-ConfigCommon                  CHOICE {
+        release         NULL,
+        setup           PDCCH-ConfigCommon
+    }                                     OPTIONAL,   -- Need M
+    pdsch-ConfigCommon                  CHOICE {
+        release         NULL,
+        setup           PDSCH-ConfigCommon
+    }                                     OPTIONAL,   -- Need M
+    ...
+}
+
+-- TAG-BWP-DOWNLINKCOMMON-STOP
+-- TAG-BWP-DOWNLINKDEDICATED-START
+
+BWP-DownlinkDedicated ::=           SEQUENCE {
+    pdsch-Config                  CHOICE {
+        release         NULL,
+        setup           PDSCH-Config
+    }
+}
+
+-- TAG-BWP-DOWNLINKDEDICATED-STOP
 -- TAG-BWP-ID-START
 
 BWP-Id ::=                          INTEGER (0..maxNrofBWPs)
 
 -- TAG-BWP-ID-STOP
+-- TAG-CELLGROUPCONFIG-START
+
+-- Configuration of one Cell-Group:
+CellGroupConfig ::=                        SEQUENCE {
+    spCellConfig                               SpCellConfig                                                            OPTIONAL,   -- Need M
+	...
+}
+-- Serving cell specific MAC and PHY parameters for a SpCell:
+SpCellConfig ::=                        SEQUENCE {
+    spCellConfigDedicated               ServingCellConfig                                           OPTIONAL,   -- Need M
+	...
+}
+
+-- TAG-CELLGROUPCONFIG-STOP
 -- TAG-CODEBOOKCONFIG-START
 
 CodebookConfig ::=                                  SEQUENCE {
@@ -348,6 +814,133 @@ ControlResourceSetId-v1610 ::=          INTEGER (maxNrofControlResourceSets..max
 ControlResourceSetZero ::=                  INTEGER (0..15)
 
 -- TAG-CONTROLRESOURCESETZERO-STOP
+-- TAG-CSI-APERIODICTRIGGERSTATELIST-START
+
+CSI-AperiodicTriggerStateList ::=   SEQUENCE (SIZE (1..maxNrOfCSI-AperiodicTriggers)) OF CSI-AperiodicTriggerState
+
+CSI-AperiodicTriggerState ::=       SEQUENCE {
+    associatedReportConfigInfoList      SEQUENCE (SIZE(1..maxNrofReportConfigPerAperiodicTrigger)) OF CSI-AssociatedReportConfigInfo,
+    ...,
+    [[
+    ap-CSI-MultiplexingMode-r17         ENUMERATED {enabled}                                          OPTIONAL  -- Need R
+    ]]
+}
+
+CSI-AssociatedReportConfigInfo ::=  SEQUENCE {
+    reportConfigId                      CSI-ReportConfigId,
+    resourcesForChannel                 CHOICE {
+        nzp-CSI-RS                          SEQUENCE {
+            resourceSet                         INTEGER (1..maxNrofNZP-CSI-RS-ResourceSetsPerConfig),
+            qcl-info                            SEQUENCE (SIZE(1..maxNrofAP-CSI-RS-ResourcesPerSet)) OF TCI-StateId
+                                                                                                      OPTIONAL  -- Cond Aperiodic
+        },
+        csi-SSB-ResourceSet                 INTEGER (1..maxNrofCSI-SSB-ResourceSetsPerConfig)
+    },
+    csi-IM-ResourcesForInterference     INTEGER(1..maxNrofCSI-IM-ResourceSetsPerConfig)               OPTIONAL, -- Cond CSI-IM-ForInterference
+    nzp-CSI-RS-ResourcesForInterference INTEGER (1..maxNrofNZP-CSI-RS-ResourceSetsPerConfig)          OPTIONAL, -- Cond NZP-CSI-RS-ForInterference
+    ...,
+    [[
+    resourcesForChannel2-r17        CHOICE {
+        nzp-CSI-RS2-r17                 SEQUENCE {
+            resourceSet2-r17                INTEGER (1..maxNrofNZP-CSI-RS-ResourceSetsPerConfig),
+            qcl-info2-r17                   SEQUENCE (SIZE(1..maxNrofAP-CSI-RS-ResourcesPerSet)) OF TCI-StateId
+                                                                                                  OPTIONAL   -- Cond Aperiodic
+        },
+        csi-SSB-ResourceSet2-r17        INTEGER (1..maxNrofCSI-SSB-ResourceSetsPerConfigExt)
+    }                                                                                             OPTIONAL,  -- Cond NoUnifiedTCI
+    csi-SSB-ResourceSetExt          INTEGER (1..maxNrofCSI-SSB-ResourceSetsPerConfigExt)          OPTIONAL   -- Need R
+    ]]
+}
+
+-- TAG-CSI-APERIODICTRIGGERSTATELIST-STOP
+-- TAG-CSI-FREQUENCYOCCUPATION-START
+
+CSI-FrequencyOccupation ::=         SEQUENCE {
+    startingRB                          INTEGER (0..maxNrofPhysicalResourceBlocks-1),
+    nrofRBs                             INTEGER (24..maxNrofPhysicalResourceBlocksPlus1),
+    ...
+}
+
+-- TAG-CSI-FREQUENCYOCCUPATION-STOP
+-- TAG-CSI-IM-RESOURCE-START
+
+CSI-IM-Resource ::=                 SEQUENCE {
+    csi-IM-ResourceId                   CSI-IM-ResourceId,
+    csi-IM-ResourceElementPattern           CHOICE {
+        pattern0                                SEQUENCE {
+            subcarrierLocation-p0                   ENUMERATED { s0, s2, s4, s6, s8, s10 },
+            symbolLocation-p0                       INTEGER (0..12)
+        },
+        pattern1                                SEQUENCE {
+            subcarrierLocation-p1                   ENUMERATED { s0, s4, s8 },
+            symbolLocation-p1                       INTEGER (0..13)
+        }
+    }                                                                                   OPTIONAL,   -- Need M
+    freqBand                            CSI-FrequencyOccupation                         OPTIONAL,   -- Need M
+    periodicityAndOffset                CSI-ResourcePeriodicityAndOffset                OPTIONAL,   -- Cond PeriodicOrSemiPersistent
+    ...
+}
+
+-- TAG-CSI-IM-RESOURCE-STOP
+-- TAG-CSI-IM-RESOURCEID-START
+
+CSI-IM-ResourceId ::=               INTEGER (0..maxNrofCSI-IM-Resources-1)
+
+-- TAG-CSI-IM-RESOURCEID-STOP
+-- TAG-CSI-IM-RESOURCESET-START
+
+CSI-IM-ResourceSet ::=              SEQUENCE {
+    csi-IM-ResourceSetId                CSI-IM-ResourceSetId,
+    csi-IM-Resources                    SEQUENCE (SIZE(1..maxNrofCSI-IM-ResourcesPerSet)) OF CSI-IM-ResourceId,
+    ...
+}
+-- TAG-CSI-IM-RESOURCESET-STOP
+-- TAG-CSI-IM-RESOURCESETID-START
+
+CSI-IM-ResourceSetId ::=            INTEGER (0..maxNrofCSI-IM-ResourceSets-1)
+
+-- TAG-CSI-IM-RESOURCESETID-STOP
+-- TAG-CSI-MEASCONFIG-START
+
+CSI-MeasConfig ::=                  SEQUENCE {
+    nzp-CSI-RS-ResourceToAddModList     SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-Resources)) OF NZP-CSI-RS-Resource   OPTIONAL, -- Need N
+    nzp-CSI-RS-ResourceToReleaseList    SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-Resources)) OF NZP-CSI-RS-ResourceId OPTIONAL, -- Need N
+    nzp-CSI-RS-ResourceSetToAddModList  SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-ResourceSets)) OF NZP-CSI-RS-ResourceSet
+                                                                                                                  OPTIONAL, -- Need N
+    nzp-CSI-RS-ResourceSetToReleaseList SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-ResourceSets)) OF NZP-CSI-RS-ResourceSetId
+                                                                                                                  OPTIONAL, -- Need N
+    csi-IM-ResourceToAddModList         SEQUENCE (SIZE (1..maxNrofCSI-IM-Resources)) OF CSI-IM-Resource           OPTIONAL, -- Need N
+    csi-IM-ResourceToReleaseList        SEQUENCE (SIZE (1..maxNrofCSI-IM-Resources)) OF CSI-IM-ResourceId         OPTIONAL, -- Need N
+    csi-IM-ResourceSetToAddModList      SEQUENCE (SIZE (1..maxNrofCSI-IM-ResourceSets)) OF CSI-IM-ResourceSet     OPTIONAL, -- Need N
+    csi-IM-ResourceSetToReleaseList     SEQUENCE (SIZE (1..maxNrofCSI-IM-ResourceSets)) OF CSI-IM-ResourceSetId   OPTIONAL, -- Need N
+    csi-SSB-ResourceSetToAddModList     SEQUENCE (SIZE (1..maxNrofCSI-SSB-ResourceSets)) OF CSI-SSB-ResourceSet   OPTIONAL, -- Need N
+    csi-SSB-ResourceSetToReleaseList    SEQUENCE (SIZE (1..maxNrofCSI-SSB-ResourceSets)) OF CSI-SSB-ResourceSetId OPTIONAL, -- Need N
+    csi-ResourceConfigToAddModList      SEQUENCE (SIZE (1..maxNrofCSI-ResourceConfigurations)) OF CSI-ResourceConfig
+                                                                                                                  OPTIONAL, -- Need N
+    csi-ResourceConfigToReleaseList     SEQUENCE (SIZE (1..maxNrofCSI-ResourceConfigurations)) OF CSI-ResourceConfigId
+                                                                                                                  OPTIONAL, -- Need N
+    csi-ReportConfigToAddModList        SEQUENCE (SIZE (1..maxNrofCSI-ReportConfigurations)) OF CSI-ReportConfig  OPTIONAL, -- Need N
+    csi-ReportConfigToReleaseList       SEQUENCE (SIZE (1..maxNrofCSI-ReportConfigurations)) OF CSI-ReportConfigId
+                                                                                                                  OPTIONAL, -- Need N
+    aperiodicTriggerStateList           CHOICE {
+        release         NULL,
+        setup           CSI-AperiodicTriggerStateList
+    }                                                                                                             OPTIONAL, -- Need M
+    semiPersistentOnPUSCH-TriggerStateList           CHOICE {
+        release         NULL,
+        setup           CSI-SemiPersistentOnPUSCH-TriggerStateList
+    }                                                                                                             OPTIONAL, -- Need M
+    ...,
+    [[
+    reportTriggerSizeDCI-0-2-r16        INTEGER (0..6)                                                            OPTIONAL -- Need R
+    ]],
+    [[
+    sCellActivationRS-ConfigToAddModList-r17  SEQUENCE (SIZE (1..maxNrofSCellActRS-r17)) OF SCellActivationRS-Config-r17   OPTIONAL, -- Need N
+    sCellActivationRS-ConfigToReleaseList-r17 SEQUENCE (SIZE (1..maxNrofSCellActRS-r17)) OF SCellActivationRS-ConfigId-r17 OPTIONAL  -- Need N
+    ]]
+}
+
+-- TAG-CSI-MEASCONFIG-STOP
 -- TAG-CSI-REPORTCONFIG-START
 
 CSI-ReportConfig ::=                SEQUENCE {
@@ -530,16 +1123,118 @@ PortIndex2::=                       INTEGER (0..1)
 CSI-ReportConfigId ::=              INTEGER (0..maxNrofCSI-ReportConfigurations-1)
 
 -- TAG-CSI-REPORTCONFIGID-STOP
+-- TAG-CSI-RESOURCECONFIG-START
+
+CSI-ResourceConfig ::=      SEQUENCE {
+    csi-ResourceConfigId        CSI-ResourceConfigId,
+    csi-RS-ResourceSetList      CHOICE {
+        nzp-CSI-RS-SSB              SEQUENCE {
+            nzp-CSI-RS-ResourceSetList  SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-ResourceSetsPerConfig)) OF NZP-CSI-RS-ResourceSetId
+                                                                                                                            OPTIONAL, -- Need R
+            csi-SSB-ResourceSetList     SEQUENCE (SIZE (1..maxNrofCSI-SSB-ResourceSetsPerConfig)) OF CSI-SSB-ResourceSetId  OPTIONAL  -- Need R
+        },
+        csi-IM-ResourceSetList      SEQUENCE (SIZE (1..maxNrofCSI-IM-ResourceSetsPerConfig)) OF CSI-IM-ResourceSetId
+    },
+
+    bwp-Id                      BWP-Id,
+    resourceType                ENUMERATED { aperiodic, semiPersistent, periodic },
+    ...,
+    [[
+    csi-SSB-ResourceSetListExt-r17      CSI-SSB-ResourceSetId                                                  OPTIONAL  -- Need R
+    ]]
+}
+
+-- TAG-CSI-RESOURCECONFIG-STOP
 -- TAG-CSI-RESOURCECONFIGID-START
 
 CSI-ResourceConfigId ::=            INTEGER (0..maxNrofCSI-ResourceConfigurations-1)
 
 -- TAG-CSI-RESOURCECONFIGID-STOP
+-- TAG-CSI-RESOURCEPERIODICITYANDOFFSET-START
+
+CSI-ResourcePeriodicityAndOffset ::=    CHOICE {
+    slots4                                  INTEGER (0..3),
+    slots5                                  INTEGER (0..4),
+    slots8                                  INTEGER (0..7),
+    slots10                                 INTEGER (0..9),
+    slots16                                 INTEGER (0..15),
+    slots20                                 INTEGER (0..19),
+    slots32                                 INTEGER (0..31),
+    slots40                                 INTEGER (0..39),
+    slots64                                 INTEGER (0..63),
+    slots80                                 INTEGER (0..79),
+    slots160                                INTEGER (0..159),
+    slots320                                INTEGER (0..319),
+    slots640                                INTEGER (0..639)
+}
+
+-- TAG-CSI-RESOURCEPERIODICITYANDOFFSET-STOP
 -- TAG-CSI-RS-RESOURCECONFIGMOBILITY-START
 
 CSI-RS-Index ::=                    INTEGER (0..maxNrofCSI-RS-ResourcesRRM-1)
 
 -- TAG-CSI-RS-RESOURCECONFIGMOBILITY-STOP
+-- TAG-CSI-RS-RESOURCEMAPPING-START
+
+CSI-RS-ResourceMapping ::=          SEQUENCE {
+    frequencyDomainAllocation           CHOICE {
+        row1                                BIT STRING (SIZE (4)),
+        row2                                BIT STRING (SIZE (12)),
+        row4                                BIT STRING (SIZE (3)),
+        other                               BIT STRING (SIZE (6))
+    },
+    nrofPorts                           ENUMERATED {p1,p2,p4,p8,p12,p16,p24,p32},
+    firstOFDMSymbolInTimeDomain         INTEGER (0..13),
+    firstOFDMSymbolInTimeDomain2        INTEGER (2..12)                                                         OPTIONAL,   -- Need R
+    cdm-Type                            ENUMERATED {noCDM, fd-CDM2, cdm4-FD2-TD2, cdm8-FD2-TD4},
+    density                             CHOICE {
+        dot5                                ENUMERATED {evenPRBs, oddPRBs},
+        one                                 NULL,
+        three                               NULL,
+        spare                               NULL
+    },
+    freqBand                            CSI-FrequencyOccupation,
+    ...
+}
+
+-- TAG-CSI-RS-RESOURCEMAPPING-STOP
+-- TAG-CSI-SEMIPERSISTENTONPUSCHTRIGGERSTATELIST-START
+
+CSI-SemiPersistentOnPUSCH-TriggerStateList ::= SEQUENCE(SIZE (1..maxNrOfSemiPersistentPUSCH-Triggers)) OF CSI-SemiPersistentOnPUSCH-TriggerState
+
+CSI-SemiPersistentOnPUSCH-TriggerState ::=     SEQUENCE {
+    associatedReportConfigInfo                     CSI-ReportConfigId,
+    ...,
+    [[
+    sp-CSI-MultiplexingMode-r17                ENUMERATED {enabled}                                           OPTIONAL   -- Need R
+    ]]
+}
+
+-- TAG-CSI-SEMIPERSISTENTONPUSCHTRIGGERSTATELIST-STOP
+-- TAG-CSI-SSB-RESOURCESET-START
+
+CSI-SSB-ResourceSet ::=             SEQUENCE {
+    csi-SSB-ResourceSetId               CSI-SSB-ResourceSetId,
+    csi-SSB-ResourceList                SEQUENCE (SIZE(1..maxNrofCSI-SSB-ResourcePerSet)) OF SSB-Index,
+    ...,
+    [[
+    servingAdditionalPCIList-r17        SEQUENCE (SIZE(1..maxNrofCSI-SSB-ResourcePerSet)) OF ServingAdditionalPCIIndex-r17  OPTIONAL  -- Need R
+    ]]
+}
+
+ServingAdditionalPCIIndex-r17  ::=  INTEGER(0..maxNrofAdditionalPCI-r17)
+
+-- TAG-CSI-SSB-RESOURCESET-STOP
+-- TAG-CSI-SSB-RESOURCESETID-START
+
+CSI-SSB-ResourceSetId ::=           INTEGER (0..maxNrofCSI-SSB-ResourceSets-1)
+
+-- TAG-CSI-SSB-RESOURCESETID-STOP
+-- TAG-DEDICATED-NAS-MESSAGE-START
+
+DedicatedNAS-Message ::=        OCTET STRING
+
+-- TAG-DEDICATED-NAS-MESSAGE-STOP
 -- TAG-FILTERCOEFFICIENT-START
 
 FilterCoefficient ::=       ENUMERATED { fc0, fc1, fc2, fc3, fc4, fc5, fc6, fc7, fc8, fc9, fc11, fc13, fc15, fc17, fc19, spare1, ...}
@@ -692,22 +1387,129 @@ ResultsPerCSI-RS-Index ::=              SEQUENCE {
     csi-RS-Results                          MeasQuantityResults                                                         OPTIONAL
 }
 
--- TAG-MEASRESULTS-START
+-- TAG-MEASRESULTS-STOP
 -- TAG-MULTIFREQUENCYBANDLISTNR-START
 
 MultiFrequencyBandListNR ::=        SEQUENCE (SIZE (1..maxNrofMultiBands)) OF FreqBandIndicatorNR
 
 -- TAG-MULTIFREQUENCYBANDLISTNR-STOP
+-- TAG-NEXTHOPCHAININGCOUNT-START
+
+NextHopChainingCount ::=                    INTEGER (0..7)
+
+-- TAG-NEXTHOPCHAININGCOUNT-STOP
+-- TAG-NZP-CSI-RS-RESOURCE-START
+
+NZP-CSI-RS-Resource ::=             SEQUENCE {
+    nzp-CSI-RS-ResourceId               NZP-CSI-RS-ResourceId,
+    resourceMapping                     CSI-RS-ResourceMapping,
+    powerControlOffset                  INTEGER (-8..15),
+    powerControlOffsetSS                ENUMERATED{db-3, db0, db3, db6}                 OPTIONAL,   -- Need R
+    scramblingID                        ScramblingId,
+    periodicityAndOffset                CSI-ResourcePeriodicityAndOffset                OPTIONAL,   -- Cond PeriodicOrSemiPersistent
+    qcl-InfoPeriodicCSI-RS              TCI-StateId                                     OPTIONAL,   -- Cond Periodic
+    ...
+}
+
+-- TAG-NZP-CSI-RS-RESOURCE-STOP
 -- TAG-NZP-CSI-RS-RESOURCEID-START
 
 NZP-CSI-RS-ResourceId ::=           INTEGER (0..maxNrofNZP-CSI-RS-Resources-1)
 
 -- TAG-NZP-CSI-RS-RESOURCEID-STOP
+-- TAG-NZP-CSI-RS-RESOURCESET-START
+
+NZP-CSI-RS-ResourceSet ::=          SEQUENCE {
+    nzp-CSI-ResourceSetId               NZP-CSI-RS-ResourceSetId,
+    nzp-CSI-RS-Resources                SEQUENCE (SIZE (1..maxNrofNZP-CSI-RS-ResourcesPerSet)) OF NZP-CSI-RS-ResourceId,
+    repetition                          ENUMERATED { on, off }                                                  OPTIONAL,   -- Need S
+    aperiodicTriggeringOffset           INTEGER(0..6)                                                           OPTIONAL,   -- Need S
+    trs-Info                            ENUMERATED {true}                                                       OPTIONAL,   -- Need R
+    ...,
+    [[
+    aperiodicTriggeringOffset-r16       INTEGER(0..31)                                                          OPTIONAL   -- Need S
+    ]],
+    [[
+    pdc-Info-r17                        ENUMERATED {true}                                                       OPTIONAL,  -- Need R
+    cmrGroupingAndPairing-r17           CMRGroupingAndPairing-r17                                               OPTIONAL,  -- Need R
+    aperiodicTriggeringOffset-r17       INTEGER (0..124)                                                        OPTIONAL,  -- Need S
+    aperiodicTriggeringOffsetL2-r17     INTEGER(0..31)                                                          OPTIONAL   -- Need R
+    ]]
+}
+
+CMRGroupingAndPairing-r17 ::=        SEQUENCE {
+    nrofResourcesGroup1-r17              INTEGER (1..7),
+    pair1OfNZP-CSI-RS-r17                NZP-CSI-RS-Pairing-r17                                                 OPTIONAL,  -- Need R
+    pair2OfNZP-CSI-RS-r17                NZP-CSI-RS-Pairing-r17                                                 OPTIONAL   -- Need R
+}
+
+NZP-CSI-RS-Pairing-r17  ::=          SEQUENCE {
+    nzp-CSI-RS-ResourceId1-r17           INTEGER (1..7),
+    nzp-CSI-RS-ResourceId2-r17           INTEGER (1..7)
+}
+
+-- TAG-NZP-CSI-RS-RESOURCESET-STOP
+-- TAG-NZP-CSI-RS-RESOURCESETID-START
+
+NZP-CSI-RS-ResourceSetId ::=        INTEGER (0..maxNrofNZP-CSI-RS-ResourceSets-1)
+
+-- TAG-NZP-CSI-RS-RESOURCESETID-STOP
+-- TAG-P-MAX-START
+
+P-Max ::=                           INTEGER (-30..33)
+
+-- TAG-P-MAX-STOP
 -- TAG-PATHLOSSREFERENCERS-ID-START
 
 PathlossReferenceRS-Id-r17 ::= INTEGER (0..maxNrofPathlossReferenceRSs-1-r17)
 
 -- TAG-PATHLOSSREFERENCERS-ID-STOP
+-- TAG-PCIARFCNNR-START
+
+PCI-ARFCN-NR-r16 ::=                SEQUENCE {
+    physCellId-r16                      PhysCellId,
+    carrierFreq-r16                     ARFCN-ValueNR
+}
+
+-- TAG-PCIARFCNNR-STOP
+-- TAG-PCI-LIST-START
+
+PCI-List ::=                        SEQUENCE (SIZE (1..maxNrofCellMeas)) OF PhysCellId
+
+-- TAG-PCI-LIST-STOP
+-- TAG-PCI-RANGE-START
+
+PCI-Range ::=                       SEQUENCE {
+    start                               PhysCellId,
+    range                               ENUMERATED {n4, n8, n12, n16, n24, n32, n48, n64, n84,
+                                                    n96, n128, n168, n252, n504, n1008,spare1}                  OPTIONAL    -- Need S
+}
+
+-- TAG-PCI-RANGE-STOP
+-- TAG-PCI-RANGEELEMENT-START
+
+PCI-RangeElement ::=                SEQUENCE {
+    pci-RangeIndex                      PCI-RangeIndex,
+    pci-Range                           PCI-Range
+}
+
+-- TAG-PCI-RANGEELEMENT-STOP
+-- TAG-PCI-RANGEINDEX-START
+
+PCI-RangeIndex ::=                  INTEGER (1..maxNrofPCI-Ranges)
+
+-- TAG-PCI-RANGEINDEX-STOP
+-- TAG-PCI-RANGEINDEXLIST-START
+
+PCI-RangeIndexList ::=              SEQUENCE (SIZE (1..maxNrofPCI-Ranges)) OF PCI-RangeIndex
+
+-- TAG-PCI-RANGEINDEXLIST-STOP
+-- TAG-PDCCH-CONFIGCOMMON-START
+
+PDCCH-ConfigCommon ::=              SEQUENCE {
+}
+
+-- TAG-PDCCH-CONFIGCOMMON-STOP
 -- TAG-PDCCH-CONFIGSIB1-START
 
 PDCCH-ConfigSIB1 ::=                SEQUENCE {
@@ -721,9 +1523,67 @@ PDCCH-ConfigSIB1 ::=                SEQUENCE {
 PDSCH-Config ::=                        SEQUENCE {
     tci-StatesToAddModList                  SEQUENCE (SIZE(1..maxNrofTCI-States)) OF TCI-State                  OPTIONAL,   -- Need N
     tci-StatesToReleaseList                 SEQUENCE (SIZE(1..maxNrofTCI-States)) OF TCI-StateId                OPTIONAL,   -- Need N
+    [[
+    dl-OrJointTCI-StateList-r17                  CHOICE {
+        explicitlist                                 SEQUENCE {
+            dl-OrJointTCI-StateToAddModList-r17        SEQUENCE (SIZE (1..maxNrofTCI-States)) OF TCI-State
+                                                                                                                OPTIONAL,   -- Need N
+            dl-OrJointTCI-StateToReleaseList-r17       SEQUENCE (SIZE (1..maxNrofTCI-States)) OF TCI-StateId
+                                                                                                                OPTIONAL    -- Need N
+        },
+        unifiedTCI-StateRef-r17                  ServingCellAndBWP-Id-r17
+    }                                                                                                           OPTIONAL,   -- Need R
+    beamAppTime-r17                              ENUMERATED {n1, n2, n4, n7, n14, n28, n42, n56, n70, n84, n98, n112, n224, n336, spare2,
+                                                            spare1}                                             OPTIONAL,   -- Need R
     ...
+    ]]
 }
 -- TAG-PDSCH-CONFIG-STOP
+-- TAG-PDSCH-CONFIGCOMMON-START
+
+PDSCH-ConfigCommon ::=                  SEQUENCE {
+    pdsch-TimeDomainAllocationList                  PDSCH-TimeDomainResourceAllocationList          OPTIONAL,   -- Need R
+    ...
+}
+
+-- TAG-PDSCH-CONFIGCOMMON-STOP
+-- TAG-PDSCH-TIMEDOMAINRESOURCEALLOCATIONLIST-START
+
+
+PDSCH-TimeDomainResourceAllocationList ::=  SEQUENCE (SIZE(1..maxNrofDL-Allocations)) OF PDSCH-TimeDomainResourceAllocation
+
+PDSCH-TimeDomainResourceAllocation ::=   SEQUENCE {
+    k0                                      INTEGER(0..32)                                                  OPTIONAL,   -- Need S
+    mappingType                             ENUMERATED {typeA, typeB},
+    startSymbolAndLength                    INTEGER (0..127)
+}
+
+PDSCH-TimeDomainResourceAllocationList-r16 ::=  SEQUENCE (SIZE(1..maxNrofDL-Allocations)) OF PDSCH-TimeDomainResourceAllocation-r16
+
+PDSCH-TimeDomainResourceAllocation-r16 ::=  SEQUENCE {
+    k0-r16                                     INTEGER(0..32)                                              OPTIONAL,   -- Need S
+    mappingType-r16                            ENUMERATED {typeA, typeB},
+    startSymbolAndLength-r16                   INTEGER (0..127),
+    repetitionNumber-r16                       ENUMERATED {n2, n3, n4, n5, n6, n7, n8, n16}                OPTIONAL,   -- Cond Formats1-0and1-1
+    ...,
+    [[
+    k0-v1710                                INTEGER(33..128)                                               OPTIONAL    -- Need S
+    ]],
+    [[
+    repetitionNumber-v1730                  ENUMERATED {n2, n3, n4, n5, n6, n7, n8, n16}                   OPTIONAL   -- Cond Format1-2
+    ]]
+}
+
+Dummy-TDRA-List ::= SEQUENCE (SIZE(1.. maxNrofDL-Allocations)) OF MultiPDSCH-TDRA-r17
+
+MultiPDSCH-TDRA-List-r17 ::= SEQUENCE (SIZE(1.. maxNrofDL-AllocationsExt-r17)) OF MultiPDSCH-TDRA-r17
+
+MultiPDSCH-TDRA-r17 ::= SEQUENCE {
+    pdsch-TDRA-List-r17                 SEQUENCE (SIZE(1..maxNrofMultiplePDSCHs-r17)) OF PDSCH-TimeDomainResourceAllocation-r16,
+    ...
+}
+
+-- TAG-PDSCH-TIMEDOMAINRESOURCEALLOCATIONLIST-STOP
 -- TAG-PHYSCELLID-START
 
 PhysCellId ::=                      INTEGER (0..1007)
@@ -812,6 +1672,27 @@ RSRP-Range ::=                      INTEGER(0..127)
 RSRQ-Range ::=                      INTEGER(0..127)
 
 -- TAG-RSRQ-RANGE-STOP
+-- TAG-SCELLACTIVATIONRS-CONFIG-START
+
+SCellActivationRS-Config-r17 ::= SEQUENCE {
+    scellActivationRS-Id-r17         SCellActivationRS-ConfigId-r17,
+    resourceSet-r17                  NZP-CSI-RS-ResourceSetId,
+    gapBetweenBursts-r17             INTEGER (2..31)                                                            OPTIONAL, -- Need R
+    qcl-Info-r17                     TCI-StateId,
+    ...
+}
+
+-- TAG-SCELLACTIVATIONRS-CONFIG-STOP
+-- TAG-SCELLACTIVATIONRS-CONFIGID-START
+
+SCellActivationRS-ConfigId-r17 ::=        INTEGER (1.. maxNrofSCellActRS-r17)
+
+-- TAG-SCELLACTIVATIONRS-CONFIGID-STOP
+-- TAG-SCRAMBLINGID-START
+
+ScramblingId ::=                    INTEGER(0..1023)
+
+-- TAG-SCRAMBLINGID-STOP
 -- TAG-SCS-SPECIFICCARRIER-START
 
 SCS-SpecificCarrier ::=             SEQUENCE {
@@ -830,11 +1711,31 @@ SCS-SpecificCarrier ::=             SEQUENCE {
 SearchSpaceZero ::=                 INTEGER (0..15)
 
 -- TAG-SEARCHSPACEZERO-STOP
+-- TAG-SERVINGCELLANDBWP-ID-START
+
+ServingCellAndBWP-Id-r17 ::= SEQUENCE {
+    servingcell-r17              ServCellIndex,
+    bwp-r17                      BWP-Id
+}
+
+-- TAG-SERVINGCELLANDBWP-ID-STOP
 -- TAG-SERVCELLINDEX-START
 
 ServCellIndex ::=                   INTEGER (0..maxNrofServingCells-1)
 
 -- TAG-SERVCELLINDEX-STOP
+-- TAG-SERVINGCELLCONFIG-START
+
+ServingCellConfig ::=               SEQUENCE {
+    initialDownlinkBWP                  BWP-DownlinkDedicated                                                    OPTIONAL,   -- Need M
+    csi-MeasConfig                      CHOICE {
+        release         NULL,
+        setup           CSI-MeasConfig
+    }                                         OPTIONAL,   -- Need M
+    ...
+}
+
+-- TAG-SERVINGCELLCONFIG-STOP
 -- TAG-SERVINGCELLCONFIGCOMMONSIB-START
 
 ServingCellConfigCommonSIB ::=      SEQUENCE {
@@ -905,7 +1806,71 @@ QCL-Info ::=                        SEQUENCE {
 TCI-StateId ::=                     INTEGER (0..maxNrofTCI-States-1)
 
 -- TAG-TCI-STATEID-STOP
+
+
+TDD-UL-DL-ConfigDedicated ::=       SEQUENCE {
+    slotSpecificConfigurationsToAddModList      SEQUENCE (SIZE (1..maxNrofSlots)) OF TDD-UL-DL-SlotConfig       OPTIONAL, -- Need N
+    slotSpecificConfigurationsToReleaseList     SEQUENCE (SIZE (1..maxNrofSlots)) OF TDD-UL-DL-SlotIndex        OPTIONAL, -- Need N
+    ...
+}
+
+TDD-UL-DL-ConfigDedicated-IAB-MT-r16::=         SEQUENCE {
+    slotSpecificConfigurationsToAddModList-IAB-MT-r16  SEQUENCE (SIZE (1..maxNrofSlots)) OF TDD-UL-DL-SlotConfig-IAB-MT-r16      OPTIONAL, -- Need N
+    slotSpecificConfigurationsToReleaseList-IAB-MT-r16 SEQUENCE (SIZE (1..maxNrofSlots)) OF TDD-UL-DL-SlotIndex                  OPTIONAL, -- Need N
+    ...
+}
+
+TDD-UL-DL-SlotConfig ::=            SEQUENCE {
+    slotIndex                           TDD-UL-DL-SlotIndex,
+    symbols                             CHOICE {
+        allDownlink                         NULL,
+        allUplink                           NULL,
+        explicit                            SEQUENCE {
+            nrofDownlinkSymbols                 INTEGER (1..maxNrofSymbols-1)                                   OPTIONAL, -- Need S
+            nrofUplinkSymbols                   INTEGER (1..maxNrofSymbols-1)                                   OPTIONAL  -- Need S
+        }
+    }
+}
+
+TDD-UL-DL-SlotConfig-IAB-MT-r16::=    SEQUENCE {
+    slotIndex-r16                           TDD-UL-DL-SlotIndex,
+    symbols-IAB-MT-r16                      CHOICE {
+        allDownlink-r16                         NULL,
+        allUplink-r16                           NULL,
+        explicit-r16                            SEQUENCE {
+            nrofDownlinkSymbols-r16                 INTEGER (1..maxNrofSymbols-1)                               OPTIONAL, -- Need S
+            nrofUplinkSymbols-r16                   INTEGER (1..maxNrofSymbols-1)                               OPTIONAL  -- Need S
+        },
+        explicit-IAB-MT-r16                     SEQUENCE {
+            nrofDownlinkSymbols-r16                 INTEGER (1..maxNrofSymbols-1)                               OPTIONAL, -- Need S
+            nrofUplinkSymbols-r16                   INTEGER (1..maxNrofSymbols-1)                               OPTIONAL  -- Need S
+        }
+    }
+}
+
+TDD-UL-DL-SlotIndex ::=             INTEGER (0..maxNrofSlots-1)
+
+-- TAG-TDD-UL-DL-CONFIGDEDICATED-STOP
+-- TAG-UPLINK-POWERCONTROL-START
 Uplink-powerControlId-r17 ::= INTEGER(1.. maxUL-TCI-r17)
+-- TAG-UPLINK-POWERCONTROL-STOP
+-- TAG-OTHERCONFIG-START
+
+OtherConfig ::=                 SEQUENCE {
+    delayBudgetReportingConfig  CHOICE{
+        release                 NULL,
+        setup                   SEQUENCE{
+            delayBudgetReportingProhibitTimer   ENUMERATED {s0, s0dot4, s0dot8, s1dot6, s3, s6, s12, s30}
+        }
+    }                                                                                                     OPTIONAL        -- Need M
+}
+
+-- TAG-OTHERCONFIG-STOP
+-- TAG-PHYSCELLIDUTRA-FDD-START
+
+PhysCellIdUTRA-FDD-r16 ::=        INTEGER (0..511)
+
+-- TAG-PHYSCELLIDUTRA-FDD-STOP
 -- TAG-RRC-TRANSACTIONIDENTIFIER-START
 
 RRC-TransactionIdentifier ::=       INTEGER (0..3)

@@ -28,6 +28,7 @@ protos-gen: extract
 	asn1c -B asn/nr-rrc-definitions.asn1 > protos/nr-rrc-definitions.proto
 	@sed -i 's/asn\/nr_rrc_definitions.v1/nr_rrc_definitions.v1/g' protos/nr-rrc-definitions.proto
 	@sed -i 's/nr_rrc_definitions.v1\/nr-rrc-definitions;nrrrcdefinitions/.\/nr-rrc-definitions;nrrrcdefinitions/g' protos/nr-rrc-definitions.proto
+	@sed -i 's/POWER_CONTROL_OFFSET_SSNZPCSIRSRESOURCE_DB_3/POWER_CONTROL_OFFSET_SSNZPCSIRSRESOURCE_DBM3/g' protos/nr-rrc-definitions.proto
 
 protos-go: # @HELP compile the protobuf files (using protoc-go Docker)
 protos-go:
