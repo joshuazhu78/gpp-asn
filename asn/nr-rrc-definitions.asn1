@@ -575,8 +575,14 @@ CellGroupConfig ::=                        SEQUENCE {
 }
 -- Serving cell specific MAC and PHY parameters for a SpCell:
 SpCellConfig ::=                        SEQUENCE {
+    reconfigurationWithSync             ReconfigurationWithSync                                     OPTIONAL,   -- Cond ReconfWithSync
     spCellConfigDedicated               ServingCellConfig                                           OPTIONAL,   -- Need M
 	...
+}
+
+ReconfigurationWithSync ::=         SEQUENCE {
+    spCellConfigCommon                  ServingCellConfigCommon                                     OPTIONAL,   -- Need M
+    ...
 }
 
 -- TAG-CELLGROUPCONFIG-STOP
@@ -1235,6 +1241,19 @@ CSI-SSB-ResourceSetId ::=           INTEGER (0..maxNrofCSI-SSB-ResourceSets-1)
 DedicatedNAS-Message ::=        OCTET STRING
 
 -- TAG-DEDICATED-NAS-MESSAGE-STOP
+-- TAG-DOWNLINKCONFIGCOMMON-START
+
+DownlinkConfigCommon ::=        SEQUENCE {
+    frequencyInfoDL                 FrequencyInfoDL                                 OPTIONAL,   -- Cond InterFreqHOAndServCellAdd
+    initialDownlinkBWP              BWP-DownlinkCommon                              OPTIONAL,   -- Cond ServCellAdd
+    ...,
+    [[
+    initialDownlinkBWP-RedCap-r17   BWP-DownlinkCommon                              OPTIONAL    -- Need R
+
+    ]]
+}
+
+-- TAG-DOWNLINKCONFIGCOMMON-STOP
 -- TAG-FILTERCOEFFICIENT-START
 
 FilterCoefficient ::=       ENUMERATED { fc0, fc1, fc2, fc3, fc4, fc5, fc6, fc7, fc8, fc9, fc11, fc13, fc15, fc17, fc19, spare1, ...}
@@ -1736,6 +1755,15 @@ ServingCellConfig ::=               SEQUENCE {
 }
 
 -- TAG-SERVINGCELLCONFIG-STOP
+-- TAG-SERVINGCELLCONFIGCOMMON-START
+
+ServingCellConfigCommon ::=         SEQUENCE {
+    physCellId                          PhysCellId                                                          OPTIONAL,   -- Cond HOAndServCellAdd,
+    downlinkConfigCommon                DownlinkConfigCommon                                                OPTIONAL,   -- Cond HOAndServCellAdd
+    ...
+}
+
+-- TAG-SERVINGCELLCONFIGCOMMON-STOP
 -- TAG-SERVINGCELLCONFIGCOMMONSIB-START
 
 ServingCellConfigCommonSIB ::=      SEQUENCE {
