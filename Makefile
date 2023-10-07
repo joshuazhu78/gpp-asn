@@ -32,7 +32,7 @@ protos-gen: extract
 
 protos-go: # @HELP compile the protobuf files (using protoc-go Docker)
 protos-go:
-	@sudo rm -rf pkg/nr/*
+	@sudo rm -rf pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
 	docker run -it \
 		-v `pwd`:/go/src/github.com/joshuazhu78/gpp-asn \
 		-v `pwd`/../onosproject/onos-lib-go:/go/src/github.com/onosproject/onos-lib-go \
