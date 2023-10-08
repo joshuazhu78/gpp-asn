@@ -1,0 +1,11 @@
+{
+ "Type": "*nrrrcdefinitions.NrOfAntennaPortstypeISinglePanel_Two",
+ "Value": {
+  "Two": {
+   "two_tx_codebook_subset_restriction": {
+    "value": "Pw==",
+    "len": 6
+   }
+  }
+ }
+}
