@@ -8,6 +8,8 @@ ONOS_PROTOC_VERSION  := v1.0.2
 OUTPUT_DIR            =./build/_output
 SPEC_TXT             ?=38331-h50
 
+all: build test protos
+
 build: # @HELP build the Go binaries and run all validations (default)
 build:
 	go build ${BUILD_FLAGS} -o ${OUTPUT_DIR}/extractor ./cmd/extractor
@@ -56,8 +58,9 @@ protos-go:
 
 protos: protos-gen protos-go
 
-all: build
-
 clean:: # @HELP remove all the build artifacts
 	rm -rf ${OUTPUT_DIR}
 	go clean -testcache
+
+test: # @HELP run the unit tests for both large scale and full calibration
+	go test -race github.com/joshuazhu78/gpp-asn/...
