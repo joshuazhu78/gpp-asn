@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_CsiMeasConfigServingCellConfig(t *testing.T) {
-	c := NewTestCsiMeasConfigServingCellConfig()
+func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigType1(t *testing.T) {
+	c := NewTestCsiMeasConfigServingCellConfigCodebookConfigType1()
 	data, err := json.Marshal(c)
 	assert.NoError(t, err)
 
@@ -18,16 +18,99 @@ func Test_CsiMeasConfigServingCellConfig(t *testing.T) {
 	assert.NoError(t, err)
 
 	assert.Equal(t, true, reflect.DeepEqual(*c, unmarshaled))
+
+	WriteJsonFile(c, "CsiMeasConfigServingCellConfigCodebookConfigType1.json")
+	var d CsiMeasConfigServingCellConfig
+	ReadJsonFile("CsiMeasConfigServingCellConfigCodebookConfigType1.json", &d)
+	assert.Equal(t, true, reflect.DeepEqual(*c, d))
 }
 
-func NewTestCsiMeasConfigServingCellConfig() *CsiMeasConfigServingCellConfig {
+func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigType2(t *testing.T) {
+	c := NewTestCsiMeasConfigServingCellConfigCodebookConfigType2()
+	data, err := json.Marshal(c)
+	assert.NoError(t, err)
+
+	var unmarshaled CsiMeasConfigServingCellConfig
+	err = json.Unmarshal(data, &unmarshaled)
+	assert.NoError(t, err)
+
+	assert.Equal(t, true, reflect.DeepEqual(*c, unmarshaled))
+
+	WriteJsonFile(c, "CsiMeasConfigServingCellConfigCodebookConfigType2.json")
+	var d CsiMeasConfigServingCellConfig
+	ReadJsonFile("CsiMeasConfigServingCellConfigCodebookConfigType2.json", &d)
+	assert.Equal(t, true, reflect.DeepEqual(*c, d))
+}
+
+func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigr16(t *testing.T) {
+	c := NewTestCsiMeasConfigServingCellConfigCodebookConfigr16()
+	data, err := json.Marshal(c)
+	assert.NoError(t, err)
+
+	var unmarshaled CsiMeasConfigServingCellConfig
+	err = json.Unmarshal(data, &unmarshaled)
+	assert.NoError(t, err)
+
+	assert.Equal(t, true, reflect.DeepEqual(*c, unmarshaled))
+
+	WriteJsonFile(c, "CsiMeasConfigServingCellConfigCodebookConfigr16.json")
+	var d CsiMeasConfigServingCellConfig
+	ReadJsonFile("CsiMeasConfigServingCellConfigCodebookConfigr16.json", &d)
+	assert.Equal(t, true, reflect.DeepEqual(*c, d))
+}
+
+func NewTestCsiMeasConfigServingCellConfigCodebookConfigType1() *CsiMeasConfigServingCellConfig {
+	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI
 	return &CsiMeasConfigServingCellConfig{
 		CsiMeasConfigServingCellConfig: &CsiMeasConfigServingCellConfig_Setup{
 			Setup: &CsiMeasConfig{
 				CsiReportConfigToAddModList: []*CsiReportConfig{
 					{
+						SubbandSize: SubbandSizeCsireportConfig_SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2,
+						ReportFreqConfiguration: &ReportFreqConfigurationCsiReportConfig{
+							PmiFormatIndicator: &PmiFormatIndicator,
+						},
 						CodebookConfig: &CodebookConfig{
-							CodebookType: NewTestCodebookTypeCodebookConfig(),
+							CodebookType: NewTestCodebookTypeCodebookConfigType1(),
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
+func NewTestCsiMeasConfigServingCellConfigCodebookConfigType2() *CsiMeasConfigServingCellConfig {
+	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI
+	return &CsiMeasConfigServingCellConfig{
+		CsiMeasConfigServingCellConfig: &CsiMeasConfigServingCellConfig_Setup{
+			Setup: &CsiMeasConfig{
+				CsiReportConfigToAddModList: []*CsiReportConfig{
+					{
+						SubbandSize: SubbandSizeCsireportConfig_SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2,
+						ReportFreqConfiguration: &ReportFreqConfigurationCsiReportConfig{
+							PmiFormatIndicator: &PmiFormatIndicator,
+						},
+						CodebookConfig: &CodebookConfig{
+							CodebookType: NewTestCodebookTypeCodebookConfigType2(),
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
+func NewTestCsiMeasConfigServingCellConfigCodebookConfigr16() *CsiMeasConfigServingCellConfig {
+	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI
+	return &CsiMeasConfigServingCellConfig{
+		CsiMeasConfigServingCellConfig: &CsiMeasConfigServingCellConfig_Setup{
+			Setup: &CsiMeasConfig{
+				CsiReportConfigToAddModList: []*CsiReportConfig{
+					{
+						SubbandSize: SubbandSizeCsireportConfig_SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2,
+						ReportFreqConfiguration: &ReportFreqConfigurationCsiReportConfig{
+							PmiFormatIndicator: &PmiFormatIndicator,
 						},
 						CodebookConfigR16: &CodebookConfigr16{
 							CodebookTypeR16: NewTestCodebookTyper16CodebookConfigr16(),

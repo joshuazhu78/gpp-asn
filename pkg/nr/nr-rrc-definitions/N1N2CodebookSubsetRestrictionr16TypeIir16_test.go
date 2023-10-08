@@ -23,10 +23,10 @@ func Test_N1N2CodebookSubsetRestrictionr16TypeIir16(t *testing.T) {
 
 func NewTestN1N2CodebookSubsetRestrictionr16TypeIir16() *N1N2CodebookSubsetRestrictionr16TypeIir16 {
 	return &N1N2CodebookSubsetRestrictionr16TypeIir16{
-		N1N2CodebookSubsetRestrictionR16TypeIiR16: &N1N2CodebookSubsetRestrictionr16TypeIir16_TwoTwo{
-			TwoTwo: &asn1.BitString{
-				Len:   16,
-				Value: []byte{0xff, 0xff},
+		N1N2CodebookSubsetRestrictionR16TypeIiR16: &N1N2CodebookSubsetRestrictionr16TypeIir16_FourFour{
+			FourFour: &asn1.BitString{
+				Len:   139,
+				Value: []byte{0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff},
 			},
 		},
 	}

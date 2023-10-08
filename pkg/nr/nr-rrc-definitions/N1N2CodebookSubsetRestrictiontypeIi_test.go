@@ -23,10 +23,10 @@ func Test_N1N2CodebookSubsetRestrictiontypeIi(t *testing.T) {
 
 func NewTestN1N2CodebookSubsetRestrictiontypeIi() *N1N2CodebookSubsetRestrictiontypeIi {
 	return &N1N2CodebookSubsetRestrictiontypeIi{
-		N1N2CodebookSubsetRestrictiontypeIi: &N1N2CodebookSubsetRestrictiontypeIi_TwoTwo{
-			TwoTwo: &asn1.BitString{
-				Len:   16,
-				Value: []byte{0xff, 0xff},
+		N1N2CodebookSubsetRestrictiontypeIi: &N1N2CodebookSubsetRestrictiontypeIi_FourFour{
+			FourFour: &asn1.BitString{
+				Len:   139,
+				Value: []byte{0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff},
 			},
 		},
 	}
