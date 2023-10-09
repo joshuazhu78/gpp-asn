@@ -6,7 +6,7 @@ import (
 )
 
 // We need to register all known message types here to be able to unmarshal them to the correct interface type.
-var CodebookTyper16CodebookConfigr16knownImplementations = []isCodebookTyper16CodebookConfigr16_CodebookTypeR16CodebookConfigR16{
+var CodebookTypeR16CodebookConfigR16knownImplementations = []isCodebookTyper16CodebookConfigr16_CodebookTypeR16CodebookConfigR16{
 	&CodebookTyper16CodebookConfigr16_Type2R16{},
 }
 
@@ -18,7 +18,7 @@ func (c *CodebookTyper16CodebookConfigr16) UnmarshalJSON(bytes []byte) error {
 	if err := json.Unmarshal(bytes, &data); err != nil {
 		return err
 	}
-	for _, knownImplementation := range CodebookTyper16CodebookConfigr16knownImplementations {
+	for _, knownImplementation := range CodebookTypeR16CodebookConfigR16knownImplementations {
 		knownType := reflect.TypeOf(knownImplementation)
 		if knownType.String() == data.Type {
 			// Create a new pointer to a value of the concrete message type

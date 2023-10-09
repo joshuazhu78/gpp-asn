@@ -6,7 +6,7 @@ import (
 )
 
 // We need to register all known message types here to be able to unmarshal them to the correct interface type.
-var N1N2CodebookSubsetRestrictionR16typeIiR16knownImplementations = []isN1N2CodebookSubsetRestrictionr16TypeIir16_N1N2CodebookSubsetRestrictionR16TypeIiR16{
+var N1N2CodebookSubsetRestrictionR16TypeIiR16knownImplementations = []isN1N2CodebookSubsetRestrictionr16TypeIir16_N1N2CodebookSubsetRestrictionR16TypeIiR16{
 	&N1N2CodebookSubsetRestrictionr16TypeIir16_TwoOne{},
 	&N1N2CodebookSubsetRestrictionr16TypeIir16_TwoTwo{},
 	&N1N2CodebookSubsetRestrictionr16TypeIir16_FourOne{},
@@ -30,11 +30,12 @@ func (c *N1N2CodebookSubsetRestrictionr16TypeIir16) UnmarshalJSON(bytes []byte) 
 	if err := json.Unmarshal(bytes, &data); err != nil {
 		return err
 	}
-	for _, knownImplementation := range N1N2CodebookSubsetRestrictionR16typeIiR16knownImplementations {
+	for _, knownImplementation := range N1N2CodebookSubsetRestrictionR16TypeIiR16knownImplementations {
 		knownType := reflect.TypeOf(knownImplementation)
 		if knownType.String() == data.Type {
 			// Create a new pointer to a value of the concrete message type
 			target := reflect.New(knownType)
+
 			// Unmarshal the data to an interface to the concrete value (which will act as a pointer, don't ask why)
 			if err := json.Unmarshal(data.Value, target.Interface()); err != nil {
 				return err

@@ -7,8 +7,8 @@ import (
 
 // We need to register all known message types here to be able to unmarshal them to the correct interface type.
 var CsiMeasConfigServingCellConfigknownImplementations = []isCsiMeasConfigServingCellConfig_CsiMeasConfigServingCellConfig{
-	&CsiMeasConfigServingCellConfig_Setup{},
 	&CsiMeasConfigServingCellConfig_Release{},
+	&CsiMeasConfigServingCellConfig_Setup{},
 }
 
 func (c *CsiMeasConfigServingCellConfig) UnmarshalJSON(bytes []byte) error {

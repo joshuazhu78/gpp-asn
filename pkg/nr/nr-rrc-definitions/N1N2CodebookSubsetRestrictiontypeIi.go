@@ -35,6 +35,7 @@ func (c *N1N2CodebookSubsetRestrictiontypeIi) UnmarshalJSON(bytes []byte) error 
 		if knownType.String() == data.Type {
 			// Create a new pointer to a value of the concrete message type
 			target := reflect.New(knownType)
+
 			// Unmarshal the data to an interface to the concrete value (which will act as a pointer, don't ask why)
 			if err := json.Unmarshal(data.Value, target.Interface()); err != nil {
 				return err

@@ -6,12 +6,14 @@ import (
 )
 
 // We need to register all known message types here to be able to unmarshal them to the correct interface type.
-var NrOfAntennaPortstypeISinglePanelknownImplementations = []isNrOfAntennaPortstypeISinglePanel_NrOfAntennaPortstypeISinglePanel{
-	&NrOfAntennaPortstypeISinglePanel_Two{},
-	&NrOfAntennaPortstypeISinglePanel_MoreThanTwo{},
+var ReportQuantityR17CsiReportConfigknownImplementations = []isReportQuantityr17CsiReportConfig_ReportQuantityR17CsiReportConfig{
+	&ReportQuantityr17CsiReportConfig_CriRsrpIndexR17{},
+	&ReportQuantityr17CsiReportConfig_SsbIndexRsrpIndexR17{},
+	&ReportQuantityr17CsiReportConfig_CriSinrIndexR17{},
+	&ReportQuantityr17CsiReportConfig_SsbIndexSinrIndexR17{},
 }
 
-func (c *NrOfAntennaPortstypeISinglePanel) UnmarshalJSON(bytes []byte) error {
+func (c *ReportQuantityr17CsiReportConfig) UnmarshalJSON(bytes []byte) error {
 	var data struct {
 		Type  string
 		Value json.RawMessage
@@ -19,7 +21,7 @@ func (c *NrOfAntennaPortstypeISinglePanel) UnmarshalJSON(bytes []byte) error {
 	if err := json.Unmarshal(bytes, &data); err != nil {
 		return err
 	}
-	for _, knownImplementation := range NrOfAntennaPortstypeISinglePanelknownImplementations {
+	for _, knownImplementation := range ReportQuantityR17CsiReportConfigknownImplementations {
 		knownType := reflect.TypeOf(knownImplementation)
 		if knownType.String() == data.Type {
 			// Create a new pointer to a value of the concrete message type
@@ -30,22 +32,22 @@ func (c *NrOfAntennaPortstypeISinglePanel) UnmarshalJSON(bytes []byte) error {
 				return err
 			}
 			// Now we get the element value of the target and convert it to the interface type (this is to get rid of a pointer type instead of a plain struct value)
-			c.NrOfAntennaPortstypeISinglePanel = target.Elem().Interface().(isNrOfAntennaPortstypeISinglePanel_NrOfAntennaPortstypeISinglePanel)
+			c.ReportQuantityR17CsiReportConfig = target.Elem().Interface().(isReportQuantityr17CsiReportConfig_ReportQuantityR17CsiReportConfig)
 			return nil
 		}
 	}
 	return nil
 }
 
-func (c NrOfAntennaPortstypeISinglePanel) MarshalJSON() ([]byte, error) {
+func (c ReportQuantityr17CsiReportConfig) MarshalJSON() ([]byte, error) {
 	// Marshal to type and actual data to handle unmarshaling to specific interface type
 	return json.Marshal(struct {
 		Type  string
 		Value any
 	}{
-		Type:  reflect.TypeOf(c.NrOfAntennaPortstypeISinglePanel).String(),
-		Value: c.NrOfAntennaPortstypeISinglePanel,
+		Type:  reflect.TypeOf(c.ReportQuantityR17CsiReportConfig).String(),
+		Value: c.ReportQuantityR17CsiReportConfig,
 	})
 }
 
-var _ json.Unmarshaler = (*NrOfAntennaPortstypeISinglePanel)(nil)
+var _ json.Unmarshaler = (*ReportQuantityr17CsiReportConfig)(nil)

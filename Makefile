@@ -7,6 +7,7 @@ GPP_ASN1_VERSION     := latests
 ONOS_PROTOC_VERSION  := v1.0.2
 OUTPUT_DIR            =./build/_output
 SPEC_TXT             ?=38331-h50
+SHELL                 = /usr/bin/bash
 
 all: build test protos
 
@@ -34,29 +35,17 @@ protos-gen: extract
 
 protos-go: # @HELP compile the protobuf files (using protoc-go Docker)
 protos-go:
-	@sudo rm -rf pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
 	docker run -it \
 		-v `pwd`:/go/src/github.com/joshuazhu78/gpp-asn \
 		-v `pwd`/../onosproject/onos-lib-go:/go/src/github.com/onosproject/onos-lib-go \
 		-w /go/src/github.com/joshuazhu78/gpp-asn \
 		--entrypoint /go/src/github.com/joshuazhu78/gpp-asn/build/bin/compile-protos.sh \
 		onosproject/protoc-go:${ONOS_PROTOC_VERSION}
-	@sudo chown -R $(USER):$(USER) pkg/nr
-	@sed -i 's/aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`/json:"two-one,omitempty" aper:"choiceIdx:1,sizeLB:16,sizeUB:16,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`/json:"two-two,omitempty" aper:"choiceIdx:2,sizeLB:43,sizeUB:43,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`/json:"four-one,omitempty" aper:"choiceIdx:3,sizeLB:32,sizeUB:32,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`/json:"three-two,omitempty" aper:"choiceIdx:4,sizeLB:59,sizeUB:59,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`/json:"six-one,omitempty" aper:"choiceIdx:5,sizeLB:48,sizeUB:48,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`/json:"four-two,omitempty" aper:"choiceIdx:6,sizeLB:75,sizeUB:75,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`/json:"eight-one,omitempty" aper:"choiceIdx:7,sizeLB:64,sizeUB:64,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`/json:"four-three,omitempty" aper:"choiceIdx:8,sizeLB:107,sizeUB:107,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`/json:"six-two,omitempty" aper:"choiceIdx:9,sizeLB:107,sizeUB:107,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`/json:"twelve-one,omitempty" aper:"choiceIdx:10,sizeLB:96,sizeUB:96,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`/json:"four-four,omitempty" aper:"choiceIdx:11,sizeLB:139,sizeUB:139,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`/json:"eight-two,omitempty" aper:"choiceIdx:12,sizeLB:139,sizeUB:139,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
-	@sed -i 's/aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`/json:"sixteen-one,omitempty" aper:"choiceIdx:13,sizeLB:128,sizeUB:128,"`/g' pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go
 
-protos: protos-gen protos-go
+code-gen:
+	pushd cmd/codegen; go run codegen.go -pbFile $(shell dirname $(CURDIR))/gpp-asn/pkg/nr/nr-rrc-definitions/nr-rrc-definitions.pb.go; popd
+
+protos: protos-gen protos-go code-gen
 
 clean:: # @HELP remove all the build artifacts
 	rm -rf ${OUTPUT_DIR}
