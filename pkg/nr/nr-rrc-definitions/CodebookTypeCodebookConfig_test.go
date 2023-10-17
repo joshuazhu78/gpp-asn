@@ -24,7 +24,8 @@ func NewTestCodebookTypeCodebookConfigType1() *CodebookTypeCodebookConfig {
 	return &CodebookTypeCodebookConfig{
 		CodebookTypeCodebookConfig: &CodebookTypeCodebookConfig_Type1{
 			Type1: &Type1CodebookType{
-				SubType: NewTestSubTypetype1(),
+				SubType:      NewTestSubTypetype1(),
+				CodebookMode: 1,
 			},
 		},
 	}

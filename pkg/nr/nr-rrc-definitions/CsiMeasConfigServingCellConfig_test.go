@@ -61,6 +61,7 @@ func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigr16(t *testing.T) {
 
 func NewTestCsiMeasConfigServingCellConfigCodebookConfigType1() *CsiMeasConfigServingCellConfig {
 	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI
+	var NrofReportedRsdisabled = NrofReportedRsdisabled_NROF_REPORTED_RSDISABLED_N1
 	return &CsiMeasConfigServingCellConfig{
 		CsiMeasConfigServingCellConfig: &CsiMeasConfigServingCellConfig_Setup{
 			Setup: &CsiMeasConfig{
@@ -72,6 +73,16 @@ func NewTestCsiMeasConfigServingCellConfigCodebookConfigType1() *CsiMeasConfigSe
 						},
 						CodebookConfig: &CodebookConfig{
 							CodebookType: NewTestCodebookTypeCodebookConfigType1(),
+						},
+						ReportQuantity: &ReportQuantityCsiReportConfig{
+							ReportQuantityCsiReportConfig: &ReportQuantityCsiReportConfig_CriRiPmiCqi{},
+						},
+						GroupBasedBeamReporting: &GroupBasedBeamReportingCsiReportConfig{
+							GroupBasedBeamReportingCsiReportConfig: &GroupBasedBeamReportingCsiReportConfig_Disabled{
+								Disabled: &DisabledgroupBasedBeamReporting{
+									NrofReportedRs: &NrofReportedRsdisabled,
+								},
+							},
 						},
 					},
 				},
