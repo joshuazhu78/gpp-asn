@@ -566,10 +566,35 @@ BWP-DownlinkDedicated ::=           SEQUENCE {
 BWP-Id ::=                          INTEGER (0..maxNrofBWPs)
 
 -- TAG-BWP-ID-STOP
+-- TAG-BWP-UPLINK-START
+
+BWP-Uplink ::=                      SEQUENCE {
+    bwp-Id                              BWP-Id,
+    bwp-Common                          BWP-UplinkCommon                                            OPTIONAL,   -- Cond SetupOtherBWP
+    bwp-Dedicated                       BWP-UplinkDedicated                                         OPTIONAL,   -- Cond SetupOtherBWP
+    ...
+}
+
+-- TAG-BWP-UPLINK-STOP
+-- TAG-BWP-UPLINKCOMMON-START
+
+BWP-UplinkCommon ::=                SEQUENCE {
+    genericParameters                   BWP,
+    ...
+}
+
+-- TAG-BWP-UPLINKCOMMON-STOP
+-- TAG-BWP-UPLINKDEDICATED-START
+
+BWP-UplinkDedicated ::=             SEQUENCE {
+}
+
+-- TAG-BWP-UPLINKDEDICATED-STOP
 -- TAG-CELLGROUPCONFIG-START
 
 -- Configuration of one Cell-Group:
 CellGroupConfig ::=                        SEQUENCE {
+    cellGroupId                                CellGroupId,
     spCellConfig                               SpCellConfig                                                            OPTIONAL,   -- Need M
 	...
 }
@@ -582,10 +607,17 @@ SpCellConfig ::=                        SEQUENCE {
 
 ReconfigurationWithSync ::=         SEQUENCE {
     spCellConfigCommon                  ServingCellConfigCommon                                     OPTIONAL,   -- Need M
+    newUE-Identity                      RNTI-Value,
+    t304                                ENUMERATED {ms50, ms100, ms150, ms200, ms500, ms1000, ms2000, ms10000},
     ...
 }
 
 -- TAG-CELLGROUPCONFIG-STOP
+-- TAG-CELLGROUPID-START
+
+CellGroupId ::=                             INTEGER (0.. maxSecondaryCellGroups)
+
+-- TAG-CELLGROUPID-STOP
 -- TAG-CODEBOOKCONFIG-START
 
 CodebookConfig ::=                                  SEQUENCE {
@@ -1647,11 +1679,19 @@ ReportConfigNR ::=                          SEQUENCE {
 PeriodicalReportConfig ::=                  SEQUENCE {
     rsType                                      NR-RS-Type,
     reportInterval                              ReportInterval,
+    reportAmount                                ENUMERATED {r1, r2, r4, r8, r16, r32, r64, infinity},
     reportQuantityCell                          MeasReportQuantity,
     maxReportCells                              INTEGER (1..maxCellReport),
     reportQuantityRS-Indexes                    MeasReportQuantity                                             OPTIONAL,   -- Need R
     maxNrofRS-IndexesToReport                   INTEGER (1..maxNrofIndexesToReport)                            OPTIONAL,   -- Need R
-    ...
+    includeBeamMeasurements                     BOOLEAN,
+    useAllowedCellList                          BOOLEAN,
+    ...,
+    [[
+    measRSSI-ReportConfig-r16                   MeasRSSI-ReportConfig-r16                                      OPTIONAL,   -- Need R
+    includeCommonLocationInfo-r16               ENUMERATED {true}                                              OPTIONAL,   -- Need R
+    reportAddNeighMeas-r16                      ENUMERATED {setup}                                             OPTIONAL    -- Need R
+    ]]
 }
 
 NR-RS-Type ::=                              ENUMERATED {ssb, csi-rs}
@@ -1660,6 +1700,10 @@ MeasReportQuantity ::=                      SEQUENCE {
     rsrp                                        BOOLEAN,
     rsrq                                        BOOLEAN,
     sinr                                        BOOLEAN
+}
+
+MeasRSSI-ReportConfig-r16 ::=               SEQUENCE {
+    channelOccupancyThreshold-r16               RSSI-Range-r16         OPTIONAL   -- Need R
 }
 
 -- TAG-REPORTCONFIGNR-STOP
@@ -1681,6 +1725,11 @@ ReportInterval ::=                  ENUMERATED {ms120, ms240, ms480, ms640, ms10
                                                     min1,min6, min12, min30 }
 
 -- TAG-REPORTINTERVAL-STOP
+-- TAG-RNTI-VALUE-START
+
+RNTI-Value ::=                      INTEGER (0..65535)
+
+-- TAG-RNTI-VALUE-STOP
 -- TAG-RSRP-RANGE-START
 
 RSRP-Range ::=                      INTEGER(0..127)
@@ -1691,6 +1740,11 @@ RSRP-Range ::=                      INTEGER(0..127)
 RSRQ-Range ::=                      INTEGER(0..127)
 
 -- TAG-RSRQ-RANGE-STOP
+-- TAG-RSSI-RANGE-START
+
+RSSI-Range-r16 ::=                  INTEGER(0..76)
+
+-- TAG-RSSI-RANGE-STOP
 -- TAG-SCELLACTIVATIONRS-CONFIG-START
 
 SCellActivationRS-Config-r17 ::= SEQUENCE {
@@ -1746,11 +1800,29 @@ ServCellIndex ::=                   INTEGER (0..maxNrofServingCells-1)
 -- TAG-SERVINGCELLCONFIG-START
 
 ServingCellConfig ::=               SEQUENCE {
+    tdd-UL-DL-ConfigurationDedicated    TDD-UL-DL-ConfigDedicated                                                OPTIONAL,   -- Cond TDD
     initialDownlinkBWP                  BWP-DownlinkDedicated                                                    OPTIONAL,   -- Need M
+    downlinkBWP-ToReleaseList           SEQUENCE (SIZE (1..maxNrofBWPs)) OF BWP-Id                               OPTIONAL,   -- Need N
+    downlinkBWP-ToAddModList            SEQUENCE (SIZE (1..maxNrofBWPs)) OF BWP-Downlink                         OPTIONAL,   -- Need N
+    firstActiveDownlinkBWP-Id           BWP-Id                                                                   OPTIONAL,   -- Cond SyncAndCellAdd
+    bwp-InactivityTimer                 ENUMERATED {ms2, ms3, ms4, ms5, ms6, ms8, ms10, ms20, ms30,
+                                                    ms40,ms50, ms60, ms80,ms100, ms200,ms300, ms500,
+                                                    ms750, ms1280, ms1920, ms2560, spare10, spare9, spare8,
+                                                    spare7, spare6, spare5, spare4, spare3, spare2, spare1 }    OPTIONAL,   --Need R
+    defaultDownlinkBWP-Id               BWP-Id                                                                  OPTIONAL,   -- Need S
+    uplinkConfig                        UplinkConfig                                                            OPTIONAL,   -- Need M
     csi-MeasConfig                      CHOICE {
         release         NULL,
         setup           CSI-MeasConfig
     }                                         OPTIONAL,   -- Need M
+    ...
+}
+
+UplinkConfig ::=                    SEQUENCE {
+    initialUplinkBWP                    BWP-UplinkDedicated                                                     OPTIONAL,   -- Need M
+    uplinkBWP-ToReleaseList             SEQUENCE (SIZE (1..maxNrofBWPs)) OF BWP-Id                              OPTIONAL,   -- Need N
+    uplinkBWP-ToAddModList              SEQUENCE (SIZE (1..maxNrofBWPs)) OF BWP-Uplink                          OPTIONAL,   -- Need N
+    firstActiveUplinkBWP-Id             BWP-Id                                                                  OPTIONAL,   -- Cond SyncAndCellAdd
     ...
 }
 
@@ -1760,6 +1832,7 @@ ServingCellConfig ::=               SEQUENCE {
 ServingCellConfigCommon ::=         SEQUENCE {
     physCellId                          PhysCellId                                                          OPTIONAL,   -- Cond HOAndServCellAdd,
     downlinkConfigCommon                DownlinkConfigCommon                                                OPTIONAL,   -- Cond HOAndServCellAdd
+    tdd-UL-DL-ConfigurationCommon       TDD-UL-DL-ConfigCommon                                              OPTIONAL, -- Cond TDD
     ...
 }
 
@@ -1834,7 +1907,29 @@ QCL-Info ::=                        SEQUENCE {
 TCI-StateId ::=                     INTEGER (0..maxNrofTCI-States-1)
 
 -- TAG-TCI-STATEID-STOP
+-- TAG-TDD-UL-DL-CONFIGCOMMON-START
 
+TDD-UL-DL-ConfigCommon ::=          SEQUENCE {
+    referenceSubcarrierSpacing          SubcarrierSpacing,
+    pattern1                            TDD-UL-DL-Pattern,
+    pattern2                            TDD-UL-DL-Pattern                                                       OPTIONAL, -- Need R
+    ...
+}
+
+TDD-UL-DL-Pattern ::=               SEQUENCE {
+    dl-UL-TransmissionPeriodicity       ENUMERATED {ms0p5, ms0p625, ms1, ms1p25, ms2, ms2p5, ms5, ms10},
+    nrofDownlinkSlots                   INTEGER (0..maxNrofSlots),
+    nrofDownlinkSymbols                 INTEGER (0..maxNrofSymbols-1),
+    nrofUplinkSlots                     INTEGER (0..maxNrofSlots),
+    nrofUplinkSymbols                   INTEGER (0..maxNrofSymbols-1),
+    ...,
+    [[
+    dl-UL-TransmissionPeriodicity-v1530     ENUMERATED {ms3, ms4}                                               OPTIONAL -- Need R
+    ]]
+}
+
+-- TAG-TDD-UL-DL-CONFIGCOMMON-STOP
+-- TAG-TDD-UL-DL-CONFIGDEDICATED-START
 
 TDD-UL-DL-ConfigDedicated ::=       SEQUENCE {
     slotSpecificConfigurationsToAddModList      SEQUENCE (SIZE (1..maxNrofSlots)) OF TDD-UL-DL-SlotConfig       OPTIONAL, -- Need N
