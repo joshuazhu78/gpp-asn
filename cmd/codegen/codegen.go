@@ -21,7 +21,7 @@ import (
 
 var defaultOutputPath = "../../pkg/nr/nr-rrc-definitions"
 
-type Data struct {
+type InterfaceData struct {
 	InterfaceName   string
 	ContainerName   string
 	FieldName       string
@@ -32,17 +32,21 @@ type Implementation struct {
 	Name string
 }
 
+type EnumData struct {
+	EnumName string
+}
+
 func main() {
 	pbFile := flag.String("pbFile", path.Join(defaultOutputPath, "nr-rrc-definitions.pb.go"), "pb file name")
 
 	flag.Parse()
 
-	datas := parseForInterfacess(*pbFile)
-	processInterfaces("interface.tmpl", *pbFile, datas)
+	interfaceDatas, enumDatas := parseGoFile(*pbFile)
+	processInterfaces("interface.tmpl", *pbFile, interfaceDatas)
+	processEnums("enum.tmpl", *pbFile, enumDatas)
 }
 
-func processTemplate(tplFileName, pbFile string, data *Data) {
-	data.Implementations = parseForImplementations(pbFile, data.ContainerName)
+func processTemplate(tplFileName, pbFile string, data any, outputName string) {
 	tmpl := template.Must(template.New("").Funcs(sprig.FuncMap()).ParseFiles(tplFileName))
 	var processed bytes.Buffer
 	err := tmpl.ExecuteTemplate(&processed, tplFileName, data)
@@ -54,7 +58,7 @@ func processTemplate(tplFileName, pbFile string, data *Data) {
 		log.Fatalf("Could not format processed template: %v\n", err)
 	}
 	outputPath := filepath.Dir(pbFile)
-	outputFile := path.Join(outputPath, data.ContainerName+".go")
+	outputFile := path.Join(outputPath, outputName+".go")
 	fmt.Println("Writing file: ", outputFile)
 	f, _ := os.Create(outputFile)
 	w := bufio.NewWriter(f)
@@ -62,9 +66,10 @@ func processTemplate(tplFileName, pbFile string, data *Data) {
 	w.Flush()
 }
 
-func processInterfaces(tplFileName, pbFile string, datas []*Data) {
+func processInterfaces(tplFileName, pbFile string, datas []*InterfaceData) {
 	for _, data := range datas {
-		processTemplate(tplFileName, pbFile, data)
+		data.Implementations = parseForImplementations(pbFile, data.ContainerName)
+		processTemplate(tplFileName, pbFile, data, data.ContainerName)
 	}
 }
 
@@ -94,8 +99,15 @@ func parseForImplementations(filename, containerName string) []Implementation {
 	return imps
 }
 
-func parseForInterfacess(filename string) []*Data {
-	inters := make([]*Data, 0, 8)
+func processEnums(tplFileName, pbFile string, datas []*EnumData) {
+	for _, data := range datas {
+		processTemplate(tplFileName, pbFile, data, data.EnumName)
+	}
+}
+
+func parseGoFile(filename string) ([]*InterfaceData, []*EnumData) {
+	inters := make([]*InterfaceData, 0, 8)
+	enums := make([]*EnumData, 0, 8)
 	fset := token.NewFileSet()
 	node, err := parser.ParseFile(fset, filename, nil, parser.ParseComments)
 	if err != nil {
@@ -112,15 +124,21 @@ func parseForInterfacess(filename string) []*Data {
 				iscontainerName := strings.Split(t.Name.Name, "_")[0]
 				fieldName := strings.Split(t.Name.Name, "_")[1]
 				containerName := iscontainerName[2:len(iscontainerName)]
-				inters = append(inters, &Data{
+				inters = append(inters, &InterfaceData{
 					InterfaceName: t.Name.Name,
 					ContainerName: containerName,
 					FieldName:     fieldName,
 				})
+			case *ast.Ident:
+				if t.Type.(*ast.Ident).Name == "int32" {
+					enums = append(enums, &EnumData{
+						EnumName: t.Name.Name,
+					})
+				}
 			}
 		}
 		return true
 	})
 
-	return inters
+	return inters, enums
 }
