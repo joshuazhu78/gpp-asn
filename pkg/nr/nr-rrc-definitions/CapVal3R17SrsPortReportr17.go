@@ -1,0 +1,35 @@
+package nrrrcdefinitions
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+// MarshalJSON must be a *value receiver* to ensure that a Suit on a parent object
+// does not have to be a pointer in order to have it correctly marshaled.
+func (s CapVal3R17SrsPortReportr17) MarshalJSON() ([]byte, error) {
+	// It is assumed Suit implements fmt.Stringer.
+	return json.Marshal(s.String())
+}
+
+// UnmarshalJSON must be a *pointer receiver* to ensure that the indirect from the
+// parsed value can be set on the unmarshaling object. This means that the
+// ParseSuit function must return a *value* and not a pointer.
+func (s *CapVal3R17SrsPortReportr17) UnmarshalJSON(data []byte) (err error) {
+	var reportInterval string
+	if err := json.Unmarshal(data, &reportInterval); err != nil {
+		return err
+	}
+	if *s, err = ParseCapVal3R17SrsPortReportr17(reportInterval); err != nil {
+		return err
+	}
+	return nil
+}
+
+func ParseCapVal3R17SrsPortReportr17(s string) (CapVal3R17SrsPortReportr17, error) {
+	value, ok := CapVal3R17SrsPortReportr17_value[s]
+	if !ok {
+		return CapVal3R17SrsPortReportr17(0), fmt.Errorf("%q is not a valid %s", s, "CapVal3R17SrsPortReportr17")
+	}
+	return CapVal3R17SrsPortReportr17(value), nil
+}
