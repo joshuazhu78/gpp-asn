@@ -1,0 +1,114 @@
+{
+    "cell_group_id": {
+        "value": 1
+    },
+    "sp_cell_config": {
+        "reconfiguration_with_sync": {
+            "sp_cell_config_common": {
+                "phys_cell_id": {
+                    "value": 1
+                },
+                "downlink_config_common": {
+                    "frequency_info_dl": {
+                        "absolute_frequency_point_a": {
+                            "value": 800000
+                        },
+                        "scs_specific_carrier_list": [
+                            {
+                                "subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ30"
+                            }
+                        ]
+                    },
+                    "initial_downlink_bwp": {
+                        "generic_parameters": {
+                            "location_and_bandwidth": 13750,
+                            "subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ30"
+                        }
+                    }
+                },
+                "tdd_ul_dl_configuration_common": {
+                    "reference_subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ30",
+                    "pattern1": {
+                        "dl_ul_transmission_periodicity": "DL_ULTRANSMISSION_PERIODICITY_TDDULDLPATTERN_MS2P5",
+                        "nrof_downlink_slots": 3,
+                        "nrof_downlink_symbols": 4,
+                        "nrof_uplink_slots": 1,
+                        "nrof_uplink_symbols": 10
+                    }
+                }
+            }
+        },
+        "sp_cell_config_dedicated": {
+            "downlink_bwp_to_add_mod_list": [
+                {
+                    "bwp_id": {},
+                    "bwp_common": {
+                        "generic_parameters": {
+                            "location_and_bandwidth": 13750,
+                            "subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ30"
+                        }
+                    }
+                }
+            ],
+            "uplink_config": {
+                "uplink_bwp_to_add_mod_list": [
+                    {
+                        "bwp_id": {},
+                        "bwp_common": {
+                            "generic_parameters": {
+                                "location_and_bandwidth": 13750,
+                                "subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ30"
+                            }
+                        }
+                    }
+                ]
+            },
+            "csi_meas_config": {
+                "Type": "*nrrrcdefinitions.CsiMeasConfigServingCellConfig_Setup",
+                "Value": {
+                    "Setup": {
+                        "csi_report_config_to_add_mod_list": [
+                            {
+                                "report_freq_configuration": {
+                                    "pmi_format_indicator": "PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI"
+                                },
+                                "codebook_config": {
+                                    "codebook_type": {
+                                        "Type": "*nrrrcdefinitions.CodebookTypeCodebookConfig_Type2",
+                                        "Value": {
+                                            "Type2": {
+                                                "sub_type": {
+                                                    "Type": "*nrrrcdefinitions.SubTypetype2_TypeIi",
+                                                    "Value": {
+                                                        "TypeIi": {
+                                                            "n1_n2_codebook_subset_restriction": {
+                                                                "Type": "*nrrrcdefinitions.N1N2CodebookSubsetRestrictiontypeIi_FourFour",
+                                                                "Value": {
+                                                                    "FourFour": {
+                                                                        "value": "B////////////////w==",
+                                                                        "len": 139
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type_ii_ri_restriction": {
+                                                                "value": "Aw==",
+                                                                "len": 2
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "phase_alphabet_size": "PHASE_ALPHABET_SIZETYPE2_N8",
+                                                "number_of_beams": "NUMBER_OF_BEAMSTYPE2_FOUR"
+                                            }
+                                        }
+                                    }
+                                },
+                                "subband_size": "SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

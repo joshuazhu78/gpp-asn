@@ -1,0 +1,71 @@
+{
+    "Type": "*nrrrcdefinitions.CsiMeasConfigServingCellConfig_Setup",
+    "Value": {
+        "Setup": {
+            "csi_report_config_to_add_mod_list": [
+                {
+                    "codebook_config": {
+                        "codebook_type": {
+                            "Type": "*nrrrcdefinitions.CodebookTypeCodebookConfig_Type2",
+                            "Value": {
+                                "Type2": {
+                                    "sub_type": {
+                                        "Type": "*nrrrcdefinitions.SubTypetype2_TypeIi",
+                                        "Value": {
+                                            "TypeIi": {
+                                                "n1_n2_codebook_subset_restriction": {
+                                                    "Type": "*nrrrcdefinitions.N1N2CodebookSubsetRestrictiontypeIi_TwoTwo",
+                                                    "Value": {
+                                                        "two-two": {
+                                                            "value": "//8=",
+                                                            "len": 16
+                                                        }
+                                                    }
+                                                },
+                                                "type_ii_ri_restriction": {
+                                                    "value": "Aw==",
+                                                    "len": 2
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "codebook_config_r16": {
+                        "codebook_type_r16": {
+                            "Type": "*nrrrcdefinitions.CodebookTyper16CodebookConfigr16_Type2R16",
+                            "Value": {
+                                "Type2R16": {
+                                    "sub_type": {
+                                        "Type": "*nrrrcdefinitions.SubTypetype2R16_TypeIiR16",
+                                        "Value": {
+                                            "TypeIiR16": {
+                                                "n1_n2_codebook_subset_restriction_r16": {
+                                                    "Type": "*nrrrcdefinitions.N1N2CodebookSubsetRestrictionr16TypeIir16_TwoTwo",
+                                                    "Value": {
+                                                        "two-two": {
+                                                            "value": "//8=",
+                                                            "len": 16
+                                                        }
+                                                    }
+                                                },
+                                                "type_ii_ri_restriction_r16": {
+                                                    "value": "Aw==",
+                                                    "len": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "number_of_pmi_subbands_per_cqi_subband_r16": 2,
+                                    "param_combination_r16": 1
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,125 @@
+{
+    "cell_group_id": {
+        "value": 1
+    },
+    "sp_cell_config": {
+        "reconfiguration_with_sync": {
+            "sp_cell_config_common": {
+                "phys_cell_id": {
+                    "value": 1
+                },
+                "downlink_config_common": {
+                    "frequency_info_dl": {
+                        "absolute_frequency_point_a": {
+                            "value": 2112499
+                        },
+                        "scs_specific_carrier_list": [
+                            {
+                                "subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ120"
+                            }
+                        ]
+                    },
+                    "initial_downlink_bwp": {
+                        "generic_parameters": {
+                            "location_and_bandwidth": 17875,
+                            "subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ120"
+                        }
+                    }
+                },
+                "tdd_ul_dl_configuration_common": {
+                    "reference_subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ120",
+                    "pattern1": {
+                        "dl_ul_transmission_periodicity": "DL_ULTRANSMISSION_PERIODICITY_TDDULDLPATTERN_MS2P5",
+                        "nrof_downlink_slots": 12,
+                        "nrof_downlink_symbols": 4,
+                        "nrof_uplink_slots": 7,
+                        "nrof_uplink_symbols": 10
+                    }
+                }
+            }
+        },
+        "sp_cell_config_dedicated": {
+            "downlink_bwp_to_add_mod_list": [
+                {
+                    "bwp_id": {},
+                    "bwp_common": {
+                        "generic_parameters": {
+                            "location_and_bandwidth": 17875,
+                            "subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ120"
+                        }
+                    }
+                }
+            ],
+            "uplink_config": {
+                "uplink_bwp_to_add_mod_list": [
+                    {
+                        "bwp_id": {},
+                        "bwp_common": {
+                            "generic_parameters": {
+                                "location_and_bandwidth": 17875,
+                                "subcarrier_spacing": "SUBCARRIER_SPACING_K_HZ120"
+                            }
+                        }
+                    }
+                ]
+            },
+            "csi_meas_config": {
+                "Type": "*nrrrcdefinitions.CsiMeasConfigServingCellConfig_Setup",
+                "Value": {
+                    "Setup": {
+                        "csi_report_config_to_add_mod_list": [
+                            {
+                                "report_quantity": {
+                                    "Type": "*nrrrcdefinitions.ReportQuantityCsiReportConfig_CriRiPmiCqi",
+                                    "Value": {
+                                        "CriRiPmiCqi": 0
+                                    }
+                                },
+                                "report_freq_configuration": {
+                                    "pmi_format_indicator": "PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI"
+                                },
+                                "codebook_config": {
+                                    "codebook_type": {
+                                        "Type": "*nrrrcdefinitions.CodebookTypeCodebookConfig_Type1",
+                                        "Value": {
+                                            "Type1": {
+                                                "sub_type": {
+                                                    "Type": "*nrrrcdefinitions.SubTypetype1_TypeISinglePanel",
+                                                    "Value": {
+                                                        "TypeISinglePanel": {
+                                                            "nr_of_antenna_ports": {
+                                                                "Type": "*nrrrcdefinitions.NrOfAntennaPortstypeISinglePanel_Two",
+                                                                "Value": {
+                                                                    "Two": {
+                                                                        "two_tx_codebook_subset_restriction": {
+                                                                            "value": "Pw==",
+                                                                            "len": 6
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "codebook_mode": 1
+                                            }
+                                        }
+                                    }
+                                },
+                                "group_based_beam_reporting": {
+                                    "Type": "*nrrrcdefinitions.GroupBasedBeamReportingCsiReportConfig_Disabled",
+                                    "Value": {
+                                        "Disabled": {
+                                            "nrof_reported_rs": "NROF_REPORTED_RSDISABLED_N1"
+                                        }
+                                    }
+                                },
+                                "subband_size": "SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

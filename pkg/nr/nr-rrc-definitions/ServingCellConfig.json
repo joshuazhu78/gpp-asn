@@ -1,0 +1,1884 @@
+{
+    "tdd_ul_dl_configuration_dedicated": {
+        "slot_specific_configurations_to_add_mod_list": [
+            {
+                "slot_index": {},
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 1
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 2
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 3
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 4
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 5
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 6
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 7
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 8
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 9
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 10
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 11
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 12
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 13
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 14
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 15
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 16
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 17
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 18
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 19
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 20
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 21
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 22
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 23
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 24
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 25
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 26
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 27
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 28
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 29
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 30
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 31
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 32
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 33
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 34
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 35
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 36
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 37
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 38
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 39
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 40
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 41
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 42
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 43
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 44
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 45
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 46
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 47
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 48
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 49
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 50
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 51
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 52
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 53
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 54
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 55
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 56
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 57
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 58
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 59
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 60
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 61
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 62
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 63
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 64
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 65
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 66
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 67
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 68
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 69
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 70
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 71
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 72
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 73
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 74
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 75
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 76
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 77
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 78
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 79
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 80
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 81
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 82
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 83
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 84
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 85
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 86
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 87
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 88
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 89
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 90
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 91
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 92
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 93
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 94
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 95
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 96
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 97
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 98
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 99
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 100
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 101
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 102
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 103
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 104
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 105
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 106
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 107
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 108
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 109
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 110
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 111
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 112
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 113
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 114
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 115
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 116
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 117
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 118
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 119
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 120
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 121
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 122
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 123
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 124
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 125
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 126
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 127
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_AllDownlink",
+                    "Value": {
+                        "AllDownlink": 0
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 128
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 129
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 130
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 131
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 132
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 133
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 134
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 135
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 136
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 137
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 138
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 139
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 140
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 141
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 142
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 143
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 144
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 145
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 146
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 147
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 148
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 149
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 150
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 151
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 152
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 153
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 154
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 155
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 156
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 157
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 158
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            },
+            {
+                "slot_index": {
+                    "value": 159
+                },
+                "symbols": {
+                    "Type": "*nrrrcdefinitions.SymbolsTddULDLSlotConfig_Explicit",
+                    "Value": {
+                        "Explicit": {
+                            "nrof_downlink_symbols": 3,
+                            "nrof_uplink_symbols": 11
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "downlink_bwp_to_add_mod_list": [
+        {
+            "bwp_id": {},
+            "bwp_common": {
+                "generic_parameters": {
+                    "location_and_bandwidth": 13750,
+                    "subcarrier_spacing": 3
+                }
+            }
+        }
+    ],
+    "uplink_config": {
+        "uplink_bwp_to_add_mod_list": [
+            {
+                "bwp_id": {},
+                "bwp_common": {
+                    "generic_parameters": {
+                        "location_and_bandwidth": 13750,
+                        "subcarrier_spacing": 3
+                    }
+                }
+            }
+        ]
+    }
+}

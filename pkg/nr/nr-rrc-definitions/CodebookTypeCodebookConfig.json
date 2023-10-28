@@ -1,0 +1,29 @@
+{
+    "Type": "*nrrrcdefinitions.CodebookTypeCodebookConfig_Type2",
+    "Value": {
+        "Type2": {
+            "sub_type": {
+                "Type": "*nrrrcdefinitions.SubTypetype2_TypeIi",
+                "Value": {
+                    "TypeIi": {
+                        "n1_n2_codebook_subset_restriction": {
+                            "Type": "*nrrrcdefinitions.N1N2CodebookSubsetRestrictiontypeIi_FourFour",
+                            "Value": {
+                                "four-four": {
+                                    "value": "B////////////////w==",
+                                    "len": 139
+                                }
+                            }
+                        },
+                        "type_ii_ri_restriction": {
+                            "value": "Aw==",
+                            "len": 2
+                        }
+                    }
+                }
+            },
+            "phase_alphabet_size": 1,
+            "number_of_beams": 2
+        }
+    }
+}
