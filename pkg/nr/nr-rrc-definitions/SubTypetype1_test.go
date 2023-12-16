@@ -36,6 +36,10 @@ func NewTestSubTypetype1(twoPort bool) *SubTypetype1 {
 							},
 						},
 					},
+					TypeISinglePanelRiRestriction: &asn1.BitString{
+						Len:   2,
+						Value: []byte{0x03},
+					},
 				},
 			},
 		}
@@ -63,6 +67,10 @@ func NewTestSubTypetype1(twoPort bool) *SubTypetype1 {
 							},
 						},
 					},
+				},
+				TypeISinglePanelRiRestriction: &asn1.BitString{
+					Len:   2,
+					Value: []byte{0x03},
 				},
 			},
 		},

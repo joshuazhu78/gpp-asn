@@ -32,6 +32,10 @@
                                                             }
                                                         }
                                                     }
+                                                },
+                                                "type_i_single_panel_ri_restriction": {
+                                                    "value": "Aw==",
+                                                    "len": 2
                                                 }
                                             }
                                         }
