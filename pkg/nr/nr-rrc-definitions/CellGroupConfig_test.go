@@ -134,7 +134,7 @@ func NewTestServingCellConfig(subcarrierSpacing SubcarrierSpacing, locationAndBa
 		},
 	}
 	if subcarrierSpacing == SubcarrierSpacing_SUBCARRIER_SPACING_K_HZ120 {
-		servingCellConfig.CsiMeasConfig = NewTestCsiMeasConfigServingCellConfigCodebookConfigType1()
+		servingCellConfig.CsiMeasConfig = NewTestCsiMeasConfigServingCellConfigCodebookConfigType1(true)
 	} else {
 		if r16 {
 			servingCellConfig.CsiMeasConfig = NewTestCsiMeasConfigServingCellConfigCodebookConfigr16()

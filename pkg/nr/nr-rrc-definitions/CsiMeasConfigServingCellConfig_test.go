@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigType1(t *testing.T) {
-	c := NewTestCsiMeasConfigServingCellConfigCodebookConfigType1()
+func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigType1Two(t *testing.T) {
+	c := NewTestCsiMeasConfigServingCellConfigCodebookConfigType1(true)
 	data, err := json.Marshal(c)
 	assert.NoError(t, err)
 
@@ -19,9 +19,26 @@ func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigType1(t *testing.T) 
 
 	assert.Equal(t, true, reflect.DeepEqual(*c, unmarshaled))
 
-	WriteJsonFile(c, "CsiMeasConfigServingCellConfigCodebookConfigType1.json")
+	WriteJsonFile(c, "CsiMeasConfigServingCellConfigCodebookConfigType1Two.json")
 	var d CsiMeasConfigServingCellConfig
-	ReadJsonFile("CsiMeasConfigServingCellConfigCodebookConfigType1.json", &d)
+	ReadJsonFile("CsiMeasConfigServingCellConfigCodebookConfigType1Two.json", &d)
+	assert.Equal(t, true, reflect.DeepEqual(*c, d))
+}
+
+func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigType1FourFour(t *testing.T) {
+	c := NewTestCsiMeasConfigServingCellConfigCodebookConfigType1(false)
+	data, err := json.Marshal(c)
+	assert.NoError(t, err)
+
+	var unmarshaled CsiMeasConfigServingCellConfig
+	err = json.Unmarshal(data, &unmarshaled)
+	assert.NoError(t, err)
+
+	assert.Equal(t, true, reflect.DeepEqual(*c, unmarshaled))
+
+	WriteJsonFile(c, "CsiMeasConfigServingCellConfigCodebookConfigType1FourFour.json")
+	var d CsiMeasConfigServingCellConfig
+	ReadJsonFile("CsiMeasConfigServingCellConfigCodebookConfigType1FourFour.json", &d)
 	assert.Equal(t, true, reflect.DeepEqual(*c, d))
 }
 
@@ -59,7 +76,7 @@ func Test_CsiMeasConfigServingCellConfigConfigCodebookConfigr16(t *testing.T) {
 	assert.Equal(t, true, reflect.DeepEqual(*c, d))
 }
 
-func NewTestCsiMeasConfigServingCellConfigCodebookConfigType1() *CsiMeasConfigServingCellConfig {
+func NewTestCsiMeasConfigServingCellConfigCodebookConfigType1(twoPort bool) *CsiMeasConfigServingCellConfig {
 	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI
 	var NrofReportedRsdisabled = NrofReportedRsdisabled_NROF_REPORTED_RSDISABLED_N1
 	return &CsiMeasConfigServingCellConfig{
@@ -72,7 +89,7 @@ func NewTestCsiMeasConfigServingCellConfigCodebookConfigType1() *CsiMeasConfigSe
 							PmiFormatIndicator: &PmiFormatIndicator,
 						},
 						CodebookConfig: &CodebookConfig{
-							CodebookType: NewTestCodebookTypeCodebookConfigType1(),
+							CodebookType: NewTestCodebookTypeCodebookConfigType1(twoPort),
 						},
 						ReportQuantity: &ReportQuantityCsiReportConfig{
 							ReportQuantityCsiReportConfig: &ReportQuantityCsiReportConfig_CriRiPmiCqi{},

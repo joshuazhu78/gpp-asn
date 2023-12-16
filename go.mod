@@ -32,3 +32,5 @@ require (
 )
 
 replace github.com/imdario/mergo => dario.cat/mergo v1.0.0
+
+replace github.com/onosproject/onos-lib-go => github.com/joshuazhu78/onos-lib-go v0.6.7-0.20230916010450-5c3d42200fea

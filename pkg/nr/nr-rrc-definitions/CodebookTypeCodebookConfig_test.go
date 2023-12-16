@@ -20,11 +20,11 @@ func Test_CodebookTypeCodebookConfigType2(t *testing.T) {
 	assert.Equal(t, true, reflect.DeepEqual(*c, unmarshaled))
 }
 
-func NewTestCodebookTypeCodebookConfigType1() *CodebookTypeCodebookConfig {
+func NewTestCodebookTypeCodebookConfigType1(twoPort bool) *CodebookTypeCodebookConfig {
 	return &CodebookTypeCodebookConfig{
 		CodebookTypeCodebookConfig: &CodebookTypeCodebookConfig_Type1{
 			Type1: &Type1CodebookType{
-				SubType:      NewTestSubTypetype1(),
+				SubType:      NewTestSubTypetype1(twoPort),
 				CodebookMode: 1,
 			},
 		},
