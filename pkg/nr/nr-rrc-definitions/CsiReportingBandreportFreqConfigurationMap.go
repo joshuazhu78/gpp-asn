@@ -2,7 +2,7 @@ package nrrrcdefinitions
 
 import "github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
 
-func (c *CsiReportingBandreportFreqConfiguration) GetCsiReportingBandreportFreqConfiguration() *asn1.BitString {
+func (c *CsiReportingBandreportFreqConfiguration) GetCsiReportingBandreportFreqConfigurationSubband() *asn1.BitString {
 	switch c.CsiReportingBandreportFreqConfiguration.(type) {
 	case *CsiReportingBandreportFreqConfiguration_Subbands3:
 		return c.GetSubbands3()
