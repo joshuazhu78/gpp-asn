@@ -5,6 +5,7 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -109,7 +110,7 @@ func NewTestCsiMeasConfigServingCellConfigCodebookConfigType1(twoPort bool) *Csi
 }
 
 func NewTestCsiMeasConfigServingCellConfigCodebookConfigType2() *CsiMeasConfigServingCellConfig {
-	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI
+	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_SUBBAND_PMI
 	return &CsiMeasConfigServingCellConfig{
 		CsiMeasConfigServingCellConfig: &CsiMeasConfigServingCellConfig_Setup{
 			Setup: &CsiMeasConfig{
@@ -118,6 +119,14 @@ func NewTestCsiMeasConfigServingCellConfigCodebookConfigType2() *CsiMeasConfigSe
 						SubbandSize: SubbandSizeCsireportConfig_SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2,
 						ReportFreqConfiguration: &ReportFreqConfigurationCsiReportConfig{
 							PmiFormatIndicator: &PmiFormatIndicator,
+							CsiReportingBand: &CsiReportingBandreportFreqConfiguration{
+								CsiReportingBandreportFreqConfiguration: &CsiReportingBandreportFreqConfiguration_Subbands7{
+									Subbands7: &asn1.BitString{
+										Len:   7,
+										Value: []byte{0x7f},
+									},
+								},
+							},
 						},
 						CodebookConfig: &CodebookConfig{
 							CodebookType: NewTestCodebookTypeCodebookConfigType2(),

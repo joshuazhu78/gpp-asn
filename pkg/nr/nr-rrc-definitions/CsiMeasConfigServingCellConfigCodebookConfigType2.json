@@ -5,7 +5,16 @@
             "csi_report_config_to_add_mod_list": [
                 {
                     "report_freq_configuration": {
-                        "pmi_format_indicator": "PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI"
+                        "pmi_format_indicator": "PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_SUBBAND_PMI",
+                        "csi_reporting_band": {
+                            "Type": "*nrrrcdefinitions.CsiReportingBandreportFreqConfiguration_Subbands7",
+                            "Value": {
+                                "Subbands7": {
+                                    "value": "fw==",
+                                    "len": 7
+                                }
+                            }
+                        }
                     },
                     "codebook_config": {
                         "codebook_type": {
@@ -20,7 +29,7 @@
                                                     "Type": "*nrrrcdefinitions.N1N2CodebookSubsetRestrictiontypeIi_FourFour",
                                                     "Value": {
                                                         "FourFour": {
-                                                            "value": "B////////////////w==",
+                                                            "value": "B///////////////////////",
                                                             "len": 139
                                                         }
                                                     }
