@@ -27,8 +27,8 @@ func NewTestSubTypetype2R16() *SubTypetype2R16 {
 			TypeIiR16: &TypeIir16SubType{
 				N1N2CodebookSubsetRestrictionR16: NewTestN1N2CodebookSubsetRestrictionr16TypeIir16(),
 				TypeIiRiRestrictionR16: &asn1.BitString{
-					Len:   2,
-					Value: []byte{0x03},
+					Len:   4,
+					Value: []byte{0x02},
 				},
 			},
 		},

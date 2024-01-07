@@ -139,7 +139,7 @@ func NewTestCsiMeasConfigServingCellConfigCodebookConfigType2() *CsiMeasConfigSe
 }
 
 func NewTestCsiMeasConfigServingCellConfigCodebookConfigr16() *CsiMeasConfigServingCellConfig {
-	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_WIDEBAND_PMI
+	var PmiFormatIndicator PmiFormatIndicatorreportFreqConfiguration = PmiFormatIndicatorreportFreqConfiguration_PMI_FORMAT_INDICATORREPORT_FREQ_CONFIGURATION_SUBBAND_PMI
 	return &CsiMeasConfigServingCellConfig{
 		CsiMeasConfigServingCellConfig: &CsiMeasConfigServingCellConfig_Setup{
 			Setup: &CsiMeasConfig{
@@ -148,6 +148,14 @@ func NewTestCsiMeasConfigServingCellConfigCodebookConfigr16() *CsiMeasConfigServ
 						SubbandSize: SubbandSizeCsireportConfig_SUBBAND_SIZE_CSIREPORT_CONFIG_VALUE2,
 						ReportFreqConfiguration: &ReportFreqConfigurationCsiReportConfig{
 							PmiFormatIndicator: &PmiFormatIndicator,
+							CsiReportingBand: &CsiReportingBandreportFreqConfiguration{
+								CsiReportingBandreportFreqConfiguration: &CsiReportingBandreportFreqConfiguration_Subbands7{
+									Subbands7: &asn1.BitString{
+										Len:   7,
+										Value: []byte{0x7f},
+									},
+								},
+							},
 						},
 						CodebookConfigR16: &CodebookConfigr16{
 							CodebookTypeR16: NewTestCodebookTyper16CodebookConfigr16(),
